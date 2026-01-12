@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="김대각 - Flutter 모바일 앱 개발자 | 3년+ 경험의 안정성 중심 개발자">
+  <meta name="keywords" content="Flutter, Dart, Mobile Developer, 모바일 개발자, 앱 개발">
+  <meta name="author" content="김대각">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="김대각 - Flutter Developer">
+  <meta property="og:description" content="Flutter 기반 모바일 앱 개발자 | 재난·공공·핀테크 도메인 전문">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kaywalker91.github.io">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <title>김대각 - Flutter Developer</title>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "김대각",
+    "alternateName": "Daegak Kim",
+    "jobTitle": "Flutter Mobile App Developer",
+    "url": "https://kaywalker91.github.io",
+    "sameAs": [
+      "https://github.com/kaywalker91",
+      "https://velog.io/@kaywalker"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#hero" class="nav__logo">DK</a>
+
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+
+      <ul class="nav__menu" id="nav-menu">
+        <li class="nav__item">
+          <a href="#skills" class="nav__link" data-i18n="nav.skills">기술</a>
+        </li>
+        <li class="nav__item">
+          <a href="#experience" class="nav__link" data-i18n="nav.experience">경력</a>
+        </li>
+        <li class="nav__item">
+          <a href="#projects" class="nav__link" data-i18n="nav.projects">프로젝트</a>
+        </li>
+        <li class="nav__item">
+          <a href="#education" class="nav__link" data-i18n="nav.education">학력</a>
+        </li>
+        <li class="nav__item">
+          <a href="#contact" class="nav__link" data-i18n="nav.contact">연락처</a>
+        </li>
+        <li class="nav__item">
+          <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+            <span class="lang-toggle__text">EN</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero section" id="hero">
+      <div class="container">
+        <p class="hero__greeting reveal" data-i18n="hero.greeting">안녕하세요</p>
+        <h1 class="hero__title reveal">
+          <span class="hero__name" data-i18n="hero.name">김대각</span>
+          <span class="hero__role" data-i18n="hero.role">Flutter 개발자</span>
+        </h1>
+        <p class="hero__description reveal" data-i18n="hero.description">
+          3년 이상의 Flutter 개발 경험을 바탕으로<br>
+          재난·공공·핀테크 도메인에서 안정성 중심의 앱을 개발합니다.
+        </p>
+        <div class="hero__cta reveal">
+          <a href="#contact" class="btn btn--primary" data-i18n="hero.cta.contact">연락하기</a>
+          <a href="#projects" class="btn btn--outline" data-i18n="hero.cta.projects">프로젝트 보기</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills section" id="skills">
+      <div class="container">
+        <h2 class="section__title reveal" data-i18n="skills.title">기술 스택</h2>
+        <p class="section__subtitle reveal" data-i18n="skills.subtitle">모바일 앱 개발에 필요한 핵심 기술들</p>
+
+        <div class="skills__grid">
+          <!-- Mobile Development -->
+          <div class="skill-card reveal">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
+              </svg>
+            </div>
+            <h3 class="skill-card__title" data-i18n="skills.mobile.title">모바일 개발</h3>
+            <ul class="skill-card__list">
+              <li>Flutter / Dart</li>
+              <li>Android (Java)</li>
+              <li>iOS (Swift)</li>
+            </ul>
+          </div>
+
+          <!-- Architecture -->
+          <div class="skill-card reveal">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z"/>
+              </svg>
+            </div>
+            <h3 class="skill-card__title" data-i18n="skills.architecture.title">아키텍처</h3>
+            <ul class="skill-card__list">
+              <li>Clean Architecture</li>
+              <li>Riverpod 3.x</li>
+              <li>MVVM Pattern</li>
+            </ul>
+          </div>
+
+          <!-- Data -->
+          <div class="skill-card reveal">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                <path d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4zm0 2c3.87 0 6 1.5 6 2s-2.13 2-6 2-6-1.5-6-2 2.13-2 6-2zm6 12c0 .5-2.13 2-6 2s-6-1.5-6-2v-2.23c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23V17zm0-5c0 .5-2.13 2-6 2s-6-1.5-6-2V9.77c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23V12z"/>
+              </svg>
+            </div>
+            <h3 class="skill-card__title" data-i18n="skills.data.title">데이터</h3>
+            <ul class="skill-card__list">
+              <li>Hive / SQLite</li>
+              <li>REST API</li>
+              <li>Firebase / FCM</li>
+            </ul>
+          </div>
+
+          <!-- DevOps -->
+          <div class="skill-card reveal">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                <path d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+              </svg>
+            </div>
+            <h3 class="skill-card__title" data-i18n="skills.devops.title">운영</h3>
+            <ul class="skill-card__list">
+              <li>Git / GitHub</li>
+              <li>CI/CD</li>
+              <li>App Store / Play Store</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience section" id="experience">
+      <div class="container">
+        <h2 class="section__title reveal" data-i18n="experience.title">경력</h2>
+        <p class="section__subtitle reveal" data-i18n="experience.subtitle">실무에서 쌓아온 경험들</p>
+
+        <div class="timeline">
+          <!-- FORLONG -->
+          <div class="timeline__item reveal">
+            <div class="timeline__marker"></div>
+            <div class="timeline__content">
+              <span class="timeline__period" data-i18n="experience.forlong.period">2025.12 - 현재</span>
+              <h3 class="timeline__company">㈜포롱</h3>
+              <p class="timeline__role" data-i18n="experience.forlong.role">Flutter 개발자</p>
+              <p class="timeline__description" data-i18n="experience.forlong.description">
+                멀티체인 크립토 지갑 앱 개발. EVM 체인, Solana, Bitcoin 등 다양한 블록체인 네트워크 지원.
+                Web3 지갑 연동 및 DeFi 프로토콜 통합.
+              </p>
+              <ul class="timeline__tags">
+                <li>Flutter</li>
+                <li>Web3</li>
+                <li>Blockchain</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- SISEONTEC -->
+          <div class="timeline__item reveal">
+            <div class="timeline__marker"></div>
+            <div class="timeline__content">
+              <span class="timeline__period" data-i18n="experience.siseon.period">2024.11 - 2025.11</span>
+              <h3 class="timeline__company">㈜시선아이티</h3>
+              <p class="timeline__role" data-i18n="experience.siseon.role">Flutter 개발자</p>
+              <p class="timeline__description" data-i18n="experience.siseon.description">
+                재난안전 서비스 SafeKorea 앱 개발 및 유지보수. 실시간 재난 알림 시스템 구축.
+                FCM 기반 푸시 알림 및 네트워크 복원력 설계.
+              </p>
+              <ul class="timeline__tags">
+                <li>Flutter</li>
+                <li>FCM</li>
+                <li>Public Service</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- PLACELINK -->
+          <div class="timeline__item reveal">
+            <div class="timeline__marker"></div>
+            <div class="timeline__content">
+              <span class="timeline__period" data-i18n="experience.placelink.period">2022.10 - 2024.11</span>
+              <h3 class="timeline__company">㈜플레이스링크</h3>
+              <p class="timeline__role" data-i18n="experience.placelink.role">Flutter 개발자</p>
+              <p class="timeline__description" data-i18n="experience.placelink.description">
+                위치기반 포인트 서비스 앱 개발. 지도 기반 UI/UX 설계 및 위치 서비스 최적화.
+                스타트업 환경에서 전체 앱 개발 주도.
+              </p>
+              <ul class="timeline__tags">
+                <li>Flutter</li>
+                <li>Location Services</li>
+                <li>Startup</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects section" id="projects">
+      <div class="container">
+        <h2 class="section__title reveal" data-i18n="projects.title">프로젝트</h2>
+        <p class="section__subtitle reveal" data-i18n="projects.subtitle">주요 개발 프로젝트</p>
+
+        <div class="projects__grid">
+          <!-- MindLog -->
+          <article class="project-card reveal">
+            <div class="project-card__header">
+              <h3 class="project-card__title">MindLog</h3>
+              <span class="project-card__badge" data-i18n="projects.mindlog.badge">사이드 프로젝트</span>
+            </div>
+            <p class="project-card__description" data-i18n="projects.mindlog.description">
+              AI 기반 감정 일기 앱. 사용자의 일기를 분석하여 감정 패턴을 시각화하고
+              맞춤형 피드백을 제공합니다.
+            </p>
+            <ul class="project-card__tech">
+              <li>Flutter</li>
+              <li>Riverpod</li>
+              <li>OpenAI API</li>
+              <li>Hive</li>
+            </ul>
+            <div class="project-card__links">
+              <a href="https://github.com/kaywalker91" class="project-card__link" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
+              </a>
+            </div>
+          </article>
+
+          <!-- iLity Hub -->
+          <article class="project-card reveal">
+            <div class="project-card__header">
+              <h3 class="project-card__title">iLity Hub</h3>
+              <span class="project-card__badge" data-i18n="projects.ility.badge">회사 프로젝트</span>
+            </div>
+            <p class="project-card__description" data-i18n="projects.ility.description">
+              멀티체인 Web3 지갑 앱. EVM, Solana, Bitcoin 등 다양한 블록체인 네트워크를 지원하며
+              DeFi 프로토콜과의 통합을 제공합니다.
+            </p>
+            <ul class="project-card__tech">
+              <li>Flutter</li>
+              <li>Web3</li>
+              <li>Solana</li>
+              <li>EVM</li>
+            </ul>
+          </article>
+
+          <!-- SafeKorea -->
+          <article class="project-card reveal">
+            <div class="project-card__header">
+              <h3 class="project-card__title">SafeKorea</h3>
+              <span class="project-card__badge" data-i18n="projects.safekorea.badge">회사 프로젝트</span>
+            </div>
+            <p class="project-card__description" data-i18n="projects.safekorea.description">
+              국민 재난안전 서비스 앱. 실시간 재난 알림, 대피소 안내, 안전 정보 제공.
+              행정안전부 공식 서비스로 국민의 안전을 지키는 앱입니다.
+            </p>
+            <ul class="project-card__tech">
+              <li>Flutter</li>
+              <li>FCM</li>
+              <li>REST API</li>
+              <li>SQLite</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education section" id="education">
+      <div class="container">
+        <h2 class="section__title reveal" data-i18n="education.title">학력</h2>
+        <p class="section__subtitle reveal" data-i18n="education.subtitle">교육 및 수료 이력</p>
+
+        <div class="education__grid">
+          <div class="education-card reveal">
+            <span class="education-card__period">2014.03 - 2020.02</span>
+            <h3 class="education-card__school" data-i18n="education.university.name">공주교육대학교</h3>
+            <p class="education-card__major" data-i18n="education.university.major">초등교육학과</p>
+          </div>
+
+          <div class="education-card reveal">
+            <span class="education-card__period">2022.03 - 2022.09</span>
+            <h3 class="education-card__school" data-i18n="education.academy.name">DW 아카데미</h3>
+            <p class="education-card__major" data-i18n="education.academy.course">Flutter 앱 개발 과정 수료</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <h2 class="section__title reveal" data-i18n="contact.title">연락처</h2>
+        <p class="section__subtitle reveal" data-i18n="contact.subtitle">함께 일하고 싶으시다면 연락주세요</p>
+
+        <div class="contact__grid reveal">
+          <a href="mailto:kaywalker91@gmail.com" class="contact-card">
+            <div class="contact-card__icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </div>
+            <span class="contact-card__label">Email</span>
+            <span class="contact-card__value">kaywalker91@gmail.com</span>
+          </a>
+
+          <a href="https://github.com/kaywalker91" class="contact-card" target="_blank" rel="noopener noreferrer">
+            <div class="contact-card__icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </div>
+            <span class="contact-card__label">GitHub</span>
+            <span class="contact-card__value">github.com/kaywalker91</span>
+          </a>
+
+          <a href="https://velog.io/@kaywalker" class="contact-card" target="_blank" rel="noopener noreferrer">
+            <div class="contact-card__icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M3 3v18h18V3H3zm16.525 14.738c-.133.265-.388.462-.688.525l-9.725 2.063c-.3.063-.612-.012-.85-.212-.238-.2-.362-.5-.337-.812l.5-6.25c.025-.312.188-.6.437-.787l8.725-6.5c.25-.188.563-.25.863-.175.3.075.55.262.688.512l2.125 3.875c.137.25.162.55.062.825-.1.275-.3.5-.562.6l-2.238.875 1.125 4.5c.075.3.012.625-.125.95v.011z"/>
+              </svg>
+            </div>
+            <span class="contact-card__label">Blog</span>
+            <span class="contact-card__value">velog.io/@kaywalker</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__text">
+        <span data-i18n="footer.copyright">© 2025 김대각. All rights reserved.</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/translations.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
