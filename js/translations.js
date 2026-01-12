@@ -46,6 +46,10 @@ const translations = {
     // Projects
     'projects.title': '프로젝트',
     'projects.subtitle': '주요 개발 프로젝트',
+    'projects.filter.all': '전체',
+    'projects.filter.personal': '개인',
+    'projects.filter.company': '회사',
+    'projects.filter.learning': '학습',
     'projects.mindlog.badge': '개인 프로젝트',
     'projects.mindlog.description': 'Llama 3.3 기반 AI 감정 분석 스마트 다이어리. 4가지 상태별 오버레이 UI로 사용자 이탈 방지. 2단계 안전 필터로 위기 상황 조기 감지. fl_chart 기반 감정 추이 시각화. Google Play Store v1.4.2 운영 중.',
     'projects.cryptowallet.badge': '개인 프로젝트',
@@ -54,24 +58,40 @@ const translations = {
     'projects.ility.description': '멀티체인 크립토 지갑 & 소셜 트레이딩 플랫폼. Ethereum, BNB Chain, Base 등 EVM 호환 네트워크 지원. 온체인 트랜잭션 검증 기반 Trustless Social Feed 설계.',
     'projects.safekorea.badge': '회사 프로젝트',
     'projects.safekorea.description': '재난안전 서비스앱 Flutter 신규 개발. Android/iOS 레거시 전환. LocationBasedFCMManager로 위치 기반 재난 알림, 19개 언어 실시간 번역, TalkBack/VoiceOver 접근성 강화.',
+    'projects.dwinsta.badge': '학습 프로젝트',
+    'projects.dwinsta.description': 'DW 아카데미 교육 과정 중 개발한 Instagram 클론 Android 앱. 게시물 CRUD, 팔로우/언팔로우, 좋아요/댓글, 실시간 알림 기능 구현.',
+    'projects.timewalker.badge': '학습 프로젝트',
+    'projects.timewalker.description': 'Flame 엔진 기반 역사 교육 어드벤처 게임. 인터랙티브 지도 탐험, 시대 여행 시스템, JSON 기반 대화 시스템으로 역사 인물과 상호작용.',
 
     // Education
     'education.title': '학력',
     'education.subtitle': '교육 및 수료 이력',
     'education.university.name': '공주교육대학교',
     'education.university.major': '초등교육학과 학사',
+    'education.university.duration': '7년',
+    'education.university.achievement1': '교원자격증 취득',
+    'education.university.achievement2': '교육학 전공 심화',
     'education.academy.name': 'DW 아카데미',
     'education.academy.course': 'Java/Android/Web 개발 과정 수료',
+    'education.academy.duration': '6개월',
+    'education.academy.achievement1': 'Android 앱 개발 실습',
+    'education.academy.achievement2': '팀 프로젝트 수행',
 
     // Contact
     'contact.title': '연락처',
     'contact.subtitle': '함께 일하고 싶으시다면 연락주세요',
+    'contact.availability': '현재 <strong>채용 가능</strong> 상태입니다',
+    'contact.copied': '복사됨!',
+    'contact.response': '보통 24시간 내 응답',
 
     // ETC
     'etc.title': '기타',
     'etc.subtitle': '자격증 및 지속적 학습',
     'etc.certifications.title': '자격증',
     'etc.learning.title': '지속적 학습',
+    'etc.status.completed': '완료',
+    'etc.status.progress': '75%',
+    'etc.status.ongoing': '진행중',
 
     // Footer
     'footer.copyright': '© 2025 김대각. All rights reserved.'
@@ -123,6 +143,10 @@ const translations = {
     // Projects
     'projects.title': 'Projects',
     'projects.subtitle': 'Featured development projects',
+    'projects.filter.all': 'All',
+    'projects.filter.personal': 'Personal',
+    'projects.filter.company': 'Company',
+    'projects.filter.learning': 'Learning',
     'projects.mindlog.badge': 'Side Project',
     'projects.mindlog.description': 'AI-powered emotion analysis smart diary based on Llama 3.3. Prevents user churn with 4-state overlay UI. Early crisis detection with 2-step safety filter. Emotion trend visualization with fl_chart. Running on Google Play Store v1.4.2.',
     'projects.cryptowallet.badge': 'Side Project',
@@ -131,24 +155,40 @@ const translations = {
     'projects.ility.description': 'Multi-chain crypto wallet & social trading platform. Supports EVM-compatible networks including Ethereum, BNB Chain, Base. Designed Trustless Social Feed based on on-chain transaction verification.',
     'projects.safekorea.badge': 'Company Project',
     'projects.safekorea.description': 'New Flutter development for disaster safety service app. Migrated from Android/iOS legacy. Location-based disaster alerts with LocationBasedFCMManager, 19-language real-time translation, TalkBack/VoiceOver accessibility.',
+    'projects.dwinsta.badge': 'Learning Project',
+    'projects.dwinsta.description': 'Instagram clone Android app developed during DW Academy training course. Implemented post CRUD, follow/unfollow, likes/comments, and real-time notifications.',
+    'projects.timewalker.badge': 'Learning Project',
+    'projects.timewalker.description': 'History education adventure game built with Flame engine. Interactive map exploration, time travel system, and JSON-based dialogue system for historical character interactions.',
 
     // Education
     'education.title': 'Education',
     'education.subtitle': 'Academic background and certifications',
     'education.university.name': 'Gongju National University of Education',
     'education.university.major': 'Elementary Education (Bachelor)',
+    'education.university.duration': '7 years',
+    'education.university.achievement1': 'Teacher Certification',
+    'education.university.achievement2': 'Education Major In-depth Study',
     'education.academy.name': 'DW Academy',
     'education.academy.course': 'Java/Android/Web Development Course',
+    'education.academy.duration': '6 months',
+    'education.academy.achievement1': 'Android App Development Practice',
+    'education.academy.achievement2': 'Team Project Experience',
 
     // Contact
     'contact.title': 'Contact',
     'contact.subtitle': "Let's work together",
+    'contact.availability': 'Currently <strong>Open to Work</strong>',
+    'contact.copied': 'Copied!',
+    'contact.response': 'Usually responds within 24h',
 
     // ETC
     'etc.title': 'ETC',
     'etc.subtitle': 'Certifications & Continuous Learning',
     'etc.certifications.title': 'Certifications',
     'etc.learning.title': 'Continuous Learning',
+    'etc.status.completed': 'Done',
+    'etc.status.progress': '75%',
+    'etc.status.ongoing': 'Ongoing',
 
     // Footer
     'footer.copyright': '© 2025 Daegak Kim. All rights reserved.'

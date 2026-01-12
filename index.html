@@ -21,6 +21,9 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/reset.css">
@@ -48,6 +51,11 @@
   </script>
 </head>
 <body>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress">
+    <div class="scroll-progress__bar"></div>
+  </div>
+
   <!-- Header / Navigation -->
   <header class="header" id="header">
     <nav class="nav container">
@@ -83,6 +91,17 @@
             <span class="lang-toggle__text">EN</span>
           </button>
         </li>
+        <li class="nav__item">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+            <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+        </li>
       </ul>
     </nav>
   </header>
@@ -91,20 +110,77 @@
     <!-- Hero Section -->
     <section class="hero section" id="hero">
       <div class="container">
-        <p class="hero__greeting reveal" data-i18n="hero.greeting">안녕하세요</p>
-        <h1 class="hero__title reveal">
-          <span class="hero__name" data-i18n="hero.name">김대각</span>
-          <span class="hero__role" data-i18n="hero.role">Senior Flutter Developer</span>
-        </h1>
-        <p class="hero__description reveal" data-i18n="hero.description">
-          Flutter 기반 크로스플랫폼 앱 개발 3년+ 경험<br>
-          Clean Architecture & Riverpod | Blockchain dApp 개발
-        </p>
-        <div class="hero__cta reveal">
-          <a href="#contact" class="btn btn--primary" data-i18n="hero.cta.contact">연락하기</a>
-          <a href="#projects" class="btn btn--outline" data-i18n="hero.cta.projects">프로젝트 보기</a>
+        <div class="hero__content">
+          <div class="hero__text">
+            <p class="hero__greeting reveal">
+              <span class="hero__greeting-bracket">&lt;</span>
+              <span class="hero__greeting-text" data-i18n="hero.greeting">안녕하세요</span>
+              <span class="hero__greeting-bracket">/&gt;</span>
+            </p>
+            <h1 class="hero__title reveal">
+              <span class="hero__name" data-i18n="hero.name">김대각</span>
+              <span class="hero__role" data-i18n="hero.role">Senior Flutter Developer</span>
+            </h1>
+            <p class="hero__description reveal" data-i18n="hero.description">
+              Flutter 기반 크로스플랫폼 앱 개발 3년+ 경험<br>
+              Clean Architecture & Riverpod | Blockchain dApp 개발
+            </p>
+            <div class="hero__cta reveal">
+              <a href="#contact" class="btn btn--primary btn--glow" data-i18n="hero.cta.contact">연락하기</a>
+              <a href="#projects" class="btn btn--outline" data-i18n="hero.cta.projects">프로젝트 보기</a>
+            </div>
+          </div>
+
+          <div class="hero__terminal reveal">
+            <div class="terminal">
+              <div class="terminal__header">
+                <div class="terminal__dots">
+                  <span class="terminal__dot terminal__dot--red"></span>
+                  <span class="terminal__dot terminal__dot--yellow"></span>
+                  <span class="terminal__dot terminal__dot--green"></span>
+                </div>
+                <span class="terminal__title">developer@portfolio ~ </span>
+              </div>
+              <div class="terminal__body">
+                <div class="terminal__line">
+                  <span class="terminal__prompt">$</span>
+                  <span class="terminal__command">whoami</span>
+                </div>
+                <div class="terminal__line">
+                  <span class="terminal__output">Senior Flutter Developer | Blockchain dApp Builder</span>
+                </div>
+                <div class="terminal__line">
+                  <span class="terminal__prompt">$</span>
+                  <span class="terminal__command">cat skills.json</span>
+                </div>
+                <div class="terminal__line">
+                  <span class="terminal__output"><span class="code-variable">{</span></span>
+                </div>
+                <div class="terminal__line">
+                  <span class="terminal__output">&nbsp;&nbsp;<span class="code-string">"flutter"</span>: <span class="code-string">"3+ years"</span>,</span>
+                </div>
+                <div class="terminal__line">
+                  <span class="terminal__output">&nbsp;&nbsp;<span class="code-string">"architecture"</span>: <span class="code-string">"Clean + Riverpod"</span>,</span>
+                </div>
+                <div class="terminal__line">
+                  <span class="terminal__output">&nbsp;&nbsp;<span class="code-string">"blockchain"</span>: <span class="code-string">"WalletConnect v2"</span></span>
+                </div>
+                <div class="terminal__line">
+                  <span class="terminal__output"><span class="code-variable">}</span></span>
+                </div>
+                <div class="terminal__line">
+                  <span class="terminal__prompt">$</span>
+                  <span class="terminal__command typing-cursor">_</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Background decoration -->
+      <div class="hero__bg-grid" aria-hidden="true"></div>
+      <div class="hero__bg-glow" aria-hidden="true"></div>
     </section>
 
     <!-- Skills Section -->
@@ -122,11 +198,35 @@
               </svg>
             </div>
             <h3 class="skill-card__title" data-i18n="skills.mobile.title">모바일 개발</h3>
-            <ul class="skill-card__list">
-              <li>Flutter / Dart</li>
-              <li>Android (Java)</li>
-              <li>iOS (Swift)</li>
-            </ul>
+            <div class="skill-progress">
+              <div class="skill-progress__item">
+                <div class="skill-progress__header">
+                  <span class="skill-progress__name">Flutter / Dart</span>
+                  <span class="skill-progress__level">3+ years</span>
+                </div>
+                <div class="skill-progress__bar">
+                  <div class="skill-progress__fill" style="--progress: 95%"></div>
+                </div>
+              </div>
+              <div class="skill-progress__item">
+                <div class="skill-progress__header">
+                  <span class="skill-progress__name">Android (Java)</span>
+                  <span class="skill-progress__level">2+ years</span>
+                </div>
+                <div class="skill-progress__bar">
+                  <div class="skill-progress__fill" style="--progress: 75%"></div>
+                </div>
+              </div>
+              <div class="skill-progress__item">
+                <div class="skill-progress__header">
+                  <span class="skill-progress__name">iOS (Swift)</span>
+                  <span class="skill-progress__level">1+ year</span>
+                </div>
+                <div class="skill-progress__bar">
+                  <div class="skill-progress__fill" style="--progress: 55%"></div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Architecture -->
@@ -137,11 +237,35 @@
               </svg>
             </div>
             <h3 class="skill-card__title" data-i18n="skills.architecture.title">아키텍처</h3>
-            <ul class="skill-card__list">
-              <li>Clean Architecture</li>
-              <li>Riverpod 3.x</li>
-              <li>MVVM Pattern</li>
-            </ul>
+            <div class="skill-progress">
+              <div class="skill-progress__item">
+                <div class="skill-progress__header">
+                  <span class="skill-progress__name">Clean Architecture</span>
+                  <span class="skill-progress__level">Expert</span>
+                </div>
+                <div class="skill-progress__bar">
+                  <div class="skill-progress__fill" style="--progress: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-progress__item">
+                <div class="skill-progress__header">
+                  <span class="skill-progress__name">Riverpod 3.x</span>
+                  <span class="skill-progress__level">Expert</span>
+                </div>
+                <div class="skill-progress__bar">
+                  <div class="skill-progress__fill" style="--progress: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-progress__item">
+                <div class="skill-progress__header">
+                  <span class="skill-progress__name">MVVM Pattern</span>
+                  <span class="skill-progress__level">Advanced</span>
+                </div>
+                <div class="skill-progress__bar">
+                  <div class="skill-progress__fill" style="--progress: 85%"></div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Backend & Data -->
@@ -152,11 +276,35 @@
               </svg>
             </div>
             <h3 class="skill-card__title" data-i18n="skills.backend.title">백엔드 & 데이터</h3>
-            <ul class="skill-card__list">
-              <li>MySQL / PostgreSQL</li>
-              <li>RESTful API</li>
-              <li>Firebase / FCM</li>
-            </ul>
+            <div class="skill-progress">
+              <div class="skill-progress__item">
+                <div class="skill-progress__header">
+                  <span class="skill-progress__name">MySQL / PostgreSQL</span>
+                  <span class="skill-progress__level">Advanced</span>
+                </div>
+                <div class="skill-progress__bar">
+                  <div class="skill-progress__fill" style="--progress: 80%"></div>
+                </div>
+              </div>
+              <div class="skill-progress__item">
+                <div class="skill-progress__header">
+                  <span class="skill-progress__name">RESTful API</span>
+                  <span class="skill-progress__level">Expert</span>
+                </div>
+                <div class="skill-progress__bar">
+                  <div class="skill-progress__fill" style="--progress: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-progress__item">
+                <div class="skill-progress__header">
+                  <span class="skill-progress__name">Firebase / FCM</span>
+                  <span class="skill-progress__level">Advanced</span>
+                </div>
+                <div class="skill-progress__bar">
+                  <div class="skill-progress__fill" style="--progress: 85%"></div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- AI Development -->
@@ -167,11 +315,35 @@
               </svg>
             </div>
             <h3 class="skill-card__title" data-i18n="skills.ai.title">AI 개발</h3>
-            <ul class="skill-card__list">
-              <li>Claude Code / Cursor AI</li>
-              <li>Llama 3.3</li>
-              <li>Local-First Pattern</li>
-            </ul>
+            <div class="skill-progress">
+              <div class="skill-progress__item">
+                <div class="skill-progress__header">
+                  <span class="skill-progress__name">Claude Code / Cursor AI</span>
+                  <span class="skill-progress__level">Advanced</span>
+                </div>
+                <div class="skill-progress__bar">
+                  <div class="skill-progress__fill" style="--progress: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-progress__item">
+                <div class="skill-progress__header">
+                  <span class="skill-progress__name">Llama 3.3</span>
+                  <span class="skill-progress__level">Intermediate</span>
+                </div>
+                <div class="skill-progress__bar">
+                  <div class="skill-progress__fill" style="--progress: 70%"></div>
+                </div>
+              </div>
+              <div class="skill-progress__item">
+                <div class="skill-progress__header">
+                  <span class="skill-progress__name">Local-First Pattern</span>
+                  <span class="skill-progress__level">Advanced</span>
+                </div>
+                <div class="skill-progress__bar">
+                  <div class="skill-progress__fill" style="--progress: 80%"></div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Blockchain & Web3 -->
@@ -182,11 +354,35 @@
               </svg>
             </div>
             <h3 class="skill-card__title" data-i18n="skills.blockchain.title">Blockchain & Web3</h3>
-            <ul class="skill-card__list">
-              <li>WalletConnect v2</li>
-              <li>EVM (Ethereum, BNB, Base)</li>
-              <li>Solana (Phantom)</li>
-            </ul>
+            <div class="skill-progress">
+              <div class="skill-progress__item">
+                <div class="skill-progress__header">
+                  <span class="skill-progress__name">WalletConnect v2</span>
+                  <span class="skill-progress__level">Expert</span>
+                </div>
+                <div class="skill-progress__bar">
+                  <div class="skill-progress__fill" style="--progress: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-progress__item">
+                <div class="skill-progress__header">
+                  <span class="skill-progress__name">EVM (ETH, BNB, Base)</span>
+                  <span class="skill-progress__level">Advanced</span>
+                </div>
+                <div class="skill-progress__bar">
+                  <div class="skill-progress__fill" style="--progress: 80%"></div>
+                </div>
+              </div>
+              <div class="skill-progress__item">
+                <div class="skill-progress__header">
+                  <span class="skill-progress__name">Solana (Phantom)</span>
+                  <span class="skill-progress__level">Intermediate</span>
+                </div>
+                <div class="skill-progress__bar">
+                  <div class="skill-progress__fill" style="--progress: 65%"></div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- DevOps -->
@@ -197,11 +393,35 @@
               </svg>
             </div>
             <h3 class="skill-card__title" data-i18n="skills.devops.title">운영</h3>
-            <ul class="skill-card__list">
-              <li>Git / GitHub</li>
-              <li>CI/CD</li>
-              <li>App Store / Play Store</li>
-            </ul>
+            <div class="skill-progress">
+              <div class="skill-progress__item">
+                <div class="skill-progress__header">
+                  <span class="skill-progress__name">Git / GitHub</span>
+                  <span class="skill-progress__level">Expert</span>
+                </div>
+                <div class="skill-progress__bar">
+                  <div class="skill-progress__fill" style="--progress: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-progress__item">
+                <div class="skill-progress__header">
+                  <span class="skill-progress__name">CI/CD</span>
+                  <span class="skill-progress__level">Advanced</span>
+                </div>
+                <div class="skill-progress__bar">
+                  <div class="skill-progress__fill" style="--progress: 75%"></div>
+                </div>
+              </div>
+              <div class="skill-progress__item">
+                <div class="skill-progress__header">
+                  <span class="skill-progress__name">App Store / Play Store</span>
+                  <span class="skill-progress__level">Expert</span>
+                </div>
+                <div class="skill-progress__bar">
+                  <div class="skill-progress__fill" style="--progress: 90%"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -286,12 +506,23 @@
         <h2 class="section__title reveal" data-i18n="projects.title">프로젝트</h2>
         <p class="section__subtitle reveal" data-i18n="projects.subtitle">주요 개발 프로젝트</p>
 
+        <!-- Project Filter -->
+        <div class="projects__filter reveal" role="tablist" aria-label="프로젝트 필터">
+          <button class="projects__filter-btn active" data-filter="all" role="tab" aria-selected="true" data-i18n="projects.filter.all">All</button>
+          <button class="projects__filter-btn" data-filter="personal" role="tab" aria-selected="false" data-i18n="projects.filter.personal">Personal</button>
+          <button class="projects__filter-btn" data-filter="company" role="tab" aria-selected="false" data-i18n="projects.filter.company">Company</button>
+          <button class="projects__filter-btn" data-filter="learning" role="tab" aria-selected="false" data-i18n="projects.filter.learning">Learning</button>
+        </div>
+
         <div class="projects__grid">
           <!-- MindLog -->
-          <article class="project-card reveal">
+          <article class="project-card project-card--mindlog project-card--featured reveal" data-category="personal">
             <div class="project-card__header">
               <h3 class="project-card__title">MindLog</h3>
-              <span class="project-card__badge" data-i18n="projects.mindlog.badge">개인 프로젝트</span>
+              <div class="project-card__badges">
+                <span class="project-card__status project-card__status--live">Live</span>
+                <span class="project-card__badge" data-i18n="projects.mindlog.badge">개인 프로젝트</span>
+              </div>
             </div>
             <p class="project-card__description" data-i18n="projects.mindlog.description">
               Llama 3.3 기반 AI 감정 분석 스마트 다이어리. 4가지 상태별 오버레이 UI로 사용자 이탈 방지.
@@ -310,14 +541,23 @@
                 </svg>
                 GitHub
               </a>
+              <a href="https://kaywalker91.github.io/MindLog/" class="project-card__link project-card__link--demo" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+                Live Demo
+              </a>
             </div>
           </article>
 
           <!-- Crypto Wallet Pro -->
-          <article class="project-card reveal">
+          <article class="project-card project-card--crypto reveal" data-category="personal">
             <div class="project-card__header">
               <h3 class="project-card__title">Crypto Wallet Pro</h3>
-              <span class="project-card__badge" data-i18n="projects.cryptowallet.badge">개인 프로젝트</span>
+              <div class="project-card__badges">
+                <span class="project-card__status project-card__status--dev">Dev</span>
+                <span class="project-card__badge" data-i18n="projects.cryptowallet.badge">개인 프로젝트</span>
+              </div>
             </div>
             <p class="project-card__description" data-i18n="projects.cryptowallet.description">
               WalletConnect v2 프로토콜 기반 멀티체인 지갑 연동 프로토타입.
@@ -336,14 +576,23 @@
                 </svg>
                 GitHub
               </a>
+              <a href="https://kaywalker91.github.io/Crypto-Wallet-Pro/" class="project-card__link project-card__link--demo" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+                Live Demo
+              </a>
             </div>
           </article>
 
           <!-- iLity Hub -->
-          <article class="project-card reveal">
+          <article class="project-card project-card--ility reveal" data-category="company">
             <div class="project-card__header">
               <h3 class="project-card__title">iLity Hub</h3>
-              <span class="project-card__badge" data-i18n="projects.ility.badge">회사 프로젝트</span>
+              <div class="project-card__badges">
+                <span class="project-card__status project-card__status--dev">Dev</span>
+                <span class="project-card__badge" data-i18n="projects.ility.badge">회사 프로젝트</span>
+              </div>
             </div>
             <p class="project-card__description" data-i18n="projects.ility.description">
               멀티체인 크립토 지갑 & 소셜 트레이딩 플랫폼. Ethereum, BNB Chain, Base 등 EVM 호환 네트워크 지원.
@@ -358,10 +607,13 @@
           </article>
 
           <!-- SafeKorea -->
-          <article class="project-card reveal">
+          <article class="project-card project-card--safekorea reveal" data-category="company">
             <div class="project-card__header">
               <h3 class="project-card__title">안전디딤돌</h3>
-              <span class="project-card__badge" data-i18n="projects.safekorea.badge">회사 프로젝트</span>
+              <div class="project-card__badges">
+                <span class="project-card__status project-card__status--live">Live</span>
+                <span class="project-card__badge" data-i18n="projects.safekorea.badge">회사 프로젝트</span>
+              </div>
             </div>
             <p class="project-card__description" data-i18n="projects.safekorea.description">
               재난안전 서비스앱 Flutter 신규 개발. Android/iOS 레거시 전환.
@@ -374,6 +626,70 @@
               <li>Hive</li>
             </ul>
           </article>
+
+          <!-- Android DW Insta -->
+          <article class="project-card project-card--dwinsta reveal" data-category="learning">
+            <div class="project-card__header">
+              <h3 class="project-card__title">Android DW Insta</h3>
+              <div class="project-card__badges">
+                <span class="project-card__status project-card__status--archive">Archive</span>
+                <span class="project-card__badge" data-i18n="projects.dwinsta.badge">학습 프로젝트</span>
+              </div>
+            </div>
+            <p class="project-card__description" data-i18n="projects.dwinsta.description">
+              DW 아카데미 교육 과정 중 개발한 Instagram 클론 Android 앱.
+              게시물 CRUD, 팔로우/언팔로우, 좋아요/댓글, 실시간 알림 기능 구현.
+            </p>
+            <ul class="project-card__tech">
+              <li>Java</li>
+              <li>Android</li>
+              <li>Firebase</li>
+              <li>Glide</li>
+            </ul>
+            <div class="project-card__links">
+              <a href="https://github.com/kaywalker91/Android_DW_Insta" class="project-card__link" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
+              </a>
+              <a href="https://kaywalker91.github.io/Android_DW_Insta/" class="project-card__link project-card__link--demo" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+                Live Demo
+              </a>
+            </div>
+          </article>
+
+          <!-- TimeWalker -->
+          <article class="project-card project-card--timewalker reveal" data-category="learning">
+            <div class="project-card__header">
+              <h3 class="project-card__title">TimeWalker</h3>
+              <div class="project-card__badges">
+                <span class="project-card__status project-card__status--dev">Dev</span>
+                <span class="project-card__badge" data-i18n="projects.timewalker.badge">학습 프로젝트</span>
+              </div>
+            </div>
+            <p class="project-card__description" data-i18n="projects.timewalker.description">
+              Flame 엔진 기반 역사 교육 어드벤처 게임.
+              인터랙티브 지도 탐험, 시대 여행 시스템, JSON 기반 대화 시스템으로 역사 인물과 상호작용.
+            </p>
+            <ul class="project-card__tech">
+              <li>Flutter</li>
+              <li>Flame</li>
+              <li>Riverpod</li>
+              <li>Hive</li>
+            </ul>
+            <div class="project-card__links">
+              <a href="https://github.com/kaywalker91/TimeWalker" class="project-card__link" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -384,17 +700,46 @@
         <h2 class="section__title reveal" data-i18n="education.title">학력</h2>
         <p class="section__subtitle reveal" data-i18n="education.subtitle">교육 및 수료 이력</p>
 
-        <div class="education__grid">
-          <div class="education-card reveal">
-            <span class="education-card__period">2012.03 - 2019.02</span>
+        <div class="education__timeline reveal">
+          <!-- University Card -->
+          <div class="education-card">
+            <div class="education-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+              </svg>
+            </div>
+            <div class="education-card__header">
+              <span class="education-card__period">2012.03 - 2019.02</span>
+              <span class="education-card__duration" data-i18n="education.university.duration">7년</span>
+            </div>
             <h3 class="education-card__school" data-i18n="education.university.name">공주교육대학교</h3>
             <p class="education-card__major" data-i18n="education.university.major">초등교육학과 학사</p>
+            <div class="education-card__achievements">
+              <span class="education-card__achievement" data-i18n="education.university.achievement1">교원자격증 취득</span>
+              <span class="education-card__achievement" data-i18n="education.university.achievement2">교육학 전공 심화</span>
+            </div>
           </div>
 
-          <div class="education-card reveal">
-            <span class="education-card__period">2022.04 - 2022.10</span>
+          <!-- Academy Card -->
+          <div class="education-card">
+            <div class="education-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <div class="education-card__header">
+              <span class="education-card__period">2022.04 - 2022.10</span>
+              <span class="education-card__duration" data-i18n="education.academy.duration">6개월</span>
+            </div>
             <h3 class="education-card__school" data-i18n="education.academy.name">DW 아카데미</h3>
             <p class="education-card__major" data-i18n="education.academy.course">Java/Android/Web 개발 과정 수료</p>
+            <div class="education-card__achievements">
+              <span class="education-card__achievement" data-i18n="education.academy.achievement1">Android 앱 개발 실습</span>
+              <span class="education-card__achievement" data-i18n="education.academy.achievement2">팀 프로젝트 수행</span>
+            </div>
           </div>
         </div>
       </div>
@@ -406,17 +751,40 @@
         <h2 class="section__title reveal" data-i18n="contact.title">연락처</h2>
         <p class="section__subtitle reveal" data-i18n="contact.subtitle">함께 일하고 싶으시다면 연락주세요</p>
 
-        <div class="contact__grid reveal">
-          <a href="mailto:eorkfrl79@naver.com" class="contact-card">
-            <div class="contact-card__icon">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-              </svg>
-            </div>
-            <span class="contact-card__label">Email</span>
-            <span class="contact-card__value">eorkr112@naver.com</span>
-          </a>
+        <!-- Availability Indicator -->
+        <div class="contact__availability reveal">
+          <span class="contact__availability-dot"></span>
+          <span data-i18n="contact.availability">현재 <strong>채용 가능</strong> 상태입니다</span>
+        </div>
 
+        <div class="contact__grid reveal">
+          <!-- Email Card with Copy -->
+          <div class="contact-card" data-copy="eorkr112@naver.com">
+            <button class="contact-card__copy" aria-label="Copy email" title="Copy to clipboard">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2"/>
+                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+              </svg>
+            </button>
+            <span class="contact-card__tooltip" data-i18n="contact.copied">복사됨!</span>
+            <a href="mailto:eorkr112@naver.com" class="contact-card__link">
+              <div class="contact-card__icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+              </div>
+              <span class="contact-card__label">Email</span>
+              <span class="contact-card__value">eorkr112@naver.com</span>
+            </a>
+            <span class="contact-card__response">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+              <span data-i18n="contact.response">보통 24시간 내 응답</span>
+            </span>
+          </div>
+
+          <!-- GitHub Card -->
           <a href="https://github.com/kaywalker91" class="contact-card" target="_blank" rel="noopener noreferrer">
             <div class="contact-card__icon">
               <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
@@ -427,6 +795,7 @@
             <span class="contact-card__value">github.com/kaywalker91</span>
           </a>
 
+          <!-- Blog Card -->
           <a href="https://kaywalker.tistory.com" class="contact-card" target="_blank" rel="noopener noreferrer">
             <div class="contact-card__icon">
               <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
@@ -450,18 +819,57 @@
           <!-- Certifications -->
           <div class="etc-card reveal">
             <h3 class="etc-card__title" data-i18n="etc.certifications.title">자격증</h3>
-            <ul class="etc-card__list">
+            <ul class="etc-card__list etc-card__list--badges">
               <li>
-                <span class="etc-card__item">정보처리기능사</span>
-                <span class="etc-card__meta">2006.08 · 한국산업인력공단</span>
+                <div class="etc-card__badge-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                  </svg>
+                </div>
+                <div class="etc-card__badge-content">
+                  <div class="etc-card__badge-header">
+                    <span class="etc-card__item">정보처리기능사</span>
+                    <span class="etc-card__verified" aria-label="Verified certification">
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                      Verified
+                    </span>
+                  </div>
+                  <span class="etc-card__meta">2006.08 · 한국산업인력공단</span>
+                </div>
               </li>
               <li>
-                <span class="etc-card__item">워드프로세서 1급</span>
-                <span class="etc-card__meta">2005.12 · 대한상공회의소</span>
+                <div class="etc-card__badge-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                  </svg>
+                </div>
+                <div class="etc-card__badge-content">
+                  <div class="etc-card__badge-header">
+                    <span class="etc-card__item">워드프로세서 1급</span>
+                    <span class="etc-card__verified" aria-label="Verified certification">
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                      Verified
+                    </span>
+                  </div>
+                  <span class="etc-card__meta">2005.12 · 대한상공회의소</span>
+                </div>
               </li>
               <li>
-                <span class="etc-card__item">한국사능력검정시험 1급</span>
-                <span class="etc-card__meta">2021.04 · 국사편찬위원회</span>
+                <div class="etc-card__badge-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3L1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+                  </svg>
+                </div>
+                <div class="etc-card__badge-content">
+                  <div class="etc-card__badge-header">
+                    <span class="etc-card__item">한국사능력검정시험 1급</span>
+                    <span class="etc-card__verified" aria-label="Verified certification">
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                      Verified
+                    </span>
+                  </div>
+                  <span class="etc-card__meta">2021.04 · 국사편찬위원회</span>
+                </div>
               </li>
             </ul>
           </div>
@@ -469,22 +877,58 @@
           <!-- Continuous Learning -->
           <div class="etc-card reveal">
             <h3 class="etc-card__title" data-i18n="etc.learning.title">지속적 학습</h3>
-            <ul class="etc-card__list">
+            <ul class="etc-card__list etc-card__list--progress">
               <li>
-                <span class="etc-card__item">클로드 코드 완벽 마스터</span>
-                <span class="etc-card__meta">2025 · Inflearn</span>
+                <svg class="etc-card__progress-ring" style="--progress: 100" viewBox="0 0 44 44" aria-hidden="true">
+                  <circle class="ring-bg" cx="22" cy="22" r="18"/>
+                  <circle class="ring-progress" cx="22" cy="22" r="18"/>
+                </svg>
+                <div class="etc-card__progress-content">
+                  <div class="etc-card__progress-header">
+                    <span class="etc-card__item">클로드 코드 완벽 마스터</span>
+                    <span class="etc-card__progress-status etc-card__progress-status--completed" data-i18n="etc.status.completed">완료</span>
+                  </div>
+                  <span class="etc-card__meta">2025 · Inflearn</span>
+                </div>
               </li>
               <li>
-                <span class="etc-card__item">Flutter 실전 프로젝트 - BLoC & Riverpod</span>
-                <span class="etc-card__meta">2025 · FastCampus</span>
+                <svg class="etc-card__progress-ring" style="--progress: 75" viewBox="0 0 44 44" aria-hidden="true">
+                  <circle class="ring-bg" cx="22" cy="22" r="18"/>
+                  <circle class="ring-progress" cx="22" cy="22" r="18"/>
+                </svg>
+                <div class="etc-card__progress-content">
+                  <div class="etc-card__progress-header">
+                    <span class="etc-card__item">Flutter 실전 프로젝트 - BLoC & Riverpod</span>
+                    <span class="etc-card__progress-status etc-card__progress-status--progress" data-i18n="etc.status.progress">75%</span>
+                  </div>
+                  <span class="etc-card__meta">2025 · FastCampus</span>
+                </div>
               </li>
               <li>
-                <span class="etc-card__item">Flutter & Dart - The Complete Guide</span>
-                <span class="etc-card__meta">2024~2025 · Udemy</span>
+                <svg class="etc-card__progress-ring" style="--progress: 100" viewBox="0 0 44 44" aria-hidden="true">
+                  <circle class="ring-bg" cx="22" cy="22" r="18"/>
+                  <circle class="ring-progress" cx="22" cy="22" r="18"/>
+                </svg>
+                <div class="etc-card__progress-content">
+                  <div class="etc-card__progress-header">
+                    <span class="etc-card__item">Flutter & Dart - The Complete Guide</span>
+                    <span class="etc-card__progress-status etc-card__progress-status--completed" data-i18n="etc.status.completed">완료</span>
+                  </div>
+                  <span class="etc-card__meta">2024~2025 · Udemy</span>
+                </div>
               </li>
               <li>
-                <span class="etc-card__item">시니어 개발자 인사이트 학습</span>
-                <span class="etc-card__meta">F-Lab, 요즘 IT 멤버십</span>
+                <svg class="etc-card__progress-ring" style="--progress: 50" viewBox="0 0 44 44" aria-hidden="true">
+                  <circle class="ring-bg" cx="22" cy="22" r="18"/>
+                  <circle class="ring-progress" cx="22" cy="22" r="18"/>
+                </svg>
+                <div class="etc-card__progress-content">
+                  <div class="etc-card__progress-header">
+                    <span class="etc-card__item">시니어 개발자 인사이트 학습</span>
+                    <span class="etc-card__progress-status etc-card__progress-status--ongoing" data-i18n="etc.status.ongoing">진행중</span>
+                  </div>
+                  <span class="etc-card__meta">F-Lab, 요즘 IT 멤버십</span>
+                </div>
               </li>
             </ul>
           </div>
@@ -503,6 +947,7 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="js/theme.js"></script>
   <script src="js/translations.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/navigation.js"></script>
