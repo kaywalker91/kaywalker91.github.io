@@ -2,6 +2,7 @@
 const translations = {
   ko: {
     // Navigation
+    'nav.impact': '성과',
     'nav.skills': '기술',
     'nav.experience': '경력',
     'nav.projects': '프로젝트',
@@ -13,9 +14,30 @@ const translations = {
     'hero.greeting': '안녕하세요',
     'hero.name': '김대각',
     'hero.role': 'Senior Flutter Developer',
+    'hero.tagline': '"비즈니스 가치를 숫자로 증명하는 엔지니어"',
     'hero.description': 'Flutter 기반 크로스플랫폼 앱 개발 3년+ 경험<br>Clean Architecture & Riverpod | Blockchain dApp 개발',
+    'hero.competency.crossPlatform': '크로스플랫폼',
+    'hero.competency.quality': '품질 엔지니어링',
+    'hero.competency.ai': 'AI & Web3',
+    'hero.competency.protocol': '프로토콜 설계',
     'hero.cta.contact': '연락하기',
     'hero.cta.projects': '프로젝트 보기',
+
+    // Impact
+    'impact.title': '성과 하이라이트',
+    'impact.subtitle': '숫자로 증명하는 개발 역량',
+    'impact.loc': 'Lines of Code',
+    'impact.locContext': 'iLity Hub 프로젝트',
+    'impact.tests': 'Test Cases',
+    'impact.testsContext': '33.47% 커버리지',
+    'impact.downloads': '다운로드 증가',
+    'impact.downloadsContext': '1,000 → 5,000회',
+    'impact.cost': '비용 절감',
+    'impact.costContext': '유지보수 효율화',
+    'impact.chains': '지원 체인',
+    'impact.chainsContext': 'EVM + Solana',
+    'impact.languages': '지원 언어',
+    'impact.languagesContext': '다국어 번역',
 
     // Skills
     'skills.title': '기술 스택',
@@ -42,6 +64,40 @@ const translations = {
     'experience.placelink.role': '대리 @ 개발팀',
     'experience.placelink.project': '포인트투어 - 위치기반 포인트적립앱',
     'experience.placelink.description': 'RxJava 2 기반 비동기 로직 리팩토링으로 레거시 AsyncTask 문제 해결. 대전시 "0시축제" 이벤트 시스템 개발로 앱 다운로드 400% 증가 (1,000→5,000회). B2G 프로젝트 수행.',
+
+    // Experience Accordion
+    'experience.showDetails': '상세 보기',
+    'experience.hideDetails': '접기',
+    'experience.achievements': '주요 성과',
+    'experience.techHighlights': '기술적 하이라이트',
+    'experience.forlong.metric1': 'LOC, 12개 모듈, 86개 Provider',
+    'experience.forlong.metric2': '테스트 케이스 (33.47% 커버리지)',
+    'experience.forlong.metric3': 'Phantom Wallet 프로토콜 직접 구현',
+    'experience.forlong.tech1': '27개 화면 Material 3 Dark Theme 설계',
+    'experience.forlong.tech2': 'Deep Link Cold Start 큐잉 메커니즘',
+    'experience.forlong.tech3': 'JWT Lock, 7가지 예외 타입 설계',
+    'experience.forlong.tech4': 'State Machine 기반 4단계 지갑 연결 플로우',
+    'experience.siseon.metric1': 'Legacy → Flutter 마이그레이션',
+    'experience.siseon.metric2': '유지보수 비용 절감',
+    'experience.siseon.metric3': '다국어 실시간 번역',
+    'experience.siseon.tech1': 'RegionStabilityChecker GPS 오차 보정 알고리즘',
+    'experience.siseon.tech2': 'Platform Channel 백그라운드 위치 추적',
+    'experience.siseon.tech3': 'TalkBack/VoiceOver 완벽 호환',
+    'experience.siseon.tech4': 'Priority Queue 기반 재난 메시지 알림',
+    'experience.placelink.metric1': '앱 다운로드 증가 (1,000→5,000)',
+    'experience.placelink.metric2': 'AsyncTask 전면 리팩토링',
+    'experience.placelink.metric3': '대전시 "0시축제" 이벤트 성공',
+    'experience.placelink.tech1': 'Firebase Dynamic Links 바이럴 마케팅 플로우',
+    'experience.placelink.tech2': 'FCM + moveCode 딥링크 라우팅',
+    'experience.placelink.tech3': 'SiliCompressor 영상 압축 파이프라인',
+    'experience.placelink.tech4': 'Google Maps 위치 탐색 최적화',
+
+    // Modal
+    'modal.features': '주요 기능',
+    'modal.challenge': '도전 과제',
+    'modal.solution': '해결 방법',
+    'modal.achievements': '성과',
+    'modal.tech': '기술 스택',
 
     // Projects
     'projects.title': '프로젝트',
@@ -99,6 +155,7 @@ const translations = {
 
   en: {
     // Navigation
+    'nav.impact': 'Impact',
     'nav.skills': 'Skills',
     'nav.experience': 'Experience',
     'nav.projects': 'Projects',
@@ -110,9 +167,30 @@ const translations = {
     'hero.greeting': 'Hello',
     'hero.name': 'Daegak Kim',
     'hero.role': 'Senior Flutter Developer',
+    'hero.tagline': '"Engineer who proves business value with numbers"',
     'hero.description': '3+ years of Flutter cross-platform app development<br>Clean Architecture & Riverpod | Blockchain dApp Developer',
+    'hero.competency.crossPlatform': 'Cross-Platform',
+    'hero.competency.quality': 'Quality Engineering',
+    'hero.competency.ai': 'AI & Web3',
+    'hero.competency.protocol': 'Protocol Design',
     'hero.cta.contact': 'Contact Me',
     'hero.cta.projects': 'View Projects',
+
+    // Impact
+    'impact.title': 'Impact Highlights',
+    'impact.subtitle': 'Proven development capabilities in numbers',
+    'impact.loc': 'Lines of Code',
+    'impact.locContext': 'iLity Hub Project',
+    'impact.tests': 'Test Cases',
+    'impact.testsContext': '33.47% Coverage',
+    'impact.downloads': 'Download Growth',
+    'impact.downloadsContext': '1,000 → 5,000',
+    'impact.cost': 'Cost Reduction',
+    'impact.costContext': 'Maintenance Efficiency',
+    'impact.chains': 'Chains Supported',
+    'impact.chainsContext': 'EVM + Solana',
+    'impact.languages': 'Languages',
+    'impact.languagesContext': 'Multi-language',
 
     // Skills
     'skills.title': 'Tech Stack',
@@ -139,6 +217,40 @@ const translations = {
     'experience.placelink.role': 'Assistant Manager @ Dev Team',
     'experience.placelink.project': 'PointTour - Location-based Point Rewards App',
     'experience.placelink.description': 'Refactored async logic with RxJava 2 to resolve legacy AsyncTask issues. Developed "Zero Hour Festival" event system, increasing app downloads by 400% (1,000→5,000). B2G project experience.',
+
+    // Experience Accordion
+    'experience.showDetails': 'Show Details',
+    'experience.hideDetails': 'Hide Details',
+    'experience.achievements': 'Key Achievements',
+    'experience.techHighlights': 'Technical Highlights',
+    'experience.forlong.metric1': 'LOC, 12 modules, 86 Providers',
+    'experience.forlong.metric2': 'Test cases (33.47% coverage)',
+    'experience.forlong.metric3': 'Phantom Wallet protocol implementation',
+    'experience.forlong.tech1': '27 screens Material 3 Dark Theme',
+    'experience.forlong.tech2': 'Deep Link Cold Start queuing mechanism',
+    'experience.forlong.tech3': 'JWT Lock, 7 exception types design',
+    'experience.forlong.tech4': 'State Machine based 4-step wallet flow',
+    'experience.siseon.metric1': 'Legacy → Flutter migration',
+    'experience.siseon.metric2': 'Maintenance cost reduction',
+    'experience.siseon.metric3': 'Multi-language real-time translation',
+    'experience.siseon.tech1': 'RegionStabilityChecker GPS correction algorithm',
+    'experience.siseon.tech2': 'Platform Channel background location tracking',
+    'experience.siseon.tech3': 'TalkBack/VoiceOver full compatibility',
+    'experience.siseon.tech4': 'Priority Queue disaster message alerts',
+    'experience.placelink.metric1': 'App downloads increase (1,000→5,000)',
+    'experience.placelink.metric2': 'AsyncTask full refactoring',
+    'experience.placelink.metric3': 'Daejeon "Zero Hour Festival" success',
+    'experience.placelink.tech1': 'Firebase Dynamic Links viral marketing',
+    'experience.placelink.tech2': 'FCM + moveCode deeplink routing',
+    'experience.placelink.tech3': 'SiliCompressor video compression pipeline',
+    'experience.placelink.tech4': 'Google Maps location search optimization',
+
+    // Modal
+    'modal.features': 'Key Features',
+    'modal.challenge': 'Challenge',
+    'modal.solution': 'Solution',
+    'modal.achievements': 'Achievements',
+    'modal.tech': 'Tech Stack',
 
     // Projects
     'projects.title': 'Projects',

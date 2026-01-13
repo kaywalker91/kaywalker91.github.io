@@ -69,6 +69,9 @@
 
       <ul class="nav__menu" id="nav-menu">
         <li class="nav__item">
+          <a href="#impact" class="nav__link" data-i18n="nav.impact">성과</a>
+        </li>
+        <li class="nav__item">
           <a href="#skills" class="nav__link" data-i18n="nav.skills">기술</a>
         </li>
         <li class="nav__item">
@@ -121,10 +124,55 @@
               <span class="hero__name" data-i18n="hero.name">김대각</span>
               <span class="hero__role" data-i18n="hero.role">Senior Flutter Developer</span>
             </h1>
+            <p class="hero__tagline reveal" data-i18n="hero.tagline">
+              "비즈니스 가치를 숫자로 증명하는 엔지니어"
+            </p>
             <p class="hero__description reveal" data-i18n="hero.description">
               Flutter 기반 크로스플랫폼 앱 개발 3년+ 경험<br>
               Clean Architecture & Riverpod | Blockchain dApp 개발
             </p>
+
+            <!-- Core Competencies -->
+            <div class="hero__competencies reveal">
+              <div class="competency-badge">
+                <span class="competency-badge__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                    <line x1="12" y1="18" x2="12" y2="18"/>
+                  </svg>
+                </span>
+                <span class="competency-badge__text" data-i18n="hero.competency.crossPlatform">크로스플랫폼</span>
+              </div>
+              <div class="competency-badge">
+                <span class="competency-badge__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4"/>
+                    <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                  </svg>
+                </span>
+                <span class="competency-badge__text" data-i18n="hero.competency.quality">품질 엔지니어링</span>
+              </div>
+              <div class="competency-badge">
+                <span class="competency-badge__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                  </svg>
+                </span>
+                <span class="competency-badge__text" data-i18n="hero.competency.ai">AI & Web3</span>
+              </div>
+              <div class="competency-badge">
+                <span class="competency-badge__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"/>
+                    <polyline points="8 6 2 12 8 18"/>
+                  </svg>
+                </span>
+                <span class="competency-badge__text" data-i18n="hero.competency.protocol">프로토콜 설계</span>
+              </div>
+            </div>
+
             <div class="hero__cta reveal">
               <a href="#contact" class="btn btn--primary btn--glow" data-i18n="hero.cta.contact">연락하기</a>
               <a href="#projects" class="btn btn--outline" data-i18n="hero.cta.projects">프로젝트 보기</a>
@@ -181,6 +229,74 @@
       <!-- Background decoration -->
       <div class="hero__bg-grid" aria-hidden="true"></div>
       <div class="hero__bg-glow" aria-hidden="true"></div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact section" id="impact">
+      <div class="container">
+        <h2 class="section__title reveal" data-i18n="impact.title">성과 하이라이트</h2>
+        <p class="section__subtitle reveal" data-i18n="impact.subtitle">숫자로 증명하는 개발 역량</p>
+
+        <div class="impact__grid">
+          <!-- LOC -->
+          <div class="impact-stat reveal">
+            <div class="impact-stat__number-wrap">
+              <span class="impact-stat__number" data-count="50000">0</span>
+              <span class="impact-stat__suffix">+</span>
+            </div>
+            <span class="impact-stat__label" data-i18n="impact.loc">Lines of Code</span>
+            <span class="impact-stat__context" data-i18n="impact.locContext">iLity Hub 프로젝트</span>
+          </div>
+
+          <!-- Test Cases -->
+          <div class="impact-stat reveal">
+            <div class="impact-stat__number-wrap">
+              <span class="impact-stat__number" data-count="299">0</span>
+            </div>
+            <span class="impact-stat__label" data-i18n="impact.tests">Test Cases</span>
+            <span class="impact-stat__context" data-i18n="impact.testsContext">33.47% 커버리지</span>
+          </div>
+
+          <!-- Download Increase -->
+          <div class="impact-stat impact-stat--highlight reveal">
+            <div class="impact-stat__number-wrap">
+              <span class="impact-stat__number" data-count="400">0</span>
+              <span class="impact-stat__suffix">%</span>
+            </div>
+            <span class="impact-stat__label" data-i18n="impact.downloads">다운로드 증가</span>
+            <span class="impact-stat__context" data-i18n="impact.downloadsContext">1,000 → 5,000회</span>
+          </div>
+
+          <!-- Cost Reduction -->
+          <div class="impact-stat impact-stat--highlight reveal">
+            <div class="impact-stat__number-wrap">
+              <span class="impact-stat__number" data-count="50">0</span>
+              <span class="impact-stat__suffix">%</span>
+            </div>
+            <span class="impact-stat__label" data-i18n="impact.cost">비용 절감</span>
+            <span class="impact-stat__context" data-i18n="impact.costContext">유지보수 효율화</span>
+          </div>
+
+          <!-- Chains Supported -->
+          <div class="impact-stat reveal">
+            <div class="impact-stat__number-wrap">
+              <span class="impact-stat__number" data-count="10">0</span>
+              <span class="impact-stat__suffix">+</span>
+            </div>
+            <span class="impact-stat__label" data-i18n="impact.chains">지원 체인</span>
+            <span class="impact-stat__context" data-i18n="impact.chainsContext">EVM + Solana</span>
+          </div>
+
+          <!-- Languages -->
+          <div class="impact-stat reveal">
+            <div class="impact-stat__number-wrap">
+              <span class="impact-stat__number" data-count="19">0</span>
+            </div>
+            <span class="impact-stat__label" data-i18n="impact.languages">지원 언어</span>
+            <span class="impact-stat__context" data-i18n="impact.languagesContext">다국어 번역</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Skills Section -->
@@ -446,6 +562,46 @@
                 Clean Architecture 기반 확장 가능한 앱 구조 설계. WalletConnect v2 통합 및 State Machine 기반 4단계 지갑 연결 플로우 구현.
                 fl_chart 기반 DeFi UI 개발. 299개 테스트 케이스 작성 (33.47% 커버리지).
               </p>
+
+              <!-- Expandable Details -->
+              <div class="timeline__details" data-expanded="false">
+                <button class="timeline__expand-btn" aria-expanded="false">
+                  <span data-i18n="experience.showDetails">상세 보기</span>
+                  <svg class="timeline__expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+
+                <div class="timeline__detail-content">
+                  <div class="timeline__detail-section">
+                    <h4 class="timeline__detail-title" data-i18n="experience.achievements">핵심 성과</h4>
+                    <ul class="timeline__achievement-list">
+                      <li>
+                        <span class="timeline__achievement-metric">50,000+</span>
+                        <span class="timeline__achievement-text" data-i18n="experience.forlong.metric1">LOC, 12개 모듈, 86개 Provider</span>
+                      </li>
+                      <li>
+                        <span class="timeline__achievement-metric">299</span>
+                        <span class="timeline__achievement-text" data-i18n="experience.forlong.metric2">테스트 케이스 (33.47% 커버리지)</span>
+                      </li>
+                      <li>
+                        <span class="timeline__achievement-metric">799 LOC</span>
+                        <span class="timeline__achievement-text" data-i18n="experience.forlong.metric3">Phantom Wallet 프로토콜 직접 구현</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="timeline__detail-section">
+                    <h4 class="timeline__detail-title" data-i18n="experience.techHighlights">기술적 하이라이트</h4>
+                    <ul class="timeline__tech-list">
+                      <li data-i18n="experience.forlong.tech1">27개 화면 Material 3 Dark Theme 설계</li>
+                      <li data-i18n="experience.forlong.tech2">Deep Link Cold Start 큐잉 메커니즘</li>
+                      <li data-i18n="experience.forlong.tech3">JWT Lock, 7가지 예외 타입 설계</li>
+                      <li data-i18n="experience.forlong.tech4">State Machine 기반 4단계 지갑 연결 플로우</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
               <ul class="timeline__tags">
                 <li>Flutter</li>
                 <li>WalletConnect v2</li>
@@ -467,6 +623,45 @@
                 Android/iOS 레거시를 Flutter로 전환. LocationBasedFCMManager 개발로 실시간 위치 기반 재난 알림 구현.
                 Google Translate API V3로 19개 언어 실시간 번역. TalkBack/VoiceOver 접근성 최적화.
               </p>
+
+              <!-- Expandable Details -->
+              <div class="timeline__details" data-expanded="false">
+                <button class="timeline__expand-btn" aria-expanded="false">
+                  <span data-i18n="experience.showDetails">상세 보기</span>
+                  <svg class="timeline__expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </button>
+                <div class="timeline__detail-content">
+                  <div class="timeline__detail-section">
+                    <h4 class="timeline__detail-title" data-i18n="experience.achievements">주요 성과</h4>
+                    <ul class="timeline__achievement-list">
+                      <li>
+                        <span class="timeline__achievement-metric">100%</span>
+                        <span class="timeline__achievement-text" data-i18n="experience.siseon.metric1">Legacy → Flutter 마이그레이션</span>
+                      </li>
+                      <li>
+                        <span class="timeline__achievement-metric">50%</span>
+                        <span class="timeline__achievement-text" data-i18n="experience.siseon.metric2">유지보수 비용 절감</span>
+                      </li>
+                      <li>
+                        <span class="timeline__achievement-metric">19개국</span>
+                        <span class="timeline__achievement-text" data-i18n="experience.siseon.metric3">다국어 실시간 번역</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="timeline__detail-section">
+                    <h4 class="timeline__detail-title" data-i18n="experience.techHighlights">기술적 하이라이트</h4>
+                    <ul class="timeline__tech-list">
+                      <li data-i18n="experience.siseon.tech1">RegionStabilityChecker GPS 오차 보정 알고리즘</li>
+                      <li data-i18n="experience.siseon.tech2">Platform Channel 백그라운드 위치 추적</li>
+                      <li data-i18n="experience.siseon.tech3">TalkBack/VoiceOver 완벽 호환</li>
+                      <li data-i18n="experience.siseon.tech4">Priority Queue 기반 재난 메시지 알림</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
               <ul class="timeline__tags">
                 <li>Flutter</li>
                 <li>FCM</li>
@@ -488,6 +683,45 @@
                 RxJava 2 기반 비동기 로직 리팩토링으로 레거시 AsyncTask 문제 해결.
                 대전시 "0시축제" 이벤트 시스템 개발로 앱 다운로드 400% 증가 (1,000→5,000회). B2G 프로젝트 수행.
               </p>
+
+              <!-- Expandable Details -->
+              <div class="timeline__details" data-expanded="false">
+                <button class="timeline__expand-btn" aria-expanded="false">
+                  <span data-i18n="experience.showDetails">상세 보기</span>
+                  <svg class="timeline__expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </button>
+                <div class="timeline__detail-content">
+                  <div class="timeline__detail-section">
+                    <h4 class="timeline__detail-title" data-i18n="experience.achievements">주요 성과</h4>
+                    <ul class="timeline__achievement-list">
+                      <li>
+                        <span class="timeline__achievement-metric">400%</span>
+                        <span class="timeline__achievement-text" data-i18n="experience.placelink.metric1">앱 다운로드 증가 (1,000→5,000)</span>
+                      </li>
+                      <li>
+                        <span class="timeline__achievement-metric">RxJava 2</span>
+                        <span class="timeline__achievement-text" data-i18n="experience.placelink.metric2">AsyncTask 전면 리팩토링</span>
+                      </li>
+                      <li>
+                        <span class="timeline__achievement-metric">B2G</span>
+                        <span class="timeline__achievement-text" data-i18n="experience.placelink.metric3">대전시 "0시축제" 이벤트 성공</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="timeline__detail-section">
+                    <h4 class="timeline__detail-title" data-i18n="experience.techHighlights">기술적 하이라이트</h4>
+                    <ul class="timeline__tech-list">
+                      <li data-i18n="experience.placelink.tech1">Firebase Dynamic Links 바이럴 마케팅 플로우</li>
+                      <li data-i18n="experience.placelink.tech2">FCM + moveCode 딥링크 라우팅</li>
+                      <li data-i18n="experience.placelink.tech3">SiliCompressor 영상 압축 파이프라인</li>
+                      <li data-i18n="experience.placelink.tech4">Google Maps 위치 탐색 최적화</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
               <ul class="timeline__tags">
                 <li>Android/iOS</li>
                 <li>RxJava</li>
@@ -516,7 +750,7 @@
 
         <div class="projects__grid">
           <!-- MindLog -->
-          <article class="project-card project-card--mindlog project-card--featured reveal" data-category="personal">
+          <article class="project-card project-card--mindlog project-card--featured reveal" data-category="personal" data-project="mindlog">
             <div class="project-card__header">
               <h3 class="project-card__title">MindLog</h3>
               <div class="project-card__badges">
@@ -551,7 +785,7 @@
           </article>
 
           <!-- Crypto Wallet Pro -->
-          <article class="project-card project-card--crypto reveal" data-category="personal">
+          <article class="project-card project-card--crypto reveal" data-category="personal" data-project="cryptowallet">
             <div class="project-card__header">
               <h3 class="project-card__title">Crypto Wallet Pro</h3>
               <div class="project-card__badges">
@@ -586,7 +820,7 @@
           </article>
 
           <!-- iLity Hub -->
-          <article class="project-card project-card--ility reveal" data-category="company">
+          <article class="project-card project-card--ility reveal" data-category="company" data-project="ility">
             <div class="project-card__header">
               <h3 class="project-card__title">iLity Hub</h3>
               <div class="project-card__badges">
@@ -607,7 +841,7 @@
           </article>
 
           <!-- SafeKorea -->
-          <article class="project-card project-card--safekorea reveal" data-category="company">
+          <article class="project-card project-card--safekorea reveal" data-category="company" data-project="safekorea">
             <div class="project-card__header">
               <h3 class="project-card__title">안전디딤돌</h3>
               <div class="project-card__badges">
@@ -945,6 +1179,27 @@
       </p>
     </div>
   </footer>
+
+  <!-- Project Modal -->
+  <div class="modal-overlay" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div class="modal__header">
+        <h3 class="modal__title" id="modal-title"></h3>
+        <button class="modal__close" data-modal-close aria-label="Close modal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal__body" id="modal-body">
+        <!-- Dynamic content will be injected here -->
+      </div>
+      <div class="modal__footer" id="modal-footer">
+        <!-- Dynamic links will be injected here -->
+      </div>
+    </div>
+  </div>
 
   <!-- Scripts -->
   <script src="js/theme.js"></script>
