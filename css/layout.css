@@ -34,7 +34,7 @@
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
   text-align: center;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1-5);
 }
 
 @media (min-width: 768px) {
@@ -47,7 +47,7 @@
   font-size: var(--font-size-lg);
   color: var(--color-text-secondary);
   text-align: center;
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-10);
 }
 
 /* Header */
@@ -90,8 +90,10 @@
 .nav__toggle {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: var(--space-1-5);
   padding: var(--space-2);
+  min-width: var(--space-10);
+  min-height: var(--space-10);
   z-index: calc(var(--z-overlay) + 1);
 }
 
@@ -103,7 +105,7 @@
 }
 
 .nav__toggle.active .nav__toggle-bar:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(var(--space-1-5), var(--space-1-5));
 }
 
 .nav__toggle.active .nav__toggle-bar:nth-child(2) {
@@ -111,7 +113,7 @@
 }
 
 .nav__toggle.active .nav__toggle-bar:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: rotate(-45deg) translate(var(--space-1-5), calc(-1 * var(--space-1-5)));
 }
 
 .nav__menu {
@@ -206,7 +208,7 @@
 .hero__greeting {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-medium);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
@@ -224,7 +226,7 @@
 .hero__title {
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-5);
 }
 
 .hero__name {
@@ -253,13 +255,13 @@
   font-size: var(--font-size-lg);
   color: var(--color-text-secondary);
   max-width: 600px;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
 }
 
 .hero__cta {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-4);
+  gap: var(--space-3);
 }
 
 /* Hero Background Effects */
