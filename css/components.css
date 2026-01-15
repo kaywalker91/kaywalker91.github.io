@@ -492,6 +492,44 @@
   font-weight: var(--font-weight-medium);
 }
 
+/* Category-specific badge colors for project cards */
+.project-card[data-category="personal"] .project-card__badge {
+  background-color: rgba(139, 92, 246, 0.15);
+  color: var(--filter-personal);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.project-card[data-category="company"] .project-card__badge {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: var(--filter-company);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.project-card[data-category="learning"] .project-card__badge {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: var(--filter-learning);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Dark mode category badge colors */
+[data-theme="dark"] .project-card[data-category="personal"] .project-card__badge {
+  background-color: rgba(167, 139, 250, 0.2);
+  color: var(--filter-personal);
+  border-color: rgba(167, 139, 250, 0.4);
+}
+
+[data-theme="dark"] .project-card[data-category="company"] .project-card__badge {
+  background-color: rgba(52, 211, 153, 0.2);
+  color: var(--filter-company);
+  border-color: rgba(52, 211, 153, 0.4);
+}
+
+[data-theme="dark"] .project-card[data-category="learning"] .project-card__badge {
+  background-color: rgba(251, 191, 36, 0.2);
+  color: var(--filter-learning);
+  border-color: rgba(251, 191, 36, 0.4);
+}
+
 .project-card__description {
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
@@ -593,17 +631,78 @@
   background-color: rgba(5, 83, 177, 0.05);
 }
 
-.projects__filter-btn.active {
+/* Category-specific filter button colors */
+.projects__filter-btn[data-filter="all"].active {
   color: white;
-  background-color: var(--filter-active-bg);
-  border-color: var(--filter-active-bg);
+  background-color: var(--filter-all);
+  border-color: var(--filter-all);
 }
 
-[data-theme="dark"] .projects__filter-btn:hover {
+.projects__filter-btn[data-filter="personal"].active {
+  color: white;
+  background-color: var(--filter-personal);
+  border-color: var(--filter-personal);
+}
+
+.projects__filter-btn[data-filter="company"].active {
+  color: white;
+  background-color: var(--filter-company);
+  border-color: var(--filter-company);
+}
+
+.projects__filter-btn[data-filter="learning"].active {
+  color: white;
+  background-color: var(--filter-learning);
+  border-color: var(--filter-learning);
+}
+
+/* Hover states for each category */
+.projects__filter-btn[data-filter="all"]:hover {
+  color: var(--filter-all);
+  border-color: var(--filter-all);
+  background-color: rgba(5, 83, 177, 0.08);
+}
+
+.projects__filter-btn[data-filter="personal"]:hover {
+  color: var(--filter-personal);
+  border-color: var(--filter-personal);
+  background-color: rgba(139, 92, 246, 0.08);
+}
+
+.projects__filter-btn[data-filter="company"]:hover {
+  color: var(--filter-company);
+  border-color: var(--filter-company);
+  background-color: rgba(16, 185, 129, 0.08);
+}
+
+.projects__filter-btn[data-filter="learning"]:hover {
+  color: var(--filter-learning);
+  border-color: var(--filter-learning);
+  background-color: rgba(245, 158, 11, 0.08);
+}
+
+/* Dark mode hover states */
+[data-theme="dark"] .projects__filter-btn[data-filter="all"]:hover {
   background-color: rgba(0, 217, 255, 0.1);
 }
 
-[data-theme="dark"] .projects__filter-btn.active {
+[data-theme="dark"] .projects__filter-btn[data-filter="personal"]:hover {
+  background-color: rgba(167, 139, 250, 0.12);
+}
+
+[data-theme="dark"] .projects__filter-btn[data-filter="company"]:hover {
+  background-color: rgba(52, 211, 153, 0.12);
+}
+
+[data-theme="dark"] .projects__filter-btn[data-filter="learning"]:hover {
+  background-color: rgba(251, 191, 36, 0.12);
+}
+
+/* Dark mode active states */
+[data-theme="dark"] .projects__filter-btn[data-filter="all"].active,
+[data-theme="dark"] .projects__filter-btn[data-filter="personal"].active,
+[data-theme="dark"] .projects__filter-btn[data-filter="company"].active,
+[data-theme="dark"] .projects__filter-btn[data-filter="learning"].active {
   color: var(--color-background);
 }
 

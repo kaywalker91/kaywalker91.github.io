@@ -114,6 +114,12 @@
   --badge-live-color: var(--color-success);
   --badge-dev-color: var(--color-warning);
 
+  /* Category Filter Colors */
+  --filter-all: #0553B1;
+  --filter-personal: #8B5CF6;
+  --filter-company: #10B981;
+  --filter-learning: #F59E0B;
+
   /* Project Card Shadows - Layered for depth */
   --shadow-card-rest:
     0 1px 3px rgba(0, 0, 0, 0.04),
@@ -179,6 +185,12 @@
   --filter-inactive-bg: var(--color-surface-elevated);
   --badge-live-color: var(--color-success);
   --badge-dev-color: var(--color-warning);
+
+  /* Category Filter Colors - Dark Mode */
+  --filter-all: #00D9FF;
+  --filter-personal: #A78BFA;
+  --filter-company: #34D399;
+  --filter-learning: #FBBF24;
 
   /* Project Card Shadows - Dark Mode */
   --shadow-card-rest:
