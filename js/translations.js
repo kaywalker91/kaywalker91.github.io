@@ -117,7 +117,7 @@ const translations = {
     'projects.dwinsta.badge': '학습 프로젝트',
     'projects.dwinsta.description': 'DW 아카데미 교육 과정 중 개발한 Instagram 클론 Android 앱. 게시물 CRUD, 팔로우/언팔로우, 좋아요/댓글, 실시간 알림 기능 구현.',
     'projects.timewalker.badge': '학습 프로젝트',
-    'projects.timewalker.description': 'Flame 엔진 기반 역사 교육 어드벤처 게임. 인터랙티브 지도 탐험, 시대 여행 시스템, JSON 기반 대화 시스템으로 역사 인물과 상호작용.',
+    'projects.timewalker.description': '시간 여행과 지도 탐험을 결합한 인터랙티브 역사 교육 어드벤처 게임. Flame 엔진 기반 월드맵, 역사 인물과 분기형 대화, 백과사전/퀴즈를 통한 다층적 학습. Supabase 클라우드 동기화 및 오프라인 캐싱 지원.',
 
     // Education
     'education.title': '학력',
@@ -270,7 +270,7 @@ const translations = {
     'projects.dwinsta.badge': 'Learning Project',
     'projects.dwinsta.description': 'Instagram clone Android app developed during DW Academy training course. Implemented post CRUD, follow/unfollow, likes/comments, and real-time notifications.',
     'projects.timewalker.badge': 'Learning Project',
-    'projects.timewalker.description': 'History education adventure game built with Flame engine. Interactive map exploration, time travel system, and JSON-based dialogue system for historical character interactions.',
+    'projects.timewalker.description': 'Interactive history education adventure game combining time travel and map exploration. Flame engine-based world map, branching dialogues with historical figures, and multi-layered learning through encyclopedia and quizzes. Supabase cloud sync with offline caching support.',
 
     // Education
     'education.title': 'Education',
