@@ -279,3 +279,160 @@
     box-shadow: 0 0 0 0 rgba(0, 217, 255, 0);
   }
 }
+
+/* ================================
+   Mobile Menu Stagger Animation
+   ================================ */
+
+/* Menu items start hidden when menu opens */
+.nav__menu .nav__item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* When menu is active (mobile), animate items */
+@media (max-width: 767px) {
+  .nav__menu .nav__item {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .nav__menu.active .nav__item {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Stagger delays for each menu item */
+  .nav__menu.active .nav__item:nth-child(1) { transition-delay: 50ms; }
+  .nav__menu.active .nav__item:nth-child(2) { transition-delay: 100ms; }
+  .nav__menu.active .nav__item:nth-child(3) { transition-delay: 150ms; }
+  .nav__menu.active .nav__item:nth-child(4) { transition-delay: 200ms; }
+  .nav__menu.active .nav__item:nth-child(5) { transition-delay: 250ms; }
+  .nav__menu.active .nav__item:nth-child(6) { transition-delay: 300ms; }
+  .nav__menu.active .nav__item:nth-child(7) { transition-delay: 350ms; }
+  .nav__menu.active .nav__item:nth-child(8) { transition-delay: 400ms; }
+  .nav__menu.active .nav__item:nth-child(9) { transition-delay: 450ms; }
+}
+
+@keyframes menuItemSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ================================
+   Competency Badge Hover Animation
+   ================================ */
+.competency-badge__icon {
+  transition: transform var(--transition-base), color var(--transition-base);
+}
+
+.competency-badge:hover .competency-badge__icon {
+  transform: scale(1.15) rotate(5deg);
+  color: var(--color-accent);
+}
+
+.competency-badge:hover .competency-badge__text {
+  color: var(--color-primary);
+}
+
+/* Badge glow effect on hover */
+.competency-badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-primary);
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity var(--transition-base);
+  z-index: -1;
+}
+
+.competency-badge:hover::before {
+  opacity: 0.08;
+}
+
+/* ================================
+   Contact Availability Ripple Animation
+   ================================ */
+.contact__availability-dot::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: var(--color-success);
+  animation: availabilityRipple 2s ease-out infinite;
+}
+
+@keyframes availabilityRipple {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Contact card icon bounce on hover */
+.contact-card:hover .contact-card__icon svg {
+  animation: iconBounce 0.6s ease;
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-4px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-2px); }
+}
+
+/* ================================
+   Featured Project Glow Animation
+   ================================ */
+.project-card--featured::before {
+  animation: featuredGlow 3s ease-in-out infinite;
+}
+
+@keyframes featuredGlow {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Featured badge shimmer */
+.project-card--featured .project-card__badges::before {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 50%,
+    var(--color-primary) 100%
+  );
+  background-size: 200% 100%;
+  animation: badgeShimmer 2s ease infinite;
+}
+
+@keyframes badgeShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ================================
+   Skill Progress Bar Glow
+   ================================ */
+.skill-progress__fill.animate {
+  box-shadow: 0 0 8px rgba(0, 217, 255, 0.4);
+}
+
+[data-theme="dark"] .skill-progress__fill.animate {
+  box-shadow: 0 0 12px rgba(0, 217, 255, 0.6);
+}

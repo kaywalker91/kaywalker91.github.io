@@ -51,6 +51,12 @@
   </script>
 </head>
 <body>
+  <!-- Skip to main content link (Accessibility) -->
+  <a href="#main-content" class="skip-link" data-i18n="accessibility.skipToContent">본문으로 건너뛰기</a>
+
+  <!-- Screen reader announcer (Accessibility) -->
+  <div id="sr-announcer" class="sr-only" aria-live="polite"></div>
+
   <!-- Scroll Progress Indicator -->
   <div class="scroll-progress">
     <div class="scroll-progress__bar"></div>
@@ -109,7 +115,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- Hero Section -->
     <section class="hero section" id="hero">
       <div class="container">
@@ -1118,56 +1124,48 @@
           <!-- Continuous Learning -->
           <div class="etc-card reveal">
             <h3 class="etc-card__title" data-i18n="etc.learning.title">지속적 학습</h3>
-            <ul class="etc-card__list etc-card__list--progress">
+            <ul class="etc-card__list etc-card__list--learning">
               <li>
-                <svg class="etc-card__progress-ring" style="--progress: 100" viewBox="0 0 44 44" aria-hidden="true">
-                  <circle class="ring-bg" cx="22" cy="22" r="18"/>
-                  <circle class="ring-progress" cx="22" cy="22" r="18"/>
-                </svg>
-                <div class="etc-card__progress-content">
-                  <div class="etc-card__progress-header">
-                    <span class="etc-card__item">클로드 코드 완벽 마스터</span>
-                    <span class="etc-card__progress-status etc-card__progress-status--completed" data-i18n="etc.status.completed">완료</span>
-                  </div>
+                <div class="etc-card__learning-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                  </svg>
+                </div>
+                <div class="etc-card__learning-content">
+                  <span class="etc-card__item">클로드 코드 완벽 마스터</span>
                   <span class="etc-card__meta">2025 · Inflearn</span>
                 </div>
               </li>
               <li>
-                <svg class="etc-card__progress-ring" style="--progress: 75" viewBox="0 0 44 44" aria-hidden="true">
-                  <circle class="ring-bg" cx="22" cy="22" r="18"/>
-                  <circle class="ring-progress" cx="22" cy="22" r="18"/>
-                </svg>
-                <div class="etc-card__progress-content">
-                  <div class="etc-card__progress-header">
-                    <span class="etc-card__item">Flutter 실전 프로젝트 - BLoC & Riverpod</span>
-                    <span class="etc-card__progress-status etc-card__progress-status--progress" data-i18n="etc.status.progress">75%</span>
-                  </div>
+                <div class="etc-card__learning-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                  </svg>
+                </div>
+                <div class="etc-card__learning-content">
+                  <span class="etc-card__item">Flutter 실전 프로젝트 - BLoC & Riverpod</span>
                   <span class="etc-card__meta">2025 · FastCampus</span>
                 </div>
               </li>
               <li>
-                <svg class="etc-card__progress-ring" style="--progress: 100" viewBox="0 0 44 44" aria-hidden="true">
-                  <circle class="ring-bg" cx="22" cy="22" r="18"/>
-                  <circle class="ring-progress" cx="22" cy="22" r="18"/>
-                </svg>
-                <div class="etc-card__progress-content">
-                  <div class="etc-card__progress-header">
-                    <span class="etc-card__item">Flutter & Dart - The Complete Guide</span>
-                    <span class="etc-card__progress-status etc-card__progress-status--completed" data-i18n="etc.status.completed">완료</span>
-                  </div>
+                <div class="etc-card__learning-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                  </svg>
+                </div>
+                <div class="etc-card__learning-content">
+                  <span class="etc-card__item">Flutter & Dart - The Complete Guide</span>
                   <span class="etc-card__meta">2024~2025 · Udemy</span>
                 </div>
               </li>
               <li>
-                <svg class="etc-card__progress-ring" style="--progress: 50" viewBox="0 0 44 44" aria-hidden="true">
-                  <circle class="ring-bg" cx="22" cy="22" r="18"/>
-                  <circle class="ring-progress" cx="22" cy="22" r="18"/>
-                </svg>
-                <div class="etc-card__progress-content">
-                  <div class="etc-card__progress-header">
-                    <span class="etc-card__item">시니어 개발자 인사이트 학습</span>
-                    <span class="etc-card__progress-status etc-card__progress-status--ongoing" data-i18n="etc.status.ongoing">진행중</span>
-                  </div>
+                <div class="etc-card__learning-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                  </svg>
+                </div>
+                <div class="etc-card__learning-content">
+                  <span class="etc-card__item">시니어 개발자 인사이트 학습</span>
                   <span class="etc-card__meta">F-Lab, 요즘 IT 멤버십</span>
                 </div>
               </li>
@@ -1177,6 +1175,14 @@
       </div>
     </section>
   </main>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 19V5"/>
+      <path d="M5 12l7-7 7 7"/>
+    </svg>
+  </button>
 
   <!-- Footer -->
   <footer class="footer">

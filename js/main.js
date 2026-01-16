@@ -25,9 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Setup copy to clipboard
   setupCopyToClipboard();
 
-  // Setup ETC progress rings
-  setupProgressRings();
-
   // Setup impact counters
   setupImpactCounters();
 
@@ -36,6 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Setup project modal
   setupProjectModal();
+
+  // Setup back to top button
+  setupBackToTop();
 });
 
 // Language toggle setup
@@ -160,38 +160,6 @@ function setupSkillProgress() {
 
   const progressObserver = new IntersectionObserver(progressCallback, progressOptions);
   progressBars.forEach(bar => progressObserver.observe(bar));
-}
-
-// ETC Progress Ring animation
-function setupProgressRings() {
-  const progressRings = document.querySelectorAll('.etc-card__progress-ring');
-
-  if (progressRings.length === 0) return;
-
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (prefersReducedMotion) {
-    progressRings.forEach(ring => ring.classList.add('animate'));
-    return;
-  }
-
-  const ringOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.5
-  };
-
-  const ringCallback = (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
-        observer.unobserve(entry.target);
-      }
-    });
-  };
-
-  const ringObserver = new IntersectionObserver(ringCallback, ringOptions);
-  progressRings.forEach(ring => ringObserver.observe(ring));
 }
 
 // Scroll progress indicator
@@ -609,5 +577,49 @@ function setupCopyToClipboard() {
         }
       }
     });
+  });
+}
+
+// Back to Top button functionality
+function setupBackToTop() {
+  const button = document.getElementById('back-to-top');
+  if (!button) return;
+
+  // Throttle scroll events for performance
+  let ticking = false;
+
+  const toggleVisibility = () => {
+    if (window.scrollY > 500) {
+      button.classList.add('visible');
+    } else {
+      button.classList.remove('visible');
+    }
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(toggleVisibility);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Smooth scroll to top on click
+  button.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // Keyboard accessibility
+  button.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
   });
 }

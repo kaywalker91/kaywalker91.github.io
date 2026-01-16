@@ -1,5 +1,82 @@
 /* Components */
 
+/* ================================
+   Global Focus Styles (Accessibility)
+   ================================ */
+
+/* Default focus-visible for all interactive elements */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Enhanced focus for dark mode */
+[data-theme="dark"] :focus-visible {
+  outline-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(0, 217, 255, 0.2);
+}
+
+/* Remove default outline for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Button focus states */
+.btn:focus-visible,
+.projects__filter-btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Nav link focus states */
+.nav__link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+/* Toggle button focus states */
+.theme-toggle:focus-visible,
+.lang-toggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Card focus states (for keyboard navigation) */
+.project-card:focus-visible,
+.skill-card:focus-visible,
+.contact-card:focus-visible,
+.education-card:focus-visible,
+.etc-card:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-color: var(--color-primary);
+}
+
+/* Modal close button focus */
+.modal__close:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Timeline expand button focus */
+.timeline__expand-btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Copy button focus */
+.contact-card__copy:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  opacity: 1;
+}
+
+/* ================================
+   Buttons
+   ================================ */
+
 /* Buttons */
 .btn {
   display: inline-flex;
@@ -789,28 +866,50 @@
   }
 }
 
-/* Project Card Filter Animation */
+/* Project Card Filter Animation - Enhanced */
+.project-card {
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease,
+    opacity 0.35s ease,
+    filter 0.35s ease;
+}
+
 .project-card[data-filter-hidden="true"] {
-  display: none;
+  opacity: 0;
+  filter: blur(4px);
+  transform: scale(0.92);
+  pointer-events: none;
+  position: absolute;
+  visibility: hidden;
+  transition:
+    opacity 0.25s ease,
+    filter 0.25s ease,
+    transform 0.25s ease,
+    visibility 0s linear 0.25s;
 }
 
 .project-card.filter-fade-out {
   opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  filter: blur(4px);
+  transform: scale(0.92);
+  transition: opacity 0.25s ease, filter 0.25s ease, transform 0.25s ease;
 }
 
 .project-card.filter-fade-in {
-  animation: filterFadeIn 0.3s ease forwards;
+  animation: filterFadeIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes filterFadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px) scale(0.95);
+    filter: blur(4px);
+    transform: translateY(12px) scale(0.92);
   }
   to {
     opacity: 1;
+    filter: blur(0);
     transform: translateY(0) scale(1);
   }
 }
@@ -1372,8 +1471,14 @@
   height: 10px;
 }
 
-/* ETC Card Enhanced - Learning Progress Ring */
-.etc-card__list--progress li {
+/* ETC Card Enhanced - Learning List (Clean Design) */
+.etc-card__list--learning {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.etc-card__list--learning li {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1381,106 +1486,61 @@
   padding: var(--space-3);
   border-radius: var(--radius-md);
   background-color: var(--color-background);
-  border-bottom: none;
+  border: 1px solid var(--color-border);
   transition: all var(--transition-fast);
 }
 
-.etc-card__list--progress li:hover {
-  background-color: var(--color-info-light);
+.etc-card__list--learning li:hover {
+  border-color: var(--color-primary);
+  background-color: color-mix(in srgb, var(--color-primary) 5%, transparent);
   transform: translateX(4px);
 }
 
-.etc-card__progress-ring {
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-  transform: rotate(-90deg);
-}
-
-.etc-card__progress-ring .ring-bg {
-  fill: none;
-  stroke: var(--color-border);
-  stroke-width: 4;
-}
-
-.etc-card__progress-ring .ring-progress {
-  fill: none;
-  stroke: var(--color-primary);
-  stroke-width: 4;
-  stroke-linecap: round;
-  stroke-dasharray: 113;
-  stroke-dashoffset: 113;
-  transition: stroke-dashoffset 1s ease-out;
-}
-
-.etc-card__progress-ring.animate .ring-progress {
-  stroke-dashoffset: calc(113 - (113 * var(--progress)) / 100);
-}
-
-.etc-card__progress-content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  flex: 1;
-  min-width: 0;
-}
-
-.etc-card__progress-header {
+.etc-card__learning-icon {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-2);
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
 }
 
-.etc-card__progress-status {
-  display: inline-flex;
-  padding: 2px 8px;
-  font-size: 10px;
-  font-weight: var(--font-weight-semibold);
-  border-radius: var(--radius-full);
-  white-space: nowrap;
+.etc-card__learning-icon svg {
+  width: 20px;
+  height: 20px;
 }
 
-.etc-card__progress-status--completed {
-  color: var(--color-success);
-  background-color: var(--color-success-light);
-}
-
-.etc-card__progress-status--progress {
-  color: var(--color-info);
-  background-color: var(--color-info-light);
-}
-
-.etc-card__progress-status--ongoing {
-  color: var(--color-warning);
-  background-color: var(--color-warning-light);
+.etc-card__learning-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
 }
 
 /* ETC Card Responsive */
 @media (max-width: 640px) {
   .etc-card__list--badges li,
-  .etc-card__list--progress li {
+  .etc-card__list--learning li {
     padding: var(--space-2);
     gap: var(--space-2);
   }
 
-  .etc-card__badge-icon {
+  .etc-card__badge-icon,
+  .etc-card__learning-icon {
     width: 36px;
     height: 36px;
   }
 
-  .etc-card__progress-ring {
-    width: 40px;
-    height: 40px;
+  .etc-card__learning-icon svg {
+    width: 18px;
+    height: 18px;
   }
 
   .etc-card__badge-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-1);
-  }
-
-  .etc-card__progress-header {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-1);
@@ -1700,11 +1760,19 @@
 
 .timeline__details {
   margin-top: var(--space-4);
+  margin-bottom: var(--space-4);
   border-top: 1px dashed var(--color-border);
   padding-top: var(--space-3);
   display: flex;
   flex-direction: column;
   align-items: stretch;
+}
+
+/* Mobile: Increase spacing between expand button and tags */
+@media (max-width: 640px) {
+  .timeline__details {
+    margin-bottom: var(--space-6);
+  }
 }
 
 .timeline__expand-btn {
@@ -1754,6 +1822,17 @@
   max-height: 1000px;
   opacity: 1;
   margin-top: var(--space-4);
+}
+
+/* Expanded state: increase bottom margin for better spacing with tags */
+.timeline__details[data-expanded="true"] {
+  margin-bottom: var(--space-6);
+}
+
+@media (max-width: 640px) {
+  .timeline__details[data-expanded="true"] {
+    margin-bottom: var(--space-8);
+  }
 }
 
 @media (min-width: 768px) {
