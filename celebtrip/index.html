@@ -32,6 +32,86 @@
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/animations.css">
 
+  <!-- JD Fit Section Styles - Celebtrip Customized -->
+  <style>
+    .jd-fit {
+      background: var(--bg-secondary);
+    }
+    .jd-fit__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .jd-fit-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: var(--bg-primary);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+    .jd-fit-card:hover {
+      border-color: var(--accent-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+    .jd-fit-card__icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--accent-primary);
+      color: white;
+    }
+    .jd-fit-card__icon--match svg {
+      width: 20px;
+      height: 20px;
+    }
+    .jd-fit-card__content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .jd-fit-card__requirement {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .jd-fit-card__experience {
+      font-size: 1rem;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    .jd-fit-card__project {
+      font-size: 0.8rem;
+      color: var(--accent-primary);
+    }
+    .jd-fit__note {
+      margin-top: 2rem;
+      padding: 1rem 1.5rem;
+      background: var(--bg-tertiary, var(--bg-secondary));
+      border-radius: 8px;
+      border-left: 4px solid #f59e0b;
+    }
+    .jd-fit__note p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+    @media (max-width: 768px) {
+      .jd-fit__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
   <title>김대각 - 4년차 Flutter 모바일 앱 개발자</title>
 
   <!-- JSON-LD -->
@@ -235,6 +315,136 @@
       <!-- Background decoration -->
       <div class="hero__bg-grid" aria-hidden="true"></div>
       <div class="hero__bg-glow" aria-hidden="true"></div>
+    </section>
+
+    <!-- JD Fit Section - Celebtrip Customized -->
+    <section class="jd-fit section" id="jd-fit">
+      <div class="container">
+        <h2 class="section__title reveal" data-i18n="jdfit.title">왜 셀레트립인가</h2>
+        <p class="section__subtitle reveal" data-i18n="jdfit.subtitle">JD 요구사항과 나의 경험이 만나는 지점</p>
+
+        <div class="jd-fit__grid">
+          <!-- Flutter 경력 -->
+          <div class="jd-fit-card reveal">
+            <div class="jd-fit-card__icon jd-fit-card__icon--match">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+            </div>
+            <div class="jd-fit-card__content">
+              <span class="jd-fit-card__requirement" data-i18n="jdfit.flutter.req">Flutter 3년 내외</span>
+              <span class="jd-fit-card__experience" data-i18n="jdfit.flutter.exp">3년 4개월 실무 경험</span>
+              <span class="jd-fit-card__project" data-i18n="jdfit.flutter.project">시선IT + FORLONG</span>
+            </div>
+          </div>
+
+          <!-- Clean Architecture -->
+          <div class="jd-fit-card reveal">
+            <div class="jd-fit-card__icon jd-fit-card__icon--match">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+            </div>
+            <div class="jd-fit-card__content">
+              <span class="jd-fit-card__requirement" data-i18n="jdfit.architecture.req">Clean Architecture</span>
+              <span class="jd-fit-card__experience" data-i18n="jdfit.architecture.exp">Expert 수준, 12모듈 설계</span>
+              <span class="jd-fit-card__project" data-i18n="jdfit.architecture.project">iLity Hub</span>
+            </div>
+          </div>
+
+          <!-- Freezed & dio -->
+          <div class="jd-fit-card reveal">
+            <div class="jd-fit-card__icon jd-fit-card__icon--match">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+            </div>
+            <div class="jd-fit-card__content">
+              <span class="jd-fit-card__requirement" data-i18n="jdfit.freezed.req">Freezed & dio</span>
+              <span class="jd-fit-card__experience" data-i18n="jdfit.freezed.exp">불변 상태 + API 레이어 구축</span>
+              <span class="jd-fit-card__project" data-i18n="jdfit.freezed.project">모든 Flutter 프로젝트</span>
+            </div>
+          </div>
+
+          <!-- 글로벌 서비스 -->
+          <div class="jd-fit-card reveal">
+            <div class="jd-fit-card__icon jd-fit-card__icon--match">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+            </div>
+            <div class="jd-fit-card__content">
+              <span class="jd-fit-card__requirement" data-i18n="jdfit.global.req">글로벌 서비스 경험</span>
+              <span class="jd-fit-card__experience" data-i18n="jdfit.global.exp">19개 언어 다국어 번역</span>
+              <span class="jd-fit-card__project" data-i18n="jdfit.global.project">이머전시레디앱</span>
+            </div>
+          </div>
+
+          <!-- 이벤트 트래킹 -->
+          <div class="jd-fit-card reveal">
+            <div class="jd-fit-card__icon jd-fit-card__icon--match">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+            </div>
+            <div class="jd-fit-card__content">
+              <span class="jd-fit-card__requirement" data-i18n="jdfit.tracking.req">이벤트 트래킹</span>
+              <span class="jd-fit-card__experience" data-i18n="jdfit.tracking.exp">Firebase Analytics 구현</span>
+              <span class="jd-fit-card__project" data-i18n="jdfit.tracking.project">안전디딤돌, 포인트투어</span>
+            </div>
+          </div>
+
+          <!-- AI 기능 -->
+          <div class="jd-fit-card reveal">
+            <div class="jd-fit-card__icon jd-fit-card__icon--match">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+            </div>
+            <div class="jd-fit-card__content">
+              <span class="jd-fit-card__requirement" data-i18n="jdfit.ai.req">AI 인터랙티브 기능</span>
+              <span class="jd-fit-card__experience" data-i18n="jdfit.ai.exp">Llama 3.3 기반 AI 대화</span>
+              <span class="jd-fit-card__project" data-i18n="jdfit.ai.project">MindLog</span>
+            </div>
+          </div>
+
+          <!-- 트랜잭션 -->
+          <div class="jd-fit-card reveal">
+            <div class="jd-fit-card__icon jd-fit-card__icon--match">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+            </div>
+            <div class="jd-fit-card__content">
+              <span class="jd-fit-card__requirement" data-i18n="jdfit.transaction.req">커머스 트랜잭션</span>
+              <span class="jd-fit-card__experience" data-i18n="jdfit.transaction.exp">포인트 & DeFi 트랜잭션</span>
+              <span class="jd-fit-card__project" data-i18n="jdfit.transaction.project">포인트투어, iLity Hub</span>
+            </div>
+          </div>
+
+          <!-- 지도 연동 -->
+          <div class="jd-fit-card reveal">
+            <div class="jd-fit-card__icon jd-fit-card__icon--match">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+            </div>
+            <div class="jd-fit-card__content">
+              <span class="jd-fit-card__requirement" data-i18n="jdfit.map.req">지도 서비스 연동</span>
+              <span class="jd-fit-card__experience" data-i18n="jdfit.map.exp">Google Maps 최적화</span>
+              <span class="jd-fit-card__project" data-i18n="jdfit.map.project">안전디딤돌, 포인트투어</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 보완점 솔직하게 표시 -->
+        <div class="jd-fit__note reveal">
+          <p data-i18n="jdfit.note">
+            <strong>보완점:</strong> GetX, Flutter Web, WeChat Mini Program은 경험이 없지만,
+            Riverpod 전문성과 빠른 학습 능력으로 적응하겠습니다.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- Impact Section -->
