@@ -1,0 +1,600 @@
+/* ============================================
+   CELEBTRIP CUSTOM STYLES
+   셀레트립 전용 컴포넌트 및 오버라이드 스타일
+   ============================================ */
+
+/* ============================================
+   HERO LEFT SECTION - Balanced Spacing
+   ============================================ */
+@media (min-width: 1024px) {
+    .hero__text {
+        display: flex;
+        flex-direction: column;
+        gap: 1.75rem;
+    }
+
+    .hero__greeting {
+        margin-bottom: 0;
+    }
+
+    .hero__title {
+        margin-bottom: 0;
+    }
+
+    .hero__tagline {
+        margin-bottom: 0;
+    }
+
+    .hero__cta {
+        margin-top: 0.5rem;
+    }
+}
+
+/* ============================================
+   HERO - Large Typography
+   ============================================ */
+.hero__name {
+    font-size: clamp(3rem, 8vw, 5rem) !important;
+    line-height: 0.95 !important;
+    letter-spacing: -0.03em !important;
+    font-weight: 800 !important;
+    color: var(--color-text-primary);
+}
+
+.hero__role {
+    font-size: clamp(1.25rem, 3vw, 1.75rem) !important;
+    font-weight: 600 !important;
+    color: var(--color-primary) !important;
+    margin-top: 0.5rem;
+}
+
+/* ============================================
+   HERO RIGHT SECTION - Layout Balance
+   ============================================ */
+.hero__right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .hero__right {
+        align-items: flex-start;
+    }
+
+    /* Terminal width matches quick stats width */
+    .hero__right .terminal {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* ============================================
+   QUICK STATS - Clean Style (Right Side)
+   ============================================ */
+.hero__quick-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    background: var(--color-surface);
+    border-radius: 16px;
+    border: 1px solid var(--color-border-light);
+    width: 100%;
+    max-width: 400px;
+}
+
+.quick-stat {
+    text-align: center;
+}
+
+.quick-stat__number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    font-family: var(--font-family-mono);
+}
+
+.quick-stat__unit {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.quick-stat__label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+}
+
+.quick-stat__detail {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    margin-top: 0.15rem;
+}
+
+@media (max-width: 640px) {
+    .hero__quick-stats {
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .quick-stat__number {
+        font-size: 2rem;
+    }
+}
+
+/* ============================================
+   HERO RIGHT - Hidden on Mobile
+   ============================================ */
+@media (max-width: 768px) {
+    .hero__right {
+        display: none;
+    }
+}
+
+
+
+/* ============================================
+   IMPACT GRID - 3 Columns (Not 6)
+   ============================================ */
+@media (min-width: 1024px) {
+    .impact__grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+/* ============================================
+   JD FIT SECTION - 3 Column Equal Grid
+   ============================================ */
+.jd-fit {
+    background: var(--color-surface);
+}
+
+.jd-fit__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+    .jd-fit__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.jd-fit-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: var(--color-background);
+    border-radius: 16px;
+    border: 1px solid var(--color-border-light);
+    transition: border-color 0.2s, transform 0.2s;
+    grid-column: span 1;
+    min-height: 160px;
+}
+
+.jd-fit-card:hover {
+    border-color: var(--celebtrip-purple, var(--color-primary));
+    transform: translateY(-4px);
+}
+
+/* Featured 제거 - 모든 카드 동일 크기 */
+.jd-fit-card--featured {
+    grid-column: span 1;
+    grid-row: span 1;
+    background: var(--color-background);
+    border-color: var(--color-border-light);
+}
+
+.jd-fit-card__icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--celebtrip-purple, var(--color-primary));
+    color: white;
+}
+
+.jd-fit-card__icon--match svg {
+    width: 24px;
+    height: 24px;
+}
+
+.jd-fit-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.jd-fit-card__requirement {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.jd-fit-card__experience {
+    font-size: 1.1rem;
+    color: var(--color-text-primary);
+    font-weight: 700;
+}
+
+.jd-fit-card__project {
+    font-size: 0.85rem;
+    color: var(--celebtrip-purple, var(--color-primary));
+    font-weight: 500;
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+    .jd-fit__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .jd-fit-card {
+        padding: 1rem;
+        min-height: auto;
+    }
+}
+
+/* ============================================
+   JD FIT - Match Score
+   ============================================ */
+.jd-fit__match-hero {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.jd-fit__match-score {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.match-score__value {
+    font-size: clamp(4rem, 10vw, 6rem);
+    font-weight: 800;
+    color: var(--celebtrip-purple, var(--color-primary));
+    font-family: var(--font-family-mono);
+}
+
+.match-score__separator {
+    font-size: 2.5rem;
+    color: var(--color-text-muted);
+}
+
+.match-score__total {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+}
+
+.match-score__label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin-top: 0.5rem;
+}
+
+/* ============================================
+   JD FIT - Story Section (Clean)
+   ============================================ */
+.jd-fit__story {
+    margin-bottom: 3rem;
+    padding: 2.5rem;
+    background: var(--color-background);
+    border-radius: 20px;
+    border: 1px solid var(--color-border-light);
+}
+
+.jd-fit__story-section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.jd-fit__story-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.jd-fit__story-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 1.25rem;
+}
+
+.jd-fit__story-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.jd-fit__story-list li {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    padding-left: 1.75rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.jd-fit__story-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--celebtrip-purple, var(--color-primary));
+    font-weight: 600;
+}
+
+/* ============================================
+   KPOP Section - Celebtrip Purple Theme
+   Enhanced with Glassmorphism
+   ============================================ */
+.jd-fit__story-section--kpop {
+    text-align: center;
+    background: var(--celebtrip-gradient-subtle, linear-gradient(135deg,
+                rgba(116, 7, 255, 0.12) 0%,
+                rgba(226, 203, 255, 0.2) 100%));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    margin: 2rem 0;
+    border: 1px solid rgba(116, 7, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(116, 7, 255, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Remove shimmer animation */
+.jd-fit__story-section--kpop::before {
+    display: none;
+}
+
+.jd-fit__kpop-artists {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+}
+
+/* KPOP Badge - Group Signature Colors (Gradient Enhanced) */
+.kpop-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    color: white;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.kpop-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.kpop-badge:hover::before {
+    left: 100%;
+}
+
+.kpop-badge:hover {
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* ITZY - MIDZY 시그니처 (핑크 → 오렌지 그라데이션) */
+.kpop-badge--itzy {
+    background: var(--itzy-gradient, linear-gradient(135deg, #FF6B9D 0%, #FF8E53 50%, #FFB347 100%));
+    box-shadow: 0 4px 20px var(--itzy-glow, rgba(255, 107, 157, 0.4));
+}
+
+.kpop-badge--itzy:hover {
+    box-shadow: 0 6px 25px rgba(255, 107, 157, 0.6);
+}
+
+/* aespa - MY 시그니처 (퍼플 → 사이버 블루 그라데이션) */
+.kpop-badge--aespa {
+    background: var(--aespa-gradient, linear-gradient(135deg, #A855F7 0%, #7C3AED 50%, #00D4FF 100%));
+    box-shadow: 0 4px 20px var(--aespa-glow, rgba(168, 85, 247, 0.4));
+}
+
+.kpop-badge--aespa:hover {
+    box-shadow: 0 6px 25px rgba(168, 85, 247, 0.6);
+}
+
+/* KISS OF LIFE - 시그니처 (레드 → 핑크 그라데이션) */
+.kpop-badge--kissoflife {
+    background: var(--kissoflife-gradient, linear-gradient(135deg, #FF4757 0%, #FF6B81 50%, #FF9FF3 100%));
+    box-shadow: 0 4px 20px var(--kissoflife-glow, rgba(255, 71, 87, 0.4));
+}
+
+.kpop-badge--kissoflife:hover {
+    box-shadow: 0 6px 25px rgba(255, 71, 87, 0.6);
+}
+
+/* ============================================
+   BUTTON - Gradient Enhancement
+   ============================================ */
+.btn--primary.btn--glow {
+    background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #EC4899 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+    border: none;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn--primary.btn--glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.btn--outline {
+    background: transparent;
+    border: 2px solid var(--celebtrip-purple, var(--color-primary));
+    color: var(--celebtrip-purple, var(--color-primary));
+    transition: all 0.3s ease;
+}
+
+.btn--outline:hover {
+    background: var(--celebtrip-purple, var(--color-primary));
+    color: white;
+    transform: translateY(-2px);
+}
+
+.jd-fit__kpop-intro {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--celebtrip-purple, #7407ff);
+    margin-bottom: 0.75rem;
+}
+
+.jd-fit__kpop-text {
+    font-size: 0.95rem;
+    color: #212121;
+    line-height: 1.7;
+    margin: 0;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Dark mode adjustment for KPOP text */
+[data-theme="dark"] .jd-fit__kpop-text {
+    color: var(--color-text-secondary);
+}
+
+/* Motivation Section */
+.jd-fit__story-section--motivation {
+    text-align: center;
+    border: none;
+}
+
+.jd-fit__quote {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--celebtrip-purple, #7407ff);
+    font-style: normal;
+    margin: 0 0 1.25rem 0;
+    line-height: 1.4;
+}
+
+.jd-fit__motivation-text {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Note */
+.jd-fit__note {
+    margin-top: 2.5rem;
+    padding: 1.25rem 1.75rem;
+    background: var(--color-surface);
+    border-radius: 12px;
+    border-left: 4px solid var(--color-warning);
+}
+
+.jd-fit__note p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .jd-fit__story {
+        padding: 1.75rem;
+    }
+
+    .jd-fit__quote {
+        font-size: 1.2rem;
+    }
+}
+
+/* ============================================
+   COUNTER ANIMATION CLASSES
+   ============================================ */
+.impact-stat__number.counting {
+    transition: none;
+}
+
+.counter-animated {
+    animation: countPop 0.1s ease;
+}
+
+@keyframes countPop {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
