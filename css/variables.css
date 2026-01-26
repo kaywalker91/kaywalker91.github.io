@@ -120,6 +120,18 @@
   --filter-company: #10B981;
   --filter-learning: #F59E0B;
 
+  /* Etc Section - Certificate Colors (Gold/Amber) */
+  --color-certificate: #F59E0B;
+  --color-certificate-light: #FCD34D;
+  --color-certificate-dark: #D97706;
+  --color-certificate-glow: rgba(245, 158, 11, 0.15);
+
+  /* Etc Section - Learning Colors (Teal/Cyan) */
+  --color-learning: #14B8A6;
+  --color-learning-light: #5EEAD4;
+  --color-learning-dark: #0D9488;
+  --color-learning-glow: rgba(20, 184, 166, 0.15);
+
   /* Project Card Shadows - Layered for depth */
   --shadow-card-rest:
     0 1px 3px rgba(0, 0, 0, 0.04),
@@ -191,6 +203,18 @@
   --filter-personal: #A78BFA;
   --filter-company: #34D399;
   --filter-learning: #FBBF24;
+
+  /* Etc Section - Certificate Colors - Dark Mode */
+  --color-certificate: #FBBF24;
+  --color-certificate-light: #FDE68A;
+  --color-certificate-dark: #F59E0B;
+  --color-certificate-glow: rgba(251, 191, 36, 0.25);
+
+  /* Etc Section - Learning Colors - Dark Mode */
+  --color-learning: #2DD4BF;
+  --color-learning-light: #99F6E4;
+  --color-learning-dark: #14B8A6;
+  --color-learning-glow: rgba(45, 212, 191, 0.25);
 
   /* Project Card Shadows - Dark Mode */
   --shadow-card-rest:
