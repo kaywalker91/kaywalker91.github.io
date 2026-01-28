@@ -33,21 +33,7 @@
 }
 
 .btn::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.4s ease, height 0.4s ease;
-}
-
-.btn:active::after {
-  width: 200%;
-  height: 200%;
+  display: none;
 }
 
 /* Card hover animations */
@@ -55,7 +41,7 @@
 .project-card,
 .education-card,
 .contact-card {
-  will-change: transform, box-shadow;
+  will-change: auto;
 }
 
 /* Logo animation */
@@ -99,9 +85,9 @@
   width: 100%;
 }
 
-/* Timeline marker pulse */
+/* Timeline marker - static (no pulse) */
 .timeline__marker {
-  animation: pulse 2s infinite;
+  animation: none;
 }
 
 @keyframes pulse {
@@ -260,12 +246,12 @@
 }
 
 .skill-card:hover {
-  box-shadow: var(--shadow-lg), var(--glow-primary);
+  box-shadow: var(--shadow-lg);
 }
 
-/* Timeline marker dark mode pulse */
+/* Timeline marker dark mode - static (no pulse) */
 [data-theme="dark"] .timeline__marker {
-  animation: pulse-dark 2s infinite;
+  animation: none;
 }
 
 @keyframes pulse-dark {
@@ -362,12 +348,7 @@
    Contact Availability Ripple Animation
    ================================ */
 .contact__availability-dot::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  background: var(--color-success);
-  animation: availabilityRipple 2s ease-out infinite;
+  display: none;
 }
 
 @keyframes availabilityRipple {
@@ -397,7 +378,8 @@
    Featured Project Glow Animation
    ================================ */
 .project-card--featured::before {
-  animation: featuredGlow 3s ease-in-out infinite;
+  animation: none;
+  opacity: 1;
 }
 
 @keyframes featuredGlow {

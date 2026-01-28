@@ -1,0 +1,1047 @@
+/* ============================================
+   MUNTO CUSTOM STYLES
+   문토 전용 컴포넌트 및 오버라이드 스타일
+   (자소서 기반 재구성 버전)
+   ============================================ */
+
+/* ============================================
+   HERO - Background Grid Coral Override
+   ============================================ */
+.hero::before {
+    background-image:
+        linear-gradient(rgba(255, 107, 74, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 107, 74, 0.015) 1px, transparent 1px);
+}
+
+[data-theme="dark"] .hero::before {
+    background-image:
+        linear-gradient(rgba(255, 138, 111, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 138, 111, 0.025) 1px, transparent 1px);
+}
+
+/* ============================================
+   Impact Stat Highlight — Coral
+   ============================================ */
+.impact-stat__highlight {
+    background: linear-gradient(135deg,
+        rgba(255, 107, 74, 0.05) 0%,
+        rgba(255, 177, 153, 0.1) 100%);
+}
+
+/* ============================================
+   HERO LEFT SECTION - Balanced Spacing
+   ============================================ */
+@media (min-width: 1024px) {
+    .hero__text {
+        display: flex;
+        flex-direction: column;
+        gap: 1.75rem;
+    }
+
+    .hero__greeting {
+        margin-bottom: 0;
+    }
+
+    .hero__title {
+        margin-bottom: 0;
+    }
+
+    .hero__tagline {
+        margin-bottom: 0;
+    }
+}
+
+/* ============================================
+   HERO - Large Typography
+   ============================================ */
+.hero .hero__name {
+    font-size: clamp(3rem, 8vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+    color: var(--color-text-primary);
+}
+
+.hero .hero__role {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 600;
+    color: var(--munto-coral, var(--color-primary));
+    margin-top: 0.5rem;
+}
+
+/* ============================================
+   HERO RIGHT SECTION - Layout Balance
+   ============================================ */
+.hero__right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .hero__right {
+        align-items: flex-start;
+    }
+
+    .hero__right .terminal {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* ============================================
+   QUICK STATS - Clean Style (Right Side)
+   ============================================ */
+.hero__quick-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    background: var(--color-surface);
+    border-radius: 16px;
+    border: 1px solid var(--color-border-light);
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.quick-stat {
+    text-align: center;
+}
+
+.quick-stat__number {
+    display: inline;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--munto-coral, var(--color-primary));
+    font-family: var(--font-family-mono);
+}
+
+.quick-stat__unit {
+    display: inline;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--munto-coral, var(--color-primary));
+}
+
+.quick-stat__label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+}
+
+@media (max-width: 640px) {
+    .hero__quick-stats {
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .quick-stat__number {
+        font-size: 2rem;
+    }
+}
+
+/* ============================================
+   HERO RIGHT - Hidden on Mobile (Terminal only)
+   Step 7: Show Quick Stats on mobile
+   ============================================ */
+@media (max-width: 768px) {
+    .hero__right {
+        display: none;
+    }
+
+    .hero__quick-stats {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ============================================
+   MOTIVATION SECTION
+   ============================================ */
+.motivation {
+    background: var(--color-surface);
+}
+
+.motivation__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+    align-items: start;
+}
+
+@media (min-width: 768px) {
+    .motivation__content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.motivation__statement {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.motivation__quote {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.8;
+    padding: 1.5rem 1.5rem 1.5rem 2rem;
+    border-left: 5px solid var(--munto-coral, var(--color-primary));
+    font-style: italic;
+    background: rgba(255, 107, 74, 0.04);
+    border-radius: 0 12px 12px 0;
+}
+
+.motivation__text {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+}
+
+.motivation__achievement {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: var(--color-background);
+    border-radius: 20px;
+    border: 1px solid var(--color-border-light);
+    border-top: 3px solid var(--munto-coral, var(--color-primary));
+    transition: box-shadow 0.3s ease;
+}
+
+.motivation__achievement:hover {
+    box-shadow: 0 8px 24px rgba(255, 107, 74, 0.1);
+}
+
+.motivation__text strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+.motivation__metric {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.15rem;
+    margin-bottom: 0.75rem;
+}
+
+.motivation__metric-number {
+    font-size: clamp(4rem, 10vw, 5.5rem);
+    font-weight: 800;
+    color: var(--munto-coral, var(--color-primary));
+    font-family: var(--font-family-mono);
+}
+
+.motivation__metric-unit {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--munto-coral, var(--color-primary));
+}
+
+.motivation__metric-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.motivation__details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: left;
+}
+
+.motivation__detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.motivation__detail-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: var(--munto-coral, var(--color-primary));
+}
+
+.motivation__detail-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ============================================
+   TECH EXPERIENCE SECTION
+   ============================================ */
+.tech-experience__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+    .tech-experience__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.tech-exp-card {
+    background: var(--color-surface);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--color-border-light);
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.tech-exp-card:hover {
+    border-color: var(--munto-coral, var(--color-primary));
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(255, 107, 74, 0.08);
+}
+
+.tech-exp-card__header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.tech-exp-card__number {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--munto-coral, var(--color-primary));
+    font-family: var(--font-family-mono);
+    background: rgba(255, 107, 74, 0.1);
+    padding: 0.25rem 0.65rem;
+    border-radius: 1rem;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.tech-exp-card__tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    background: var(--munto-gradient-subtle, rgba(255, 107, 74, 0.1));
+    color: var(--munto-coral, var(--color-primary));
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.tech-exp-card__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.tech-exp-card__subtitle {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+}
+
+.tech-exp-card__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.tech-exp-card__list li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.tech-exp-card__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--munto-coral, var(--color-primary));
+}
+
+/* Featured card (Card 2) */
+.tech-exp-card--featured {
+    border-color: var(--munto-coral, var(--color-primary));
+    box-shadow: 0 4px 20px rgba(255, 107, 74, 0.08);
+}
+
+.tech-exp-card--featured::before {
+    transform: scaleX(1);
+}
+
+/* Metric badge */
+.tech-exp-card__metric {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.tech-exp-card__metric-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--munto-coral, var(--color-primary));
+    font-family: var(--font-family-mono);
+}
+
+.tech-exp-card__metric-label {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+/* ============================================
+   ASPIRATIONS SECTION
+   ============================================ */
+.aspirations {
+    background: var(--color-surface);
+}
+
+.aspirations__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+    .aspirations__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.aspiration-card {
+    background: var(--color-background);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--color-border-light);
+    transition: border-color 0.2s, transform 0.2s;
+    text-align: center;
+}
+
+.aspiration-card:hover {
+    border-color: var(--munto-coral, var(--color-primary));
+    transform: translateY(-4px);
+}
+
+.aspiration-card__icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: var(--munto-gradient-subtle, rgba(255, 107, 74, 0.1));
+    color: var(--munto-coral, var(--color-primary));
+}
+
+.aspiration-card__icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.aspiration-card__step {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--munto-coral, var(--color-primary));
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+}
+
+.aspiration-card__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.aspiration-card__text {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+}
+
+/* ============================================
+   TECH STACK MATCHING SECTION
+   ============================================ */
+.tech-stack__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+    .tech-stack__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .tech-stack__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.tech-category {
+    background: var(--color-surface);
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border-light);
+}
+
+.tech-category__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--munto-coral, var(--color-primary));
+}
+
+.tech-category__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+}
+
+.tech-item__status {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.tech-item__status--have {
+    background: #22C55E;
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.4);
+}
+
+.tech-item__status--related {
+    background: #FBBF24;
+    box-shadow: 0 0 6px rgba(251, 191, 36, 0.4);
+}
+
+.tech-item__name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    flex: 1;
+}
+
+.tech-item__badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.tech-item__badge--have {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22C55E;
+}
+
+.tech-item__badge--related {
+    background: rgba(251, 191, 36, 0.15);
+    color: #D97706;
+}
+
+/* Tech stack legend */
+.tech-stack__legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.tech-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+.tech-legend-item__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+/* ============================================
+   COLLABORATION DNA SECTION
+   ============================================ */
+.collaboration__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+    .collaboration__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.collab-card {
+    background: var(--color-surface);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--color-border-light);
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.collab-card:hover {
+    border-color: var(--munto-coral, var(--color-primary));
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.collab-card--featured {
+    border: 2px solid var(--munto-coral, var(--color-primary));
+    background: linear-gradient(135deg, var(--color-surface) 0%, rgba(255, 107, 74, 0.06) 100%);
+    transform: scale(1.03);
+    box-shadow: 0 8px 32px rgba(255, 107, 74, 0.12);
+    z-index: 1;
+}
+
+.collab-card__icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: rgba(255, 107, 74, 0.12);
+    color: var(--munto-coral, var(--color-primary));
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.collab-card__icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+.collab-card--featured .collab-card__icon {
+    background: rgba(255, 107, 74, 0.18);
+}
+
+.collab-card:hover .collab-card__icon {
+    transform: scale(1.08);
+}
+
+.collab-card__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.collab-card__text {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+}
+
+.collab-card__metric {
+    padding: 0.75rem 1rem;
+    background: var(--munto-gradient-subtle, rgba(255, 107, 74, 0.08));
+    border-radius: 10px;
+    margin-top: auto;
+}
+
+.collab-card__metric-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: var(--font-family-mono);
+    letter-spacing: 0.02em;
+    color: var(--munto-coral, var(--color-primary));
+}
+
+.collab-card__metric--highlight {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.1rem;
+    padding: 1rem 1.25rem;
+    background: rgba(255, 107, 74, 0.08);
+    border-radius: 12px;
+}
+
+.collab-card__metric-number {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: var(--munto-coral, var(--color-primary));
+    font-family: var(--font-family-mono);
+}
+
+.collab-card__metric-unit {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--munto-coral, var(--color-primary));
+}
+
+/* ============================================
+   BUTTON - Gradient Enhancement (Coral)
+   ============================================ */
+.btn--primary.btn--glow {
+    background: linear-gradient(135deg, #FF6B4A 0%, #FF8A6F 50%, #FFB199 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 107, 74, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn--primary.btn--glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 74, 0.5);
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.btn--outline {
+    background: transparent;
+    border: 2px solid var(--munto-coral, var(--color-primary));
+    color: var(--munto-coral, var(--color-primary));
+    transition: all 0.3s ease;
+}
+
+.btn--outline:hover {
+    background: var(--munto-coral, var(--color-primary));
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   Step 4: Hero Background Glow — Coral
+   ============================================ */
+.hero__bg-glow {
+    background: radial-gradient(ellipse at 70% 50%, var(--munto-coral-glow), transparent 70%);
+}
+
+/* ============================================
+   Step 5: Greeting Brackets — Coral
+   ============================================ */
+.hero__greeting-bracket {
+    color: var(--munto-coral);
+    opacity: 0.7;
+}
+
+/* ============================================
+   Step 6: Terminal Dots — macOS Colors
+   ============================================ */
+.terminal__dot--red {
+    background: #FF5F57;
+}
+
+.terminal__dot--yellow {
+    background: #FEBC2E;
+}
+
+.terminal__dot--green {
+    background: #28C840;
+}
+
+/* ============================================
+   Step 8: Section Title Accent Underline
+   ============================================ */
+.section__title::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    margin-top: 0.75rem;
+    border-radius: 2px;
+    background: var(--munto-gradient);
+}
+
+.section__title {
+    text-align: center;
+}
+
+.section__title::after {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ============================================
+   Step 9: Card Hover Shadow Elevation
+   ============================================ */
+.tech-exp-card:hover,
+.aspiration-card:hover,
+.collab-card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+/* ============================================
+   Step 10: Tech Category Hover Enhancement
+   ============================================ */
+.tech-category {
+    transition: border-color var(--transition-base), background var(--transition-base);
+}
+
+.tech-category:hover {
+    border-color: var(--munto-coral, var(--color-primary));
+    background: linear-gradient(135deg, rgba(255, 107, 74, 0.03) 0%, rgba(255, 177, 153, 0.06) 100%);
+}
+
+/* ============================================
+   Step 11: Availability Pulse Animation
+   ============================================ */
+.contact__availability-dot {
+    animation: availabilityPulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   Step 12: Contact Card Coral Tint
+   ============================================ */
+.contact-card:hover {
+    box-shadow: 0 8px 24px rgba(255, 107, 74, 0.15);
+    border-color: var(--munto-coral);
+    background: linear-gradient(135deg, var(--color-surface) 0%, rgba(255, 107, 74, 0.04) 100%);
+}
+
+.contact-card:hover .contact-card__icon {
+    background: var(--munto-gradient);
+    color: white;
+    box-shadow: 0 8px 24px rgba(255, 107, 74, 0.3);
+}
+
+.contact-card__copy:hover {
+    background-color: var(--munto-coral);
+}
+
+/* ============================================
+   Step 13: Terminal Typing Animation
+   ============================================ */
+.terminal__line {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: terminalLineIn 0.3s ease forwards;
+}
+
+.terminal__line:nth-child(1) { animation-delay: 0.2s; }
+.terminal__line:nth-child(2) { animation-delay: 0.6s; }
+.terminal__line:nth-child(3) { animation-delay: 0.8s; }
+.terminal__line:nth-child(4) { animation-delay: 1.0s; }
+.terminal__line:nth-child(5) { animation-delay: 1.2s; }
+.terminal__line:nth-child(6) { animation-delay: 1.4s; }
+.terminal__line:nth-child(7) { animation-delay: 1.6s; }
+.terminal__line:nth-child(8) { animation-delay: 2.0s; }
+.terminal__line:nth-child(9) { animation-delay: 2.4s; }
+.terminal__line:nth-child(10) { animation-delay: 2.8s; }
+
+@keyframes terminalLineIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   Step 14: Card Stagger Reveal
+   ============================================ */
+.aspirations__grid .aspiration-card.reveal:nth-child(1) { transition-delay: 0ms; }
+.aspirations__grid .aspiration-card.reveal:nth-child(2) { transition-delay: 150ms; }
+.aspirations__grid .aspiration-card.reveal:nth-child(3) { transition-delay: 300ms; }
+
+.collaboration__grid .collab-card.reveal:nth-child(1) { transition-delay: 0ms; }
+.collaboration__grid .collab-card.reveal:nth-child(2) { transition-delay: 150ms; }
+.collaboration__grid .collab-card.reveal:nth-child(3) { transition-delay: 300ms; }
+
+.tech-experience__grid .tech-exp-card.reveal:nth-child(1) { transition-delay: 0ms; }
+.tech-experience__grid .tech-exp-card.reveal:nth-child(2) { transition-delay: 150ms; }
+.tech-experience__grid .tech-exp-card.reveal:nth-child(3) { transition-delay: 300ms; }
+
+/* ============================================
+   Step 15: Card Top Border Reveal on Hover
+   ============================================ */
+.tech-exp-card,
+.aspiration-card,
+.collab-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-exp-card::before,
+.aspiration-card::before,
+.collab-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--munto-gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+}
+
+.tech-exp-card:hover::before,
+.aspiration-card:hover::before,
+.collab-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* ============================================
+   Step 16: Counter Completion Glow
+   ============================================ */
+.counter-animated.counter-done {
+    text-shadow: 0 0 20px rgba(255, 107, 74, 0.4);
+    transition: text-shadow 0.5s ease;
+}
+
+/* ============================================
+   Step 17: Featured Card Differentiation
+   ============================================ */
+.collab-card--featured:hover {
+    transform: scale(1.03) translateY(-6px);
+    box-shadow: 0 16px 40px rgba(255, 107, 74, 0.18);
+}
+
+/* ============================================
+   Step 18: Blockquote Decorative Quote Mark
+   ============================================ */
+.motivation__quote {
+    position: relative;
+}
+
+.motivation__quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem;
+    left: -0.25rem;
+    font-size: 3rem;
+    font-style: normal;
+    color: var(--munto-coral);
+    opacity: 0.3;
+    line-height: 1;
+    font-family: Georgia, serif;
+}
+
+/* ============================================
+   Step 20: Section Background Gradient Transitions
+   ============================================ */
+.motivation {
+    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
+}
+
+.aspirations {
+    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
+}
+
+/* ============================================
+   Step 19: Footer Navigation Links
+   ============================================ */
+.footer__nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.footer__nav-link {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.footer__nav-link:hover {
+    color: var(--munto-coral);
+}
+
+/* ============================================
+   COUNTER ANIMATION CLASSES
+   ============================================ */
+.counter-animated {
+    animation: countPop 0.1s ease;
+}
+
+@keyframes countPop {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
