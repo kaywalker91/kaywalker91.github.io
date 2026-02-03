@@ -12,13 +12,11 @@
   transform: translateY(0);
 }
 
-/* Stagger children animation */
+/* Stagger children animation - reduced to 3 for faster info delivery */
 .reveal:nth-child(1) { transition-delay: 0ms; }
 .reveal:nth-child(2) { transition-delay: 100ms; }
 .reveal:nth-child(3) { transition-delay: 200ms; }
-.reveal:nth-child(4) { transition-delay: 300ms; }
-.reveal:nth-child(5) { transition-delay: 400ms; }
-.reveal:nth-child(6) { transition-delay: 500ms; }
+.reveal:nth-child(n+4) { transition-delay: 200ms; }
 
 /* Hero animations */
 .hero .reveal:nth-child(1) { transition-delay: 0ms; }
@@ -108,7 +106,7 @@
 }
 
 .skill-card:hover .skill-card__icon {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 /* Language toggle animation */
@@ -320,7 +318,7 @@
 }
 
 .competency-badge:hover .competency-badge__icon {
-  transform: scale(1.15) rotate(5deg);
+  transform: scale(1.05);
   color: var(--color-accent);
 }
 

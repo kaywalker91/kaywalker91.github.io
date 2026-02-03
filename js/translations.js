@@ -15,7 +15,7 @@ const translations = {
     'hero.name': '김대각',
     'hero.role': '4년차 Flutter 모바일 앱 개발자',
     'hero.tagline': '"안정성과 완성도를 중시하는 개발자"',
-    'hero.description': 'Flutter 기반 크로스플랫폼 앱 개발 3년 4개월 경험<br>Clean Architecture & Riverpod | Blockchain dApp & AI 개발',
+    'hero.description': '모바일 앱 개발 3년 4개월 경험(Flutter/Android/iOS)<br>Clean Architecture & Riverpod | Blockchain dApp & AI 개발',
     'hero.competency.crossPlatform': 'AI 생산성',
     'hero.competency.quality': '멀티플랫폼',
     'hero.competency.ai': 'Full-Cycle',
