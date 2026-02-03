@@ -396,6 +396,48 @@ const projectData = {
     achievements: ['100% Flutter 마이그레이션', '50% 유지보수 비용 절감', '공공기관 접근성 인증 수준'],
     tech: ['Flutter', 'FCM', 'Google Translate API V3', 'Hive', 'Platform Channel'],
     links: {}
+  },
+  dwinsta: {
+    title: 'Android DW Insta',
+    features: [
+      'Instagram 클론 앱 전체 기능 구현',
+      'Firebase Realtime DB 기반 실시간 동기화',
+      'Glide 라이브러리 이미지 캐싱 최적화',
+      'FCM 기반 실시간 푸시 알림'
+    ],
+    challenge: '복잡한 SNS 기능(피드, 팔로우, 좋아요, 댓글)을 처음부터 구현',
+    solution: 'Firebase 실시간 데이터베이스와 Cloud Functions로 서버리스 아키텍처 구축',
+    achievements: [
+      '4개월 교육 과정 프로젝트 완료',
+      'Android 네이티브 개발 기초 습득',
+      'Firebase 생태계 전반 학습'
+    ],
+    tech: ['Java', 'Android', 'Firebase', 'Glide', 'FCM'],
+    links: {
+      github: 'https://github.com/kaywalker91/Android_DW_Insta',
+      demo: 'https://kaywalker91.github.io/Android_DW_Insta/'
+    }
+  },
+  timewalker: {
+    title: 'TimeWalker',
+    features: [
+      'Flame 엔진 기반 인터랙티브 월드맵',
+      '역사 인물과의 분기형 대화 시스템',
+      '백과사전 & 퀴즈 기반 학습 시스템',
+      'Supabase 클라우드 동기화'
+    ],
+    challenge: 'Flame 게임 엔진과 Flutter UI의 자연스러운 통합',
+    solution: 'Game-UI Bridge 패턴으로 게임 상태와 Flutter 상태 동기화',
+    achievements: [
+      'Flame 엔진 학습 및 적용',
+      '게임 개발 파이프라인 경험',
+      '교육용 게이미피케이션 설계'
+    ],
+    tech: ['Flutter', 'Flame', 'Riverpod', 'Supabase', 'Hive'],
+    links: {
+      github: 'https://github.com/kaywalker91/TimeWalker',
+      demo: 'https://kaywalker91.github.io/TimeWalker/'
+    }
   }
 };
 

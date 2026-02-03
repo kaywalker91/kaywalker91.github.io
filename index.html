@@ -123,7 +123,18 @@
     class="header fixed top-0 left-0 right-0 h-[70px] bg-[rgba(250,250,250,0.85)] backdrop-blur-md border-b border-gray-200 z-50 transition-all duration-300 [&.header--hidden]:-translate-y-full dark:bg-[rgba(13,17,23,0.85)] dark:border-white/10"
     id="header">
     <nav class="container mx-auto px-4 h-full flex items-center justify-between">
-      <a href="#hero" class="text-xl font-bold text-blue-600 dark:text-blue-400">DK</a>
+      <!-- Logo + Availability Badge -->
+      <div class="flex items-center gap-3">
+        <a href="#hero" class="text-xl font-bold text-blue-600 dark:text-blue-400">DK</a>
+        <!-- Availability Badge (Header) -->
+        <div class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-green-500/10 rounded-full border border-green-500/20">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
+          <span class="text-xs font-semibold text-green-600 dark:text-green-400" data-i18n="header.available">채용 가능</span>
+        </div>
+      </div>
 
       <button class="md:hidden z-50 relative w-11 h-11 flex flex-col gap-1.5 justify-center items-center group p-2"
         id="nav-toggle" aria-label="Toggle navigation">
@@ -135,65 +146,47 @@
       </button>
 
       <ul
-        class="fixed inset-0 bg-surface z-40 flex flex-col items-center justify-center gap-8 transition-all duration-300 translate-x-full opacity-0 invisible [&.active]:translate-x-0 [&.active]:opacity-100 [&.active]:visible md:static md:w-auto md:h-auto md:bg-transparent md:flex-row md:translate-x-0 md:opacity-100 md:visible md:gap-8"
+        class="fixed inset-0 bg-surface z-40 flex flex-col items-center justify-center gap-8 transition-all duration-300 translate-x-full opacity-0 invisible [&.active]:translate-x-0 [&.active]:opacity-100 [&.active]:visible md:static md:w-auto md:h-auto md:bg-transparent md:flex-row md:translate-x-0 md:opacity-100 md:visible md:gap-6"
         id="nav-menu">
         <li
           class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-100">
-          <a href="#impact"
-            class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
-            data-i18n="nav.impact">성과</a>
-        </li>
-        <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-[150ms]">
           <a href="#skills"
             class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
             data-i18n="nav.skills">기술</a>
         </li>
         <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-200">
+          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-[150ms]">
           <a href="#experience"
             class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
             data-i18n="nav.experience">경력</a>
         </li>
         <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-[250ms]">
+          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-200">
           <a href="#projects"
             class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
             data-i18n="nav.projects">프로젝트</a>
         </li>
         <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-300">
-          <a href="#education"
-            class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
-            data-i18n="nav.education">학력</a>
-        </li>
-        <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-[350ms]">
+          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-[250ms]">
           <a href="#contact"
             class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
             data-i18n="nav.contact">연락처</a>
         </li>
         <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-400">
-          <a href="#etc"
-            class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
-            data-i18n="nav.etc">기타</a>
-        </li>
-        <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-[450ms]">
+          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-300">
           <button
-            class="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/50 transition-all text-text-primary"
+            class="w-9 h-9 rounded-full flex items-center justify-center border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/50 transition-all text-text-primary"
             id="lang-toggle" aria-label="Toggle language">
             <span class="text-xs font-medium text-gray-600 dark:text-gray-300">EN</span>
           </button>
         </li>
         <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-500">
+          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-[350ms]">
           <button
-            class="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/50 transition-all text-text-primary relative group"
+            class="w-9 h-9 rounded-full flex items-center justify-center border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/50 transition-all text-text-primary relative group"
             id="theme-toggle" aria-label="Toggle dark mode">
             <svg
-              class="w-5 h-5 absolute transition-all duration-300 opacity-0 scale-50 rotate-90 [:root[data-theme=dark]_&]:opacity-100 [:root[data-theme=dark]_&]:scale-100 [:root[data-theme=dark]_&]:rotate-0 text-yellow-400"
+              class="w-4 h-4 absolute transition-all duration-300 opacity-0 scale-50 rotate-90 [:root[data-theme=dark]_&]:opacity-100 [:root[data-theme=dark]_&]:scale-100 [:root[data-theme=dark]_&]:rotate-0 text-yellow-400"
               viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round">
               <circle cx="12" cy="12" r="5" />
@@ -201,12 +194,17 @@
                 d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
             </svg>
             <svg
-              class="w-5 h-5 absolute transition-all duration-300 opacity-100 scale-100 rotate-0 [:root[data-theme=dark]_&]:opacity-0 [:root[data-theme=dark]_&]:scale-50 [:root[data-theme=dark]_&]:rotate-90 text-text-secondary"
+              class="w-4 h-4 absolute transition-all duration-300 opacity-100 scale-100 rotate-0 [:root[data-theme=dark]_&]:opacity-0 [:root[data-theme=dark]_&]:scale-50 [:root[data-theme=dark]_&]:rotate-90 text-text-secondary"
               viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
             </svg>
           </button>
+        </li>
+        <li class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-400">
+          <a href="#contact"
+            class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-blue-600 dark:bg-blue-500 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors"
+            data-i18n="nav.cta">채용 문의</a>
         </li>
       </ul>
     </nav>
@@ -224,9 +222,9 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           <!-- Left: Text Content -->
-          <div class="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
+          <div class="flex flex-col items-center lg:items-start text-center lg:text-left space-y-5">
 
-            <p class="text-xl md:text-2xl font-mono text-text-secondary reveal">
+            <p class="text-lg md:text-xl font-mono text-text-secondary reveal">
               <span class="text-tertiary">&lt;</span>
               <span class="text-text-primary" data-i18n="hero.greeting">안녕하세요</span>
               <span class="text-tertiary">/&gt;</span>
@@ -242,187 +240,77 @@
               </span>
             </h1>
 
-            <p class="text-base md:text-lg text-text-secondary leading-relaxed max-w-2xl reveal"
-              data-i18n="hero.description">
-              Flutter 기반 크로스플랫폼 앱 개발 | Clean Architecture & Web3
+            <!-- Core Value Proposition -->
+            <p class="text-lg md:text-xl text-text-secondary leading-relaxed max-w-xl reveal"
+              data-i18n="hero.tagline">
+              "안정성과 완성도를 중시하는 크로스플랫폼 개발자"
             </p>
 
-            <!-- Competency Badges (Desktop) -->
-            <div class="hidden lg:grid grid-cols-4 gap-3 w-full max-w-lg reveal">
-              <div
-                class="competency-badge flex flex-col items-center gap-2 p-3 bg-surface border border-border-light rounded-lg hover:border-primary hover:shadow-lg transition-all cursor-default">
-                <div class="competency-badge__icon text-primary">
-                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                  </svg>
-                </div>
-                <span class="text-xs font-medium text-text-secondary text-center" data-i18n="hero.competency.ai">AI
-                  생산성</span>
-              </div>
-              <div
-                class="competency-badge flex flex-col items-center gap-2 p-3 bg-surface border border-border-light rounded-lg hover:border-primary hover:shadow-lg transition-all cursor-default">
-                <div class="competency-badge__icon text-primary">
-                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="5" y="2" width="14" height="20" rx="2" />
-                    <path d="M12 18h.01" />
-                  </svg>
-                </div>
-                <span class="text-xs font-medium text-text-secondary text-center"
-                  data-i18n="hero.competency.multiplatform">멀티플랫폼</span>
-              </div>
-              <div
-                class="competency-badge flex flex-col items-center gap-2 p-3 bg-surface border border-border-light rounded-lg hover:border-primary hover:shadow-lg transition-all cursor-default">
-                <div class="competency-badge__icon text-primary">
-                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 6v6l4 2" />
-                  </svg>
-                </div>
-                <span class="text-xs font-medium text-text-secondary text-center"
-                  data-i18n="hero.competency.fullcycle">Full-Cycle</span>
-              </div>
-              <div
-                class="competency-badge flex flex-col items-center gap-2 p-3 bg-surface border border-border-light rounded-lg hover:border-primary hover:shadow-lg transition-all cursor-default">
-                <div class="competency-badge__icon text-primary">
-                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                    <path d="M2 17l10 5 10-5" />
-                    <path d="M2 12l10 5 10-5" />
-                  </svg>
-                </div>
-                <span class="text-xs font-medium text-text-secondary text-center"
-                  data-i18n="hero.competency.web3">Web3</span>
-              </div>
-            </div>
+            <p class="text-base text-text-muted leading-relaxed max-w-lg reveal"
+              data-i18n="hero.description">
+              Clean Architecture & Web3 | Flutter 기반 멀티체인 지갑 앱 개발 경험
+            </p>
 
-            <!-- Availability Badge -->
-            <div
-              class="flex items-center gap-2 px-4 py-2 bg-green-500/10 rounded-full border border-green-500/20 reveal">
-              <span class="relative flex h-3 w-3">
-                <span
-                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-              </span>
-              <span class="text-sm font-semibold text-green-600 dark:text-green-400" data-i18n="hero.availability">현재
-                <strong class="text-green-700 dark:text-green-300">채용 가능</strong> 상태입니다</span>
-            </div>
-
-            <!-- CTA Buttons -->
-            <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-4 reveal">
+            <!-- CTA Buttons - Enhanced -->
+            <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-6 reveal">
               <a href="#contact"
-                class="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white transition-all bg-blue-600 dark:bg-blue-500 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/30 active:scale-95"
+                class="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white transition-all bg-blue-600 dark:bg-blue-500 rounded-xl hover:bg-blue-700 dark:hover:bg-blue-600 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 active:scale-95"
                 data-i18n="hero.cta.contact">
                 연락하기
               </a>
               <a href="#projects"
-                class="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-text-primary transition-all bg-transparent border border-border rounded-lg hover:bg-surface hover:border-text-muted active:scale-95"
+                class="inline-flex items-center justify-center px-10 py-4 text-lg font-semibold text-text-primary transition-all bg-transparent border-2 border-border rounded-xl hover:bg-surface hover:border-primary active:scale-95"
                 data-i18n="hero.cta.projects">
                 프로젝트 보기
               </a>
             </div>
 
-            <!-- Mobile Terminal (shown on tablet/mobile) -->
-            <div class="hero__mobile-terminal lg:hidden reveal" aria-hidden="true">
-              <div class="terminal__line">
-                <span class="terminal__prompt">$</span>
-                <span class="terminal__command">whoami</span>
-              </div>
-              <span class="terminal__output" data-i18n="hero.terminal.whoami">4년차 Flutter 앱 개발자 | Web3 & AI</span>
-            </div>
-
           </div>
 
-          <!-- Right: Terminal (Desktop Only) -->
-          <div class="hero__terminal hidden lg:block reveal" aria-hidden="true">
-            <div class="terminal">
-              <div class="terminal__header">
+          <!-- Right: Terminal (Desktop Only) - Compact -->
+          <div class="hero__terminal hidden lg:block reveal max-w-md" aria-hidden="true">
+            <div class="terminal text-sm">
+              <div class="terminal__header py-2 px-3">
                 <div class="terminal__dots">
                   <span class="terminal__dot terminal__dot--red"></span>
                   <span class="terminal__dot terminal__dot--yellow"></span>
                   <span class="terminal__dot terminal__dot--green"></span>
                 </div>
-                <span class="terminal__title">developer@portfolio ~</span>
+                <span class="terminal__title text-xs">developer@portfolio ~</span>
               </div>
-              <div class="terminal__body">
+              <div class="terminal__body p-4">
                 <div class="terminal__line">
                   <span class="terminal__prompt">$</span>
                   <span class="terminal__command">whoami</span>
                 </div>
                 <div class="terminal__line terminal__line--output">
-                  <span class="terminal__output" data-i18n="hero.terminal.whoami">4년차 Flutter 앱 개발자 | Web3 & AI</span>
+                  <span class="terminal__output text-xs" data-i18n="hero.terminal.whoami">4년차 Flutter 앱 개발자</span>
                 </div>
 
-                <div class="terminal__line mt-4">
+                <div class="terminal__line mt-3">
                   <span class="terminal__prompt">$</span>
                   <span class="terminal__command">cat skills.json</span>
                 </div>
                 <div class="terminal__line terminal__line--output">
-                  <pre class="terminal__json">{
-  <span class="terminal__json-key">"mobile"</span>: [<span class="terminal__json-string">"Flutter"</span>, <span class="terminal__json-string">"Dart"</span>, <span class="terminal__json-string">"Android"</span>, <span class="terminal__json-string">"iOS"</span>],
-  <span class="terminal__json-key">"blockchain"</span>: [<span class="terminal__json-string">"EVM"</span>, <span class="terminal__json-string">"Solana"</span>, <span class="terminal__json-string">"Web3"</span>],
-  <span class="terminal__json-key">"architecture"</span>: <span class="terminal__json-string">"Clean Architecture"</span>,
-  <span class="terminal__json-key">"tools"</span>: [<span class="terminal__json-string">"AI/Copilot"</span>, <span class="terminal__json-string">"CI/CD"</span>]
+                  <pre class="terminal__json text-xs">{
+  <span class="terminal__json-key">"mobile"</span>: [<span class="terminal__json-string">"Flutter"</span>, <span class="terminal__json-string">"Dart"</span>],
+  <span class="terminal__json-key">"web3"</span>: [<span class="terminal__json-string">"EVM"</span>, <span class="terminal__json-string">"Solana"</span>],
+  <span class="terminal__json-key">"arch"</span>: <span class="terminal__json-string">"Clean Architecture"</span>
 }</pre>
                 </div>
 
-                <div class="terminal__line mt-4">
+                <div class="terminal__line mt-3">
                   <span class="terminal__prompt">$</span>
                   <span class="terminal__command">echo $STATUS</span>
                 </div>
                 <div class="terminal__line terminal__line--output">
-                  <span class="terminal__output text-green-500">✓ Available for hire</span>
+                  <span class="terminal__output text-xs text-green-500">✓ Available for hire</span>
                   <span class="terminal__cursor"></span>
                 </div>
               </div>
             </div>
           </div>
 
-        </div>
-
-        <!-- 3-Bullet Impact Statement (Below 2-column layout) -->
-        <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-5xl mx-auto reveal">
-          <div
-            class="flex items-center gap-4 bg-surface/50 backdrop-blur-sm p-4 rounded-xl border border-white/10 shadow-sm hover:shadow-md transition-shadow">
-            <div class="p-2.5 bg-primary/10 rounded-lg text-primary">
-              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="5" y="2" width="14" height="20" rx="2" />
-                <path d="M12 18h.01" />
-              </svg>
-            </div>
-            <span class="text-sm md:text-base text-text-secondary font-medium" data-i18n="hero.impact.wallet">
-              멀티체인 지갑 앱 <strong class="text-text-primary">개발</strong> (EVM + Solana)
-            </span>
-          </div>
-          <div
-            class="flex items-center gap-4 bg-surface/50 backdrop-blur-sm p-4 rounded-xl border border-white/10 shadow-sm hover:shadow-md transition-shadow">
-            <div class="p-2.5 bg-accent/10 rounded-lg text-accent">
-              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-                <polyline points="7.5 4.21 12 6.81 16.5 4.21" />
-                <polyline points="7.5 19.79 7.5 14.6 3 12" />
-                <polyline points="21 12 16.5 14.6 16.5 19.79" />
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-                <line x1="12" y1="22.08" x2="12" y2="12" />
-              </svg>
-            </div>
-            <span class="text-sm md:text-base text-text-secondary font-medium" data-i18n="hero.impact.migration">
-              Legacy→Flutter 전환으로 <strong class="text-text-primary">유지보수 50% 절감</strong>
-            </span>
-          </div>
-          <div
-            class="flex items-center gap-4 bg-surface/50 backdrop-blur-sm p-4 rounded-xl border border-white/10 shadow-sm hover:shadow-md transition-shadow">
-            <div class="p-2.5 bg-secondary/10 rounded-lg text-secondary">
-              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="12" y1="20" x2="12" y2="10" />
-                <line x1="18" y1="20" x2="18" y2="4" />
-                <line x1="6" y1="20" x2="6" y2="16" />
-              </svg>
-            </div>
-            <span class="text-sm md:text-base text-text-secondary font-medium" data-i18n="hero.impact.growth">
-              이벤트 개발로 <strong class="text-text-primary">다운로드 400% 증가</strong>
-            </span>
-          </div>
         </div>
 
       </div>
@@ -563,61 +451,6 @@
               효율화</span>
           </div>
 
-          <!-- Chains Supported -->
-          <div
-            class="relative group flex flex-col items-center text-center p-5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-primary before:absolute before:top-0 before:left-0 before:w-full before:h-[3px] before:bg-gradient-to-r before:from-primary before:to-accent before:scale-x-0 before:origin-left before:transition-transform before:duration-500 hover:before:scale-x-100">
-            <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="80">
-              <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
-                <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
-                <circle class="impact-stat__chart-fill fill-none stroke-[4] transition-all duration-[1500ms] ease-out"
-                  cx="30" cy="30" r="25"
-                  style="stroke: url(#chartGradient); stroke-dasharray: 157; stroke-dashoffset: 157; stroke-linecap: round;" />
-              </svg>
-              <div class="impact-stat__chart-icon absolute inset-0 flex items-center justify-center text-primary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-                  <path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101" />
-                  <path d="M10.172 13.828a4 4 0 015.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-                </svg>
-              </div>
-            </div>
-            <div class="impact-stat__number-wrap flex items-baseline justify-center">
-              <span class="impact-stat__number text-3xl font-bold font-mono text-primary leading-none"
-                data-count="10">0</span>
-              <span class="impact-stat__suffix text-xl font-bold text-primary ml-0.5">+</span>
-            </div>
-            <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2" data-i18n="impact.chains">지원
-              체인</span>
-            <span class="impact-stat__context text-xs text-text-muted mt-1" data-i18n="impact.chainsContext">EVM +
-              Solana</span>
-          </div>
-
-          <!-- Languages -->
-          <div
-            class="relative group flex flex-col items-center text-center p-5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-primary before:absolute before:top-0 before:left-0 before:w-full before:h-[3px] before:bg-gradient-to-r before:from-primary before:to-accent before:scale-x-0 before:origin-left before:transition-transform before:duration-500 hover:before:scale-x-100">
-            <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="70">
-              <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
-                <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
-                <circle class="impact-stat__chart-fill fill-none stroke-[4] transition-all duration-[1500ms] ease-out"
-                  cx="30" cy="30" r="25"
-                  style="stroke: url(#chartGradient); stroke-dasharray: 157; stroke-dashoffset: 157; stroke-linecap: round;" />
-              </svg>
-              <div class="impact-stat__chart-icon absolute inset-0 flex items-center justify-center text-primary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-                  <circle cx="12" cy="12" r="10" />
-                  <path
-                    d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
-                </svg>
-              </div>
-            </div>
-            <div class="impact-stat__number-wrap flex items-baseline justify-center">
-              <span class="impact-stat__number text-3xl font-bold font-mono text-primary leading-none"
-                data-count="19">0</span>
-            </div>
-            <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2"
-              data-i18n="impact.languages">지원 언어</span>
-            <span class="impact-stat__context text-xs text-text-muted mt-1" data-i18n="impact.languagesContext">다국어
-              번역</span>
-          </div>
         </div>
       </div>
     </section>
@@ -1054,7 +887,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="projects section" id="projects">
+    <section class="projects section section--dense" id="projects">
       <div class="container">
         <h2 class="section__title reveal" data-i18n="projects.title">프로젝트</h2>
         <p class="section__subtitle reveal" data-i18n="projects.subtitle">주요 개발 프로젝트</p>
@@ -1195,7 +1028,7 @@
           </article>
 
           <!-- Android DW Insta -->
-          <article class="project-card project-card--dwinsta reveal" data-category="learning">
+          <article class="project-card project-card--dwinsta reveal" data-category="learning" data-project="dwinsta">
             <div class="project-card__header">
               <h3 class="project-card__title">Android DW Insta</h3>
               <div class="project-card__badges">
@@ -1234,7 +1067,7 @@
           </article>
 
           <!-- TimeWalker -->
-          <article class="project-card project-card--timewalker reveal" data-category="learning">
+          <article class="project-card project-card--timewalker reveal" data-category="learning" data-project="timewalker">
             <div class="project-card__header">
               <h3 class="project-card__title">TimeWalker</h3>
               <div class="project-card__badges">

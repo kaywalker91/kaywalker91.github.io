@@ -112,8 +112,8 @@
   max-width: var(--container-max);
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--space-4);
-  padding-right: var(--space-4);
+  padding-left: var(--space-5);
+  padding-right: var(--space-5);
 }
 
 @media (min-width: 768px) {
@@ -136,11 +136,24 @@
   }
 }
 
+/* Dense sections (projects) get extra breathing room */
+.section--dense {
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
+}
+
+@media (min-width: 768px) {
+  .section--dense {
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+  }
+}
+
 .section__title {
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
   text-align: center;
-  margin-bottom: var(--space-1-5);
+  margin-bottom: var(--space-2);
 }
 
 @media (min-width: 768px) {
@@ -149,11 +162,23 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .section__title {
+    font-size: var(--font-size-5xl);
+  }
+}
+
 .section__subtitle {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
   color: var(--color-text-secondary);
   text-align: center;
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-12);
+}
+
+@media (min-width: 768px) {
+  .section__subtitle {
+    font-size: var(--font-size-lg);
+  }
 }
 
 /* Header */
@@ -547,7 +572,14 @@
 
 @media (min-width: 1024px) {
   .projects__grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Featured 프로젝트 - 2열 확장 */
+@media (min-width: 768px) {
+  .project-card--featured {
+    grid-column: span 2;
   }
 }
 

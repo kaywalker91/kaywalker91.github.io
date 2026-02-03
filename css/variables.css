@@ -12,8 +12,8 @@
   --color-surface-elevated: #FFFFFF;
 
   --color-text-primary: #1A1A2E;
-  --color-text-secondary: #4A5568;
-  --color-text-muted: #718096;
+  --color-text-secondary: #374151;
+  --color-text-muted: #6B7280;
 
   --color-border: #E2E8F0;
   --color-border-light: #EDF2F7;
@@ -44,8 +44,8 @@
   --font-weight-bold: 700;
 
   --line-height-tight: 1.25;
-  --line-height-normal: 1.6;
-  --line-height-relaxed: 1.75;
+  --line-height-normal: 1.7;
+  --line-height-relaxed: 1.8;
 
   /* Spacing (8px base) */
   --space-1: 0.25rem;   /* 4px */
