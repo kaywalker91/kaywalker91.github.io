@@ -35,10 +35,9 @@
 }
 
 /* Card hover animations */
-.project-showcase-card,
-.strength-card,
-.stat-card,
-.tech-category,
+.skill-card,
+.project-card,
+.education-card,
 .contact-card {
   will-change: auto;
 }
@@ -84,9 +83,9 @@
   width: 100%;
 }
 
-/* Career timeline marker pulse for current job */
-.career-timeline__marker--current {
-  animation: pulse 2s ease-in-out infinite;
+/* Timeline marker - static (no pulse) */
+.timeline__marker {
+  animation: none;
 }
 
 @keyframes pulse {
@@ -101,29 +100,13 @@
   }
 }
 
-[data-theme="dark"] .career-timeline__marker--current {
-  animation: pulse-dark 2s ease-in-out infinite;
-}
-
-@keyframes pulse-dark {
-  0% {
-    box-shadow: 0 0 0 0 rgba(0, 217, 255, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(0, 217, 255, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(0, 217, 255, 0);
-  }
-}
-
-/* Strength card icon animation */
-.strength-card__icon {
+/* Skill card icon animation */
+.skill-card__icon {
   transition: transform var(--transition-base);
 }
 
-.strength-card:hover .strength-card__icon {
-  transform: scale(1.08);
+.skill-card:hover .skill-card__icon {
+  transform: scale(1.05);
 }
 
 /* Language toggle animation */
@@ -207,6 +190,15 @@
   }
 }
 
+/* Scale animation for badges */
+.project-card__badge {
+  transition: transform var(--transition-fast);
+}
+
+.project-card:hover .project-card__badge {
+  transform: scale(1.05);
+}
+
 /* Typing cursor animation */
 .typing-cursor {
   animation: blink 1s step-end infinite;
@@ -226,6 +218,50 @@
               color 0.2s ease,
               border-color 0.3s ease,
               box-shadow 0.3s ease;
+}
+
+/* Skill card enhanced hover */
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.skill-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card:hover::before {
+  transform: scaleX(1);
+}
+
+.skill-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Timeline marker dark mode - static (no pulse) */
+[data-theme="dark"] .timeline__marker {
+  animation: none;
+}
+
+@keyframes pulse-dark {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 217, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 217, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 217, 255, 0);
+  }
 }
 
 /* ================================
@@ -275,6 +311,38 @@
 }
 
 /* ================================
+   Competency Badge Hover Animation
+   ================================ */
+.competency-badge__icon {
+  transition: transform var(--transition-base), color var(--transition-base);
+}
+
+.competency-badge:hover .competency-badge__icon {
+  transform: scale(1.05);
+  color: var(--color-accent);
+}
+
+.competency-badge:hover .competency-badge__text {
+  color: var(--color-primary);
+}
+
+/* Badge glow effect on hover */
+.competency-badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-primary);
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity var(--transition-base);
+  z-index: -1;
+}
+
+.competency-badge:hover::before {
+  opacity: 0.08;
+}
+
+/* ================================
    Contact Availability Ripple Animation
    ================================ */
 .contact__availability-dot::before {
@@ -305,25 +373,46 @@
 }
 
 /* ================================
-   Project Showcase Card Hover
+   Featured Project Glow Animation
    ================================ */
-.project-showcase-card__thumbnail {
-  transition: transform 0.4s ease;
+.project-card--featured::before {
+  animation: none;
+  opacity: 1;
 }
 
-.project-showcase-card:hover .project-showcase-card__thumbnail {
-  transform: scale(1.03);
+@keyframes featuredGlow {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
-/* Challenge block sequential reveal */
-.challenge-block__problem,
-.challenge-block__solution {
-  transition: opacity 0.4s ease, transform 0.4s ease;
+/* Featured badge shimmer */
+.project-card--featured .project-card__badges::before {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 50%,
+    var(--color-primary) 100%
+  );
+  background-size: 200% 100%;
+  animation: badgeShimmer 2s ease infinite;
 }
 
-/* Tech pill hover */
-.tech-pill {
-  transition: border-color var(--transition-fast),
-              color var(--transition-fast),
-              background-color var(--transition-fast);
+@keyframes badgeShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ================================
+   Skill Progress Bar Glow
+   ================================ */
+.skill-progress__fill.animate {
+  box-shadow: 0 0 8px rgba(0, 217, 255, 0.4);
+}
+
+[data-theme="dark"] .skill-progress__fill.animate {
+  box-shadow: 0 0 12px rgba(0, 217, 255, 0.6);
 }

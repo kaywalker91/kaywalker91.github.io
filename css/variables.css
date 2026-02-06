@@ -65,18 +65,7 @@
 
   /* Layout */
   --container-max: 1080px;
-  --container-wide: 1200px;
   --header-height: 64px;
-
-  /* Project Gradients */
-  --gradient-mindlog: linear-gradient(135deg, #6366f1, #ec4899);
-  --gradient-cryptowallet: linear-gradient(135deg, #0ea5e9, #8b5cf6);
-  --gradient-dwinsta: linear-gradient(135deg, #f97316, #ec4899);
-  --gradient-timewalker: linear-gradient(135deg, #10b981, #3b82f6);
-
-  /* Challenge Block */
-  --color-challenge-problem: var(--color-warning);
-  --color-challenge-solution: var(--color-success);
 
   /* Border Radius */
   --radius-sm: 4px;
