@@ -241,70 +241,12 @@ function filterProjectCards(filter, cards, reduceMotion) {
   });
 }
 
-// Impact counters animation
+// Impact counters animation (delegates to shared CounterAnimation utility)
 function setupImpactCounters() {
-  const counters = document.querySelectorAll('.impact-stat__number[data-count]');
-
-  if (counters.length === 0) return;
-
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (prefersReducedMotion) {
-    counters.forEach(counter => {
-      counter.textContent = formatNumber(parseInt(counter.dataset.count, 10));
-    });
-    return;
-  }
-
-  const counterOptions = {
-    root: null,
-    rootMargin: '0px',
+  CounterAnimation.observe('.impact-stat__number[data-count]', {
+    easing: 'easeOutQuart',
     threshold: 0.5
-  };
-
-  const animateCounter = (counter) => {
-    const target = parseInt(counter.dataset.count, 10);
-    const duration = 2000;
-    const startTime = performance.now();
-
-    const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
-
-    const updateCounter = (currentTime) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const easedProgress = easeOutQuart(progress);
-      const current = Math.floor(target * easedProgress);
-
-      counter.textContent = formatNumber(current);
-
-      if (progress < 1) {
-        requestAnimationFrame(updateCounter);
-      } else {
-        counter.textContent = formatNumber(target);
-      }
-    };
-
-    requestAnimationFrame(updateCounter);
-  };
-
-  const counterCallback = (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  };
-
-  const counterObserver = new IntersectionObserver(counterCallback, counterOptions);
-  counters.forEach(counter => counterObserver.observe(counter));
-}
-
-function formatNumber(num) {
-  if (num >= 1000) {
-    return num.toLocaleString();
-  }
-  return num.toString();
+  });
 }
 
 // Timeline expansion (Experience Accordion)

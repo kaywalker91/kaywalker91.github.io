@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# AI/IDE workspace
+.claude/
+.gemini/
+.playwright-mcp/
+
+# Local config
+*.local.md
+.env
+
+# Local-only assets (not referenced in HTML)
+assets/profile.png
+assets/hire.pdf
