@@ -10,8 +10,8 @@
   <meta name="author" content="김대각">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="김대각 - 4년차 Flutter 모바일 앱 개발자">
-  <meta property="og:description" content="Flutter 4년차 | 5만+ LOC 멀티체인 지갑 앱 개발 | WalletConnect v2 기반 8종 지갑 연동 구현">
+  <meta property="og:title" content="김대각 - Flutter 모바일 앱 개발자">
+  <meta property="og:description" content="안정성으로 사용자를 지키고, 아키텍처로 서비스를 키웁니다">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kaywalker91.github.io">
   <meta property="og:locale" content="ko_KR">
@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/animations.css">
 
-  <title>김대각 - 4년차 Flutter 모바일 앱 개발자</title>
+  <title>김대각 - Flutter 모바일 앱 개발자</title>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
@@ -44,7 +44,7 @@
     "@type": "Person",
     "name": "김대각",
     "alternateName": "Daegak Kim",
-    "jobTitle": "4년차 Flutter 모바일 앱 개발자",
+    "jobTitle": "Flutter 모바일 앱 개발자",
     "url": "https://kaywalker91.github.io",
     "sameAs": [
       "https://github.com/kaywalker91",
@@ -148,40 +148,34 @@
       <ul
         class="fixed inset-0 bg-surface z-40 flex flex-col items-center justify-center gap-8 transition-all duration-300 translate-x-full opacity-0 invisible [&.active]:translate-x-0 [&.active]:opacity-100 [&.active]:visible md:static md:w-auto md:h-auto md:bg-transparent md:flex-row md:translate-x-0 md:opacity-100 md:visible md:gap-6"
         id="nav-menu">
-        <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-100">
-          <a href="#skills"
+        <li class="nav__item md:opacity-100 md:translate-x-0 md:transition-none delay-100">
+          <a href="#about"
             class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
-            data-i18n="nav.skills">기술</a>
+            data-i18n="nav.about">소개</a>
         </li>
-        <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-[150ms]">
-          <a href="#experience"
-            class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
-            data-i18n="nav.experience">경력</a>
-        </li>
-        <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-200">
+        <li class="nav__item md:opacity-100 md:translate-x-0 md:transition-none delay-[150ms]">
           <a href="#projects"
             class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
             data-i18n="nav.projects">프로젝트</a>
         </li>
-        <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-[250ms]">
+        <li class="nav__item md:opacity-100 md:translate-x-0 md:transition-none delay-200">
+          <a href="#tech"
+            class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
+            data-i18n="nav.tech">기술</a>
+        </li>
+        <li class="nav__item md:opacity-100 md:translate-x-0 md:transition-none delay-[250ms]">
           <a href="#contact"
             class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
             data-i18n="nav.contact">연락처</a>
         </li>
-        <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-300">
+        <li class="nav__item md:opacity-100 md:translate-x-0 md:transition-none delay-300">
           <button
             class="w-9 h-9 rounded-full flex items-center justify-center border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/50 transition-all text-text-primary"
             id="lang-toggle" aria-label="Toggle language">
             <span class="text-xs font-medium text-gray-600 dark:text-gray-300">EN</span>
           </button>
         </li>
-        <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-[350ms]">
+        <li class="nav__item md:opacity-100 md:translate-x-0 md:transition-none delay-[350ms]">
           <button
             class="w-9 h-9 rounded-full flex items-center justify-center border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/50 transition-all text-text-primary relative group"
             id="theme-toggle" aria-label="Toggle dark mode">
@@ -201,1232 +195,560 @@
             </svg>
           </button>
         </li>
-        <li class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-400">
-          <a href="#contact"
-            class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-blue-600 dark:bg-blue-500 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors"
-            data-i18n="nav.cta">채용 문의</a>
-        </li>
       </ul>
     </nav>
   </header>
 
+  <!-- Main Content -->
   <main id="main-content">
-    <!-- Hero Section -->
-    <section class="relative flex items-center justify-center min-h-[calc(100vh-80px)] pt-24 pb-12 overflow-hidden"
-      id="hero">
-      <!-- Background Grid Pattern -->
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="hero" class="hero section">
+      <!-- Background Effects -->
       <div class="hero__bg-grid" aria-hidden="true"></div>
+      <div class="hero__bg-glow" aria-hidden="true"></div>
 
-      <div class="container mx-auto px-6 lg:px-12 z-10">
-        <!-- 2-Column Layout: Text (Left) + Terminal (Right) on Desktop -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-          <!-- Left: Text Content -->
-          <div class="flex flex-col items-center lg:items-start text-center lg:text-left space-y-5">
-
-            <p class="text-lg md:text-xl font-mono text-text-secondary reveal">
-              <span class="text-tertiary">&lt;</span>
-              <span class="text-text-primary" data-i18n="hero.greeting">안녕하세요</span>
-              <span class="text-tertiary">/&gt;</span>
-            </p>
-
-            <h1
-              class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary leading-tight reveal">
-              <span class="block mb-2" data-i18n="hero.name">김대각</span>
-              <span
-                class="block text-2xl md:text-3xl lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent"
-                data-i18n="hero.role">
-                4년차 Flutter 모바일 앱 개발자
-              </span>
-            </h1>
-
-            <!-- Core Value Proposition -->
-            <p class="text-lg md:text-xl text-text-secondary leading-relaxed max-w-xl reveal"
-              data-i18n="hero.tagline">
-              Flutter 4년 | 5만+ LOC 멀티체인 지갑 앱 개발
-            </p>
-
-            <p class="text-base text-text-muted leading-relaxed max-w-lg reveal"
-              data-i18n="hero.description">
-              WalletConnect v2 기반 MetaMask, Phantom 등 8종 지갑 연동 구현
-            </p>
-
-            <!-- CTA Buttons - Mobile Optimized -->
-            <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-6 reveal">
-              <a href="#contact"
-                class="inline-flex items-center justify-center px-6 py-3 sm:px-10 sm:py-4 text-base sm:text-lg font-bold text-white transition-all bg-blue-600 dark:bg-blue-500 rounded-xl hover:bg-blue-700 dark:hover:bg-blue-600 hover:shadow-xl hover:shadow-blue-500/40 active:scale-95"
-                data-i18n="hero.cta.contact">
-                연락하기
-              </a>
-              <a href="#projects"
-                class="inline-flex items-center justify-center px-6 py-3 sm:px-10 sm:py-4 text-base sm:text-lg font-semibold text-text-primary transition-all bg-transparent border-2 border-border rounded-xl hover:bg-surface hover:border-primary active:scale-95"
-                data-i18n="hero.cta.projects">
-                프로젝트 보기
-              </a>
+      <div class="container mx-auto px-4">
+        <div class="hero__content">
+          <!-- Text Side -->
+          <div class="hero__text">
+            <div class="hero__greeting reveal">
+              <span class="hero__greeting-bracket">&lt;</span>
+              <span class="hero__greeting-text" data-i18n="hero.greeting">안녕하세요</span>
+              <span class="hero__greeting-bracket">/&gt;</span>
             </div>
 
+            <div class="hero__title reveal">
+              <span class="hero__name" data-i18n="hero.name">김대각</span>
+              <span class="hero__role" data-i18n="hero.role">Flutter 모바일 앱 개발자</span>
+            </div>
+
+            <p class="hero__tagline reveal" data-i18n="hero.tagline">"안정성으로 사용자를 지키고, 아키텍처로 서비스를 키웁니다"</p>
+
+            <div class="hero__cta reveal">
+              <a href="#projects" class="btn btn--primary" data-i18n="hero.cta.projects">프로젝트 보기</a>
+              <a href="#contact" class="btn btn--outline" data-i18n="hero.cta.contact">연락하기</a>
+            </div>
           </div>
 
-          <!-- Right: Terminal (Desktop Only) - Compact -->
-          <div class="hero__terminal hidden lg:block reveal max-w-md" aria-hidden="true">
-            <div class="terminal text-sm">
-              <div class="terminal__header py-2 px-3">
+          <!-- Terminal Side -->
+          <div class="hero__terminal reveal">
+            <div class="terminal">
+              <div class="terminal__header">
                 <div class="terminal__dots">
                   <span class="terminal__dot terminal__dot--red"></span>
                   <span class="terminal__dot terminal__dot--yellow"></span>
                   <span class="terminal__dot terminal__dot--green"></span>
                 </div>
-                <span class="terminal__title text-xs">developer@portfolio ~</span>
+                <span class="terminal__title">portfolio.sh</span>
               </div>
-              <div class="terminal__body p-4">
+              <div class="terminal__body">
                 <div class="terminal__line">
                   <span class="terminal__prompt">$</span>
-                  <span class="terminal__command">whoami</span>
+                  <span class="terminal__command"><span class="code-keyword">flutter</span> doctor</span>
                 </div>
-                <div class="terminal__line terminal__line--output">
-                  <span class="terminal__output text-xs" data-i18n="hero.terminal.whoami">4년차 Flutter 앱 개발자</span>
+                <div class="terminal__line">
+                  <span class="terminal__output"><span class="code-string">✓</span> Flutter 3.x — stable channel</span>
                 </div>
-
-                <div class="terminal__line mt-3">
+                <div class="terminal__line">
                   <span class="terminal__prompt">$</span>
-                  <span class="terminal__command">cat skills.json</span>
+                  <span class="terminal__command"><span class="code-function">cat</span> experience.log</span>
                 </div>
-                <div class="terminal__line terminal__line--output">
-                  <pre class="terminal__json text-xs">{
-  <span class="terminal__json-key">"mobile"</span>: [<span class="terminal__json-string">"Flutter"</span>, <span class="terminal__json-string">"Dart"</span>],
-  <span class="terminal__json-key">"web3"</span>: [<span class="terminal__json-string">"EVM"</span>, <span class="terminal__json-string">"Solana"</span>],
-  <span class="terminal__json-key">"arch"</span>: <span class="terminal__json-string">"Clean Architecture"</span>
-}</pre>
+                <div class="terminal__line">
+                  <span class="terminal__output"><span class="code-string">→</span> 3.5yr mobile development</span>
                 </div>
-
-                <div class="terminal__line mt-3">
+                <div class="terminal__line">
+                  <span class="terminal__output"><span class="code-string">→</span> 50,000+ lines shipped</span>
+                </div>
+                <div class="terminal__line">
+                  <span class="terminal__output"><span class="code-string">→</span> 299 test cases written</span>
+                </div>
+                <div class="terminal__line">
                   <span class="terminal__prompt">$</span>
-                  <span class="terminal__command">echo $STATUS</span>
-                </div>
-                <div class="terminal__line terminal__line--output">
-                  <span class="terminal__output text-xs text-green-500">✓ Available for hire</span>
-                  <span class="terminal__cursor"></span>
+                  <span class="terminal__command"><span class="code-keyword">echo</span> <span class="code-string">"Ready for new challenges"</span><span class="typing-cursor">|</span></span>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
-
-      </div>
-
-      <!-- Background Glow Effects -->
-      <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div class="hero__bg-glow"></div>
-        <div class="hero__bg-glow hero__bg-glow--left"></div>
-        <div class="absolute top-[20%] left-[10%] w-72 h-72 bg-primary/20 rounded-full blur-[100px]">
-        </div>
-        <div class="absolute bottom-[20%] right-[10%] w-96 h-96 bg-accent/20 rounded-full blur-[120px]"></div>
       </div>
     </section>
 
-    <!-- Impact Section (Refactored with Tailwind) -->
-    <section class="py-24 relative overflow-hidden" id="impact">
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="section">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 reveal" data-i18n="impact.title">성과 하이라이트</h2>
-        <p class="text-text-secondary text-center mb-12 reveal" data-i18n="impact.subtitle">숫자로 증명하는 개발 역량</p>
+        <h2 class="section__title reveal" data-i18n="about.title">소개</h2>
+        <p class="section__subtitle reveal" data-i18n="about.subtitle">문제 없이 굴러가는 서비스를 만드는 개발자</p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
-          <!-- SVG Gradient Definition -->
-          <svg class="sr-only" aria-hidden="true">
-            <defs>
-              <linearGradient id="chartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="var(--color-primary)" />
-                <stop offset="100%" stop-color="var(--color-accent)" />
-              </linearGradient>
-            </defs>
-          </svg>
-
-          <!-- LOC -->
-          <div
-            class="relative group flex flex-col items-center text-center p-5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden transition-all duration-500  hover:shadow-xl hover:border-primary before:absolute before:top-0 before:left-0 before:w-full before:h-[3px] before:bg-gradient-to-r before:from-primary before:to-accent before:scale-x-0 before:origin-left before:transition-transform before:duration-500 hover:before:scale-x-100">
-            <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="85">
-              <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
-                <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
-                <circle class="impact-stat__chart-fill fill-none stroke-[4] transition-all duration-[1500ms] ease-out"
-                  cx="30" cy="30" r="25"
-                  style="stroke: url(#chartGradient); stroke-dasharray: 157; stroke-dashoffset: 157; stroke-linecap: round;" />
-              </svg>
-              <div class="impact-stat__chart-icon absolute inset-0 flex items-center justify-center text-primary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-                  <path d="M16 18l2-2-2-2M8 18l-2-2 2-2M12 10v8" />
-                </svg>
-              </div>
-            </div>
-            <div class="impact-stat__number-wrap flex items-baseline justify-center">
-              <span class="impact-stat__number text-3xl font-bold font-mono text-primary leading-none"
-                data-count="50000">0</span>
-              <span class="impact-stat__suffix text-xl font-bold text-primary ml-0.5">+</span>
-            </div>
-            <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2" data-i18n="impact.loc">Lines
-              of Code</span>
-            <span class="impact-stat__context text-xs text-text-muted mt-1" data-i18n="impact.locContext">iLity Hub
-              프로젝트</span>
+        <!-- Bio + Career Row -->
+        <div class="about__content reveal">
+          <!-- Bio -->
+          <div class="about__bio">
+            <p data-i18n="about.bio">많은 기능보다 안정적인 핵심 기능을 우선합니다. Android 네이티브에서 시작해 Flutter로 전환하며 크로스 플랫폼 개발 역량을 키웠고, 현재는 블록체인과 AI 영역까지 도전하고 있습니다.</p>
           </div>
 
-          <!-- Test Cases -->
-          <div
-            class="relative group flex flex-col items-center text-center p-5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden transition-all duration-500  hover:shadow-xl hover:border-primary before:absolute before:top-0 before:left-0 before:w-full before:h-[3px] before:bg-gradient-to-r before:from-primary before:to-accent before:scale-x-0 before:origin-left before:transition-transform before:duration-500 hover:before:scale-x-100">
-            <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="65">
-              <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
-                <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
-                <circle class="impact-stat__chart-fill fill-none stroke-[4] transition-all duration-[1500ms] ease-out"
-                  cx="30" cy="30" r="25"
-                  style="stroke: url(#chartGradient); stroke-dasharray: 157; stroke-dashoffset: 157; stroke-linecap: round;" />
-              </svg>
-              <div class="impact-stat__chart-icon absolute inset-0 flex items-center justify-center text-primary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-                  <path d="M9 12l2 2 4-4M12 2a10 10 0 100 20 10 10 0 000-20z" />
-                </svg>
+          <!-- Career Timeline -->
+          <div class="about__career">
+            <h3 class="about__career-title" data-i18n="about.career.title">경력</h3>
+            <div class="career-timeline">
+              <!-- PLACELINK -->
+              <div class="career-timeline__item">
+                <div class="career-timeline__marker"></div>
+                <div class="career-timeline__content">
+                  <span class="career-timeline__name" data-i18n="about.career.placelink.name">PLACELINK</span>
+                  <span class="career-timeline__period" data-i18n="about.career.placelink.period">2022.10 - 2024.11</span>
+                  <span class="career-timeline__role" data-i18n="about.career.placelink.role">Android → Flutter 전환</span>
+                </div>
+              </div>
+              <!-- SISEON IT -->
+              <div class="career-timeline__item">
+                <div class="career-timeline__marker"></div>
+                <div class="career-timeline__content">
+                  <span class="career-timeline__name" data-i18n="about.career.siseon.name">SISEON IT</span>
+                  <span class="career-timeline__period" data-i18n="about.career.siseon.period">2024.11 - 2025.11</span>
+                  <span class="career-timeline__role" data-i18n="about.career.siseon.role">Flutter 마이그레이션</span>
+                </div>
+              </div>
+              <!-- FORLONG -->
+              <div class="career-timeline__item career-timeline__item--current">
+                <div class="career-timeline__marker career-timeline__marker--current"></div>
+                <div class="career-timeline__content">
+                  <span class="career-timeline__name" data-i18n="about.career.forlong.name">FORLONG</span>
+                  <span class="career-timeline__period" data-i18n="about.career.forlong.period">2025.12 - 현재</span>
+                  <span class="career-timeline__role" data-i18n="about.career.forlong.role">Blockchain / DeFi</span>
+                  <span class="career-timeline__current-badge" data-i18n="about.career.forlong.current">현재</span>
+                </div>
               </div>
             </div>
-            <div class="impact-stat__number-wrap flex items-baseline justify-center">
-              <span class="impact-stat__number text-3xl font-bold font-mono text-primary leading-none"
-                data-count="299">0</span>
-            </div>
-            <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2" data-i18n="impact.tests">Test
-              Cases</span>
-            <span class="impact-stat__context text-xs text-text-muted mt-1" data-i18n="impact.testsContext">33.47%
-              커버리지</span>
           </div>
+        </div>
 
-          <!-- Download Increase (Highlight) -->
-          <div
-            class="relative group flex flex-col items-center text-center p-5 rounded-xl border border-primary/50 bg-gradient-to-br from-primary/5 to-accent/10 dark:from-accent/10 dark:to-primary/15 backdrop-blur-md overflow-hidden transition-all duration-500  hover:shadow-xl hover:border-primary before:absolute before:top-0 before:left-0 before:w-full before:h-[3px] before:bg-gradient-to-r before:from-primary before:to-accent before:scale-x-0 before:origin-left before:transition-transform before:duration-500 hover:before:scale-x-100">
-            <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="100">
-              <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
-                <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
-                <circle class="impact-stat__chart-fill fill-none stroke-[4] transition-all duration-[1500ms] ease-out"
-                  cx="30" cy="30" r="25"
-                  style="stroke: url(#chartGradient); stroke-dasharray: 157; stroke-dashoffset: 157; stroke-linecap: round;" />
+        <!-- Stats Row -->
+        <div class="about__stats reveal">
+          <div class="stat-card">
+            <span class="stat-card__number" data-count="50000">0</span>
+            <span class="stat-card__suffix">+</span>
+            <span class="stat-card__label" data-i18n="about.stats.loc">Lines of Code</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__number" data-count="299">0</span>
+            <span class="stat-card__label" data-i18n="about.stats.tests">Tests</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__number" data-count="400">0</span>
+            <span class="stat-card__suffix">%</span>
+            <span class="stat-card__label" data-i18n="about.stats.growth">다운로드 증가</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__number" data-count="19">0</span>
+            <span class="stat-card__label" data-i18n="about.stats.languages">지원 언어</span>
+          </div>
+        </div>
+
+        <!-- Strengths -->
+        <div class="about__strengths">
+          <div class="strength-card reveal">
+            <div class="strength-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
               </svg>
-              <div class="impact-stat__chart-icon absolute inset-0 flex items-center justify-center text-primary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-                  <path d="M3 17l6-6 4 4 8-8M14 4h6v6" />
-                </svg>
-              </div>
             </div>
-            <div class="impact-stat__number-wrap flex items-baseline justify-center">
-              <span class="impact-stat__number text-3xl font-bold font-mono text-primary leading-none"
-                data-count="400">0</span>
-              <span class="impact-stat__suffix text-xl font-bold text-primary ml-0.5">%</span>
-            </div>
-            <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2"
-              data-i18n="impact.downloads">다운로드 증가</span>
-            <span class="impact-stat__context text-xs text-text-muted mt-1" data-i18n="impact.downloadsContext">1,000 →
-              5,000회</span>
+            <h4 class="strength-card__title" data-i18n="about.strength1.title">AI 기반 개발 생산성 최적화</h4>
+            <p class="strength-card__desc" data-i18n="about.strength1.desc">Claude Code, Antigravity 등 AI 도구 활용으로 개발 속도 30% 향상</p>
           </div>
-
-          <!-- Cost Reduction (Highlight) -->
-          <div
-            class="relative group flex flex-col items-center text-center p-5 rounded-xl border border-primary/50 bg-gradient-to-br from-primary/5 to-accent/10 dark:from-accent/10 dark:to-primary/15 backdrop-blur-md overflow-hidden transition-all duration-500  hover:shadow-xl hover:border-primary before:absolute before:top-0 before:left-0 before:w-full before:h-[3px] before:bg-gradient-to-r before:from-primary before:to-accent before:scale-x-0 before:origin-left before:transition-transform before:duration-500 hover:before:scale-x-100">
-            <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="50">
-              <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
-                <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
-                <circle class="impact-stat__chart-fill fill-none stroke-[4] transition-all duration-[1500ms] ease-out"
-                  cx="30" cy="30" r="25"
-                  style="stroke: url(#chartGradient); stroke-dasharray: 157; stroke-dashoffset: 157; stroke-linecap: round;" />
+          <div class="strength-card reveal">
+            <div class="strength-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
               </svg>
-              <div class="impact-stat__chart-icon absolute inset-0 flex items-center justify-center text-primary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 6v12M9 9h6M9 15h6" />
-                </svg>
-              </div>
             </div>
-            <div class="impact-stat__number-wrap flex items-baseline justify-center">
-              <span class="impact-stat__number text-3xl font-bold font-mono text-primary leading-none"
-                data-count="50">0</span>
-              <span class="impact-stat__suffix text-xl font-bold text-primary ml-0.5">%</span>
-            </div>
-            <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2" data-i18n="impact.cost">비용
-              절감</span>
-            <span class="impact-stat__context text-xs text-text-muted mt-1" data-i18n="impact.costContext">유지보수
-              효율화</span>
+            <h4 class="strength-card__title" data-i18n="about.strength2.title">멀티플랫폼 네이티브 대응력</h4>
+            <p class="strength-card__desc" data-i18n="about.strength2.desc">Flutter + Android(Java) + iOS(Swift) 크로스 플랫폼 실무 경험</p>
           </div>
-
+          <div class="strength-card reveal">
+            <div class="strength-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+              </svg>
+            </div>
+            <h4 class="strength-card__title" data-i18n="about.strength3.title">백엔드 이해 기반 Full-Cycle</h4>
+            <p class="strength-card__desc" data-i18n="about.strength3.desc">전자정부프레임워크, MyBatis, RESTful API 설계 경험</p>
+          </div>
+          <div class="strength-card reveal">
+            <div class="strength-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <h4 class="strength-card__title" data-i18n="about.strength4.title">빠른 프로토타이핑 & 협업</h4>
+            <p class="strength-card__desc" data-i18n="about.strength4.desc">Canva/ImageMap 목업으로 요구사항 조기 검증, 빠른 커뮤니케이션</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="py-24 relative overflow-hidden" id="skills">
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section id="projects" class="section section--dense">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 reveal" data-i18n="skills.title">기술 스택</h2>
-        <p class="text-text-secondary text-center mb-8 reveal" data-i18n="skills.subtitle">모바일 앱 개발에 필요한 핵심 기술들</p>
-
-        <!-- Core Competencies Badges -->
-        <div class="flex flex-wrap justify-center gap-3 mb-12 reveal">
-          <div
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-elevated border border-white/10 shadow-sm hover:border-primary/50 transition-colors">
-            <svg class="w-4 h-4 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-              <line x1="12" y1="18" x2="12" y2="18" />
-            </svg>
-            <span class="text-sm font-medium text-text-primary" data-i18n="skills.competency.ai">AI 생산성</span>
-          </div>
-          <div
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-elevated border border-white/10 shadow-sm hover:border-primary/50 transition-colors">
-            <svg class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 12l2 2 4-4" />
-              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-            </svg>
-            <span class="text-sm font-medium text-text-primary" data-i18n="skills.competency.multi">멀티플랫폼</span>
-          </div>
-          <div
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-elevated border border-white/10 shadow-sm hover:border-primary/50 transition-colors">
-            <svg class="w-4 h-4 text-tertiary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5z" />
-              <path d="M2 17l10 5 10-5" />
-              <path d="M2 12l10 5 10-5" />
-            </svg>
-            <span class="text-sm font-medium text-text-primary"
-              data-i18n="skills.competency.fullcycle">Full-Cycle</span>
-          </div>
-          <div
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-elevated border border-white/10 shadow-sm hover:border-primary/50 transition-colors">
-            <svg class="w-4 h-4 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="16 18 22 12 16 6" />
-              <polyline points="8 6 2 12 8 18" />
-            </svg>
-            <span class="text-sm font-medium text-text-primary" data-i18n="skills.competency.web3">Web3 &
-              Blockchain</span>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Mobile Development -->
-          <div
-            class="relative flex flex-col p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden transition-all duration-500  hover:shadow-xl hover:border-primary group reveal">
-            <div
-              class="w-14 h-14 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary/15 to-accent/10 text-primary mb-6 transition-all duration-300 group-hover:scale-105 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-accent group-hover:text-white group-hover:shadow-[0_0_20px_rgba(0,217,255,0.4)]">
-              <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-                <path
-                  d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold mb-6" data-i18n="skills.mobile.title">모바일 개발</h3>
-            <div class="space-y-3">
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Flutter / Dart</span>
-                <span class="text-xs font-mono font-medium text-primary">1.5 years</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Android (Java)</span>
-                <span class="text-xs font-mono font-medium text-primary">2+ years</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">iOS (Swift)</span>
-                <span class="text-xs font-mono font-medium text-primary">1+ year</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Architecture -->
-          <div
-            class="relative flex flex-col p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden transition-all duration-500  hover:shadow-xl hover:border-primary group reveal">
-            <div
-              class="w-14 h-14 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary/15 to-accent/10 text-primary mb-6 transition-all duration-300 group-hover:scale-105 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-accent group-hover:text-white group-hover:shadow-[0_0_20px_rgba(0,217,255,0.4)]">
-              <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-                <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold mb-6" data-i18n="skills.architecture.title">아키텍처</h3>
-            <div class="space-y-3">
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Clean Architecture</span>
-                <span class="text-xs font-mono font-medium text-primary">Expert</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Riverpod 3.x</span>
-                <span class="text-xs font-mono font-medium text-primary">Expert</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">MVVM Pattern</span>
-                <span class="text-xs font-mono font-medium text-primary">Advanced</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Backend & Data -->
-          <div
-            class="relative flex flex-col p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden transition-all duration-500  hover:shadow-xl hover:border-primary group reveal">
-            <div
-              class="w-14 h-14 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary/15 to-accent/10 text-primary mb-6 transition-all duration-300 group-hover:scale-105 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-accent group-hover:text-white group-hover:shadow-[0_0_20px_rgba(0,217,255,0.4)]">
-              <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-                <path
-                  d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4zm0 2c3.87 0 6 1.5 6 2s-2.13 2-6 2-6-1.5-6-2 2.13-2 6-2zm6 12c0 .5-2.13 2-6 2s-6-1.5-6-2v-2.23c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23V17zm0-5c0 .5-2.13 2-6 2s-6-1.5-6-2V9.77c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23V12z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold mb-6" data-i18n="skills.backend.title">백엔드 & 데이터</h3>
-            <div class="space-y-3">
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">MySQL / PostgreSQL</span>
-                <span class="text-xs font-mono font-medium text-primary">Advanced</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">RESTful API</span>
-                <span class="text-xs font-mono font-medium text-primary">Expert</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Firebase / FCM</span>
-                <span class="text-xs font-mono font-medium text-primary">Advanced</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- AI Development -->
-          <div
-            class="relative flex flex-col p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden transition-all duration-500  hover:shadow-xl hover:border-primary group reveal">
-            <div
-              class="w-14 h-14 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary/15 to-accent/10 text-primary mb-6 transition-all duration-300 group-hover:scale-105 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-accent group-hover:text-white group-hover:shadow-[0_0_20px_rgba(0,217,255,0.4)]">
-              <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-                <path
-                  d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79s7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58s9.14-3.47 12.65 0L21 3v7.12zM12.5 8v4.25l3.5 2.08-.72 1.21L11 13V8h1.5z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold mb-6" data-i18n="skills.ai.title">AI 개발</h3>
-            <div class="space-y-3">
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Claude Code / Antigravity</span>
-                <span class="text-xs font-mono font-medium text-primary">Advanced</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Llama 3.3</span>
-                <span class="text-xs font-mono font-medium text-primary">Intermediate</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Local-First Pattern</span>
-                <span class="text-xs font-mono font-medium text-primary">Advanced</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Blockchain & Web3 -->
-          <div
-            class="relative flex flex-col p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden transition-all duration-500  hover:shadow-xl hover:border-primary group reveal">
-            <div
-              class="w-14 h-14 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary/15 to-accent/10 text-primary mb-6 transition-all duration-300 group-hover:scale-105 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-accent group-hover:text-white group-hover:shadow-[0_0_20px_rgba(0,217,255,0.4)]">
-              <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-                <path
-                  d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.12v5.7c0 4.83-3.4 9.33-7 10.47-3.6-1.13-7-5.64-7-10.47V6.3l7-3.12zM12 6l-4 2v4c0 2.21 1.79 4 4 4s4-1.79 4-4V8l-4-2zm0 2l2 1v3c0 1.1-.9 2-2 2s-2-.9-2-2V9l2-1z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold mb-6" data-i18n="skills.blockchain.title">Blockchain & Web3</h3>
-            <div class="space-y-3">
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">WalletConnect v2</span>
-                <span class="text-xs font-mono font-medium text-primary">Expert</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">EVM (ETH, BNB, Base)</span>
-                <span class="text-xs font-mono font-medium text-primary">Advanced</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Solana (Phantom)</span>
-                <span class="text-xs font-mono font-medium text-primary">Intermediate</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- DevOps -->
-          <div
-            class="relative flex flex-col p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden transition-all duration-500  hover:shadow-xl hover:border-primary group reveal">
-            <div
-              class="w-14 h-14 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary/15 to-accent/10 text-primary mb-6 transition-all duration-300 group-hover:scale-105 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-accent group-hover:text-white group-hover:shadow-[0_0_20px_rgba(0,217,255,0.4)]">
-              <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-                <path
-                  d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold mb-6" data-i18n="skills.devops.title">운영</h3>
-            <div class="space-y-3">
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Git / GitHub</span>
-                <span class="text-xs font-mono font-medium text-primary">Expert</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">CI/CD</span>
-                <span class="text-xs font-mono font-medium text-primary">Advanced</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">App Store / Play Store</span>
-                <span class="text-xs font-mono font-medium text-primary">Expert</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section class="py-24 relative overflow-hidden" id="experience">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 reveal" data-i18n="experience.title">경력</h2>
-        <p class="text-text-secondary text-center mb-16 reveal" data-i18n="experience.subtitle">실무에서 쌓아온 경험들</p>
-
-        <div class="flex flex-col items-center gap-12 md:gap-16 max-w-2xl mx-auto">
-
-          <!-- FORLONG -->
-          <div class="relative w-full reveal">
-            <!-- Marker (Top Center) -->
-            <div class="timeline-marker flex justify-center mb-4" aria-hidden="true">
-              <span class="timeline-marker__dot"></span>
-            </div>
-
-            <!-- Content Wrapper (Centered) -->
-            <div class="w-full text-center">
-              <!-- Card (Current Company - thin primary ring) -->
-              <div
-                class="timeline__details relative p-6 bg-white/5 backdrop-blur-md rounded-xl ring-1 ring-primary/60 hover:ring-primary transition-all duration-300 cursor-pointer"
-                data-expanded="false">
-                <span
-                  class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-3 border border-primary/20"
-                  data-i18n="experience.forlong.period">2025.12 - 현재</span>
-                <h3 class="text-xl font-bold mb-1">㈜포롱 (FORLONG)</h3>
-                <p class="text-primary font-medium mb-3" data-i18n="experience.forlong.role">블록체인 dApp 개발자</p>
-
-                <div class="text-left">
-                  <h4 class="text-sm font-semibold text-text-primary mb-3">주요 성과</h4>
-                  <ul class="text-sm text-text-secondary space-y-1.5 mb-4 list-disc list-inside">
-                    <li>WalletConnect v2 기반 멀티 지갑 연동 아키텍처 설계 및 구현</li>
-                    <li>Phantom/MetaMask Deep Link 프로토콜 통합 (Base58, X25519)</li>
-                    <li>Web3 인증 시스템 구현 (Nonce → Sign → JWT)</li>
-                    <li>Clean Architecture 기반 Adapter 패턴 적용</li>
-                  </ul>
-                </div>
-
-                <ul class="flex flex-wrap justify-center gap-2 mt-4">
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Flutter</li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Riverpod
-                  </li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">
-                    WalletConnect</li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">web3dart
-                  </li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">E2EE</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Divider -->
-          <div class="w-1/2 h-px bg-gradient-to-r from-transparent via-border to-transparent" aria-hidden="true"></div>
-
-          <!-- SISEONTEC -->
-          <div class="relative w-full reveal">
-            <!-- Marker (Top Center) -->
-            <div class="timeline-marker flex justify-center mb-4" aria-hidden="true">
-              <span class="timeline-marker__dot"></span>
-            </div>
-
-            <!-- Content Wrapper (Centered) -->
-            <div class="w-full text-center">
-              <!-- Card -->
-              <div
-                class="timeline__details relative p-6 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 hover:border-primary/50 transition-colors duration-300 cursor-pointer"
-                data-expanded="false">
-                <span
-                  class="inline-block px-3 py-1 rounded-full bg-white/5 text-text-secondary text-xs font-semibold mb-3 border border-white/10"
-                  data-i18n="experience.siseon.period">2024.11 - 2025.11</span>
-                <h3 class="text-xl font-bold mb-1">㈜시선아이티</h3>
-                <p class="text-primary font-medium mb-3" data-i18n="experience.siseon.role">대리 @ 사업부</p>
-                <p class="text-sm text-text-secondary mb-4" data-i18n="experience.siseon.project">안전디딤돌 & 이머전시레디앱 - 재난안전
-                  서비스앱</p>
-                <p class="text-text-primary mb-4" data-i18n="experience.siseon.summary">
-                  재난안전 서비스앱 <strong>Flutter 신규 개발</strong> (Legacy 마이그레이션)
-                </p>
-                <ul class="text-sm text-text-secondary space-y-1 mb-4">
-                  <li data-i18n="experience.siseon.highlight1"><strong>Legacy→Flutter</strong> 100% 전환 → 유지보수 50% 절감
-                  </li>
-                  <li data-i18n="experience.siseon.highlight2"><strong>19개 언어</strong> 실시간 번역 (Google Translate API V3)
-                  </li>
-                  <li data-i18n="experience.siseon.highlight3"><strong>TalkBack/VoiceOver</strong> 접근성 완벽 호환</li>
-                </ul>
-
-
-
-                <div class="timeline__detail-content overflow-hidden transition-all duration-300 ease-in-out max-h-0">
-                  <div class="pt-6 border-t border-white/10 mt-4 space-y-6 text-left">
-                    <div>
-                      <h4 class="text-sm font-semibold text-text-primary mb-3" data-i18n="experience.achievements">주요 성과
-                      </h4>
-                      <ul class="space-y-3">
-                        <li class="flex items-start gap-3">
-                          <span class="text-lg font-bold text-primary whitespace-nowrap">100%</span>
-                          <span class="text-xs text-text-muted mt-1" data-i18n="experience.siseon.metric1">Legacy →
-                            Flutter 마이그레이션</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                          <span class="text-lg font-bold text-primary whitespace-nowrap">50%</span>
-                          <span class="text-xs text-text-muted mt-1" data-i18n="experience.siseon.metric2">유지보수 비용
-                            절감</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                          <span class="text-lg font-bold text-primary whitespace-nowrap">19개국</span>
-                          <span class="text-xs text-text-muted mt-1" data-i18n="experience.siseon.metric3">다국어 실시간
-                            번역</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 class="text-sm font-semibold text-text-primary mb-3" data-i18n="experience.techHighlights">기술적
-                        하이라이트</h4>
-                      <ul class="space-y-2 text-xs text-text-secondary list-disc list-inside">
-                        <li data-i18n="experience.siseon.tech1">RegionStabilityChecker GPS 오차 보정 알고리즘</li>
-                        <li data-i18n="experience.siseon.tech2">Platform Channel 백그라운드 위치 추적</li>
-                        <li data-i18n="experience.siseon.tech3">TalkBack/VoiceOver 완벽 호환</li>
-                        <li data-i18n="experience.siseon.tech4">Priority Queue 기반 재난 메시지 알림</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <ul class="flex flex-wrap justify-center gap-2 mt-4">
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Flutter</li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">FCM</li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">
-                    Accessibility</li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">i18n</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Divider -->
-          <div class="w-1/2 h-px bg-gradient-to-r from-transparent via-border to-transparent" aria-hidden="true"></div>
-
-          <!-- PLACELINK -->
-          <div class="relative w-full reveal">
-            <!-- Marker (Top Center) -->
-            <div class="timeline-marker flex justify-center mb-4" aria-hidden="true">
-              <span class="timeline-marker__dot"></span>
-            </div>
-
-            <!-- Content Wrapper (Centered) -->
-            <div class="w-full text-center">
-              <!-- Card -->
-              <div
-                class="timeline__details relative p-6 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 hover:border-primary/50 transition-colors duration-300 cursor-pointer"
-                data-expanded="false">
-                <span
-                  class="inline-block px-3 py-1 rounded-full bg-white/5 text-text-secondary text-xs font-semibold mb-3 border border-white/10"
-                  data-i18n="experience.placelink.period">2022.10 - 2024.11</span>
-                <h3 class="text-xl font-bold mb-1">㈜플레이스링크</h3>
-                <p class="text-primary font-medium mb-3" data-i18n="experience.placelink.role">대리 @ 개발팀</p>
-                <p class="text-sm text-text-secondary mb-4" data-i18n="experience.placelink.project">포인트투어 - 위치기반 포인트적립앱
-                </p>
-                <p class="text-text-primary mb-4" data-i18n="experience.placelink.summary">
-                  위치기반 포인트적립앱 <strong>Android 유지보수 및 신규 기능 개발</strong>
-                </p>
-                <ul class="text-sm text-text-secondary space-y-1 mb-4">
-                  <li data-i18n="experience.placelink.highlight1">"0시축제" 이벤트 → <strong>다운로드 400% 증가</strong>
-                    (1,000→5,000회)</li>
-                  <li data-i18n="experience.placelink.highlight2"><strong>RxJava 2</strong> 기반 비동기 로직 전면 리팩토링</li>
-                  <li data-i18n="experience.placelink.highlight3"><strong>B2G 프로젝트</strong> 대전시 협업 경험</li>
-                </ul>
-
-
-
-                <div class="timeline__detail-content overflow-hidden transition-all duration-300 ease-in-out max-h-0">
-                  <div class="pt-6 border-t border-white/10 mt-4 space-y-6 text-left">
-                    <div>
-                      <h4 class="text-sm font-semibold text-text-primary mb-3" data-i18n="experience.achievements">주요 성과
-                      </h4>
-                      <ul class="space-y-3">
-                        <li class="flex items-start gap-3">
-                          <span class="text-lg font-bold text-primary whitespace-nowrap">400%</span>
-                          <span class="text-xs text-text-muted mt-1" data-i18n="experience.placelink.metric1">앱 다운로드 증가
-                            (1,000→5,000)</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                          <span class="text-lg font-bold text-primary whitespace-nowrap">RxJava 2</span>
-                          <span class="text-xs text-text-muted mt-1" data-i18n="experience.placelink.metric2">AsyncTask
-                            전면 리팩토링</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                          <span class="text-lg font-bold text-primary whitespace-nowrap">B2G</span>
-                          <span class="text-xs text-text-muted mt-1" data-i18n="experience.placelink.metric3">대전시 "0시축제"
-                            이벤트 성공</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 class="text-sm font-semibold text-text-primary mb-3" data-i18n="experience.techHighlights">기술적
-                        하이라이트</h4>
-                      <ul class="space-y-2 text-xs text-text-secondary list-disc list-inside">
-                        <li data-i18n="experience.placelink.tech1">Firebase Dynamic Links 바이럴 마케팅 플로우</li>
-                        <li data-i18n="experience.placelink.tech2">FCM + moveCode 딥링크 라우팅</li>
-                        <li data-i18n="experience.placelink.tech3">SiliCompressor 영상 압축 파이프라인</li>
-                        <li data-i18n="experience.placelink.tech4">Google Maps 위치 탐색 최적화</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <ul class="flex flex-wrap justify-center gap-2 mt-4">
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Android/iOS
-                  </li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">RxJava</li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Firebase
-                  </li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">B2G</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects section section--dense" id="projects">
-      <div class="container">
         <h2 class="section__title reveal" data-i18n="projects.title">프로젝트</h2>
-        <p class="section__subtitle reveal" data-i18n="projects.subtitle">주요 개발 프로젝트</p>
+        <p class="section__subtitle reveal" data-i18n="projects.subtitle">문제 해결 과정을 보여주는 프로젝트</p>
 
-        <!-- Project Filter -->
-        <div class="projects__filter reveal" role="tablist" aria-label="프로젝트 필터">
-          <button class="projects__filter-btn active" data-filter="all" role="tab" aria-selected="true"
-            data-i18n="projects.filter.all">All</button>
-          <button class="projects__filter-btn" data-filter="personal" role="tab" aria-selected="false"
-            data-i18n="projects.filter.personal">Personal</button>
-          <button class="projects__filter-btn" data-filter="company" role="tab" aria-selected="false"
-            data-i18n="projects.filter.company">Company</button>
-          <button class="projects__filter-btn" data-filter="learning" role="tab" aria-selected="false"
-            data-i18n="projects.filter.learning">Learning</button>
-        </div>
-
-        <div class="projects__grid">
+        <div class="projects__showcase">
           <!-- MindLog -->
-          <article class="project-card project-card--mindlog project-card--featured reveal" data-category="personal"
-            data-project="mindlog">
-            <div class="project-card__header">
-              <h3 class="project-card__title">MindLog</h3>
-              <div class="project-card__badges">
-                <span class="project-card__status project-card__status--live">Live</span>
-                <span class="project-card__badge" data-i18n="projects.mindlog.badge">개인 프로젝트</span>
+          <div class="project-showcase-card reveal" data-project="mindlog">
+            <div class="project-showcase-card__thumbnail" style="background: var(--gradient-mindlog);">
+              <div class="project-showcase-card__badges">
+                <span class="project-showcase-card__status project-showcase-card__status--live">Live</span>
+                <span class="project-showcase-card__badge" data-i18n="projects.mindlog.badge">개인 프로젝트</span>
+              </div>
+              <svg class="project-showcase-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+              </svg>
+            </div>
+            <div class="project-showcase-card__body">
+              <h3 class="project-showcase-card__title">MindLog</h3>
+              <p class="project-showcase-card__summary" data-i18n="projects.mindlog.summary">AI 기반 감정 분석 다이어리 앱</p>
+
+              <div class="challenge-block">
+                <div class="challenge-block__problem">
+                  <span class="challenge-block__label" data-i18n="projects.label.problem">문제</span>
+                  <p data-i18n="projects.mindlog.problem">기존 다이어리 앱은 기록만 가능, 감정 분석이나 피드백이 없어 지속 사용 동기 부족</p>
+                </div>
+                <div class="challenge-block__solution">
+                  <span class="challenge-block__label" data-i18n="projects.label.solution">해결</span>
+                  <p data-i18n="projects.mindlog.solution">Groq API(Llama 3.3) 기반 실시간 감정 분석 + Local-First 패턴으로 프라이버시 보장, 2단계 안전 필터로 위기 상황 조기 감지</p>
+                </div>
+              </div>
+
+              <div class="project-showcase-card__proven">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span data-i18n="projects.mindlog.proven">Google Play Store 출시 운영 중 (v1.4.35)</span>
+              </div>
+
+              <ul class="project-showcase-card__tech">
+                <li>Flutter</li><li>Riverpod</li><li>SQLite</li><li>Groq AI (Llama 3.3)</li><li>fl_chart</li><li>Clean Architecture</li>
+              </ul>
+
+              <div class="project-showcase-card__links">
+                <a href="https://github.com/kaywalker91/MindLog" target="_blank" rel="noopener noreferrer" class="project-showcase-card__link" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  GitHub
+                </a>
+                <a href="https://kaywalker91.github.io/MindLog/" target="_blank" rel="noopener noreferrer" class="project-showcase-card__link project-showcase-card__link--demo" aria-label="Demo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  Demo
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.kaywalker.mindlog" target="_blank" rel="noopener noreferrer" class="project-showcase-card__link project-showcase-card__link--store" aria-label="Play Store">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.83.52-1.28 1.15-.95l14.85 8.5c.63.36.63 1.54 0 1.9l-14.85 8.5c-.63.33-1.15-.12-1.15-.95z"/></svg>
+                  Play Store
+                </a>
               </div>
             </div>
-            <p class="project-card__description" data-i18n="projects.mindlog.description">
-              Llama 3.3 기반 AI 감정 분석 스마트 다이어리. 4가지 상태별 오버레이 UI로 사용자 이탈 방지.
-              2단계 안전 필터로 위기 상황 조기 감지. fl_chart 기반 감정 추이 시각화. Google Play Store v1.4.2 운영 중.
-            </p>
-            <ul class="project-card__tech">
-              <li>Flutter</li>
-              <li>Riverpod</li>
-              <li>Llama 3.3</li>
-              <li>fl_chart</li>
-            </ul>
-            <div class="project-card__links">
-              <a href="https://github.com/kaywalker91/MindLog" class="project-card__link" target="_blank"
-                rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                  <path
-                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                </svg>
-                GitHub
-              </a>
-              <a href="https://kaywalker91.github.io/MindLog/" class="project-card__link project-card__link--demo"
-                target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                  <path
-                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-                </svg>
-                Live Demo
-              </a>
-            </div>
-          </article>
+          </div>
 
           <!-- Crypto Wallet Pro -->
-          <article class="project-card project-card--crypto reveal" data-category="personal"
-            data-project="cryptowallet">
-            <div class="project-card__header">
-              <h3 class="project-card__title">Crypto Wallet Pro</h3>
-              <div class="project-card__badges">
-                <span class="project-card__status project-card__status--dev">Dev</span>
-                <span class="project-card__badge" data-i18n="projects.cryptowallet.badge">개인 프로젝트</span>
+          <div class="project-showcase-card reveal" data-project="cryptowallet">
+            <div class="project-showcase-card__thumbnail" style="background: var(--gradient-cryptowallet);">
+              <div class="project-showcase-card__badges">
+                <span class="project-showcase-card__badge" data-i18n="projects.cryptowallet.badge">개인 프로젝트</span>
               </div>
+              <svg class="project-showcase-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="20" height="12" rx="2"/><path d="M22 10H18a2 2 0 0 0 0 4h4"/><circle cx="18" cy="12" r="1"/>
+              </svg>
             </div>
-            <p class="project-card__description" data-i18n="projects.cryptowallet.description">
-              WalletConnect v2 프로토콜 기반 멀티체인 지갑 연동 프로토타입.
-              MetaMask, Trust Wallet 등 8종 지갑 지원. Android 백그라운드 WebSocket 연결 끊김 해결 (Exponential Backoff).
-            </p>
-            <ul class="project-card__tech">
-              <li>Flutter</li>
-              <li>WalletConnect v2</li>
-              <li>EVM</li>
-              <li>WebSocket</li>
-            </ul>
-            <div class="project-card__links">
-              <a href="https://github.com/kaywalker91/Crypto-Wallet-Pro" class="project-card__link" target="_blank"
-                rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                  <path
-                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                </svg>
-                GitHub
-              </a>
-              <a href="https://kaywalker91.github.io/Crypto-Wallet-Pro/"
-                class="project-card__link project-card__link--demo" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                  <path
-                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-                </svg>
-                Live Demo
-              </a>
-            </div>
-          </article>
+            <div class="project-showcase-card__body">
+              <h3 class="project-showcase-card__title">Crypto Wallet Pro</h3>
+              <p class="project-showcase-card__summary" data-i18n="projects.cryptowallet.summary">멀티체인 크립토 지갑 프로토타입</p>
 
-          <!-- iLity Hub -->
-          <article class="project-card project-card--ility reveal" data-category="company" data-project="ility">
-            <div class="project-card__header">
-              <h3 class="project-card__title">iLity Hub</h3>
-              <div class="project-card__badges">
-                <span class="project-card__status project-card__status--dev">Dev</span>
-                <span class="project-card__badge" data-i18n="projects.ility.badge">회사 프로젝트</span>
+              <div class="challenge-block">
+                <div class="challenge-block__problem">
+                  <span class="challenge-block__label" data-i18n="projects.label.problem">문제</span>
+                  <p data-i18n="projects.cryptowallet.problem">Android 백그라운드에서 WebSocket 세션이 끊기며 지갑 연결 불안정</p>
+                </div>
+                <div class="challenge-block__solution">
+                  <span class="challenge-block__label" data-i18n="projects.label.solution">해결</span>
+                  <p data-i18n="projects.cryptowallet.solution">Exponential Backoff + Optimistic Session Check 알고리즘, State Machine Pattern으로 4단계 연결 플로우 안정화</p>
+                </div>
               </div>
-            </div>
-            <p class="project-card__description" data-i18n="projects.ility.description">
-              멀티체인 크립토 지갑 & 소셜 트레이딩 플랫폼. Ethereum, BNB Chain, Base 등 EVM 호환 네트워크 지원.
-              온체인 트랜잭션 검증 기반 Trustless Social Feed 설계.
-            </p>
-            <ul class="project-card__tech">
-              <li>Flutter</li>
-              <li>Clean Architecture</li>
-              <li>WalletConnect v2</li>
-              <li>DeFi</li>
-            </ul>
-          </article>
 
-          <!-- SafeKorea -->
-          <article class="project-card project-card--safekorea reveal" data-category="company" data-project="safekorea">
-            <div class="project-card__header">
-              <h3 class="project-card__title">안전디딤돌</h3>
-              <div class="project-card__badges">
-                <span class="project-card__status project-card__status--live">Live</span>
-                <span class="project-card__badge" data-i18n="projects.safekorea.badge">회사 프로젝트</span>
+              <div class="project-showcase-card__proven">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span data-i18n="projects.cryptowallet.proven">8종 지갑 연동 (MetaMask, Trust, Phantom 등), EVM + Solana 멀티체인</span>
               </div>
-            </div>
-            <p class="project-card__description" data-i18n="projects.safekorea.description">
-              재난안전 서비스앱 Flutter 신규 개발. Android/iOS 레거시 전환.
-              LocationBasedFCMManager로 위치 기반 재난 알림, 19개 언어 실시간 번역, TalkBack/VoiceOver 접근성 강화.
-            </p>
-            <ul class="project-card__tech">
-              <li>Flutter</li>
-              <li>FCM</li>
-              <li>Google Translate API</li>
-              <li>Hive</li>
-            </ul>
-          </article>
 
-          <!-- Android DW Insta -->
-          <article class="project-card project-card--dwinsta reveal" data-category="learning" data-project="dwinsta">
-            <div class="project-card__header">
-              <h3 class="project-card__title">Android DW Insta</h3>
-              <div class="project-card__badges">
-                <span class="project-card__status project-card__status--archive">Archive</span>
-                <span class="project-card__badge" data-i18n="projects.dwinsta.badge">학습 프로젝트</span>
+              <ul class="project-showcase-card__tech">
+                <li>Flutter</li><li>Riverpod</li><li>WalletConnect v2</li><li>GoRouter</li><li>flutter_secure_storage</li><li>Glassmorphism UI</li>
+              </ul>
+
+              <div class="project-showcase-card__links">
+                <a href="https://github.com/kaywalker91/Crypto-Wallet-Pro" target="_blank" rel="noopener noreferrer" class="project-showcase-card__link" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  GitHub
+                </a>
+                <a href="https://kaywalker91.github.io/Crypto-Wallet-Pro/" target="_blank" rel="noopener noreferrer" class="project-showcase-card__link project-showcase-card__link--demo" aria-label="Demo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  Demo
+                </a>
               </div>
             </div>
-            <p class="project-card__description" data-i18n="projects.dwinsta.description">
-              DW 아카데미 교육 과정 중 개발한 Instagram 클론 Android 앱.
-              게시물 CRUD, 팔로우/언팔로우, 좋아요/댓글, 실시간 알림 기능 구현.
-            </p>
-            <ul class="project-card__tech">
-              <li>Java</li>
-              <li>Android</li>
-              <li>Firebase</li>
-              <li>Glide</li>
-            </ul>
-            <div class="project-card__links">
-              <a href="https://github.com/kaywalker91/Android_DW_Insta" class="project-card__link" target="_blank"
-                rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                  <path
-                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                </svg>
-                GitHub
-              </a>
-              <a href="https://kaywalker91.github.io/Android_DW_Insta/"
-                class="project-card__link project-card__link--demo" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                  <path
-                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-                </svg>
-                Live Demo
-              </a>
+          </div>
+
+          <!-- DW Insta -->
+          <div class="project-showcase-card reveal" data-project="dwinsta">
+            <div class="project-showcase-card__thumbnail" style="background: var(--gradient-dwinsta);">
+              <div class="project-showcase-card__badges">
+                <span class="project-showcase-card__badge" data-i18n="projects.dwinsta.badge">학습 프로젝트</span>
+              </div>
+              <svg class="project-showcase-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
             </div>
-          </article>
+            <div class="project-showcase-card__body">
+              <h3 class="project-showcase-card__title">Android DW Insta</h3>
+              <p class="project-showcase-card__summary" data-i18n="projects.dwinsta.summary">Firebase 기반 Instagram 클론</p>
+
+              <div class="challenge-block">
+                <div class="challenge-block__problem">
+                  <span class="challenge-block__label" data-i18n="projects.label.problem">문제</span>
+                  <p data-i18n="projects.dwinsta.problem">복잡한 SNS 기능(피드, 팔로우, 좋아요, 댓글, 메시징)을 서버 없이 처음부터 구현</p>
+                </div>
+                <div class="challenge-block__solution">
+                  <span class="challenge-block__label" data-i18n="projects.label.solution">해결</span>
+                  <p data-i18n="projects.dwinsta.solution">Firebase Realtime DB + Cloud Storage + Auth로 서버리스 아키텍처 설계, Glide로 미디어 최적화</p>
+                </div>
+              </div>
+
+              <div class="project-showcase-card__proven">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span data-i18n="projects.dwinsta.proven">DW아카데미 4개월 과정 내 풀스택 SNS 완성</span>
+              </div>
+
+              <ul class="project-showcase-card__tech">
+                <li>Java</li><li>Firebase</li><li>Realtime DB</li><li>Cloud Storage</li><li>Glide</li><li>Android</li>
+              </ul>
+
+              <div class="project-showcase-card__links">
+                <a href="https://github.com/kaywalker91/Android_DW_Insta" target="_blank" rel="noopener noreferrer" class="project-showcase-card__link" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  GitHub
+                </a>
+                <a href="https://kaywalker91.github.io/Android_DW_Insta/" target="_blank" rel="noopener noreferrer" class="project-showcase-card__link project-showcase-card__link--demo" aria-label="Demo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  Demo
+                </a>
+              </div>
+            </div>
+          </div>
 
           <!-- TimeWalker -->
-          <article class="project-card project-card--timewalker reveal" data-category="learning" data-project="timewalker">
-            <div class="project-card__header">
-              <h3 class="project-card__title">TimeWalker</h3>
-              <div class="project-card__badges">
-                <span class="project-card__status project-card__status--dev">Dev</span>
-                <span class="project-card__badge" data-i18n="projects.timewalker.badge">학습 프로젝트</span>
+          <div class="project-showcase-card reveal" data-project="timewalker">
+            <div class="project-showcase-card__thumbnail" style="background: var(--gradient-timewalker);">
+              <div class="project-showcase-card__badges">
+                <span class="project-showcase-card__badge" data-i18n="projects.timewalker.badge">학습 프로젝트</span>
+              </div>
+              <svg class="project-showcase-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div class="project-showcase-card__body">
+              <h3 class="project-showcase-card__title">TimeWalker</h3>
+              <p class="project-showcase-card__summary" data-i18n="projects.timewalker.summary">인터랙티브 역사 교육 어드벤처 게임</p>
+
+              <div class="challenge-block">
+                <div class="challenge-block__problem">
+                  <span class="challenge-block__label" data-i18n="projects.label.problem">문제</span>
+                  <p data-i18n="projects.timewalker.problem">Flame 게임 엔진과 Flutter UI 상태를 자연스럽게 통합하는 브릿지 부재</p>
+                </div>
+                <div class="challenge-block__solution">
+                  <span class="challenge-block__label" data-i18n="projects.label.solution">해결</span>
+                  <p data-i18n="projects.timewalker.solution">Game-UI Bridge 패턴으로 Flame 게임 상태 ↔ Flutter Riverpod 상태 동기화, Supabase 클라우드 싱크 + Hive 오프라인 캐싱</p>
+                </div>
+              </div>
+
+              <div class="project-showcase-card__proven">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span data-i18n="projects.timewalker.proven">Flame 엔진 실무 적용, 게이미피케이션 설계 능력 입증</span>
+              </div>
+
+              <ul class="project-showcase-card__tech">
+                <li>Flutter</li><li>Flame Engine</li><li>Supabase</li><li>Riverpod</li><li>Hive</li>
+              </ul>
+
+              <div class="project-showcase-card__links">
+                <a href="https://github.com/kaywalker91/TimeWalker" target="_blank" rel="noopener noreferrer" class="project-showcase-card__link" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  GitHub
+                </a>
+                <a href="https://kaywalker91.github.io/TimeWalker/" target="_blank" rel="noopener noreferrer" class="project-showcase-card__link project-showcase-card__link--demo" aria-label="Demo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  Demo
+                </a>
               </div>
             </div>
-            <p class="project-card__description" data-i18n="projects.timewalker.description">
-              시간 여행과 지도 탐험을 결합한 인터랙티브 역사 교육 어드벤처 게임.
-              Flame 엔진 기반 월드맵, 역사 인물과 분기형 대화, 백과사전/퀴즈를 통한 다층적 학습.
-              Supabase 클라우드 동기화 및 오프라인 캐싱 지원.
-            </p>
-            <ul class="project-card__tech">
-              <li>Flutter</li>
-              <li>Flame</li>
-              <li>Riverpod</li>
-              <li>Supabase</li>
-            </ul>
-            <div class="project-card__links">
-              <a href="https://github.com/kaywalker91/TimeWalker" class="project-card__link" target="_blank"
-                rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                  <path
-                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                </svg>
-                GitHub
-              </a>
-              <a href="https://kaywalker91.github.io/TimeWalker/" class="project-card__link project-card__link--demo"
-                target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                  <path
-                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-                </svg>
-                Live Demo
-              </a>
-            </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Education Section -->
-    <section class="py-24 relative" id="education">
+    <!-- ===== TECH STACK SECTION ===== -->
+    <section id="tech" class="section">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 reveal" data-i18n="education.title">학력</h2>
-        <p class="text-text-secondary text-center mb-12 reveal" data-i18n="education.subtitle">교육 및 수료 이력</p>
+        <h2 class="section__title reveal" data-i18n="tech.title">기술 스택</h2>
+        <p class="section__subtitle reveal" data-i18n="tech.subtitle">숙련도별 기술 구성</p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto reveal">
-          <!-- Academy Card (Most Recent) -->
-          <div
-            class="group relative p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
-            <div
-              class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center mb-6 text-primary group-hover:bg-primary/20 transition-colors">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-                <rect x="2" y="3" width="20" height="14" rx="2" />
-                <line x1="8" y1="21" x2="16" y2="21" />
-                <line x1="12" y1="17" x2="12" y2="21" />
-              </svg>
+        <div class="tech__grid">
+          <!-- Expert -->
+          <div class="tech-category reveal">
+            <div class="tech-category__header tech-category__header--expert">
+              <span class="tech-category__level" data-i18n="tech.expert">Expert</span>
             </div>
-            <div class="flex justify-between items-center mb-2">
-              <span class="text-sm font-medium text-primary">2022.04 - 2022.10</span>
-              <span class="text-xs text-text-muted px-2 py-0.5 rounded bg-white/5"
-                data-i18n="education.academy.duration">6개월</span>
-            </div>
-            <h3
-              class="text-xl font-bold text-text-primary dark:text-white mb-2 group-hover:text-primary transition-colors"
-              data-i18n="education.academy.name">DW 아카데미</h3>
-            <p class="text-text-secondary mb-4" data-i18n="education.academy.course">Java/Android/Web 개발 과정 수료</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs border border-primary/20"
-                data-i18n="education.academy.achievement1">Android 앱 개발 실습</span>
-              <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs border border-primary/20"
-                data-i18n="education.academy.achievement2">팀 프로젝트 수행</span>
+            <div class="tech-category__pills">
+              <span class="tech-pill">Flutter</span>
+              <span class="tech-pill">Dart</span>
+              <span class="tech-pill">Android (Java)</span>
+              <span class="tech-pill">Clean Architecture</span>
+              <span class="tech-pill">Riverpod 3.x</span>
+              <span class="tech-pill">Git</span>
             </div>
           </div>
 
-          <!-- University Card -->
-          <div
-            class="group relative p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
-            <div
-              class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center mb-6 text-primary group-hover:bg-primary/20 transition-colors">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                <path d="M6 12v5c3 3 9 3 12 0v-5" />
-              </svg>
+          <!-- Advanced -->
+          <div class="tech-category reveal">
+            <div class="tech-category__header tech-category__header--advanced">
+              <span class="tech-category__level" data-i18n="tech.advanced">Advanced</span>
             </div>
-            <div class="flex justify-between items-center mb-2">
-              <span class="text-sm font-medium text-text-secondary">2012.03 - 2019.02</span>
-              <span class="text-xs text-text-muted px-2 py-0.5 rounded bg-white/5"
-                data-i18n="education.university.duration">7년</span>
+            <div class="tech-category__pills">
+              <span class="tech-pill">iOS (Swift)</span>
+              <span class="tech-pill">RxJava</span>
+              <span class="tech-pill">Spring</span>
+              <span class="tech-pill">MySQL</span>
+              <span class="tech-pill">RESTful API</span>
+              <span class="tech-pill">Firebase</span>
+              <span class="tech-pill">AWS S3</span>
             </div>
-            <h3
-              class="text-xl font-bold text-text-primary dark:text-white mb-2 group-hover:text-primary transition-colors"
-              data-i18n="education.university.name">공주교육대학교</h3>
-            <p class="text-text-secondary mb-4" data-i18n="education.university.major">초등교육학과 학사</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 rounded-full bg-white/5 text-text-secondary text-xs border border-white/10"
-                data-i18n="education.university.achievement1">교원자격증 취득</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 text-text-secondary text-xs border border-white/10"
-                data-i18n="education.university.achievement2">교육학 전공 심화</span>
+          </div>
+
+          <!-- Intermediate -->
+          <div class="tech-category reveal">
+            <div class="tech-category__header tech-category__header--intermediate">
+              <span class="tech-category__level" data-i18n="tech.intermediate">Intermediate</span>
+            </div>
+            <div class="tech-category__pills">
+              <span class="tech-pill">WalletConnect v2</span>
+              <span class="tech-pill">EVM Networks</span>
+              <span class="tech-pill">HTML/CSS/JavaScript</span>
+              <span class="tech-pill">PostgreSQL</span>
+            </div>
+          </div>
+
+          <!-- Tools -->
+          <div class="tech-category reveal">
+            <div class="tech-category__header tech-category__header--tools">
+              <span class="tech-category__level" data-i18n="tech.tools">Tools</span>
+            </div>
+            <div class="tech-category__pills">
+              <span class="tech-pill">Claude Code</span>
+              <span class="tech-pill">Antigravity</span>
+              <span class="tech-pill">Android Studio</span>
+              <span class="tech-pill">Xcode</span>
+              <span class="tech-pill">Canva</span>
+              <span class="tech-pill">Figma</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="py-24 relative" id="contact">
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="section">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 reveal" data-i18n="contact.title">연락처</h2>
-        <p class="text-text-secondary text-center mb-12 reveal" data-i18n="contact.subtitle">함께 일하고 싶으시다면 연락주세요</p>
+        <h2 class="section__title reveal" data-i18n="contact.title">연락처</h2>
+        <p class="section__subtitle reveal" data-i18n="contact.subtitle">함께 일하고 싶으시다면</p>
 
-        <!-- Availability Indicator -->
-        <div class="flex justify-center items-center gap-2 mb-12 reveal">
-          <span
-            class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
-          <span class="text-text-secondary" data-i18n="contact.availability">현재 <strong class="text-green-400">채용
-              가능</strong> 상태입니다</span>
+        <!-- Availability Badge -->
+        <div class="contact__availability reveal">
+          <span class="contact__availability-dot"></span>
+          <span data-i18n="contact.availability">현재 <strong>채용 가능</strong> 상태입니다</span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto reveal">
-          <!-- Email Card -->
-          <a href="mailto:eorkr112@naver.com" class="contact-card group">
+        <div class="contact__grid reveal">
+          <!-- Email -->
+          <div class="contact-card" data-copy="kaywalker91@gmail.com">
+            <button class="contact-card__copy" aria-label="Copy email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+            <span class="contact-card__tooltip" data-i18n="contact.copied">복사됨!</span>
             <div class="contact-card__icon">
-              <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                <path
-                  d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </div>
             <span class="contact-card__label">Email</span>
-            <span class="contact-card__value group-hover:text-primary transition-colors">eorkr112@naver.com</span>
-          </a>
-
-          <!-- GitHub Card -->
-          <a href="https://github.com/kaywalker91" class="contact-card group" target="_blank" rel="noopener noreferrer">
-            <div class="contact-card__icon">
-              <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                <path
-                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-              </svg>
+            <span class="contact-card__value">kaywalker91@gmail.com</span>
+            <div class="contact-card__response">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span data-i18n="contact.response">보통 24시간 내 응답</span>
             </div>
-            <span class="contact-card__label">GitHub</span>
-            <span class="contact-card__value group-hover:text-primary transition-colors">github.com/kaywalker91</span>
-          </a>
-
-          <!-- Blog Card -->
-          <a href="https://kaywalker.tistory.com" class="contact-card group" target="_blank" rel="noopener noreferrer">
-            <div class="contact-card__icon">
-              <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                <path
-                  d="M3 3v18h18V3H3zm16.525 14.738c-.133.265-.388.462-.688.525l-9.725 2.063c-.3.063-.612-.012-.85-.212-.238-.2-.362-.5-.337-.812l.5-6.25c.025-.312.188-.6.437-.787l8.725-6.5c.25-.188.563-.25.863-.175.3.075.55.262.688.512l2.125 3.875c.137.25.162.55.062.825-.1.275-.3.5-.562.6l-2.238.875 1.125 4.5c.075.3.012.625-.125.95v.011z" />
-              </svg>
-            </div>
-            <span class="contact-card__label">Blog</span>
-            <span class="contact-card__value group-hover:text-primary transition-colors">kaywalker.tistory.com</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ETC Section -->
-    <section class="py-24 relative" id="etc">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 reveal" data-i18n="etc.title">기타</h2>
-        <p class="text-text-secondary text-center mb-12 reveal" data-i18n="etc.subtitle">자격증 및 지속적 학습</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <!-- Certifications Card -->
-          <div class="etc-card etc-card--certifications reveal">
-            <h3 class="etc-card__title" data-i18n="etc.certifications.title">
-              <span class="etc-card__title-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
-                </svg>
-              </span>
-              <span class="etc-card__title-text">자격증</span>
-              <span class="etc-card__count">1</span>
-            </h3>
-            <ul class="etc-card__list">
-              <li>
-                <div class="etc-card__item-icon">
-                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M12 3L1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
-                  </svg>
-                </div>
-                <div class="etc-card__item-content">
-                  <div class="etc-card__item-header">
-                    <span class="etc-card__item-name">한국사능력검정시험 1급</span>
-                    <span class="etc-card__verified" aria-label="Verified certification">
-                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                      </svg>
-                      Verified
-                    </span>
-                  </div>
-                  <div class="etc-card__item-meta">
-                    <span class="etc-card__item-meta-date">2021.04</span>
-                    <span class="etc-card__item-meta-divider"></span>
-                    <span class="etc-card__item-meta-org">국사편찬위원회</span>
-                  </div>
-                </div>
-              </li>
-            </ul>
           </div>
 
-          <!-- Continuous Learning Card -->
-          <div class="etc-card etc-card--learning reveal">
-            <h3 class="etc-card__title" data-i18n="etc.learning.title">
-              <span class="etc-card__title-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" />
-                </svg>
-              </span>
-              <span class="etc-card__title-text">지속적 학습</span>
-              <span class="etc-card__count">4</span>
-            </h3>
-            <ul class="etc-card__list">
-              <li>
-                <div class="etc-card__item-icon">
-                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z" />
-                  </svg>
-                </div>
-                <div class="etc-card__item-content">
-                  <div class="etc-card__item-header">
-                    <span class="etc-card__item-name">클로드 코드 완벽 마스터</span>
-                  </div>
-                  <div class="etc-card__item-meta">
-                    <span class="etc-card__item-meta-date">2025</span>
-                    <span class="etc-card__item-meta-divider"></span>
-                    <span class="etc-card__item-meta-org">Inflearn</span>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="etc-card__item-icon">
-                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z" />
-                  </svg>
-                </div>
-                <div class="etc-card__item-content">
-                  <div class="etc-card__item-header">
-                    <span class="etc-card__item-name">Flutter 실전 프로젝트 - BLoC & Riverpod</span>
-                  </div>
-                  <div class="etc-card__item-meta">
-                    <span class="etc-card__item-meta-date">2025</span>
-                    <span class="etc-card__item-meta-divider"></span>
-                    <span class="etc-card__item-meta-org">FastCampus</span>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="etc-card__item-icon">
-                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z" />
-                  </svg>
-                </div>
-                <div class="etc-card__item-content">
-                  <div class="etc-card__item-header">
-                    <span class="etc-card__item-name">Flutter & Dart - The Complete Guide</span>
-                  </div>
-                  <div class="etc-card__item-meta">
-                    <span class="etc-card__item-meta-date">2024~2025</span>
-                    <span class="etc-card__item-meta-divider"></span>
-                    <span class="etc-card__item-meta-org">Udemy</span>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="etc-card__item-icon">
-                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 0h-4V4h4v2z" />
-                  </svg>
-                </div>
-                <div class="etc-card__item-content">
-                  <div class="etc-card__item-header">
-                    <span class="etc-card__item-name">시니어 개발자 인사이트 학습</span>
-                  </div>
-                  <div class="etc-card__item-meta">
-                    <span class="etc-card__item-meta-date">진행 중</span>
-                    <span class="etc-card__item-meta-divider"></span>
-                    <span class="etc-card__item-meta-org">F-Lab, 요즘 IT 멤버십</span>
-                  </div>
-                </div>
-              </li>
-            </ul>
+          <!-- GitHub -->
+          <div class="contact-card">
+            <a href="https://github.com/kaywalker91" target="_blank" rel="noopener noreferrer" class="contact-card__link">
+              <div class="contact-card__icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </div>
+              <span class="contact-card__label">GitHub</span>
+              <span class="contact-card__value">kaywalker91</span>
+            </a>
+          </div>
+
+          <!-- Blog -->
+          <div class="contact-card">
+            <a href="https://kaywalker.tistory.com" target="_blank" rel="noopener noreferrer" class="contact-card__link">
+              <div class="contact-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+              <span class="contact-card__label">Blog</span>
+              <span class="contact-card__value">kaywalker.tistory.com</span>
+            </a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Project Modal -->
+  <div class="modal-overlay" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div class="modal__header">
+        <button class="modal__close" data-modal-close aria-label="Close modal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <h3 class="modal__title"></h3>
+        <p class="modal__subtitle"></p>
+      </div>
+      <div class="modal__body"></div>
+      <div class="modal__footer"></div>
+    </div>
+  </div>
+
   <!-- Back to Top Button -->
-  <button
-    class="back-to-top fixed bottom-8 right-8 p-3 rounded-full bg-primary text-white shadow-lg z-40 transition-all duration-300 opacity-0 invisible hover:bg-accent [&.visible]:opacity-100 [&.visible]:visible [&.visible]:translate-y-0 translate-y-4"
-    id="back-to-top" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-      stroke-linejoin="round" class="w-6 h-6">
-      <path d="M12 19V5" />
-      <path d="M5 12l7-7 7 7" />
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
 
-  <!-- Timeline Detail Slide Panel -->
-  <div id="timeline-panel" class="timeline-panel" aria-hidden="true" role="dialog"
-    aria-labelledby="timeline-panel-title" aria-modal="true">
-    <div class="timeline-panel__overlay"></div>
-    <div class="timeline-panel__content">
-      <header class="timeline-panel__header">
-        <h3 id="timeline-panel-title" class="timeline-panel__title"></h3>
-        <button class="timeline-panel__close" aria-label="닫기" data-i18n-aria="panel.close">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        </button>
-      </header>
-      <div class="timeline-panel__body"></div>
-    </div>
-  </div>
-
   <!-- Footer -->
-  <footer class="py-8 border-t border-white/10 bg-black/20 text-center">
+  <footer class="footer">
     <div class="container mx-auto px-4">
-      <p class="text-text-muted text-sm">
-        <span data-i18n="footer.copyright">© 2025 김대각. All rights reserved.</span>
-      </p>
+      <p class="footer__text" data-i18n="footer.copyright">&copy; 2025 김대각. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Project Modal -->
-  <div
-    class="modal-overlay fixed inset-0 z-50 flex items-center justify-center px-4 transition-opacity duration-300 opacity-0 invisible pointer-events-none aria-[hidden=false]:opacity-100 aria-[hidden=false]:visible aria-[hidden=false]:pointer-events-auto bg-black/60 backdrop-blur-sm"
-    id="project-modal" aria-hidden="true" role="dialog" aria-modal="true">
-    <div
-      class="modal w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-surface rounded-2xl shadow-2xl border border-white/10 transform transition-all duration-300 scale-95 opacity-0 [.modal-overlay[aria-hidden=false]_&]:scale-100 [.modal-overlay[aria-hidden=false]_&]:opacity-100 p-0 flex flex-col">
-      <div
-        class="modal__header flex justify-between items-center p-6 border-b border-white/10 sticky top-0 bg-surface/95 backdrop-blur z-10">
-        <h3 class="modal__title text-2xl font-bold text-text-primary dark:text-white" id="modal-title"></h3>
-        <button class="modal__close p-2 rounded-lg hover:bg-white/10 transition-colors text-text-muted hover:text-white"
-          data-modal-close aria-label="Close modal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </button>
-      </div>
-      <div class="modal__body p-6 space-y-6 overflow-y-auto" id="modal-body">
-        <!-- Dynamic content will be injected here -->
-      </div>
-      <div class="modal__footer p-6 border-t border-white/10 flex justify-end gap-4" id="modal-footer">
-        <!-- Dynamic links will be injected here -->
-      </div>
-    </div>
-  </div>
-
   <!-- Scripts -->
-  <script src="js/theme.js"></script>
   <script src="js/translations.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/navigation.js"></script>
+  <script src="js/theme.js"></script>
   <script src="js/main.js"></script>
 </body>
 

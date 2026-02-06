@@ -13,23 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Setup intersection observer for lazy loading
   setupLazyLoad();
 
-  // Setup skill progress bar animations
-  setupSkillProgress();
-
   // Setup scroll progress indicator
   setupScrollProgress();
-
-  // Setup project filter
-  setupProjectFilter();
 
   // Setup copy to clipboard
   setupCopyToClipboard();
 
-  // Setup impact counters
-  setupImpactCounters();
-
-  // Setup timeline expansion (Experience Accordion)
-  setupTimelineExpansion();
+  // Setup about stat counters
+  setupStatCounters();
 
   // Setup project modal
   setupProjectModal();
@@ -130,38 +121,6 @@ function debounce(func, wait) {
   };
 }
 
-// Skill progress bar animation
-function setupSkillProgress() {
-  const progressBars = document.querySelectorAll('.skill-progress__fill');
-
-  if (progressBars.length === 0) return;
-
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (prefersReducedMotion) {
-    progressBars.forEach(bar => bar.classList.add('animate'));
-    return;
-  }
-
-  const progressOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.5
-  };
-
-  const progressCallback = (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
-        observer.unobserve(entry.target);
-      }
-    });
-  };
-
-  const progressObserver = new IntersectionObserver(progressCallback, progressOptions);
-  progressBars.forEach(bar => progressObserver.observe(bar));
-}
-
 // Scroll progress indicator
 function setupScrollProgress() {
   const progressBar = document.querySelector('.scroll-progress__bar');
@@ -178,72 +137,9 @@ function setupScrollProgress() {
   updateProgress();
 }
 
-// Project filter functionality
-function setupProjectFilter() {
-  const filterContainer = document.querySelector('.projects__filter');
-  const filterButtons = document.querySelectorAll('.projects__filter-btn');
-  const projectCards = document.querySelectorAll('.project-card[data-category]');
-
-  if (!filterContainer || filterButtons.length === 0 || projectCards.length === 0) return;
-
-  // Check for reduced motion preference
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const filter = button.dataset.filter;
-
-      // Update active state
-      filterButtons.forEach(btn => {
-        btn.classList.remove('active');
-        btn.setAttribute('aria-selected', 'false');
-      });
-      button.classList.add('active');
-      button.setAttribute('aria-selected', 'true');
-
-      // Filter cards
-      filterProjectCards(filter, projectCards, prefersReducedMotion);
-    });
-  });
-}
-
-function filterProjectCards(filter, cards, reduceMotion) {
-  cards.forEach((card, index) => {
-    const category = card.dataset.category;
-    const shouldShow = filter === 'all' || category === filter;
-
-    if (reduceMotion) {
-      // No animation for reduced motion
-      card.style.display = shouldShow ? '' : 'none';
-    } else {
-      if (shouldShow) {
-        card.removeAttribute('data-filter-hidden');
-        card.classList.remove('filter-fade-out');
-        card.classList.add('filter-fade-in');
-        card.style.animationDelay = `${index * 50}ms`;
-
-        // Clean up animation class after completion
-        card.addEventListener('animationend', () => {
-          card.classList.remove('filter-fade-in');
-        }, { once: true });
-      } else {
-        card.classList.add('filter-fade-out');
-        card.classList.remove('filter-fade-in');
-
-        // Hide after fade out
-        setTimeout(() => {
-          if (card.classList.contains('filter-fade-out')) {
-            card.setAttribute('data-filter-hidden', 'true');
-          }
-        }, 200);
-      }
-    }
-  });
-}
-
-// Impact counters animation
-function setupImpactCounters() {
-  const counters = document.querySelectorAll('.impact-stat__number[data-count]');
+// About section stat counters animation
+function setupStatCounters() {
+  const counters = document.querySelectorAll('.stat-card__number[data-count]');
 
   if (counters.length === 0) return;
 
@@ -307,32 +203,6 @@ function formatNumber(num) {
   return num.toString();
 }
 
-// Timeline expansion (Experience Accordion)
-function setupTimelineExpansion() {
-  const expandButtons = document.querySelectorAll('.timeline__expand-btn');
-
-  if (expandButtons.length === 0) return;
-
-  expandButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const details = button.closest('.timeline__details');
-      const content = details.querySelector('.timeline__detail-content');
-      const isExpanded = details.dataset.expanded === 'true';
-
-      // Toggle state
-      details.dataset.expanded = !isExpanded;
-      button.setAttribute('aria-expanded', !isExpanded);
-
-      // Toggle content visibility
-      if (!isExpanded) {
-        content.style.maxHeight = content.scrollHeight + 'px';
-      } else {
-        content.style.maxHeight = '0';
-      }
-    });
-  });
-}
-
 // Project modal
 const projectData = {
   mindlog: {
@@ -345,11 +215,13 @@ const projectData = {
     ],
     challenge: 'AI 분석 대기 시간 5~10초',
     solution: 'Optimistic UI + Local-First 패턴 적용',
-    achievements: ['19개 테스트 파일', 'GitHub Actions CI/CD', 'Google Play Store v1.4.2'],
-    tech: ['Flutter', 'Riverpod', 'Llama 3.3', 'SQLite', 'fl_chart'],
+    achievements: ['19개 테스트 파일', 'GitHub Actions CI/CD', 'Google Play Store v1.4.35'],
+    tech: ['Flutter', 'Riverpod', 'Llama 3.3', 'SQLite', 'fl_chart', 'Clean Architecture'],
+    capabilities: ['AI 통합 설계', '프라이버시 아키텍처', '프로덕션 배포 경험'],
     links: {
       github: 'https://github.com/kaywalker91/MindLog',
-      demo: 'https://kaywalker91.github.io/MindLog/'
+      demo: 'https://kaywalker91.github.io/MindLog/',
+      store: 'https://play.google.com/store/apps/details?id=com.kaywalker.mindlog'
     }
   },
   cryptowallet: {
@@ -362,40 +234,13 @@ const projectData = {
     ],
     challenge: 'Android 백그라운드 WebSocket 연결 끊김',
     solution: 'Exponential Backoff & Optimistic Session Check 알고리즘',
-    achievements: ['10+ 체인 지원', 'TweetNaCl 암호화 직접 구현'],
-    tech: ['Flutter', 'WalletConnect v2', 'EVM', 'Solana', 'WebSocket'],
+    achievements: ['10+ 체인 지원', 'TweetNaCl 암호화 직접 구현', '8종 지갑 연동'],
+    tech: ['Flutter', 'Riverpod', 'WalletConnect v2', 'GoRouter', 'flutter_secure_storage', 'Glassmorphism UI'],
+    capabilities: ['Web3/블록체인 프로토콜 레벨 구현', '암호화(X25519 + TweetNaCl)', '보안 설계'],
     links: {
       github: 'https://github.com/kaywalker91/Crypto-Wallet-Pro',
       demo: 'https://kaywalker91.github.io/Crypto-Wallet-Pro/'
     }
-  },
-  ility: {
-    title: 'iLity Hub',
-    features: [
-      '12개 모듈 마이크로 피처 아키텍처',
-      '86개 Riverpod Provider 상태 관리',
-      'State Machine 기반 4단계 지갑 연결',
-      '27개 화면 Material 3 Dark Theme'
-    ],
-    challenge: 'WalletConnect 연결 상태 관리 복잡성',
-    solution: 'State Machine 패턴 + 4가지 지갑 인터페이스 분리 (ISP)',
-    achievements: ['50,000+ LOC', '299 테스트 케이스 (33.47%)', '10개 체인 지원'],
-    tech: ['Flutter', 'Clean Architecture', 'Riverpod 3.x', 'WalletConnect v2', 'DeFi'],
-    links: {}
-  },
-  safekorea: {
-    title: '안전디딤돌',
-    features: [
-      '백그라운드 위치 추적',
-      '19개 언어 실시간 번역',
-      'RegionStabilityChecker GPS 오차 보정',
-      'TalkBack/VoiceOver 완벽 호환'
-    ],
-    challenge: 'Legacy Native 코드 완전 마이그레이션',
-    solution: 'Platform Channel로 네이티브 기능 직접 제어',
-    achievements: ['100% Flutter 마이그레이션', '50% 유지보수 비용 절감', '공공기관 접근성 인증 수준'],
-    tech: ['Flutter', 'FCM', 'Google Translate API V3', 'Hive', 'Platform Channel'],
-    links: {}
   },
   dwinsta: {
     title: 'Android DW Insta',
@@ -412,7 +257,8 @@ const projectData = {
       'Android 네이티브 개발 기초 습득',
       'Firebase 생태계 전반 학습'
     ],
-    tech: ['Java', 'Android', 'Firebase', 'Glide', 'FCM'],
+    tech: ['Java', 'Android', 'Firebase', 'Realtime DB', 'Cloud Storage', 'Glide'],
+    capabilities: ['Android 네이티브 기초 역량', '서버리스 설계', '빠른 학습 능력'],
     links: {
       github: 'https://github.com/kaywalker91/Android_DW_Insta',
       demo: 'https://kaywalker91.github.io/Android_DW_Insta/'
@@ -433,7 +279,8 @@ const projectData = {
       '게임 개발 파이프라인 경험',
       '교육용 게이미피케이션 설계'
     ],
-    tech: ['Flutter', 'Flame', 'Riverpod', 'Supabase', 'Hive'],
+    tech: ['Flutter', 'Flame Engine', 'Riverpod', 'Supabase', 'Hive'],
+    capabilities: ['게임 엔진 통합', '교육 UX 설계', '멀티 데이터소스 관리'],
     links: {
       github: 'https://github.com/kaywalker91/TimeWalker',
       demo: 'https://kaywalker91.github.io/TimeWalker/'
@@ -443,7 +290,7 @@ const projectData = {
 
 function setupProjectModal() {
   const modal = document.getElementById('project-modal');
-  const projectCards = document.querySelectorAll('.project-card[data-project]');
+  const projectCards = document.querySelectorAll('.project-showcase-card[data-project]');
   const closeButtons = document.querySelectorAll('[data-modal-close]');
 
   if (!modal || projectCards.length === 0) return;
@@ -502,7 +349,7 @@ function openProjectModal(modal, project) {
   titleEl.textContent = project.title;
 
   // Build body content
-  bodyEl.innerHTML = `
+  let bodyHTML = `
     <div class="modal__section">
       <h4 class="modal__section-title" data-i18n="modal.features">주요 기능</h4>
       <ul class="modal__feature-list">
@@ -529,6 +376,20 @@ function openProjectModal(modal, project) {
     </div>
   `;
 
+  // Add capabilities section if present
+  if (project.capabilities && project.capabilities.length > 0) {
+    bodyHTML += `
+      <div class="modal__section">
+        <h4 class="modal__section-title" data-i18n="modal.capabilities">증명 역량</h4>
+        <ul class="modal__achievement-list">
+          ${project.capabilities.map(c => `<li>${c}</li>`).join('')}
+        </ul>
+      </div>
+    `;
+  }
+
+  bodyEl.innerHTML = bodyHTML;
+
   // Build footer links
   const links = [];
   if (project.links.github) {
@@ -547,11 +408,24 @@ function openProjectModal(modal, project) {
       Live Demo
     </a>`);
   }
+  if (project.links.store) {
+    links.push(`<a href="${project.links.store}" class="modal__link modal__link--store" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+        <path d="M3 20.5v-17c0-.83.52-1.28 1.15-.95l14.85 8.5c.63.36.63 1.54 0 1.9l-14.85 8.5c-.63.33-1.15-.12-1.15-.95z"/>
+      </svg>
+      Play Store
+    </a>`);
+  }
   footerEl.innerHTML = links.join('');
 
   // Show modal
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
+
+  // Re-apply i18n for dynamically inserted content
+  if (typeof i18n !== 'undefined' && i18n.applyTranslations) {
+    i18n.applyTranslations();
+  }
 
   // Focus trap
   const focusableElements = modal.querySelectorAll('button, a[href]');

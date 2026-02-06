@@ -82,7 +82,6 @@
   height: 24px;
 }
 
-/* Dark mode adjustment */
 [data-theme="dark"] .back-to-top {
   box-shadow: var(--shadow-lg);
 }
@@ -91,7 +90,6 @@
   box-shadow: var(--shadow-xl);
 }
 
-/* Mobile adjustment */
 @media (max-width: 640px) {
   .back-to-top {
     bottom: var(--space-6);
@@ -298,7 +296,9 @@
   }
 }
 
-/* Hero Section */
+/* ================================
+   Hero Section
+   ================================ */
 .hero {
   min-height: calc(100vh - 80px);
   display: flex;
@@ -383,13 +383,6 @@
   }
 }
 
-.hero__description {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
-  max-width: 600px;
-  margin-bottom: var(--space-6);
-}
-
 .hero__cta {
   display: flex;
   flex-wrap: wrap;
@@ -434,210 +427,105 @@
   opacity: 0.15;
 }
 
-/* Skills Grid */
-.skills__grid {
+/* ================================
+   About Section Layout
+   ================================ */
+.about__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+}
+
+@media (min-width: 768px) {
+  .about__content {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-10);
+  }
+}
+
+/* Stats Row */
+.about__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-12);
+}
+
+@media (min-width: 640px) {
+  .about__stats {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+/* Strengths Grid */
+.about__strengths {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .about__strengths {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .about__strengths {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ================================
+   Projects Showcase Grid
+   ================================ */
+.projects__showcase {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  max-width: 100%;
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .projects__showcase {
+    max-width: 480px;
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .projects__showcase {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+/* ================================
+   Tech Stack Grid
+   ================================ */
+.tech__grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-6);
 }
 
 @media (min-width: 640px) {
-  .skills__grid {
+  .tech__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
-  .skills__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Timeline */
-.timeline {
-  position: relative;
-  padding-left: var(--space-10);
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 8px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(
-    to bottom,
-    var(--color-primary) 0%,
-    var(--color-primary) 50%,
-    var(--color-border) 50%,
-    var(--color-border) 100%
-  );
-  background-size: 2px 20px;
-}
-
-.timeline__item {
-  position: relative;
-  padding-bottom: var(--space-12);
-}
-
-.timeline__item:last-child {
-  padding-bottom: 0;
-}
-
-.timeline__marker {
-  position: absolute;
-  left: calc(-1 * var(--space-10) + 0px);
-  top: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: var(--radius-full);
-  background: var(--gradient-primary);
-  border: 3px solid var(--color-background);
-  box-shadow: var(--glow-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-}
-
-.timeline__marker::after {
-  content: '';
-  width: 6px;
-  height: 6px;
-  background-color: white;
-  border-radius: var(--radius-full);
-}
-
-.timeline__content {
-  background-color: var(--color-surface);
-  padding: var(--space-6);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--color-border-light);
-  position: relative;
-  transition: all var(--transition-base);
-}
-
-.timeline__content::before {
-  content: '';
-  position: absolute;
-  left: -8px;
-  top: 6px;
-  width: 0;
-  height: 0;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-right: 8px solid var(--color-border-light);
-}
-
-.timeline__content::after {
-  content: '';
-  position: absolute;
-  left: -6px;
-  top: 7px;
-  width: 0;
-  height: 0;
-  border-top: 7px solid transparent;
-  border-bottom: 7px solid transparent;
-  border-right: 7px solid var(--color-surface);
-}
-
-.timeline__content:hover {
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-primary);
-}
-
-/* Projects Grid - Simplified Responsive */
-.projects__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-5);
-  max-width: 100%;
-}
-
-@media (min-width: 480px) and (max-width: 767px) {
-  .projects__grid {
-    max-width: 400px;
-    margin-inline: auto;
-  }
-}
-
-@media (min-width: 768px) {
-  .projects__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-6);
-  }
-}
-
-@media (min-width: 1024px) {
-  .projects__grid {
+  .tech__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Featured 프로젝트 - 2열 확장 */
-@media (min-width: 768px) {
-  .project-card--featured {
-    grid-column: span 2;
-  }
-}
-
-/* Education Timeline */
-.education__timeline {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-  padding: var(--space-8) 0;
-}
-
-/* Vertical timeline line (mobile) */
-.education__timeline::before {
-  content: '';
-  position: absolute;
-  left: 20px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    var(--color-primary) 10%,
-    var(--color-primary) 90%,
-    transparent 100%
-  );
-}
-
-/* Desktop: Horizontal timeline */
-@media (min-width: 768px) {
-  .education__timeline {
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    gap: var(--space-8);
-    padding: var(--space-12) var(--space-4);
-  }
-
-  /* Horizontal timeline line */
-  .education__timeline::before {
-    left: 10%;
-    right: 10%;
-    top: 40px;
-    bottom: auto;
-    width: auto;
-    height: 2px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      var(--color-primary) 15%,
-      var(--color-primary) 85%,
-      transparent 100%
-    );
-  }
-}
-
-/* Contact Grid */
+/* ================================
+   Contact Grid
+   ================================ */
 .contact__grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -650,24 +538,10 @@
   }
 }
 
-/* ETC Grid */
-.etc__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-6);
-}
-
-@media (min-width: 768px) {
-  .etc__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 /* ================================
    Tablet Breakpoint (640-767px)
    ================================ */
 @media (min-width: 640px) and (max-width: 767px) {
-  /* Hero: Single column, centered text */
   .hero__content {
     grid-template-columns: 1fr;
     text-align: center;
@@ -679,90 +553,10 @@
     align-items: center;
   }
 
-  .hero__competencies {
-    justify-content: center;
-    max-width: 100%;
-  }
-
   .hero__cta {
     justify-content: center;
   }
 
-  .hero__description {
-    text-align: center;
-  }
-
-  /* Skills: 2 columns */
-  .skills__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Projects: Handled by 480-767px media query above */
-
-  /* Impact: 2 columns */
-  .impact__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Education: Vertical timeline */
-  .education__timeline {
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-6);
-  }
-
-  .education__timeline::before {
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: auto;
-    top: 0;
-    bottom: 0;
-    background: linear-gradient(
-      180deg,
-      transparent 0%,
-      var(--color-primary) 10%,
-      var(--color-primary) 90%,
-      transparent 100%
-    );
-  }
-
-  .education-card {
-    max-width: 360px;
-    padding-left: var(--space-6);
-    padding-top: var(--space-6);
-    text-align: left;
-  }
-
-  .education-card::before {
-    left: -11px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .education-card::after {
-    left: -5px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .education-card__icon {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .education-card__header {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-
-  /* ETC: Single column */
-  .etc__grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Section title adjustments */
   .section__title {
     font-size: var(--font-size-3xl);
   }
