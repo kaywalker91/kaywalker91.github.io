@@ -352,17 +352,20 @@ const projectData = {
   dwinsta: {
     title: 'Android DW Insta',
     features: [
-      'Instagram 클론 앱 전체 기능 구현',
-      'Firebase Realtime DB 기반 실시간 동기화',
-      'Glide 라이브러리 이미지 캐싱 최적화',
-      'FCM 기반 실시간 푸시 알림'
+      '이중 이미지 최적화: Glide 4.13.0 (일반 캐싱) + Picasso 2.8 (복잡 처리)',
+      'Google Sign-In + Firebase Auth 소셜 인증 통합',
+      '실시간 1:1 DM 메시징 시스템 (Firebase Realtime DB)',
+      'FileProvider 기반 Android N+ 보안 파일 공유',
+      'FCM 푸시 알림: 좋아요/댓글/팔로우/DM 실시간 알림'
     ],
-    challenge: '복잡한 SNS 기능(피드, 팔로우, 좋아요, 댓글)을 처음부터 구현',
-    solution: 'Firebase 실시간 데이터베이스와 Cloud Functions로 서버리스 아키텍처 구축',
+    challenge: '복잡한 SNS 앱 구조 설계 (7 Activities + 4 Fragments) 및 이미지 로딩 최적화. Android N+ 파일 공유 보안 정책 준수 필요.',
+    solution: 'Firebase Realtime DB 서버리스 아키텍처 + Glide/Picasso 이중 캐싱 전략으로 메모리 최적화. FileProvider로 보안 준수. Material Design으로 일관된 UX 구현.',
     achievements: [
-      '4개월 교육 과정 프로젝트 완료',
-      'Android 네이티브 개발 기초 습득',
-      'Firebase 생태계 전반 학습'
+      '7 Activities + 4 Fragments 모듈화 아키텍처 설계',
+      'Glide + Picasso 이중 캐싱 전략으로 메모리 효율 개선',
+      'Google Sign-In + Firebase Auth 소셜 인증 통합 경험',
+      'FileProvider 기반 Android N+ 보안 정책 준수',
+      'Material Design 컴포넌트 기반 일관된 UI/UX 구현'
     ],
     tech: ['Java', 'Android', 'Firebase', 'Glide', 'FCM'],
     links: {
@@ -390,6 +393,26 @@ const projectData = {
       github: 'https://github.com/kaywalker91/TimeWalker',
       demo: 'https://kaywalker91.github.io/TimeWalker/'
     }
+  },
+  pointtour: {
+    title: '포인트투어',
+    features: [
+      '위치 기반 포인트 적립 시스템',
+      'Firebase Dynamic Links 바이럴 마케팅 플로우',
+      'FCM + moveCode 딥링크 라우팅',
+      'SiliCompressor 영상 압축 파이프라인',
+      'Google Maps 위치 탐색 최적화'
+    ],
+    challenge: 'Legacy AsyncTask 패턴으로 인한 메인 스레드 블로킹 및 메모리 누수. 대규모 이벤트 시 서버 과부하 및 앱 크래시 발생.',
+    solution: 'RxJava 2 기반 비동기 로직 전면 리팩토링. Schedulers.io()로 네트워크 작업 분리. Firebase Dynamic Links로 바이럴 마케팅 플로우 구축.',
+    achievements: [
+      '다운로드 400% 증가 (1,000→5,000회)',
+      'AsyncTask → RxJava 2 전면 리팩토링',
+      '대전시 "0시축제" 이벤트 성공',
+      'Firebase Dynamic Links 바이럴 마케팅',
+      'SiliCompressor 영상 압축 최적화'
+    ],
+    tech: ['Android', 'Java', 'RxJava 2', 'Firebase', 'Google Maps', 'FCM', 'Glide']
   }
 };
 
@@ -471,7 +494,7 @@ function openProjectModal(modal, project) {
   // Build footer links
   const links = [];
   if (project.links.github) {
-    links.push(`<a href="${project.links.github}" class="modal__link" target="_blank" rel="noopener noreferrer">
+    links.push(`<a href="${project.links.github}" class="project-action-link" target="_blank" rel="noopener noreferrer">
       <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
       </svg>
@@ -479,7 +502,7 @@ function openProjectModal(modal, project) {
     </a>`);
   }
   if (project.links.demo) {
-    links.push(`<a href="${project.links.demo}" class="modal__link modal__link--demo" target="_blank" rel="noopener noreferrer">
+    links.push(`<a href="${project.links.demo}" class="project-action-link project-action-link--demo" target="_blank" rel="noopener noreferrer">
       <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
       </svg>

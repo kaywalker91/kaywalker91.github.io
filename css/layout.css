@@ -684,7 +684,7 @@
   grid-template-columns: 1fr;
   gap: var(--space-5);
   max-width: 100%;
-  align-items: start;
+  align-items: stretch;
 }
 
 @media (min-width: 480px) and (max-width: 767px) {
@@ -717,7 +717,7 @@
     justify-content: flex-start;
   }
 
-  .project-card__link {
+  .project-card__links .project-action-link {
     flex: 1;
   }
 
