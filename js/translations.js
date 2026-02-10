@@ -1,6 +1,9 @@
 // Translations data
 const translations = {
   ko: {
+    // Accessibility
+    'accessibility.skipToContent': '본문으로 건너뛰기',
+
     // Navigation
     'nav.impact': '성과',
     'nav.skills': '기술',
@@ -9,6 +12,10 @@ const translations = {
     'nav.education': '학력',
     'nav.contact': '연락처',
     'nav.etc': '기타',
+    'nav.cta': '채용 문의',
+
+    // Header
+    'header.available': '채용 가능',
 
     // Hero
     'hero.greeting': '안녕하세요',
@@ -22,6 +29,7 @@ const translations = {
     'hero.competency.protocol': 'Web3 & Blockchain',
     'hero.cta.contact': '연락하기',
     'hero.cta.projects': '프로젝트 보기',
+    'hero.terminal.whoami': '4년차 Flutter 앱 개발자',
 
     // Impact
     'impact.title': '성과 하이라이트',
@@ -48,6 +56,10 @@ const translations = {
     'skills.ai.title': 'AI 개발',
     'skills.blockchain.title': 'Blockchain & Web3',
     'skills.devops.title': '운영',
+    'skills.competency.ai': 'AI 생산성',
+    'skills.competency.multi': '멀티플랫폼',
+    'skills.competency.fullcycle': 'Full-Cycle',
+    'skills.competency.web3': 'Web3 & Blockchain',
 
     // Experience
     'experience.title': '경력',
@@ -60,10 +72,18 @@ const translations = {
     'experience.siseon.role': '대리 @ 사업부',
     'experience.siseon.project': '안전디딤돌 & 이머전시레디앱 - 재난안전 서비스앱',
     'experience.siseon.description': 'Android/iOS 레거시를 Flutter로 전환. LocationBasedFCMManager 개발로 실시간 위치 기반 재난 알림 구현. Google Translate API V3로 19개 언어 실시간 번역. TalkBack/VoiceOver 접근성 최적화.',
+    'experience.siseon.summary': '재난안전 서비스앱 <strong>Flutter 신규 개발</strong> (Legacy 마이그레이션)',
+    'experience.siseon.highlight1': '<strong>Legacy→Flutter</strong> 100% 전환 → 유지보수 50% 절감',
+    'experience.siseon.highlight2': '<strong>19개 언어</strong> 실시간 번역 (Google Translate API V3)',
+    'experience.siseon.highlight3': '<strong>TalkBack/VoiceOver</strong> 접근성 완벽 호환',
     'experience.placelink.period': '2022.10 - 2024.11',
     'experience.placelink.role': '대리 @ 개발팀',
     'experience.placelink.project': '포인트투어 - 위치기반 포인트적립앱',
     'experience.placelink.description': 'RxJava 2 기반 비동기 로직 리팩토링으로 레거시 AsyncTask 문제 해결. 대전시 "0시축제" 이벤트 시스템 개발로 앱 다운로드 400% 증가 (1,000→5,000회). B2G 프로젝트 수행.',
+    'experience.placelink.summary': '위치기반 포인트적립앱 <strong>Android 유지보수 및 신규 기능 개발</strong>',
+    'experience.placelink.highlight1': '"0시축제" 이벤트 → <strong>다운로드 400% 증가</strong> (1,000→5,000회)',
+    'experience.placelink.highlight2': '<strong>RxJava 2</strong> 기반 비동기 로직 전면 리팩토링',
+    'experience.placelink.highlight3': '<strong>B2G 프로젝트</strong> 대전시 협업 경험',
 
     // Experience Accordion
     'experience.showDetails': '상세 보기',
@@ -162,6 +182,9 @@ const translations = {
   },
 
   en: {
+    // Accessibility
+    'accessibility.skipToContent': 'Skip to main content',
+
     // Navigation
     'nav.impact': 'Impact',
     'nav.skills': 'Skills',
@@ -170,6 +193,10 @@ const translations = {
     'nav.education': 'Education',
     'nav.contact': 'Contact',
     'nav.etc': 'ETC',
+    'nav.cta': 'Hire Me',
+
+    // Header
+    'header.available': 'Open to Work',
 
     // Hero
     'hero.greeting': 'Hello',
@@ -183,6 +210,7 @@ const translations = {
     'hero.competency.protocol': 'Web3 & Blockchain',
     'hero.cta.contact': 'Contact Me',
     'hero.cta.projects': 'View Projects',
+    'hero.terminal.whoami': '4-year Flutter app developer',
 
     // Impact
     'impact.title': 'Impact Highlights',
@@ -209,6 +237,10 @@ const translations = {
     'skills.ai.title': 'AI Development',
     'skills.blockchain.title': 'Blockchain & Web3',
     'skills.devops.title': 'DevOps',
+    'skills.competency.ai': 'AI Productivity',
+    'skills.competency.multi': 'Multi-Platform',
+    'skills.competency.fullcycle': 'Full-Cycle',
+    'skills.competency.web3': 'Web3 & Blockchain',
 
     // Experience
     'experience.title': 'Experience',
@@ -221,10 +253,18 @@ const translations = {
     'experience.siseon.role': 'Assistant Manager @ Business Dept',
     'experience.siseon.project': 'SafeKorea & EmergencyReady - Disaster Safety Service App',
     'experience.siseon.description': 'Migrated Android/iOS legacy to Flutter. Developed LocationBasedFCMManager for real-time location-based disaster alerts. Implemented 19-language real-time translation with Google Translate API V3. Optimized TalkBack/VoiceOver accessibility.',
+    'experience.siseon.summary': 'Built a disaster-safety service app in <strong>Flutter from scratch</strong> (Legacy migration).',
+    'experience.siseon.highlight1': '<strong>Legacy→Flutter</strong> 100% migration → 50% maintenance cost reduction',
+    'experience.siseon.highlight2': '<strong>19 languages</strong> real-time translation (Google Translate API V3)',
+    'experience.siseon.highlight3': '<strong>TalkBack/VoiceOver</strong> full accessibility support',
     'experience.placelink.period': 'Oct 2022 - Nov 2024',
     'experience.placelink.role': 'Assistant Manager @ Dev Team',
     'experience.placelink.project': 'PointTour - Location-based Point Rewards App',
     'experience.placelink.description': 'Refactored async logic with RxJava 2 to resolve legacy AsyncTask issues. Developed "Zero Hour Festival" event system, increasing app downloads by 400% (1,000→5,000). B2G project experience.',
+    'experience.placelink.summary': 'Maintained and expanded an <strong>Android location-based rewards app</strong>.',
+    'experience.placelink.highlight1': '"Zero Hour Festival" campaign → <strong>400% download growth</strong> (1,000→5,000)',
+    'experience.placelink.highlight2': '<strong>RxJava 2</strong>-based full async logic refactor',
+    'experience.placelink.highlight3': '<strong>B2G project</strong> collaboration with Daejeon city',
 
     // Experience Accordion
     'experience.showDetails': 'Show Details',

@@ -6,12 +6,11 @@ const themeManager = {
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    // Apply saved theme or system preference
-    if (savedTheme) {
-      this.setTheme(savedTheme, false);
-    } else if (prefersDark) {
-      this.setTheme('dark', false);
-    }
+    // Keep both data-theme and Tailwind's .dark class in sync.
+    const initialTheme = (savedTheme === 'dark' || savedTheme === 'light')
+      ? savedTheme
+      : (prefersDark ? 'dark' : 'light');
+    this.setTheme(initialTheme, false);
 
     this.setupToggle();
     this.setupSystemPreferenceListener();
@@ -23,11 +22,17 @@ const themeManager = {
   },
 
   setTheme(theme, save = true) {
-    document.documentElement.setAttribute('data-theme', theme);
+    const normalizedTheme = theme === 'dark' ? 'dark' : 'light';
+    const root = document.documentElement;
+
+    root.setAttribute('data-theme', normalizedTheme);
+    root.classList.toggle('dark', normalizedTheme === 'dark');
+    root.style.colorScheme = normalizedTheme;
+
     if (save) {
-      localStorage.setItem('theme', theme);
+      localStorage.setItem('theme', normalizedTheme);
     }
-    this.updateToggleButton(theme);
+    this.updateToggleButton(normalizedTheme);
   },
 
   toggle() {
@@ -46,18 +51,29 @@ const themeManager = {
   updateToggleButton(theme) {
     const toggle = document.getElementById('theme-toggle');
     if (toggle) {
-      const label = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+      const isKorean = document.documentElement.lang === 'ko';
+      const label = theme === 'dark'
+        ? (isKorean ? '라이트 모드로 전환' : 'Switch to light mode')
+        : (isKorean ? '다크 모드로 전환' : 'Switch to dark mode');
       toggle.setAttribute('aria-label', label);
     }
   },
 
   setupSystemPreferenceListener() {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const handleSystemThemeChange = (e) => {
       // Only auto-switch if user hasn't set a preference
       if (!localStorage.getItem('theme')) {
         this.setTheme(e.matches ? 'dark' : 'light', false);
       }
-    });
+    };
+
+    if (typeof mediaQuery.addEventListener === 'function') {
+      mediaQuery.addEventListener('change', handleSystemThemeChange);
+    } else if (typeof mediaQuery.addListener === 'function') {
+      mediaQuery.addListener(handleSystemThemeChange);
+    }
   }
 };
 

@@ -491,6 +491,11 @@ function openProjectModal(modal, project) {
   }
   footerEl.innerHTML = links.join('');
 
+  // Re-apply translations for newly injected modal headings.
+  if (typeof i18n !== 'undefined' && typeof i18n.updateContent === 'function') {
+    i18n.updateContent();
+  }
+
   // Show modal
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
