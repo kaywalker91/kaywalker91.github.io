@@ -178,6 +178,22 @@
   --color-text-secondary: #8B949E;
   --color-text-muted: #6E7681;
 
+  /* Project Modal Tokens - Dark Mode */
+  --modal-bg: #161B22;
+  --modal-panel: #21262D;
+  --modal-panel-soft: #0F1722;
+  --modal-border-strong: #3A4654;
+  --modal-text-high: #E6EDF3;
+  --modal-text-body: #C3CDD8;
+  --modal-text-muted: #9BA7B4;
+  --modal-accent: #00D9FF;
+  --modal-warning-surface: rgba(251, 191, 36, 0.10);
+  --modal-warning-border: rgba(251, 191, 36, 0.35);
+  --modal-success-surface: rgba(74, 222, 128, 0.10);
+  --modal-success-border: rgba(74, 222, 128, 0.35);
+  --modal-chip-surface: rgba(0, 217, 255, 0.12);
+  --modal-chip-border: rgba(0, 217, 255, 0.36);
+
   /* Border colors */
   --color-border: #30363D;
   --color-border-light: #21262D;
