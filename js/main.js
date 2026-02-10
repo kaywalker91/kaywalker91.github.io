@@ -280,15 +280,23 @@ const projectData = {
   mindlog: {
     title: 'MindLog',
     features: [
-      'Llama 3.3 기반 AI 감정 분석',
-      '4가지 상태별 오버레이 UI',
-      '2단계 안전 필터 (49개 키워드 + AI)',
-      'fl_chart 기반 감정 추이 시각화'
+      'Llama 3.3 AI 감정 5단계 분석 + 위기 감지 Safety Filter',
+      'Clean Architecture + Riverpod — 레이어 분리로 1,400+ 테스트 달성',
+      'FCM 2채널 분리 (CheerMe/MindCare) + 48개 CBT 심리 메시지 (8개 카테고리)',
+      'Data-only FCM payload + 3-Layer Defense로 중복/빈 알림 근절',
+      'Image cacheWidth 최적화 (표시크기 ×3 DPR) + HTTP 30s timeout'
     ],
-    challenge: 'AI 분석 대기 시간 5~10초',
-    solution: 'Optimistic UI + Local-First 패턴 적용',
-    achievements: ['19개 테스트 파일', 'GitHub Actions CI/CD', 'Google Play Store v1.4.2'],
-    tech: ['Flutter', 'Riverpod', 'Llama 3.3', 'SQLite', 'fl_chart'],
+    challenge: 'Background Isolate에서 FCM 알림 중복 표시 + 빈 알림 발생. Android OS가 notification payload를 직접 표시하여 클라이언트 핸들러 우회.',
+    solution: 'Data-only payload 전환으로 OS 직접 표시 차단 + 고정 Notification ID 덮어쓰기 + 3-Layer Defense (buildPersonalizedMessage → handler fallback → showNotification guard)',
+    achievements: [
+      '1,400+ 테스트 케이스 (TDD 기반 개발)',
+      'Google Play Store v1.4.40 운영 중',
+      '48개 CBT 심리 메시지 풀 (8개 카테고리)',
+      'Before→After: HTTP timeout 미설정 → 30s graceful fallback',
+      'Before→After: 이미지 원본 로드 → cacheWidth 적용 (메모리 최적화)',
+      'ProviderObserver 프로덕션 zero-overhead 모니터링'
+    ],
+    tech: ['Flutter', 'Clean Architecture', 'Riverpod', 'Llama 3.3', 'SQLite', 'fl_chart', 'FCM'],
     links: {
       github: 'https://github.com/kaywalker91/MindLog',
       demo: 'https://kaywalker91.github.io/MindLog/'
@@ -311,31 +319,33 @@ const projectData = {
       demo: 'https://kaywalker91.github.io/Crypto-Wallet-Pro/'
     }
   },
-  ility: {
-    title: 'iLity Hub',
+  cryptonative: {
+    title: '멀티체인 크립토 지갑 & 소셜 트레이딩 플랫폼',
     features: [
-      '12개 모듈 마이크로 피처 아키텍처',
-      '86개 Riverpod Provider 상태 관리',
-      'State Machine 기반 4단계 지갑 연결',
-      '27개 화면 Material 3 Dark Theme'
+      '팀 5인 중 모바일 아키텍처 설계 및 구현 전담',
+      '12개 모듈 마이크로 피처 아키텍처 — Clean Architecture로 팀 병렬 개발',
+      '86개 Riverpod Provider — .select()로 최소 리빌드 최적화',
+      'State Machine 기반 4단계 지갑 연결 (WalletConnect v2)',
+      '27개 화면 Material 3 Dark Theme 설계'
     ],
-    challenge: 'WalletConnect 연결 상태 관리 복잡성',
-    solution: 'State Machine 패턴 + 4가지 지갑 인터페이스 분리 (ISP)',
-    achievements: ['50,000+ LOC', '299 테스트 케이스 (33.47%)', '10개 체인 지원'],
-    tech: ['Flutter', 'Clean Architecture', 'Riverpod 3.x', 'WalletConnect v2', 'DeFi'],
+    challenge: 'WalletConnect v2 연결 상태 관리 복잡성 + Deep Link Cold Start 시 지갑 연결 요청 유실',
+    solution: 'State Machine 패턴으로 4가지 지갑 인터페이스 분리 (ISP) + Cold Start 큐잉 메커니즘으로 앱 초기화 전 요청 보존',
+    achievements: ['50,000+ LOC, 12개 모듈, 86 Providers', '299 테스트 케이스 (33.47% 커버리지)', '10개 체인 지원 (EVM + Solana)', 'JWT Lock + 7가지 예외 타입 설계'],
+    tech: ['Flutter', 'Clean Architecture', 'Riverpod 3.x', 'WalletConnect v2', 'DeFi', 'fl_chart'],
     links: {}
   },
   safekorea: {
     title: '안전디딤돌',
     features: [
-      '백그라운드 위치 추적',
-      '19개 언어 실시간 번역',
-      'RegionStabilityChecker GPS 오차 보정',
-      'TalkBack/VoiceOver 완벽 호환'
+      'Flutter 마이그레이션 전체 리드 (Legacy Android/iOS → Flutter 100%)',
+      'LocationBasedFCMManager — 실시간 위치 기반 재난 알림',
+      '19개 언어 실시간 번역 (Google Translate API V3)',
+      'RegionStabilityChecker GPS 오차 보정 알고리즘',
+      'TalkBack/VoiceOver 완벽 호환 (공공기관 접근성 수준)'
     ],
-    challenge: 'Legacy Native 코드 완전 마이그레이션',
-    solution: 'Platform Channel로 네이티브 기능 직접 제어',
-    achievements: ['100% Flutter 마이그레이션', '50% 유지보수 비용 절감', '공공기관 접근성 인증 수준'],
+    challenge: 'Legacy Native 코드(Android/iOS) 완전 마이그레이션 + GPS 정확도 불안정',
+    solution: 'Platform Channel로 네이티브 기능 직접 제어 + RegionStabilityChecker 알고리즘으로 GPS 오차 보정',
+    achievements: ['Legacy → Flutter 100% 마이그레이션 완료', '유지보수 비용 50% 절감', '19개 언어 실시간 번역', '공공기관 접근성 인증 수준 달성'],
     tech: ['Flutter', 'FCM', 'Google Translate API V3', 'Hive', 'Platform Channel'],
     links: {}
   },
@@ -385,32 +395,19 @@ const projectData = {
 
 function setupProjectModal() {
   const modal = document.getElementById('project-modal');
-  const projectCards = document.querySelectorAll('.project-card[data-project]');
+  const detailButtons = document.querySelectorAll('.project-card__detail-btn[data-project]');
   const closeButtons = document.querySelectorAll('[data-modal-close]');
 
-  if (!modal || projectCards.length === 0) return;
+  if (!modal || detailButtons.length === 0) return;
 
-  // Open modal on card click
-  projectCards.forEach(card => {
-    card.addEventListener('click', (e) => {
-      // Ignore if clicked on a link
-      if (e.target.closest('a')) return;
-
-      const projectId = card.dataset.project;
+  // Open modal on explicit detail button click
+  detailButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const projectId = button.dataset.project;
       const project = projectData[projectId];
 
       if (project) {
         openProjectModal(modal, project);
-      }
-    });
-
-    // Keyboard accessibility
-    card.setAttribute('tabindex', '0');
-    card.setAttribute('role', 'button');
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        card.click();
       }
     });
   });
