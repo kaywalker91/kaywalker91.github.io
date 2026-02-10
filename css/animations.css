@@ -42,26 +42,6 @@
   will-change: auto;
 }
 
-/* Logo animation */
-.nav__logo {
-  position: relative;
-}
-
-.nav__logo::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-primary);
-  transition: width var(--transition-base);
-}
-
-.nav__logo:hover::after {
-  width: 100%;
-}
-
 /* Nav link animation */
 .nav__link {
   position: relative;
@@ -110,16 +90,16 @@
 }
 
 /* Language toggle animation */
-.lang-toggle {
+#lang-toggle {
   position: relative;
   overflow: hidden;
 }
 
-.lang-toggle__text {
+#lang-toggle > span {
   transition: transform var(--transition-fast);
 }
 
-.lang-toggle:hover .lang-toggle__text {
+#lang-toggle:hover > span {
   transform: scale(1.1);
 }
 
@@ -308,38 +288,6 @@
     opacity: 1;
     transform: translateX(0);
   }
-}
-
-/* ================================
-   Competency Badge Hover Animation
-   ================================ */
-.competency-badge__icon {
-  transition: transform var(--transition-base), color var(--transition-base);
-}
-
-.competency-badge:hover .competency-badge__icon {
-  transform: scale(1.05);
-  color: var(--color-accent);
-}
-
-.competency-badge:hover .competency-badge__text {
-  color: var(--color-primary);
-}
-
-/* Badge glow effect on hover */
-.competency-badge::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--gradient-primary);
-  opacity: 0;
-  border-radius: inherit;
-  transition: opacity var(--transition-base);
-  z-index: -1;
-}
-
-.competency-badge:hover::before {
-  opacity: 0.08;
 }
 
 /* ================================

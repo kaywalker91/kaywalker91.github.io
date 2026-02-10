@@ -146,42 +146,36 @@
       </button>
 
       <ul
-        class="fixed inset-0 bg-surface z-40 flex flex-col items-center justify-center gap-8 transition-all duration-300 translate-x-full opacity-0 invisible [&.active]:translate-x-0 [&.active]:opacity-100 [&.active]:visible md:static md:w-auto md:h-auto md:bg-transparent md:flex-row md:translate-x-0 md:opacity-100 md:visible md:gap-6"
+        class="nav__menu fixed inset-0 bg-surface z-40 flex flex-col items-center justify-center gap-8 transition-all duration-300 translate-x-full opacity-0 invisible [&.active]:translate-x-0 [&.active]:opacity-100 [&.active]:visible md:static md:w-auto md:h-auto md:bg-transparent md:flex-row md:translate-x-0 md:opacity-100 md:visible md:gap-6"
         id="nav-menu">
-        <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-100">
+        <li class="nav__item">
           <a href="#skills"
             class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
             data-i18n="nav.skills">기술</a>
         </li>
-        <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-[150ms]">
+        <li class="nav__item">
           <a href="#experience"
             class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
             data-i18n="nav.experience">경력</a>
         </li>
-        <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-200">
+        <li class="nav__item">
           <a href="#projects"
             class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
             data-i18n="nav.projects">프로젝트</a>
         </li>
-        <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-[250ms]">
+        <li class="nav__item">
           <a href="#contact"
             class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
             data-i18n="nav.contact">연락처</a>
         </li>
-        <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-300">
+        <li class="nav__item">
           <button
             class="w-9 h-9 rounded-full flex items-center justify-center border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/50 transition-all text-text-primary"
             id="lang-toggle" aria-label="Toggle language">
             <span class="text-xs font-medium text-gray-600 dark:text-gray-300">EN</span>
           </button>
         </li>
-        <li
-          class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-[350ms]">
+        <li class="nav__item">
           <button
             class="w-9 h-9 rounded-full flex items-center justify-center border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/50 transition-all text-text-primary relative group"
             id="theme-toggle" aria-label="Toggle dark mode">
@@ -201,7 +195,7 @@
             </svg>
           </button>
         </li>
-        <li class="nav__item opacity-0 translate-x-[20px] transition-all duration-300 [&.active_&]:opacity-100 [&.active_&]:translate-x-0 md:opacity-100 md:translate-x-0 md:transition-none delay-400">
+        <li class="nav__item">
           <a href="#contact"
             class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-blue-600 dark:bg-blue-500 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors"
             data-i18n="nav.cta">채용 문의</a>
@@ -212,54 +206,53 @@
 
   <main id="main-content">
     <!-- Hero Section -->
-    <section class="relative flex items-center justify-center min-h-[calc(100vh-80px)] pt-24 pb-12 overflow-hidden"
+    <section class="hero relative flex items-center justify-center overflow-hidden"
       id="hero">
       <!-- Background Grid Pattern -->
       <div class="hero__bg-grid" aria-hidden="true"></div>
 
-      <div class="container mx-auto px-6 lg:px-12 z-10">
+      <div class="container hero__container mx-auto px-6 lg:px-12 z-10">
         <!-- 2-Column Layout: Text (Left) + Terminal (Right) on Desktop -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           <!-- Left: Text Content -->
-          <div class="flex flex-col items-center lg:items-start text-center lg:text-left space-y-5">
+          <div class="hero__content-text flex flex-col items-center lg:items-start text-center lg:text-left space-y-5">
 
-            <p class="text-lg md:text-xl font-mono text-text-secondary reveal">
+            <p class="hero__greeting font-mono reveal">
               <span class="text-tertiary">&lt;</span>
               <span class="text-text-primary" data-i18n="hero.greeting">안녕하세요</span>
               <span class="text-tertiary">/&gt;</span>
             </p>
 
-            <h1
-              class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary leading-tight reveal">
-              <span class="block mb-2" data-i18n="hero.name">김대각</span>
+            <h1 class="hero__title reveal">
+              <span class="hero__name block mb-2" data-i18n="hero.name">김대각</span>
               <span
-                class="block text-2xl md:text-3xl lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent"
+                class="hero__role block text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent"
                 data-i18n="hero.role">
                 4년차 Flutter 모바일 앱 개발자
               </span>
             </h1>
 
             <!-- Core Value Proposition -->
-            <p class="text-lg md:text-xl text-text-secondary leading-relaxed max-w-xl reveal"
+            <p class="hero__tagline max-w-xl reveal"
               data-i18n="hero.tagline">
               Flutter 4년 | 5만+ LOC 멀티체인 지갑 앱 개발
             </p>
 
-            <p class="text-base text-text-muted leading-relaxed max-w-lg reveal"
+            <p class="hero__description max-w-lg reveal"
               data-i18n="hero.description">
               WalletConnect v2 기반 MetaMask, Phantom 등 8종 지갑 연동 구현
             </p>
 
             <!-- CTA Buttons - Mobile Optimized -->
-            <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-6 reveal">
+            <div class="hero__actions flex flex-wrap justify-center lg:justify-start gap-4 reveal">
               <a href="#contact"
-                class="inline-flex items-center justify-center px-6 py-3 sm:px-10 sm:py-4 text-base sm:text-lg font-bold text-white transition-all bg-blue-600 dark:bg-blue-500 rounded-xl hover:bg-blue-700 dark:hover:bg-blue-600 hover:shadow-xl hover:shadow-blue-500/40 active:scale-95"
+                class="hero__cta hero__cta--primary"
                 data-i18n="hero.cta.contact">
                 연락하기
               </a>
               <a href="#projects"
-                class="inline-flex items-center justify-center px-6 py-3 sm:px-10 sm:py-4 text-base sm:text-lg font-semibold text-text-primary transition-all bg-transparent border-2 border-border rounded-xl hover:bg-surface hover:border-primary active:scale-95"
+                class="hero__cta hero__cta--secondary"
                 data-i18n="hero.cta.projects">
                 프로젝트 보기
               </a>
@@ -326,10 +319,10 @@
     </section>
 
     <!-- Impact Section (Refactored with Tailwind) -->
-    <section class="py-24 relative overflow-hidden" id="impact">
+    <section class="section-shell section-shell--impact relative overflow-hidden" id="impact">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 reveal" data-i18n="impact.title">성과 하이라이트</h2>
-        <p class="text-text-secondary text-center mb-12 reveal" data-i18n="impact.subtitle">숫자로 증명하는 개발 역량</p>
+        <h2 class="section-heading reveal" data-i18n="impact.title">성과 하이라이트</h2>
+        <p class="section-subheading reveal" data-i18n="impact.subtitle">숫자로 증명하는 개발 역량</p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
           <!-- SVG Gradient Definition -->
@@ -455,10 +448,10 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="py-24 relative overflow-hidden" id="skills">
+    <section class="section-shell section-shell--skills relative overflow-hidden" id="skills">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 reveal" data-i18n="skills.title">기술 스택</h2>
-        <p class="text-text-secondary text-center mb-8 reveal" data-i18n="skills.subtitle">모바일 앱 개발에 필요한 핵심 기술들</p>
+        <h2 class="section-heading reveal" data-i18n="skills.title">기술 스택</h2>
+        <p class="section-subheading reveal" data-i18n="skills.subtitle">모바일 앱 개발에 필요한 핵심 기술들</p>
 
         <!-- Core Competencies Badges -->
         <div class="flex flex-wrap justify-center gap-3 mb-12 reveal">
@@ -665,10 +658,10 @@
     </section>
 
     <!-- Experience Section -->
-    <section class="py-24 relative overflow-hidden" id="experience">
+    <section class="section-shell section-shell--experience relative overflow-hidden" id="experience">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 reveal" data-i18n="experience.title">경력</h2>
-        <p class="text-text-secondary text-center mb-16 reveal" data-i18n="experience.subtitle">실무에서 쌓아온 경험들</p>
+        <h2 class="section-heading reveal" data-i18n="experience.title">경력</h2>
+        <p class="section-subheading reveal" data-i18n="experience.subtitle">실무에서 쌓아온 경험들</p>
 
         <div class="flex flex-col items-center gap-12 md:gap-16 max-w-2xl mx-auto">
 
@@ -886,10 +879,10 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="projects section section--dense" id="projects">
+    <section class="projects section-shell section-shell--projects" id="projects">
       <div class="container">
-        <h2 class="section__title reveal" data-i18n="projects.title">프로젝트</h2>
-        <p class="section__subtitle reveal" data-i18n="projects.subtitle">주요 개발 프로젝트</p>
+        <h2 class="section-heading reveal" data-i18n="projects.title">프로젝트</h2>
+        <p class="section-subheading reveal" data-i18n="projects.subtitle">주요 개발 프로젝트</p>
 
         <!-- Project Filter -->
         <div class="projects__filter reveal" role="tablist" aria-label="프로젝트 필터">
@@ -1109,10 +1102,10 @@
     </section>
 
     <!-- Education Section -->
-    <section class="py-24 relative" id="education">
+    <section class="section-shell section-shell--education relative" id="education">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 reveal" data-i18n="education.title">학력</h2>
-        <p class="text-text-secondary text-center mb-12 reveal" data-i18n="education.subtitle">교육 및 수료 이력</p>
+        <h2 class="section-heading reveal" data-i18n="education.title">학력</h2>
+        <p class="section-subheading reveal" data-i18n="education.subtitle">교육 및 수료 이력</p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto reveal">
           <!-- Academy Card (Most Recent) -->
@@ -1174,10 +1167,10 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="py-24 relative" id="contact">
+    <section class="section-shell section-shell--contact relative" id="contact">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 reveal" data-i18n="contact.title">연락처</h2>
-        <p class="text-text-secondary text-center mb-12 reveal" data-i18n="contact.subtitle">함께 일하고 싶으시다면 연락주세요</p>
+        <h2 class="section-heading reveal" data-i18n="contact.title">연락처</h2>
+        <p class="section-subheading reveal" data-i18n="contact.subtitle">함께 일하고 싶으시다면 연락주세요</p>
 
         <!-- Availability Indicator -->
         <div class="flex justify-center items-center gap-2 mb-12 reveal">
@@ -1228,10 +1221,10 @@
     </section>
 
     <!-- ETC Section -->
-    <section class="py-24 relative" id="etc">
+    <section class="section-shell section-shell--etc relative" id="etc">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 reveal" data-i18n="etc.title">기타</h2>
-        <p class="text-text-secondary text-center mb-12 reveal" data-i18n="etc.subtitle">자격증 및 지속적 학습</p>
+        <h2 class="section-heading reveal" data-i18n="etc.title">기타</h2>
+        <p class="section-subheading reveal" data-i18n="etc.subtitle">자격증 및 지속적 학습</p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <!-- Certifications Card -->
@@ -1415,23 +1408,6 @@
       <path d="M5 12l7-7 7 7" />
     </svg>
   </button>
-
-  <!-- Timeline Detail Slide Panel -->
-  <div id="timeline-panel" class="timeline-panel" aria-hidden="true" role="dialog"
-    aria-labelledby="timeline-panel-title" aria-modal="true">
-    <div class="timeline-panel__overlay"></div>
-    <div class="timeline-panel__content">
-      <header class="timeline-panel__header">
-        <h3 id="timeline-panel-title" class="timeline-panel__title"></h3>
-        <button class="timeline-panel__close" aria-label="닫기" data-i18n-aria="panel.close">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        </button>
-      </header>
-      <div class="timeline-panel__body"></div>
-    </div>
-  </div>
 
   <!-- Footer -->
   <footer class="py-8 border-t border-white/10 bg-black/20 text-center">

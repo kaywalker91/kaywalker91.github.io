@@ -6,10 +6,15 @@
   --color-primary-dark: #003D82;
   --color-accent: #00D9FF;
   --color-accent-light: #4DE8FF;
+  --color-secondary: #2B7BE8;
+  --color-secondary-light: #6CAAF9;
+  --color-tertiary: #4D6487;
 
   --color-background: #FAFAFA;
+  --color-background-alt: #F3F7FC;
   --color-surface: #FFFFFF;
   --color-surface-elevated: #FFFFFF;
+  --color-surface-soft: #F6F9FF;
 
   --color-text-primary: #1A1A2E;
   --color-text-secondary: #374151;
@@ -37,6 +42,10 @@
   --font-size-3xl: 1.875rem;  /* 30px */
   --font-size-4xl: 2.25rem;   /* 36px */
   --font-size-5xl: 3rem;      /* 48px */
+  --font-size-display: clamp(2.4rem, 5.8vw, 4.6rem);
+  --font-size-hero-subtitle: clamp(1.35rem, 2.6vw, 2.2rem);
+  --font-size-section-title-fluid: clamp(1.9rem, 4vw, 2.9rem);
+  --font-size-section-subtitle: clamp(1rem, 1.6vw, 1.18rem);
 
   --font-weight-normal: 400;
   --font-weight-medium: 500;
@@ -46,6 +55,8 @@
   --line-height-tight: 1.25;
   --line-height-normal: 1.7;
   --line-height-relaxed: 1.8;
+  --line-height-display: 1.08;
+  --letter-spacing-tight: -0.02em;
 
   /* Spacing (8px base) */
   --space-1: 0.25rem;   /* 4px */
@@ -62,6 +73,9 @@
   --space-16: 4rem;     /* 64px */
   --space-20: 5rem;     /* 80px */
   --space-24: 6rem;     /* 96px */
+  --section-space-y: clamp(4.75rem, 8vw, 6.75rem);
+  --section-space-y-compact: clamp(4.25rem, 7vw, 5.75rem);
+  --content-measure: 66ch;
 
   /* Layout */
   --container-max: 1080px;
@@ -91,6 +105,9 @@
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
   --gradient-surface: linear-gradient(180deg, var(--color-background) 0%, var(--color-surface) 100%);
+  --section-divider: linear-gradient(90deg, transparent 0%, rgba(5, 83, 177, 0.28) 50%, transparent 100%);
+  --hero-wash: radial-gradient(1200px circle at 12% 8%, rgba(5, 83, 177, 0.2) 0%, transparent 55%),
+               radial-gradient(900px circle at 90% 20%, rgba(0, 217, 255, 0.16) 0%, transparent 50%);
 
   /* Code Colors (for terminal) */
   --color-code-bg: #F6F8FA;
@@ -145,11 +162,16 @@
   --color-primary-dark: #00B4D8;
   --color-accent: #0553B1;
   --color-accent-light: #1976D2;
+  --color-secondary: #5FAAFF;
+  --color-secondary-light: #94C6FF;
+  --color-tertiary: #9AB3D5;
 
   /* GitHub-inspired dark backgrounds */
   --color-background: #0D1117;
+  --color-background-alt: #121821;
   --color-surface: #161B22;
   --color-surface-elevated: #21262D;
+  --color-surface-soft: #1A222E;
 
   /* Text optimized for dark backgrounds */
   --color-text-primary: #E6EDF3;
@@ -169,6 +191,9 @@
   /* Glow effects for dark mode */
   --glow-primary: 0 0 0 1px rgba(0, 217, 255, 0.12);
   --glow-accent: 0 0 0 1px rgba(5, 83, 177, 0.15);
+  --section-divider: linear-gradient(90deg, transparent 0%, rgba(0, 217, 255, 0.36) 50%, transparent 100%);
+  --hero-wash: radial-gradient(1200px circle at 14% 10%, rgba(0, 217, 255, 0.18) 0%, transparent 55%),
+               radial-gradient(900px circle at 88% 18%, rgba(25, 118, 210, 0.2) 0%, transparent 50%);
 
   /* Code/Terminal colors */
   --color-code-bg: #1A1F26;
