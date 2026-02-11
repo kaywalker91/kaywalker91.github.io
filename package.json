@@ -1,0 +1,20 @@
+{
+  "name": "kaywalker91-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website for Flutter developer - Playwright QA automation",
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report",
+    "playwright:install": "playwright install chromium --with-deps"
+  },
+  "keywords": ["portfolio", "playwright", "qa", "automation"],
+  "author": "Daegak Kim",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.49.0"
+  }
+}
