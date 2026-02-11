@@ -1,0 +1,4 @@
+interface:
+  display_name: "Portfolio Quality Gate"
+  short_description: "Run static regression checks for i18n, SEO, sitemap, and UI contracts"
+  default_prompt: "Use $portfolio-quality-gate to validate this portfolio update and report blocking regressions with fix-ready details."

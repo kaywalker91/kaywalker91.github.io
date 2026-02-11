@@ -1,0 +1,4 @@
+interface:
+  display_name: "Portfolio Content Sync"
+  short_description: "Audit cross-file content and translation synchronization"
+  default_prompt: "Use $portfolio-content-sync to verify that project content and translation keys stay consistent across index.html, js/main.js, and js/translations.js."
