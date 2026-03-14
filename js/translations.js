@@ -15,7 +15,7 @@ const translations = {
     'nav.cta': '채용 문의',
 
     // Header
-    'header.available': '채용 가능',
+    'header.available': '재직 중',
 
     // Hero
     'hero.greeting': '안녕하세요',
@@ -30,6 +30,7 @@ const translations = {
     'hero.cta.contact': '연락하기',
     'hero.cta.projects': '프로젝트 보기',
     'hero.terminal.whoami': '4년차 Flutter 앱 개발자 (Android/iOS Native 경험)',
+    'hero.terminal.status': '✓ 로운컴퍼니씨앤씨 재직 중',
 
     // Impact
     'impact.title': '성과 하이라이트',
@@ -64,7 +65,14 @@ const translations = {
     // Experience
     'experience.title': '경력',
     'experience.subtitle': '실무에서 쌓아온 경험들',
-    'experience.forlong.period': '2025.12 - 현재',
+    'experience.rowoon.period': '2026.03 - 현재',
+    'experience.rowoon.role': 'Flutter 앱 개발자 @ 개발팀',
+    'experience.rowoon.project': 'POD APP · 커스텀 에디터 엔진 · API/Admin',
+    'experience.rowoon.summary': 'POD APP 고도화 및 신규 기능 개발',
+    'experience.rowoon.highlight1': '모바일 앱 서비스 고도화 및 신규 기능 개발',
+    'experience.rowoon.highlight2': '굿즈 커스텀 에디터 엔진 유지보수 및 최적화',
+    'experience.rowoon.highlight3': '백엔드 API, 주문/결제 로직, Admin 기능 개선',
+    'experience.forlong.period': '2025.12 - 2026.02',
     'experience.forlong.role': '대리 @ 개발팀',
     'experience.forlong.project': '멀티체인 크립토 지갑 & 소셜 트레이딩 플랫폼',
     'experience.forlong.description': '팀 5인 중 모바일 아키텍처 설계 및 구현 전담. Clean Architecture 기반 12개 모듈 설계. WalletConnect v2 통합 및 State Machine 기반 4단계 지갑 연결. 299개 테스트 케이스 (33.47% 커버리지).',
@@ -188,7 +196,7 @@ const translations = {
     // Contact
     'contact.title': '연락처',
     'contact.subtitle': '함께 일하고 싶으시다면 연락주세요',
-    'contact.availability': '현재 <strong>채용 가능</strong> 상태입니다',
+    'contact.availability': '현재 <strong>로운컴퍼니씨앤씨 재직 중</strong>입니다',
     'contact.copied': '복사됨!',
     'contact.response': '보통 24시간 내 응답',
 
@@ -228,7 +236,7 @@ const translations = {
     'nav.cta': 'Hire Me',
 
     // Header
-    'header.available': 'Open to Work',
+    'header.available': 'Employed',
 
     // Hero
     'hero.greeting': 'Hello',
@@ -243,6 +251,7 @@ const translations = {
     'hero.cta.contact': 'Contact Me',
     'hero.cta.projects': 'View Projects',
     'hero.terminal.whoami': '4-year Flutter app developer (Android/iOS native experience)',
+    'hero.terminal.status': '✓ Currently employed at Rowoon Company Corp.',
 
     // Impact
     'impact.title': 'Impact Highlights',
@@ -277,7 +286,14 @@ const translations = {
     // Experience
     'experience.title': 'Experience',
     'experience.subtitle': 'Professional journey in the field',
-    'experience.forlong.period': 'Dec 2025 - Present',
+    'experience.rowoon.period': 'Mar 2026 - Present',
+    'experience.rowoon.role': 'Flutter App Developer @ Dev Team',
+    'experience.rowoon.project': 'POD APP · Custom Editor Engine · API/Admin',
+    'experience.rowoon.summary': 'POD APP enhancement and new feature development',
+    'experience.rowoon.highlight1': 'Enhancing mobile app services and developing new features',
+    'experience.rowoon.highlight2': 'Maintaining and optimizing the custom goods editor engine',
+    'experience.rowoon.highlight3': 'Improving backend APIs, order/payment logic, and Admin features',
+    'experience.forlong.period': 'Dec 2025 - Feb 2026',
     'experience.forlong.role': 'Assistant Manager @ Dev Team',
     'experience.forlong.project': 'Multi-chain Crypto Wallet & Social Trading Platform',
     'experience.forlong.description': 'Led mobile architecture design as sole architect in a 5-person team. Designed 12-module Clean Architecture structure. Integrated WalletConnect v2 with State Machine-based 4-step wallet connection. Created 299 test cases (33.47% coverage).',
@@ -401,7 +417,7 @@ const translations = {
     // Contact
     'contact.title': 'Contact',
     'contact.subtitle': "Let's work together",
-    'contact.availability': 'Currently <strong>Open to Work</strong>',
+    'contact.availability': 'Currently <strong>employed at Rowoon Company Corp.</strong>',
     'contact.copied': 'Copied!',
     'contact.response': 'Usually responds within 24h',
 
