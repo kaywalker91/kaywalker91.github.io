@@ -10,8 +10,8 @@
   --color-secondary-light: #6CAAF9;
   --color-tertiary: #4D6487;
 
-  --color-background: #FAFAFA;
-  --color-background-alt: #F3F7FC;
+  --color-background: #F7F9FF;
+  --color-background-alt: #EDF3FC;
   --color-surface: #FFFFFF;
   --color-surface-elevated: #FFFFFF;
   --color-surface-soft: #F6F9FF;
@@ -106,8 +106,8 @@
   --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
   --gradient-surface: linear-gradient(180deg, var(--color-background) 0%, var(--color-surface) 100%);
   --section-divider: linear-gradient(90deg, transparent 0%, rgba(5, 83, 177, 0.28) 50%, transparent 100%);
-  --hero-wash: radial-gradient(1200px circle at 12% 8%, rgba(5, 83, 177, 0.2) 0%, transparent 55%),
-               radial-gradient(900px circle at 90% 20%, rgba(0, 217, 255, 0.16) 0%, transparent 50%);
+  --hero-wash: radial-gradient(1200px circle at 12% 8%, rgba(5, 83, 177, 0.28) 0%, transparent 55%),
+               radial-gradient(900px circle at 90% 20%, rgba(0, 217, 255, 0.22) 0%, transparent 50%);
 
   /* Code Colors (for terminal) */
   --color-code-bg: #F6F8FA;
@@ -258,7 +258,7 @@
 
 /* Prevent flash of unstyled content */
 html {
-  background-color: #FAFAFA;
+  background-color: #F7F9FF;
 }
 
 html[data-theme="dark"] {

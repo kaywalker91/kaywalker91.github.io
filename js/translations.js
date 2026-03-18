@@ -30,7 +30,7 @@ const translations = {
     'hero.cta.contact': '연락하기',
     'hero.cta.projects': '프로젝트 보기',
     'hero.terminal.whoami': '4년차 Flutter 앱 개발자 (Android/iOS Native 경험)',
-    'hero.terminal.status': '✓ 로운컴퍼니씨앤씨 재직 중',
+    'hero.terminal.status': '✓ Rowoon Company Corp. 재직 중',
 
     // Impact
     'impact.title': '성과 하이라이트',
@@ -76,6 +76,11 @@ const translations = {
     'experience.forlong.role': '대리 @ 개발팀',
     'experience.forlong.project': '멀티체인 크립토 지갑 & 소셜 트레이딩 플랫폼',
     'experience.forlong.description': '팀 5인 중 모바일 아키텍처 설계 및 구현 전담. Clean Architecture 기반 12개 모듈 설계. WalletConnect v2 통합 및 State Machine 기반 4단계 지갑 연결. 299개 테스트 케이스 (33.47% 커버리지).',
+    'experience.forlong.achievements': '주요 성과',
+    'experience.forlong.highlight1': 'WalletConnect v2 기반 멀티 지갑 연동 아키텍처 설계 및 구현',
+    'experience.forlong.highlight2': 'Phantom/MetaMask Deep Link 프로토콜 통합 (Base58, X25519)',
+    'experience.forlong.highlight3': 'Web3 인증 시스템 구현 (Nonce → Sign → JWT)',
+    'experience.forlong.highlight4': 'Clean Architecture 기반 Adapter 패턴 적용',
     'experience.siseon.period': '2024.11 - 2025.11',
     'experience.siseon.role': '대리 @ 사업부',
     'experience.siseon.project': '안전디딤돌 & 이머전시레디앱 - 재난안전 서비스앱',
@@ -108,6 +113,8 @@ const translations = {
     'experience.siseon.metric1': 'Legacy → Flutter 마이그레이션',
     'experience.siseon.metric2': '유지보수 비용 절감',
     'experience.siseon.metric3': '다국어 실시간 번역',
+    'experience.siseon.stat3': '19개국',
+    'projects.filter.label': '프로젝트 필터',
     'experience.siseon.tech1': 'RegionStabilityChecker GPS 오차 보정 알고리즘',
     'experience.siseon.tech2': 'Platform Channel 백그라운드 위치 추적',
     'experience.siseon.tech3': 'TalkBack/VoiceOver 완벽 호환',
@@ -152,6 +159,7 @@ const translations = {
     'projects.cryptonative.summary': '팀 5인 중 모바일 아키텍처 설계/구현 전담 프로젝트.',
     'projects.cryptonative.highlight1': '12개 모듈, 86개 Provider 구조 설계',
     'projects.cryptonative.highlight2': 'WalletConnect v2 상태 머신으로 연결 안정화',
+    'projects.cryptonative.title': '멀티체인 크립토 지갑 & 소셜 트레이딩 플랫폼',
     'projects.cryptonative.highlight3': 'Ethereum, BNB, Base 등 멀티체인 지원',
     'projects.cryptonative.description': '멀티체인 크립토 지갑 & 소셜 트레이딩 플랫폼. 팀 5인 중 모바일 아키텍처 설계 및 구현 전담. 12개 모듈, 86 Providers. Ethereum, BNB Chain, Base 등 EVM 호환 네트워크 지원.',
     'projects.safekorea.badge': '회사 프로젝트',
@@ -159,6 +167,7 @@ const translations = {
     'projects.safekorea.highlight1': 'Legacy Android/iOS에서 Flutter 100% 전환',
     'projects.safekorea.highlight2': '위치 기반 재난 알림 및 19개 언어 번역 적용',
     'projects.safekorea.highlight3': 'TalkBack/VoiceOver 접근성 대응 강화',
+    'projects.safekorea.title': '안전디딤돌',
     'projects.safekorea.description': '재난안전 서비스앱 Flutter 마이그레이션 전체 리드. Legacy Android/iOS → Flutter 100% 전환. 위치 기반 재난 알림, 19개 언어 실시간 번역, TalkBack/VoiceOver 접근성 강화.',
     'projects.dwinsta.badge': '학습 프로젝트',
     'projects.dwinsta.summary': 'DW 아카데미 수강 시 개발한 Instagram 클론 앱',
@@ -177,6 +186,7 @@ const translations = {
     'projects.pointtour.highlight1': '"0시축제" 이벤트로 다운로드 400% 증가',
     'projects.pointtour.highlight2': 'RxJava 2 기반 비동기 로직 전면 리팩토링',
     'projects.pointtour.highlight3': '대전시 B2G 프로젝트 협업 경험',
+    'projects.pointtour.title': '포인트투어',
     'projects.pointtour.description': '위치기반 포인트적립 Android 앱. RxJava 2 비동기 로직 리팩토링. 대전시 "0시축제" 이벤트 시스템으로 다운로드 400% 증가 (1,000→5,000회). B2G 프로젝트 수행.',
 
     // Education
@@ -196,7 +206,7 @@ const translations = {
     // Contact
     'contact.title': '연락처',
     'contact.subtitle': '함께 일하고 싶으시다면 연락주세요',
-    'contact.availability': '현재 <strong>로운컴퍼니씨앤씨 재직 중</strong>입니다',
+    'contact.availability': '현재 <strong>Rowoon Company Corp. 재직 중</strong>입니다',
     'contact.copied': '복사됨!',
     'contact.response': '보통 24시간 내 응답',
 
@@ -213,12 +223,16 @@ const translations = {
     'etc.certifications.word.name': '워드프로세서 1급',
     'etc.certifications.word.org': '대한상공회의소',
     'etc.learning.title': '지속적 학습',
+    'etc.learning.claude.name': '클로드 코드 완벽 마스터',
+    'etc.learning.flutter.name': 'Flutter 실전 프로젝트 - BLoC & Riverpod',
+    'etc.learning.senior.name': '시니어 개발자 인사이트 학습',
+    'etc.learning.inprogress': '진행 중',
     'etc.status.completed': '완료',
     'etc.status.progress': '75%',
     'etc.status.ongoing': '진행중',
 
     // Footer
-    'footer.copyright': '© 2025 김대각. All rights reserved.'
+    'footer.copyright': '© 2026 김대각. All rights reserved.'
   },
 
   en: {
@@ -297,6 +311,11 @@ const translations = {
     'experience.forlong.role': 'Assistant Manager @ Dev Team',
     'experience.forlong.project': 'Multi-chain Crypto Wallet & Social Trading Platform',
     'experience.forlong.description': 'Led mobile architecture design as sole architect in a 5-person team. Designed 12-module Clean Architecture structure. Integrated WalletConnect v2 with State Machine-based 4-step wallet connection. Created 299 test cases (33.47% coverage).',
+    'experience.forlong.achievements': 'Key Achievements',
+    'experience.forlong.highlight1': 'Designed multi-wallet integration architecture based on WalletConnect v2',
+    'experience.forlong.highlight2': 'Integrated Phantom/MetaMask Deep Link protocol (Base58, X25519)',
+    'experience.forlong.highlight3': 'Implemented Web3 authentication system (Nonce → Sign → JWT)',
+    'experience.forlong.highlight4': 'Applied Adapter pattern based on Clean Architecture',
     'experience.siseon.period': 'Nov 2024 - Nov 2025',
     'experience.siseon.role': 'Assistant Manager @ Business Dept',
     'experience.siseon.project': 'SafeKorea & EmergencyReady - Disaster Safety Service App',
@@ -329,6 +348,8 @@ const translations = {
     'experience.siseon.metric1': 'Legacy → Flutter migration',
     'experience.siseon.metric2': 'Maintenance cost reduction',
     'experience.siseon.metric3': 'Multi-language real-time translation',
+    'experience.siseon.stat3': '19 countries',
+    'projects.filter.label': 'Project Filter',
     'experience.siseon.tech1': 'RegionStabilityChecker GPS correction algorithm',
     'experience.siseon.tech2': 'Platform Channel background location tracking',
     'experience.siseon.tech3': 'TalkBack/VoiceOver full compatibility',
@@ -374,12 +395,14 @@ const translations = {
     'projects.cryptonative.highlight1': 'Designed a 12-module architecture with 86 providers',
     'projects.cryptonative.highlight2': 'Stabilized connections via WalletConnect v2 state machine',
     'projects.cryptonative.highlight3': 'Supports Ethereum, BNB, Base and other multi-chains',
+    'projects.cryptonative.title': 'Multi-chain Crypto Wallet & Social Trading',
     'projects.cryptonative.description': 'Multi-chain crypto wallet & social trading platform. Led mobile architecture design as sole architect in a 5-person team. 12 modules, 86 Providers. Supports EVM-compatible networks including Ethereum, BNB Chain, Base.',
     'projects.safekorea.badge': 'Company Project',
     'projects.safekorea.summary': 'Public safety app project leading migration to Flutter.',
     'projects.safekorea.highlight1': 'Completed 100% migration from Legacy Android/iOS to Flutter',
     'projects.safekorea.highlight2': 'Implemented location alerts and 19-language translation',
     'projects.safekorea.highlight3': 'Strengthened TalkBack/VoiceOver accessibility support',
+    'projects.safekorea.title': 'SafeKorea',
     'projects.safekorea.description': 'Led full Flutter migration for disaster safety service app. Legacy Android/iOS → Flutter 100% conversion. Location-based disaster alerts, 19-language real-time translation, TalkBack/VoiceOver accessibility.',
     'projects.dwinsta.badge': 'Learning Project',
     'projects.dwinsta.summary': 'Instagram clone app developed at DW Academy',
@@ -398,6 +421,7 @@ const translations = {
     'projects.pointtour.highlight1': '"Zero Hour Festival" campaign → 400% download growth',
     'projects.pointtour.highlight2': 'Full RxJava 2-based async logic refactor',
     'projects.pointtour.highlight3': 'B2G project collaboration with Daejeon city',
+    'projects.pointtour.title': 'PointTour',
     'projects.pointtour.description': 'Location-based point rewards Android app. Refactored async logic with RxJava 2. Developed "Zero Hour Festival" event system, increasing downloads by 400% (1,000→5,000). B2G project experience.',
 
     // Education
@@ -434,11 +458,15 @@ const translations = {
     'etc.certifications.word.name': 'Word Processor Level 1',
     'etc.certifications.word.org': 'Korea Chamber of Commerce and Industry',
     'etc.learning.title': 'Continuous Learning',
+    'etc.learning.claude.name': 'Claude Code Complete Mastery',
+    'etc.learning.flutter.name': 'Flutter Practical Projects - BLoC & Riverpod',
+    'etc.learning.senior.name': 'Senior Developer Insights',
+    'etc.learning.inprogress': 'In Progress',
     'etc.status.completed': 'Done',
     'etc.status.progress': '75%',
     'etc.status.ongoing': 'Ongoing',
 
     // Footer
-    'footer.copyright': '© 2025 Daegak Kim. All rights reserved.'
+    'footer.copyright': '© 2026 Daegak Kim. All rights reserved.'
   }
 };

@@ -1816,30 +1816,99 @@
 .hero__tagline {
   font-size: clamp(1.04rem, 1.8vw, 1.28rem);
   font-weight: var(--font-weight-semibold);
+  font-style: italic;
   line-height: 1.55;
-  color: var(--color-text-primary);
+  color: var(--color-text-secondary);
   margin-bottom: var(--space-2);
-  padding: var(--space-3) var(--space-4);
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.72) 0%,
-    rgba(243, 247, 252, 0.92) 100%
-  );
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(5, 83, 177, 0.16);
-  box-shadow: 0 10px 24px rgba(5, 83, 177, 0.08);
-  display: inline-flex;
-  align-items: center;
+  padding-left: var(--space-5);
+  border-left: 3px solid var(--color-primary);
+  display: block;
+  opacity: 0.88;
 }
 
 [data-theme="dark"] .hero__tagline {
-  background: linear-gradient(
-    135deg,
-    rgba(26, 34, 46, 0.9) 0%,
-    rgba(13, 17, 23, 0.92) 100%
-  );
+  color: var(--color-text-secondary);
+  border-left-color: var(--color-primary);
+}
+
+/* ================================
+   Hero Tech Badges
+   ================================ */
+.hero__tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+.hero__tech-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1-5) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  background: rgba(5, 83, 177, 0.08);
+  color: var(--color-primary);
+  border: 1px solid rgba(5, 83, 177, 0.2);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+  opacity: 0;
+  animation: badgeFadeIn 0.4s ease forwards;
+}
+
+.hero__tech-badge:nth-child(1) { animation-delay: 600ms; }
+.hero__tech-badge:nth-child(2) { animation-delay: 720ms; }
+.hero__tech-badge:nth-child(3) { animation-delay: 840ms; }
+.hero__tech-badge:nth-child(4) { animation-delay: 960ms; }
+.hero__tech-badge:nth-child(5) { animation-delay: 1080ms; }
+
+.hero__tech-badge:hover {
+  background: rgba(5, 83, 177, 0.14);
+  border-color: rgba(5, 83, 177, 0.4);
+}
+
+[data-theme="dark"] .hero__tech-badge {
+  background: rgba(0, 217, 255, 0.1);
+  color: var(--color-primary);
   border-color: rgba(0, 217, 255, 0.24);
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .hero__tech-badge:hover {
+  background: rgba(0, 217, 255, 0.16);
+  border-color: rgba(0, 217, 255, 0.42);
+}
+
+/* ================================
+   Skill Level Dots
+   ================================ */
+.skill-level-dots {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.skill-level-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid rgba(5, 83, 177, 0.35);
+  background: transparent;
+  transition: background-color var(--transition-fast);
+}
+
+.skill-level-dot--filled {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+[data-theme="dark"] .skill-level-dot {
+  border-color: rgba(0, 217, 255, 0.35);
+}
+
+[data-theme="dark"] .skill-level-dot--filled {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .impact__grid {
@@ -2595,4 +2664,62 @@
   .impact-stat__number.counting {
     animation: none;
   }
+}
+
+/* ================================
+   Experience Card — Left Border Accent
+   ================================ */
+.timeline__details {
+  border-left: 3px solid var(--color-primary) !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  padding-left: calc(var(--space-6) + 3px) !important;
+}
+
+/* Period badge strengthening */
+.timeline__details [data-i18n*=".period"] {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Tech tag border-top separator */
+.timeline__details > ul:last-child,
+.timeline__details ul.flex.flex-wrap {
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  padding-top: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+[data-theme="dark"] .timeline__details > ul:last-child,
+[data-theme="dark"] .timeline__details ul.flex.flex-wrap {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Tech tags — light mode surface */
+.timeline__details li.px-2\.5 {
+  background: rgba(5, 83, 177, 0.06) !important;
+  border-color: rgba(5, 83, 177, 0.18) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+[data-theme="dark"] .timeline__details li.px-2\.5 {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--color-text-muted) !important;
+}
+
+/* Active/current job period badge stronger highlight */
+.timeline__details [class*="bg-primary/10"] {
+  background: rgba(5, 83, 177, 0.12) !important;
+}
+
+[data-theme="dark"] .timeline__details [class*="bg-primary/10"] {
+  background: rgba(0, 217, 255, 0.12) !important;
+}
+
+/* ================================
+   Projects Filter — Active shadow
+   ================================ */
+.projects__filter-btn.active,
+button[class*="bg-[var(--filter"].active {
+  box-shadow: 0 4px 12px rgba(5, 83, 177, 0.22);
 }
