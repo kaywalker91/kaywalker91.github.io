@@ -758,11 +758,11 @@
 
           <!-- ROWOON -->
           <div class="relative w-full reveal">
-            <div class="timeline-marker flex justify-center mb-4" aria-hidden="true">
+            <div class="timeline-marker flex justify-start mb-4" aria-hidden="true">
               <span class="timeline-marker__dot"></span>
             </div>
 
-            <div class="w-full text-center">
+            <div class="w-full">
               <div
                 class="timeline__details relative p-6 bg-white/5 backdrop-blur-md rounded-xl ring-1 ring-primary/60 hover:ring-primary transition-all duration-300 cursor-pointer"
                 data-expanded="false">
@@ -773,13 +773,13 @@
                 <p class="text-primary font-medium mb-3" data-i18n="experience.rowoon.role">Flutter 앱 개발자 @ 개발팀</p>
                 <p class="text-sm text-text-secondary mb-4" data-i18n="experience.rowoon.project">POD APP · 커스텀 에디터 엔진 · API/Admin</p>
                 <p class="text-text-primary mb-4" data-i18n="experience.rowoon.summary">POD APP 고도화 및 신규 기능 개발</p>
-                <ul class="text-sm text-text-secondary space-y-1 mb-4">
+                <ul class="text-sm text-text-secondary space-y-1.5 mb-4 list-disc list-outside pl-5 marker:text-primary/60">
                   <li data-i18n="experience.rowoon.highlight1">모바일 앱 서비스 고도화 및 신규 기능 개발</li>
                   <li data-i18n="experience.rowoon.highlight2">굿즈 커스텀 에디터 엔진 유지보수 및 최적화</li>
                   <li data-i18n="experience.rowoon.highlight3">백엔드 API, 주문/결제 로직, Admin 기능 개선</li>
                 </ul>
 
-                <ul class="flex flex-wrap justify-center gap-2 mt-4">
+                <ul class="flex flex-wrap justify-start gap-2 mt-4">
                   <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Flutter</li>
                   <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Dart</li>
                   <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Firebase</li>
@@ -794,11 +794,11 @@
 
           <!-- FORLONG -->
           <div class="relative w-full reveal">
-            <div class="timeline-marker flex justify-center mb-4" aria-hidden="true">
+            <div class="timeline-marker flex justify-start mb-4" aria-hidden="true">
               <span class="timeline-marker__dot"></span>
             </div>
 
-            <div class="w-full text-center">
+            <div class="w-full">
               <div
                 class="timeline__details relative p-6 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 hover:border-primary/50 transition-colors duration-300 cursor-pointer"
                 data-expanded="false">
@@ -808,9 +808,9 @@
                 <h3 class="text-xl font-bold mb-1">FORLONG</h3>
                 <p class="text-primary font-medium mb-3" data-i18n="experience.forlong.role">대리 @ 개발팀</p>
 
-                <div class="text-left">
+                <div>
                   <h4 class="text-sm font-semibold text-text-primary mb-3" data-i18n="experience.forlong.achievements">주요 성과</h4>
-                  <ul class="text-sm text-text-secondary space-y-1.5 mb-4 list-disc list-inside">
+                  <ul class="text-sm text-text-secondary space-y-1.5 mb-4 list-disc list-outside pl-5 marker:text-primary/60">
                     <li data-i18n="experience.forlong.highlight1">WalletConnect v2 기반 멀티 지갑 연동 아키텍처 설계 및 구현</li>
                     <li data-i18n="experience.forlong.highlight2">Phantom/MetaMask Deep Link 프로토콜 통합 (Base58, X25519)</li>
                     <li data-i18n="experience.forlong.highlight3">Web3 인증 시스템 구현 (Nonce → Sign → JWT)</li>
@@ -818,7 +818,7 @@
                   </ul>
                 </div>
 
-                <ul class="flex flex-wrap justify-center gap-2 mt-4">
+                <ul class="flex flex-wrap justify-start gap-2 mt-4">
                   <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Flutter</li>
                   <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Riverpod
                   </li>
@@ -838,12 +838,12 @@
           <!-- SISEONTEC -->
           <div class="relative w-full reveal">
             <!-- Marker (Top Center) -->
-            <div class="timeline-marker flex justify-center mb-4" aria-hidden="true">
+            <div class="timeline-marker flex justify-start mb-4" aria-hidden="true">
               <span class="timeline-marker__dot"></span>
             </div>
 
             <!-- Content Wrapper (Centered) -->
-            <div class="w-full text-center">
+            <div class="w-full">
               <!-- Card -->
               <div
                 class="timeline__details relative p-6 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 hover:border-primary/50 transition-colors duration-300 cursor-pointer"
@@ -858,7 +858,7 @@
                 <p class="text-text-primary mb-4" data-i18n="experience.siseon.summary">
                   재난안전 서비스앱 <strong>Flutter 신규 개발</strong> (Legacy 마이그레이션)
                 </p>
-                <ul class="text-sm text-text-secondary space-y-1 mb-4">
+                <ul class="text-sm text-text-secondary space-y-1.5 mb-4 list-disc list-outside pl-5 marker:text-primary/60">
                   <li data-i18n="experience.siseon.highlight1"><strong>Legacy→Flutter</strong> 100% 전환 → 유지보수 50% 절감
                   </li>
                   <li data-i18n="experience.siseon.highlight2"><strong>19개 언어</strong> 실시간 번역 (Google Translate API V3)
@@ -866,7 +866,13 @@
                   <li data-i18n="experience.siseon.highlight3"><strong>TalkBack/VoiceOver</strong> 접근성 완벽 호환</li>
                 </ul>
 
-
+                <button type="button" class="timeline__expand-btn" aria-expanded="false">
+                  <span data-i18n="experience.expandLabel">상세 성과 보기</span>
+                  <svg class="timeline__expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
 
                 <div class="timeline__detail-content overflow-hidden transition-all duration-300 ease-in-out max-h-0">
                   <div class="pt-6 border-t border-white/10 mt-4 space-y-6 text-left">
@@ -904,7 +910,7 @@
                   </div>
                 </div>
 
-                <ul class="flex flex-wrap justify-center gap-2 mt-4">
+                <ul class="flex flex-wrap justify-start gap-2 mt-4">
                   <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Flutter</li>
                   <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">FCM</li>
                   <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">
@@ -921,12 +927,12 @@
           <!-- PLACELINK -->
           <div class="relative w-full reveal">
             <!-- Marker (Top Center) -->
-            <div class="timeline-marker flex justify-center mb-4" aria-hidden="true">
+            <div class="timeline-marker flex justify-start mb-4" aria-hidden="true">
               <span class="timeline-marker__dot"></span>
             </div>
 
             <!-- Content Wrapper (Centered) -->
-            <div class="w-full text-center">
+            <div class="w-full">
               <!-- Card -->
               <div
                 class="timeline__details relative p-6 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 hover:border-primary/50 transition-colors duration-300 cursor-pointer"
@@ -941,14 +947,20 @@
                 <p class="text-text-primary mb-4" data-i18n="experience.placelink.summary">
                   위치기반 포인트적립앱 <strong>Android 유지보수 및 신규 기능 개발</strong>
                 </p>
-                <ul class="text-sm text-text-secondary space-y-1 mb-4">
+                <ul class="text-sm text-text-secondary space-y-1.5 mb-4 list-disc list-outside pl-5 marker:text-primary/60">
                   <li data-i18n="experience.placelink.highlight1">"0시축제" 이벤트 → <strong>다운로드 400% 증가</strong>
                     (1,000→5,000회)</li>
                   <li data-i18n="experience.placelink.highlight2"><strong>RxJava 2</strong> 기반 비동기 로직 전면 리팩토링</li>
                   <li data-i18n="experience.placelink.highlight3"><strong>B2G 프로젝트</strong> 대전시 협업 경험</li>
                 </ul>
 
-
+                <button type="button" class="timeline__expand-btn" aria-expanded="false">
+                  <span data-i18n="experience.expandLabel">상세 성과 보기</span>
+                  <svg class="timeline__expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
 
                 <div class="timeline__detail-content overflow-hidden transition-all duration-300 ease-in-out max-h-0">
                   <div class="pt-6 border-t border-white/10 mt-4 space-y-6 text-left">
@@ -986,7 +998,7 @@
                   </div>
                 </div>
 
-                <ul class="flex flex-wrap justify-center gap-2 mt-4">
+                <ul class="flex flex-wrap justify-start gap-2 mt-4">
                   <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Android/iOS
                   </li>
                   <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">RxJava</li>
