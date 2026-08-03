@@ -445,62 +445,45 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
   gap: var(--space-3);
   flex-shrink: 0;
+}
+
+.project-card__headline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+/* Index / role / category in mono. This carries what the three coloured
+   category badges used to say — each card already had a status pill next to
+   it, and the badge colours encoded nothing the filter didn't. */
+.project-card__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  /* --color-text-muted measured 4.22:1 on the flat cards' tinted fill. The
+     line reads as secondary from its size and tracking, not from being faint. */
+  color: var(--color-text-secondary);
+}
+
+.project-card__meta-sep {
+  color: var(--color-border);
 }
 
 .project-card__title {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
-  line-height: 1.35;
-}
-
-.project-card__badge {
-  font-size: var(--font-size-xs);
-  padding: var(--space-1) var(--space-2);
-  background-color: var(--color-accent);
-  color: var(--color-text-primary);
-  border-radius: var(--radius-sm);
-  font-weight: var(--font-weight-medium);
-}
-
-/* Category-specific badge colors for project cards */
-.project-card[data-category="personal"] .project-card__badge {
-  background-color: rgba(139, 92, 246, 0.15);
-  color: var(--filter-personal);
-  border: 1px solid rgba(139, 92, 246, 0.3);
-}
-
-.project-card[data-category="company"] .project-card__badge {
-  background-color: rgba(16, 185, 129, 0.15);
-  color: var(--filter-company);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-}
-
-.project-card[data-category="learning"] .project-card__badge {
-  background-color: rgba(245, 158, 11, 0.15);
-  color: var(--filter-learning);
-  border: 1px solid rgba(245, 158, 11, 0.3);
-}
-
-/* Dark mode category badge colors */
-[data-theme="dark"] .project-card[data-category="personal"] .project-card__badge {
-  background-color: rgba(167, 139, 250, 0.2);
-  color: var(--filter-personal);
-  border-color: rgba(167, 139, 250, 0.4);
-}
-
-[data-theme="dark"] .project-card[data-category="company"] .project-card__badge {
-  background-color: rgba(52, 211, 153, 0.2);
-  color: var(--filter-company);
-  border-color: rgba(52, 211, 153, 0.4);
-}
-
-[data-theme="dark"] .project-card[data-category="learning"] .project-card__badge {
-  background-color: rgba(251, 191, 36, 0.2);
-  color: var(--filter-learning);
-  border-color: rgba(251, 191, 36, 0.4);
+  line-height: 1.25;
+  letter-spacing: var(--letter-spacing-tight);
+  text-wrap: pretty;
 }
 
 .project-card__summary {
@@ -535,10 +518,11 @@
   position: absolute;
   left: 0;
   top: 0.62em;
-  width: 6px;
-  height: 6px;
-  border-radius: var(--radius-full);
-  background: var(--color-primary);
+  width: 5px;
+  height: 5px;
+  border-radius: 1px;
+  background: var(--section-accent);
+  opacity: 0.75;
 }
 
 .project-card__tech {
@@ -549,20 +533,23 @@
   flex-shrink: 0;
 }
 
+/* Mono, square, borderless. The fill is translucent, so it composites one step
+   darker than whichever card it sits on — elevated or flat. */
 .project-card__tech li {
+  font-family: var(--font-family-mono);
   font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  padding: var(--space-1) var(--space-2-5);
-  background-color: var(--color-background);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
-  color: var(--color-text-muted);
-  transition: color var(--transition-fast), border-color var(--transition-fast);
+  font-weight: var(--font-weight-normal);
+  padding: var(--space-1-5) var(--space-2-5);
+  background-color: var(--card-flat-bg);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .project-card__tech li:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  background-color: var(--card-flat-bg-hover);
+  color: var(--section-accent);
 }
 
 .project-card__actions {
@@ -575,22 +562,31 @@
   border-top: 1px solid var(--color-border-light);
 }
 
+/* A text link in appearance, a button in fact — it opens the modal, so it stays
+   a <button> and keeps the 44px target the padding used to provide. */
 .project-card__detail-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   min-height: 44px;
-  padding: var(--space-2-5) var(--space-4);
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(5, 83, 177, 0.25);
-  background-color: rgba(5, 83, 177, 0.08);
-  color: var(--color-primary);
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--section-accent);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
-  transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  cursor: pointer;
+  transition: color var(--transition-fast);
 }
 
-.project-card__detail-btn:hover {
-  background-color: rgba(5, 83, 177, 0.14);
-  border-color: var(--color-primary);
-  transform: translateY(-1px);
+.project-card__detail-btn::after {
+  content: '→';
+  font-family: var(--font-family-mono);
+  transition: transform var(--transition-fast);
+}
+
+.project-card__detail-btn:hover::after {
+  transform: translateX(3px);
 }
 
 .project-card__links {
@@ -608,15 +604,15 @@
   justify-content: center;
   gap: var(--space-2);
   min-height: 44px;
-  padding: var(--space-2-5) var(--space-4);
+  padding: var(--space-2-5) var(--space-5);
   border-radius: var(--radius-full);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
-  color: white;
-  background: var(--gradient-primary);
-  border: none;
-  box-shadow: 0 10px 22px rgba(5, 83, 177, 0.25);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+  color: var(--color-surface);
+  background: var(--color-text-primary);
+  border: 1px solid transparent;
+  transition: opacity var(--transition-fast), background-color var(--transition-fast),
+              border-color var(--transition-fast), color var(--transition-fast);
   position: relative;
   z-index: 1;
 }
@@ -628,31 +624,34 @@
 }
 
 .project-action-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(5, 83, 177, 0.3);
-  filter: brightness(1.02);
+  opacity: 0.85;
 }
 
+/* Secondary action: outline only, so the pair reads as primary + secondary
+   rather than two gradients shouting at each other. */
 .project-action-link--demo {
   color: var(--color-text-primary);
-  background: linear-gradient(135deg, rgba(0, 217, 255, 0.9) 0%, rgba(77, 232, 255, 0.9) 45%, rgba(5, 83, 177, 0.9) 100%);
+  background: transparent;
+  border-color: var(--color-border);
 }
 
 .project-action-link--demo:hover {
-  filter: brightness(1.05);
+  opacity: 1;
+  border-color: var(--color-text-primary);
 }
 
 .project-card__private {
   display: inline-flex;
   align-items: center;
-  min-height: 40px;
-  padding: var(--space-2) var(--space-3);
-  border-radius: var(--radius-md);
-  border: 1px dashed var(--color-border);
-  background-color: var(--color-background);
-  color: var(--color-text-muted);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
+  min-height: 44px;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.04em;
+  /* Same 4.22:1 problem as the breadcrumb on flat cards. */
+  color: var(--color-text-secondary);
 }
 
 /* Project Filter Bar — one enclosed track with a single filled pill, so the
@@ -705,54 +704,47 @@
   color: var(--color-background);
 }
 
-/* Project Card Badges Container */
-.project-card__badges {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-/* Project Status Badge - Simplified */
+/* Project Status — neutral bordered pill, colour carried only by the dot. The
+   label is the accessible signal; the dot is reinforcement, not the message. */
 .project-card__status {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-1);
-  font-size: 0.6rem;
+  gap: var(--space-1-5);
+  flex: none;
+  padding: var(--space-1) var(--space-2-5) var(--space-1) var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-mono);
+  font-size: 0.6875rem;
   font-weight: var(--font-weight-semibold);
-  padding: 2px 6px;
-  border-radius: var(--radius-sm);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  color: var(--color-text-secondary);
 }
 
 .project-card__status::before {
   content: '';
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
+  flex: none;
   border-radius: var(--radius-full);
-  background-color: currentColor;
+  background-color: var(--status-dot);
 }
 
-/* Live - Clean green */
 .project-card__status--live {
-  background-color: var(--color-success-light);
-  color: var(--color-success);
+  --status-dot: var(--color-success);
 }
 
 .project-card__status--live::before {
   animation: simplePulse 3s ease-in-out infinite;
 }
 
-/* Dev - Clean yellow */
 .project-card__status--dev {
-  background-color: var(--color-warning-light);
-  color: var(--badge-dev-color);
+  --status-dot: var(--color-warning);
 }
 
-/* Archive - Muted */
 .project-card__status--archive {
-  background-color: var(--color-border-light);
-  color: var(--color-text-muted);
+  --status-dot: var(--color-text-muted);
 }
 
 /* Simplified pulse animation */
