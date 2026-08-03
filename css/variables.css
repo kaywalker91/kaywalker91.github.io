@@ -17,8 +17,8 @@
      maximum-luminance point on screen, so a white card on a tinted ground
      reads as a hole punched in the page rather than a raised surface —
      elevation is the shadow's job, not brightness'. */
-  --color-surface: #FAFCFF;
-  --color-surface-elevated: #FDFEFF;
+  --color-surface: #F5F8FE;
+  --color-surface-elevated: #FAFCFF;
   --color-surface-soft: #F6F9FF;
 
   --color-text-primary: #1A1A2E;
