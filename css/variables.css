@@ -12,9 +12,13 @@
 
   --color-background: #F7F9FF;
   --color-background-alt: #EDF3FC;
-  --color-band: #E2EBF8;      /* deeper band for the two sections that carry the work */
-  --color-surface: #FFFFFF;
-  --color-surface-elevated: #FFFFFF;
+  --color-band: #E8EFFA;      /* deeper band for the two sections that carry the work */
+  /* Surfaces stay inside the page's blue family. Pure #FFFFFF is the
+     maximum-luminance point on screen, so a white card on a tinted ground
+     reads as a hole punched in the page rather than a raised surface —
+     elevation is the shadow's job, not brightness'. */
+  --color-surface: #FAFCFF;
+  --color-surface-elevated: #FDFEFF;
   --color-surface-soft: #F6F9FF;
 
   --color-text-primary: #1A1A2E;
