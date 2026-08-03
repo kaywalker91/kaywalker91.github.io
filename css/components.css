@@ -493,7 +493,7 @@
 .project-card__summary {
   font-size: var(--font-size-sm);
   color: var(--color-text-primary);
-  line-height: var(--line-height-relaxed);
+  line-height: var(--line-height-normal);
   margin-bottom: var(--space-2-5);
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -514,7 +514,7 @@
   padding-left: var(--space-4);
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
-  line-height: var(--line-height-relaxed);
+  line-height: var(--line-height-normal);
 }
 
 .project-card__highlights li::before {
@@ -563,8 +563,8 @@
 }
 
 .project-card__detail-btn {
-  min-height: 40px;
-  padding: var(--space-2) var(--space-4);
+  min-height: 44px;
+  padding: var(--space-2-5) var(--space-4);
   border-radius: var(--radius-md);
   border: 1px solid rgba(5, 83, 177, 0.25);
   background-color: rgba(5, 83, 177, 0.08);
@@ -594,7 +594,8 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
+  min-height: 44px;
+  padding: var(--space-2-5) var(--space-4);
   border-radius: var(--radius-full);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
@@ -651,8 +652,8 @@
 }
 
 .projects__filter-btn {
-  padding: var(--space-2) var(--space-3);
-  min-height: var(--space-10);
+  padding: var(--space-2-5) var(--space-4);
+  min-height: 44px;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
@@ -1202,14 +1203,15 @@
 /* Contact Card */
 .contact-card {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  text-align: center;
+  column-gap: var(--space-4);
+  text-align: left;
   background: linear-gradient(135deg,
     var(--color-surface) 0%,
     rgba(5, 83, 177, 0.03) 100%);
-  padding: var(--space-6);
+  padding: var(--space-4) var(--space-5);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--color-border-light);
@@ -1228,12 +1230,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
+  grid-row: span 2;
   background-color: rgba(5, 83, 177, 0.12);
   border-radius: var(--radius-full);
   color: var(--color-primary);
-  margin-bottom: var(--space-3);
   transition: all var(--transition-base);
   box-shadow: 0 4px 12px rgba(5, 83, 177, 0.1);
 }
@@ -1246,9 +1248,9 @@
 }
 
 .contact-card__label {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: var(--color-text-muted);
-  margin-bottom: var(--space-1);
+  align-self: end;
 }
 
 .contact-card__value {
@@ -1256,6 +1258,7 @@
   font-weight: var(--font-weight-medium);
   color: var(--color-text-primary);
   word-break: break-all;
+  align-self: start;
 }
 
 /* Copy Button */
@@ -1405,7 +1408,7 @@
 .etc-card {
   position: relative;
   background-color: var(--color-surface);
-  padding: var(--space-8);
+  padding: var(--space-5);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-card-rest);
   border: 1px solid var(--color-border-light);
@@ -2029,8 +2032,8 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  min-height: var(--space-10);
+  padding: var(--space-2-5) var(--space-4);
+  min-height: 44px;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   color: var(--color-primary);
@@ -2241,8 +2244,8 @@
   position: absolute;
   top: var(--space-4);
   right: var(--space-4);
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;

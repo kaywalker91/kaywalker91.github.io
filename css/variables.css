@@ -84,7 +84,7 @@
 
   /* Layout */
   --container-max: 1080px;
-  --header-height: 64px;
+  --header-height: 70px;  /* must match the header's h-[70px] utility */
 
   /* Border Radius */
   --radius-sm: 4px;
