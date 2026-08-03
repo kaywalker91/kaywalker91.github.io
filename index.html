@@ -1036,6 +1036,7 @@
           <!-- MindLog -->
           <article class="project-card project-card--mindlog project-card--featured reveal" data-category="personal"
             data-project="mindlog">
+            <div class="project-card__body">
             <div class="project-card__header">
               <div class="project-card__headline">
                 <p class="project-card__meta">
@@ -1050,12 +1051,22 @@
               <span class="project-card__status project-card__status--live">Live</span>
             </div>
             <p class="project-card__summary" data-i18n="projects.mindlog.summary">
-              Llama 3.3 기반 AI 감정 분석 스마트 다이어리 앱.
+              Llama 3.3 기반 AI 감정 분석 스마트 다이어리 앱. Google Play Store에서 v1.4.40으로 운영 중입니다.
             </p>
-            <ul class="project-card__highlights">
-              <li data-i18n="projects.mindlog.highlight1">1,400+ 테스트 케이스(TDD)로 안정성 확보</li>
-              <li data-i18n="projects.mindlog.highlight2">2채널 FCM + 48개 CBT 메시지 운영</li>
-              <li data-i18n="projects.mindlog.highlight3">Google Play Store v1.4.40 운영 중</li>
+            <ul class="project-stats">
+              <li class="project-stat">
+                <p class="project-stat__value"><span class="project-stat__number"
+                    data-count="1400">0</span><span class="project-stat__suffix">+</span></p>
+                <p class="project-stat__label" data-i18n="projects.mindlog.stat1">테스트 케이스 (TDD)</p>
+              </li>
+              <li class="project-stat">
+                <p class="project-stat__value"><span class="project-stat__number" data-count="48">0</span></p>
+                <p class="project-stat__label" data-i18n="projects.mindlog.stat2">CBT 메시지 운영</p>
+              </li>
+              <li class="project-stat">
+                <p class="project-stat__value"><span class="project-stat__number" data-count="2">0</span></p>
+                <p class="project-stat__label" data-i18n="projects.mindlog.stat3">채널 FCM 푸시</p>
+              </li>
             </ul>
             <ul class="project-card__tech">
               <li>Flutter</li>
@@ -1085,6 +1096,11 @@
                   Live Demo
                 </a>
               </div>
+            </div>
+            </div>
+            <div class="project-card__preview">
+              <img src="assets/mindlog-preview.jpg" width="900" height="1756" loading="lazy" decoding="async"
+                data-i18n-alt="projects.mindlog.previewAlt" alt="MindLog 앱 일기 목록 화면">
             </div>
           </article>
 

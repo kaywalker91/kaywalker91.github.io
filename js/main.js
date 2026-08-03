@@ -283,6 +283,12 @@ function setupImpactCounters() {
     easing: 'easeOutQuart',
     threshold: 0.5
   });
+
+  // The featured project card carries the same kind of figures.
+  CounterAnimation.observe('.project-stat__number[data-count]', {
+    easing: 'easeOutQuart',
+    threshold: 0.5
+  });
 }
 
 // Timeline expansion (Experience Accordion)

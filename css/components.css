@@ -525,6 +525,53 @@
   opacity: 0.75;
 }
 
+/* Featured stat grid — the lead card states its numbers instead of listing
+   bullets, so it reads as a different kind of card rather than a bigger one. */
+.project-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-bottom: var(--space-4);
+  background-color: var(--color-border-light);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.project-stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1-5);
+  padding: var(--space-4);
+  background-color: var(--color-surface);
+}
+
+.project-stat__value {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-tight);
+  line-height: 1.1;
+  color: var(--color-text-primary);
+}
+
+.project-stat__suffix {
+  color: var(--section-accent);
+}
+
+.project-stat__label {
+  font-size: var(--font-size-xs);
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 559px) {
+  .project-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
 .project-card__tech {
   display: flex;
   flex-wrap: wrap;
@@ -598,6 +645,8 @@
   flex-shrink: 0;
 }
 
+/* Primary action: a solid pill built from the text colour, so it inverts on its
+   own between themes instead of needing a second gradient. */
 .project-action-link {
   display: inline-flex;
   align-items: center;
@@ -605,12 +654,12 @@
   gap: var(--space-2);
   min-height: 44px;
   padding: var(--space-2-5) var(--space-5);
+  border: 1px solid transparent;
   border-radius: var(--radius-full);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: var(--color-surface);
   background: var(--color-text-primary);
-  border: 1px solid transparent;
   transition: opacity var(--transition-fast), background-color var(--transition-fast),
               border-color var(--transition-fast), color var(--transition-fast);
   position: relative;

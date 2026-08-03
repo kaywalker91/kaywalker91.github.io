@@ -177,7 +177,7 @@
   --accent-impact: #0553B1;
   --accent-skills: #0D9488;
   --accent-experience: #1D4ED8;
-  --accent-projects: #7C3AED;
+  --accent-projects: #0369A1;  /* sky — 5.58:1 on --color-surface as link text */
   --accent-education: #B45309;
   --accent-contact: #0553B1;
 }
@@ -292,7 +292,7 @@
   --accent-impact: #00D9FF;
   --accent-skills: #2DD4BF;
   --accent-experience: #60A5FA;
-  --accent-projects: #A78BFA;
+  --accent-projects: #38BDF8;  /* sky — 8.07:1 on --color-surface as link text */
   --accent-education: #FBBF24;
   --accent-contact: #00D9FF;
 }

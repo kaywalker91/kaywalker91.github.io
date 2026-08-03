@@ -55,6 +55,17 @@ const i18n = {
       }
     });
 
+    // Images carry their description in alt, not aria-label — an aria-label on
+    // an <img> competes with alt instead of translating it.
+    const altElements = document.querySelectorAll('[data-i18n-alt]');
+    altElements.forEach(el => {
+      const key = el.getAttribute('data-i18n-alt');
+      const translation = dictionary[key];
+      if (typeof translation === 'string') {
+        el.setAttribute('alt', translation);
+      }
+    });
+
     // Swapping every string reflows the page; anything holding a measured
     // pixel height (the experience accordion) has to re-measure afterwards.
     document.dispatchEvent(new CustomEvent('languagechange:applied', {
