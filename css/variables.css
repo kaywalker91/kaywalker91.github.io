@@ -12,6 +12,7 @@
 
   --color-background: #F7F9FF;
   --color-background-alt: #EDF3FC;
+  --color-band: #E2EBF8;      /* deeper band for the two sections that carry the work */
   --color-surface: #FFFFFF;
   --color-surface-elevated: #FFFFFF;
   --color-surface-soft: #F6F9FF;
@@ -82,8 +83,11 @@
   --section-heading-gap: clamp(2rem, 4vw, 3rem);
   --content-measure: 66ch;
 
-  /* Layout */
+  /* Layout — per-section measure. A page where every section is the same
+     width reads as one undifferentiated column; these give each its own stage. */
   --container-max: 1080px;
+  --container-wide: 1280px;   /* projects — the work needs room */
+  --container-narrow: 880px;  /* experience — a single reading column beside the rail */
   --header-height: 70px;  /* must match the header's h-[70px] utility */
 
   /* Border Radius */
@@ -174,6 +178,7 @@
   /* GitHub-inspired dark backgrounds */
   --color-background: #0D1117;
   --color-background-alt: #121821;
+  --color-band: #070A0F;      /* deeper band for the two sections that carry the work */
   --color-surface: #161B22;
   --color-surface-elevated: #21262D;
   --color-surface-soft: #1A222E;

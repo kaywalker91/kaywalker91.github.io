@@ -215,7 +215,22 @@
 .section-shell > .container {
   position: relative;
   z-index: 1;
+  /* Tailwind's own .container (1280px at xl) otherwise beats the token, which
+     is why every section rendered at the same width. */
+  max-width: var(--container-max);
 }
+
+/* Per-section stage: width and background weight differ so the page reads as
+   distinct acts rather than one 1080px column scrolling past. */
+.section-shell--wide > .container {
+  max-width: var(--container-wide);
+}
+
+.section-shell--narrow > .container {
+  max-width: var(--container-narrow);
+}
+
+/* --band lives after the per-section backgrounds below so it wins the cascade. */
 
 .section-shell .section-heading {
   font-size: var(--font-size-section-title-fluid);
@@ -312,6 +327,15 @@
 .section-shell--etc {
   --section-shell-bg:
     linear-gradient(180deg, var(--color-background) 0%, var(--color-background-alt) 100%);
+}
+
+/* Band — the two sections carrying the actual work sit on a deeper ground so
+   the eye registers them as the page's anchors. Declared last to win over the
+   per-section backgrounds above. */
+.section-shell--band {
+  --section-shell-bg:
+    radial-gradient(900px circle at 82% 8%, rgba(0, 217, 255, 0.10) 0%, transparent 55%),
+    linear-gradient(180deg, var(--color-band) 0%, var(--color-background-alt) 100%);
 }
 
 @media (max-width: 640px) {
