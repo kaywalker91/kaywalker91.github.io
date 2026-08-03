@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Setup project filter
   setupProjectFilter();
 
+  // Setup projects masthead meta line
+  setupProjectMeta();
+
   // Setup copy to clipboard
   setupCopyToClipboard();
 
@@ -239,6 +242,39 @@ function filterProjectCards(filter, cards, reduceMotion) {
       }
     }
   });
+}
+
+// Projects masthead meta line ("7 projects · 개인 2 · 회사 3 · 학습 2").
+// Counted from the DOM rather than written out, so the line cannot drift when
+// a card is added or removed.
+function setupProjectMeta() {
+  const target = document.querySelector('[data-project-meta]');
+  if (!target) return;
+
+  const CATEGORY_ORDER = ['personal', 'company', 'learning'];
+
+  const render = () => {
+    const cards = document.querySelectorAll('.project-card[data-category]');
+    if (cards.length === 0) return;
+
+    const counts = new Map();
+    cards.forEach(card => {
+      const category = card.dataset.category;
+      counts.set(category, (counts.get(category) || 0) + 1);
+    });
+
+    const parts = [`${cards.length} ${i18n.t('projects.meta.unit')}`];
+    CATEGORY_ORDER.forEach(category => {
+      if (!counts.has(category)) return;
+      parts.push(`${i18n.t(`projects.filter.${category}`)} ${counts.get(category)}`);
+    });
+
+    target.textContent = parts.join('  ·  ');
+  };
+
+  render();
+  // Category labels are translated, so the line is rebuilt on language switch.
+  document.addEventListener('languagechange:applied', render);
 }
 
 // Impact counters animation (delegates to shared CounterAnimation utility)

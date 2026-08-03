@@ -688,6 +688,69 @@
    __content) lived here for ~90 lines but no markup ever referenced it.
    Replaced by .experience-timeline* in components.css. */
 
+/* Projects Masthead — title block and filter share one baseline row, so the
+   section opens like a masthead rather than a centred poster. */
+.projects__masthead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+  margin-bottom: var(--section-heading-gap);
+}
+
+.projects__masthead-title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2-5);
+}
+
+/* Left-aligned here only. The centred heading + 72px underline is the page
+   default; this section carries its own eyebrow, which does that job instead. */
+.projects__masthead .section-heading {
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.projects__masthead .section-heading::after {
+  display: none;
+}
+
+.projects__eyebrow {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.16em;
+  line-height: 1;
+  color: var(--section-accent);
+}
+
+.projects__meta {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 767px) {
+  .projects__masthead {
+    align-items: stretch;
+    gap: var(--space-5);
+  }
+
+  /* Four pills overflow a phone; let the track scroll instead of wrapping into
+     a second row that pushes the grid down. */
+  .projects__masthead .projects__filter {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .projects__masthead .projects__filter::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 /* Projects Grid - Simplified Responsive */
 .projects__grid {
   display: grid;

@@ -1011,19 +1011,25 @@
     <!-- Projects Section -->
     <section class="projects section-shell section-shell--projects section-shell--primary section-shell--wide" id="projects">
       <div class="container">
-        <h2 class="section-heading reveal" data-i18n="projects.title">프로젝트</h2>
-        <p class="section-subheading reveal" data-i18n="projects.subtitle">주요 개발 프로젝트</p>
+        <!-- Masthead: title block left, filter track right -->
+        <div class="projects__masthead reveal">
+          <div class="projects__masthead-title">
+            <p class="projects__eyebrow" aria-hidden="true">PROJECTS</p>
+            <h2 class="section-heading" data-i18n="projects.title">프로젝트</h2>
+            <p class="projects__meta" data-project-meta></p>
+          </div>
 
-        <!-- Project Filter -->
-        <div class="projects__filter reveal" role="tablist" data-i18n-aria="projects.filter.label" aria-label="프로젝트 필터">
-          <button class="projects__filter-btn active" data-filter="all" role="tab" aria-selected="true"
-            data-i18n="projects.filter.all">All</button>
-          <button class="projects__filter-btn" data-filter="personal" role="tab" aria-selected="false"
-            data-i18n="projects.filter.personal">Personal</button>
-          <button class="projects__filter-btn" data-filter="company" role="tab" aria-selected="false"
-            data-i18n="projects.filter.company">Company</button>
-          <button class="projects__filter-btn" data-filter="learning" role="tab" aria-selected="false"
-            data-i18n="projects.filter.learning">Learning</button>
+          <!-- Project Filter -->
+          <div class="projects__filter" role="tablist" data-i18n-aria="projects.filter.label" aria-label="프로젝트 필터">
+            <button class="projects__filter-btn active" data-filter="all" role="tab" aria-selected="true"
+              data-i18n="projects.filter.all">All</button>
+            <button class="projects__filter-btn" data-filter="personal" role="tab" aria-selected="false"
+              data-i18n="projects.filter.personal">Personal</button>
+            <button class="projects__filter-btn" data-filter="company" role="tab" aria-selected="false"
+              data-i18n="projects.filter.company">Company</button>
+            <button class="projects__filter-btn" data-filter="learning" role="tab" aria-selected="false"
+              data-i18n="projects.filter.learning">Learning</button>
+          </div>
         </div>
 
         <div class="projects__grid">

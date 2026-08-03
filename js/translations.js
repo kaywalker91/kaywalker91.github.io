@@ -137,7 +137,7 @@ const translations = {
 
     // Projects
     'projects.title': '프로젝트',
-    'projects.subtitle': '주요 개발 프로젝트',
+    'projects.meta.unit': 'projects',
     'projects.filter.all': '전체',
     'projects.filter.personal': '개인',
     'projects.filter.company': '회사',
@@ -373,7 +373,7 @@ const translations = {
 
     // Projects
     'projects.title': 'Projects',
-    'projects.subtitle': 'Featured development projects',
+    'projects.meta.unit': 'projects',
     'projects.filter.all': 'All',
     'projects.filter.personal': 'Personal',
     'projects.filter.company': 'Company',

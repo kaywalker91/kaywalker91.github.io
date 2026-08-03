@@ -655,106 +655,53 @@
   font-weight: var(--font-weight-medium);
 }
 
-/* Project Filter Bar */
+/* Project Filter Bar — one enclosed track with a single filled pill, so the
+   control reads as one object instead of four competing buttons. */
 .projects__filter {
   display: flex;
-  justify-content: center;
-  gap: var(--space-2);
-  margin-bottom: var(--space-8);
-  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  /* A recessed groove, not a raised card. On this blue-tinted ground a surface
+     fill measured 1.17:1 against the section and simply vanished; the tint
+     reads as a well that the active pill sits proud of. */
+  background-color: var(--card-flat-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
 }
 
 .projects__filter-btn {
   padding: var(--space-2-5) var(--space-4);
   min-height: 44px;
+  white-space: nowrap;
   font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-text-secondary);
-  background-color: var(--filter-inactive-bg);
-  border: 1px solid var(--color-border);
+  background-color: transparent;
+  border: none;
   border-radius: var(--radius-full);
-  transition: all var(--transition-fast);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
   cursor: pointer;
 }
 
+/* Hover lifts out of the groove — a preview of the filled active pill. */
 .projects__filter-btn:hover {
-  color: var(--color-primary);
-  border-color: var(--color-primary);
-  background-color: rgba(5, 83, 177, 0.05);
+  color: var(--section-accent);
+  background-color: var(--color-surface-elevated);
 }
 
-/* Category-specific filter button colors */
-.projects__filter-btn[data-filter="all"].active {
-  color: white;
-  background-color: var(--filter-all);
-  border-color: var(--filter-all);
+/* One accent for the whole control. The old per-category colours (purple /
+   green / amber) turned a filter into a legend — four equally loud buttons,
+   none of which told you which one was on. */
+.projects__filter-btn.active,
+.projects__filter-btn.active:hover {
+  color: #FFFFFF;
+  background-color: var(--section-accent);
 }
 
-.projects__filter-btn[data-filter="personal"].active {
-  color: white;
-  background-color: var(--filter-personal);
-  border-color: var(--filter-personal);
-}
-
-.projects__filter-btn[data-filter="company"].active {
-  color: white;
-  background-color: var(--filter-company);
-  border-color: var(--filter-company);
-}
-
-.projects__filter-btn[data-filter="learning"].active {
-  color: white;
-  background-color: var(--filter-learning);
-  border-color: var(--filter-learning);
-}
-
-/* Hover states for each category */
-.projects__filter-btn[data-filter="all"]:hover {
-  color: var(--filter-all);
-  border-color: var(--filter-all);
-  background-color: rgba(5, 83, 177, 0.08);
-}
-
-.projects__filter-btn[data-filter="personal"]:hover {
-  color: var(--filter-personal);
-  border-color: var(--filter-personal);
-  background-color: rgba(139, 92, 246, 0.08);
-}
-
-.projects__filter-btn[data-filter="company"]:hover {
-  color: var(--filter-company);
-  border-color: var(--filter-company);
-  background-color: rgba(16, 185, 129, 0.08);
-}
-
-.projects__filter-btn[data-filter="learning"]:hover {
-  color: var(--filter-learning);
-  border-color: var(--filter-learning);
-  background-color: rgba(245, 158, 11, 0.08);
-}
-
-/* Dark mode hover states */
-[data-theme="dark"] .projects__filter-btn[data-filter="all"]:hover {
-  background-color: rgba(0, 217, 255, 0.1);
-}
-
-[data-theme="dark"] .projects__filter-btn[data-filter="personal"]:hover {
-  background-color: rgba(167, 139, 250, 0.12);
-}
-
-[data-theme="dark"] .projects__filter-btn[data-filter="company"]:hover {
-  background-color: rgba(52, 211, 153, 0.12);
-}
-
-[data-theme="dark"] .projects__filter-btn[data-filter="learning"]:hover {
-  background-color: rgba(251, 191, 36, 0.12);
-}
-
-/* Dark mode active states */
-[data-theme="dark"] .projects__filter-btn[data-filter="all"].active,
-[data-theme="dark"] .projects__filter-btn[data-filter="personal"].active,
-[data-theme="dark"] .projects__filter-btn[data-filter="company"].active,
-[data-theme="dark"] .projects__filter-btn[data-filter="learning"].active {
+[data-theme="dark"] .projects__filter-btn.active,
+[data-theme="dark"] .projects__filter-btn.active:hover {
   color: var(--color-background);
 }
 
