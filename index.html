@@ -766,25 +766,23 @@
         <h2 class="section-heading reveal" data-i18n="experience.title">경력</h2>
         <p class="section-subheading reveal" data-i18n="experience.subtitle">실무에서 쌓아온 경험들</p>
 
-        <div class="flex flex-col items-center gap-12 md:gap-16 max-w-2xl mx-auto">
+        <div class="experience-timeline">
 
           <!-- ROWOON -->
-          <div class="relative w-full reveal">
-            <div class="timeline-marker flex justify-start mb-4" aria-hidden="true">
-              <span class="timeline-marker__dot"></span>
+          <div class="experience-timeline__item reveal">
+            <div class="experience-timeline__aside">
+              <span class="experience-timeline__marker" aria-hidden="true"></span>
+              <span class="experience-timeline__date" data-i18n="experience.rowoon.period">2026.03 - 현재</span>
             </div>
 
-            <div class="w-full">
+            <div class="experience-timeline__body">
               <div
-                class="timeline__details card card--elevated card--bar card--bar-on p-6"
+                class="timeline__details card card--elevated card--bar card--bar-on p-5"
                 data-expanded="false">
-                <span
-                  class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-3 border border-primary/20"
-                  data-i18n="experience.rowoon.period">2026.03 - 현재</span>
-                <h3 class="text-xl font-bold mb-1">Rowoon Company Corp.</h3>
-                <p class="text-primary font-medium mb-3" data-i18n="experience.rowoon.role">Flutter 앱 개발자 @ 개발팀</p>
-                <p class="text-sm text-text-secondary mb-4" data-i18n="experience.rowoon.project">POD APP · 커스텀 에디터 엔진 · API/Admin</p>
-                <p class="text-text-primary mb-4" data-i18n="experience.rowoon.summary">POD APP 고도화 및 신규 기능 개발</p>
+                <h3 class="text-lg font-bold mb-0.5">Rowoon Company Corp.</h3>
+                <p class="text-primary text-sm font-medium mb-3" data-i18n="experience.rowoon.role">Flutter 앱 개발자 @ 개발팀</p>
+                <p class="text-sm text-text-muted mb-3" data-i18n="experience.rowoon.project">POD APP · 커스텀 에디터 엔진 · API/Admin</p>
+                <p class="text-text-primary text-sm mb-3" data-i18n="experience.rowoon.summary">POD APP 고도화 및 신규 기능 개발</p>
                 <ul class="text-sm text-text-secondary space-y-1.5 mb-4 list-disc list-outside pl-5 marker:text-primary/60">
                   <li data-i18n="experience.rowoon.highlight1">모바일 앱 서비스 고도화 및 신규 기능 개발</li>
                   <li data-i18n="experience.rowoon.highlight2">굿즈 커스텀 에디터 엔진 유지보수 및 최적화</li>
@@ -801,24 +799,20 @@
             </div>
           </div>
 
-          <!-- Divider -->
-          <div class="w-1/2 h-px bg-gradient-to-r from-transparent via-border to-transparent" aria-hidden="true"></div>
 
           <!-- FORLONG -->
-          <div class="relative w-full reveal">
-            <div class="timeline-marker flex justify-start mb-4" aria-hidden="true">
-              <span class="timeline-marker__dot"></span>
+          <div class="experience-timeline__item reveal">
+            <div class="experience-timeline__aside">
+              <span class="experience-timeline__marker" aria-hidden="true"></span>
+              <span class="experience-timeline__date" data-i18n="experience.forlong.period">2025.12 - 2026.02</span>
             </div>
 
-            <div class="w-full">
+            <div class="experience-timeline__body">
               <div
-                class="timeline__details card card--flat p-6"
+                class="timeline__details card card--flat p-5"
                 data-expanded="false">
-                <span
-                  class="inline-block px-3 py-1 rounded-full bg-white/5 text-text-secondary text-xs font-semibold mb-3 border border-white/10"
-                  data-i18n="experience.forlong.period">2025.12 - 2026.02</span>
-                <h3 class="text-xl font-bold mb-1">FORLONG</h3>
-                <p class="text-primary font-medium mb-3" data-i18n="experience.forlong.role">대리 @ 개발팀</p>
+                <h3 class="text-lg font-bold mb-0.5">FORLONG</h3>
+                <p class="text-primary text-sm font-medium mb-3" data-i18n="experience.forlong.role">대리 @ 개발팀</p>
 
                 <div>
                   <h4 class="text-sm font-semibold text-text-primary mb-3" data-i18n="experience.forlong.achievements">주요 성과</h4>
@@ -844,30 +838,24 @@
             </div>
           </div>
 
-          <!-- Divider -->
-          <div class="w-1/2 h-px bg-gradient-to-r from-transparent via-border to-transparent" aria-hidden="true"></div>
 
           <!-- SISEONTEC -->
-          <div class="relative w-full reveal">
-            <!-- Marker (Top Center) -->
-            <div class="timeline-marker flex justify-start mb-4" aria-hidden="true">
-              <span class="timeline-marker__dot"></span>
+          <div class="experience-timeline__item reveal">
+            <div class="experience-timeline__aside">
+              <span class="experience-timeline__marker" aria-hidden="true"></span>
+              <span class="experience-timeline__date" data-i18n="experience.siseon.period">2024.11 - 2025.11</span>
             </div>
 
-            <!-- Content Wrapper (Centered) -->
-            <div class="w-full">
+            <div class="experience-timeline__body">
               <!-- Card -->
               <div
-                class="timeline__details card card--flat p-6"
+                class="timeline__details card card--flat p-5"
                 data-expanded="false">
-                <span
-                  class="inline-block px-3 py-1 rounded-full bg-white/5 text-text-secondary text-xs font-semibold mb-3 border border-white/10"
-                  data-i18n="experience.siseon.period">2024.11 - 2025.11</span>
-                <h3 class="text-xl font-bold mb-1">Seesun IT</h3>
-                <p class="text-primary font-medium mb-3" data-i18n="experience.siseon.role">대리 @ 사업부</p>
-                <p class="text-sm text-text-secondary mb-4" data-i18n="experience.siseon.project">안전디딤돌 & 이머전시레디앱 - 재난안전
+                <h3 class="text-lg font-bold mb-0.5">Seesun IT</h3>
+                <p class="text-primary text-sm font-medium mb-3" data-i18n="experience.siseon.role">대리 @ 사업부</p>
+                <p class="text-sm text-text-muted mb-3" data-i18n="experience.siseon.project">안전디딤돌 & 이머전시레디앱 - 재난안전
                   서비스앱</p>
-                <p class="text-text-primary mb-4" data-i18n="experience.siseon.summary">
+                <p class="text-text-primary text-sm mb-3" data-i18n="experience.siseon.summary">
                   재난안전 서비스앱 <strong>Flutter 신규 개발</strong> (Legacy 마이그레이션)
                 </p>
                 <ul class="text-sm text-text-secondary space-y-1.5 mb-4 list-disc list-outside pl-5 marker:text-primary/60">
@@ -933,30 +921,24 @@
             </div>
           </div>
 
-          <!-- Divider -->
-          <div class="w-1/2 h-px bg-gradient-to-r from-transparent via-border to-transparent" aria-hidden="true"></div>
 
           <!-- PLACELINK -->
-          <div class="relative w-full reveal">
-            <!-- Marker (Top Center) -->
-            <div class="timeline-marker flex justify-start mb-4" aria-hidden="true">
-              <span class="timeline-marker__dot"></span>
+          <div class="experience-timeline__item reveal">
+            <div class="experience-timeline__aside">
+              <span class="experience-timeline__marker" aria-hidden="true"></span>
+              <span class="experience-timeline__date" data-i18n="experience.placelink.period">2022.10 - 2024.11</span>
             </div>
 
-            <!-- Content Wrapper (Centered) -->
-            <div class="w-full">
+            <div class="experience-timeline__body">
               <!-- Card -->
               <div
-                class="timeline__details card card--flat p-6"
+                class="timeline__details card card--flat p-5"
                 data-expanded="false">
-                <span
-                  class="inline-block px-3 py-1 rounded-full bg-white/5 text-text-secondary text-xs font-semibold mb-3 border border-white/10"
-                  data-i18n="experience.placelink.period">2022.10 - 2024.11</span>
-                <h3 class="text-xl font-bold mb-1">PlaceLink</h3>
-                <p class="text-primary font-medium mb-3" data-i18n="experience.placelink.role">대리 @ 개발팀</p>
-                <p class="text-sm text-text-secondary mb-4" data-i18n="experience.placelink.project">포인트투어 - 위치기반 포인트적립앱
+                <h3 class="text-lg font-bold mb-0.5">PlaceLink</h3>
+                <p class="text-primary text-sm font-medium mb-3" data-i18n="experience.placelink.role">대리 @ 개발팀</p>
+                <p class="text-sm text-text-muted mb-3" data-i18n="experience.placelink.project">포인트투어 - 위치기반 포인트적립앱
                 </p>
-                <p class="text-text-primary mb-4" data-i18n="experience.placelink.summary">
+                <p class="text-text-primary text-sm mb-3" data-i18n="experience.placelink.summary">
                   위치기반 포인트적립앱 <strong>Android 유지보수 및 신규 기능 개발</strong>
                 </p>
                 <ul class="text-sm text-text-secondary space-y-1.5 mb-4 list-disc list-outside pl-5 marker:text-primary/60">

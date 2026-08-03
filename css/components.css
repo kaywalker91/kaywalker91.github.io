@@ -2110,6 +2110,100 @@
 }
 
 /* ================================
+   Experience Timeline (rail)
+   ================================
+   Replaces the old centred stack of four identical cards separated by
+   hand-rolled divider divs. --rail-x is the single source of truth for the
+   rail's x-position so the line, the markers and the grid stay aligned. */
+
+.experience-timeline {
+  --rail-x: 6px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: var(--rail-x);
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(180deg,
+    var(--section-accent) 0%,
+    var(--color-border) 85%,
+    transparent 100%);
+  opacity: 0.55;
+}
+
+.experience-timeline__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+  padding-left: var(--space-8);
+}
+
+.experience-timeline__aside {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.experience-timeline__marker {
+  position: absolute;
+  left: calc(var(--rail-x) - 5px);
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  background: var(--color-background);
+  border: 2px solid var(--section-accent);
+  box-sizing: border-box;
+}
+
+/* The current role gets a filled marker so "now" is findable at a glance. */
+.experience-timeline__item:first-child .experience-timeline__marker {
+  background: var(--section-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--section-accent) 22%, transparent);
+}
+
+.experience-timeline__date {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.04em;
+  color: var(--section-accent);
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .experience-timeline {
+    --rail-x: 132px;
+    gap: var(--space-8);
+  }
+
+  .experience-timeline__item {
+    grid-template-columns: 116px 1fr;
+    column-gap: var(--space-8);
+    align-items: start;
+    padding-left: 0;
+  }
+
+  .experience-timeline__aside {
+    justify-content: flex-end;
+    padding-top: var(--space-1);
+  }
+
+  .experience-timeline__marker {
+    top: 7px;
+  }
+}
+
+/* ================================
    Experience Accordion Details
    ================================ */
 

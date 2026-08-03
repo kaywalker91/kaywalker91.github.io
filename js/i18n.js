@@ -54,6 +54,12 @@ const i18n = {
         el.setAttribute('aria-label', translation);
       }
     });
+
+    // Swapping every string reflows the page; anything holding a measured
+    // pixel height (the experience accordion) has to re-measure afterwards.
+    document.dispatchEvent(new CustomEvent('languagechange:applied', {
+      detail: { lang: this.currentLang }
+    }));
   },
 
   // Update toggle button text

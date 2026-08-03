@@ -273,6 +273,26 @@ function setupTimelineExpansion() {
       }
     });
   });
+
+  // The pinned max-height goes stale whenever the content reflows underneath
+  // it — switching language rewrites every string, and EN runs longer than KO,
+  // so an open panel clips. Re-measure any panel that is currently open.
+  const resyncOpenPanels = () => {
+    document.querySelectorAll('.timeline__details[data-expanded="true"]').forEach(details => {
+      const content = details.querySelector('.timeline__detail-content');
+      if (!content) return;
+      content.style.maxHeight = 'none';
+      const full = content.scrollHeight;
+      content.style.maxHeight = full + 'px';
+    });
+  };
+
+  let resizeTimer;
+  document.addEventListener('languagechange:applied', resyncOpenPanels);
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resyncOpenPanels, 150);
+  });
 }
 
 // Project modal
