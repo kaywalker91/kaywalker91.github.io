@@ -44,8 +44,12 @@
   --font-size-5xl: 3rem;      /* 48px */
   --font-size-display: clamp(2.4rem, 5.8vw, 4.6rem);
   --font-size-hero-subtitle: clamp(1.35rem, 2.6vw, 2.2rem);
-  --font-size-section-title-fluid: clamp(1.9rem, 4vw, 2.9rem);
   --font-size-section-subtitle: clamp(1rem, 1.6vw, 1.18rem);
+
+  /* Section title tiers — primary (경력/프로젝트) > base (성과/기술) > minor (학력 & 자격) */
+  --font-size-section-title-primary: clamp(2.3rem, 5vw, 3.4rem);
+  --font-size-section-title-fluid: clamp(1.75rem, 3.4vw, 2.4rem);
+  --font-size-section-title-minor: clamp(1.3rem, 2.2vw, 1.6rem);
 
   --font-weight-normal: 400;
   --font-weight-medium: 500;
@@ -73,8 +77,9 @@
   --space-16: 4rem;     /* 64px */
   --space-20: 5rem;     /* 80px */
   --space-24: 6rem;     /* 96px */
-  --section-space-y: clamp(4.75rem, 8vw, 6.75rem);
-  --section-space-y-compact: clamp(4.25rem, 7vw, 5.75rem);
+  --section-space-y: clamp(3.25rem, 8vw, 6.75rem);
+  --section-space-y-compact: clamp(2.75rem, 7vw, 5.75rem);
+  --section-heading-gap: clamp(2rem, 4vw, 3rem);
   --content-measure: 66ch;
 
   /* Layout */
@@ -173,10 +178,11 @@
   --color-surface-elevated: #21262D;
   --color-surface-soft: #1A222E;
 
-  /* Text optimized for dark backgrounds */
+  /* Text optimized for dark backgrounds — all tiers clear WCAG AA (4.5:1) on
+     both --color-background and the lighter --color-surface card fill */
   --color-text-primary: #E6EDF3;
-  --color-text-secondary: #8B949E;
-  --color-text-muted: #6E7681;
+  --color-text-secondary: #ADBAC7;  /* 8.79:1 on surface */
+  --color-text-muted: #8B949E;      /* 5.66:1 on surface (was #6E7681 → 3.77:1) */
 
   /* Project Modal Tokens - Dark Mode */
   --modal-bg: #161B22;

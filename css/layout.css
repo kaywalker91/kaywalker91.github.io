@@ -244,7 +244,32 @@
   text-align: center;
   color: var(--color-text-secondary);
   max-width: var(--content-measure);
-  margin: 0 auto var(--space-12);
+  margin: 0 auto var(--section-heading-gap);
+}
+
+/* Heading tiers — the page reads top-down only if sections are unequal.
+   Primary carries the work itself (경력/프로젝트); minor is supporting detail. */
+.section-shell--primary .section-heading {
+  font-size: var(--font-size-section-title-primary);
+}
+
+.section-shell--minor {
+  padding-top: var(--section-space-y-compact);
+  padding-bottom: var(--section-space-y-compact);
+}
+
+.section-shell--minor .section-heading {
+  font-size: var(--font-size-section-title-minor);
+  margin-bottom: var(--space-2);
+}
+
+.section-shell--minor .section-heading::after {
+  display: none;
+}
+
+.section-shell--minor .section-subheading {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
 }
 
 .section-shell--impact {
@@ -301,7 +326,7 @@
   }
 
   .section-shell .section-subheading {
-    margin-bottom: var(--space-10);
+    margin-bottom: var(--section-heading-gap);
   }
 }
 
