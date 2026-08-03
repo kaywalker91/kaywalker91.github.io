@@ -407,7 +407,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--color-primary);
+  background: var(--section-accent);
   opacity: 0;
   transition: opacity var(--transition-fast);
 }
@@ -417,9 +417,22 @@
 }
 
 .project-card:hover {
-  border-color: var(--color-primary);
+  border-color: var(--section-accent);
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
+}
+
+/* Non-featured cards drop to flat weight so the featured one still reads as
+   the lead. Without this the "featured" treatment is lost in four equals. */
+.project-card:not(.project-card--featured) {
+  background-color: var(--card-flat-bg);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.project-card:not(.project-card--featured):hover {
+  background-color: var(--card-flat-bg-hover);
+  border-color: var(--section-accent);
 }
 
 .project-card:hover::before {
@@ -855,7 +868,7 @@
   border: 1px solid transparent;
   background:
     linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
-    linear-gradient(135deg, var(--color-primary) 0%, #00d9ff 100%) border-box;
+    linear-gradient(135deg, var(--section-accent) 0%, var(--color-primary) 100%) border-box;
   box-shadow:
     0 8px 24px rgba(5, 83, 177, 0.14),
     0 0 28px rgba(5, 83, 177, 0.08);
@@ -1208,22 +1221,17 @@
   align-items: center;
   column-gap: var(--space-4);
   text-align: left;
-  background: linear-gradient(135deg,
-    var(--color-surface) 0%,
-    rgba(5, 83, 177, 0.03) 100%);
+  background: transparent;
   padding: var(--space-4) var(--space-5);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--color-border-light);
+  box-shadow: none;
+  border: 1px solid var(--color-border);
   transition: all var(--transition-base);
 }
 
 .contact-card:hover {
-  box-shadow: 0 8px 24px rgba(5, 83, 177, 0.1);
-  border-color: var(--color-primary);
-  background: linear-gradient(135deg,
-    var(--color-surface) 0%,
-    rgba(5, 83, 177, 0.08) 100%);
+  border-color: var(--section-accent);
+  background: var(--card-flat-bg);
 }
 
 .contact-card__icon {
@@ -1407,13 +1415,18 @@
 /* Base Card Styles */
 .etc-card {
   position: relative;
-  background-color: var(--color-surface);
+  background-color: transparent;
   padding: var(--space-5);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-card-rest);
-  border: 1px solid var(--color-border-light);
+  box-shadow: none;
+  border: 1px solid var(--color-border);
   transition: all var(--transition-base);
   overflow: hidden;
+}
+
+.etc-card:hover {
+  border-color: var(--section-accent);
+  background-color: var(--card-flat-bg);
 }
 
 /* Top Accent Bar */
@@ -2008,24 +2021,106 @@
 }
 
 /* ================================
+   Card System — three weights
+   ================================
+   Every section used to share one surface (bg-white/5 + border-white/10 +
+   rounded-xl + backdrop-blur), so nothing read as more important than
+   anything else. These split cards by the job they do. */
+
+.card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              border-color var(--transition-base),
+              background-color var(--transition-base);
+}
+
+/* elevated — carries the work (featured project, current role).
+   A real surface that sits above the page. */
+.card--elevated {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-md);
+}
+
+.card--elevated:hover {
+  border-color: var(--section-accent);
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-3px);
+}
+
+/* flat — list material (skills, impact, past roles).
+   Tinted ground, no border; recedes into the section. */
+.card--flat {
+  background-color: var(--card-flat-bg);
+  border: 1px solid transparent;
+}
+
+.card--flat:hover {
+  background-color: var(--card-flat-bg-hover);
+  border-color: var(--section-accent);
+}
+
+/* outline — meta (education, certifications, contact).
+   Lightest weight; the page should get quieter toward the bottom. */
+.card--outline {
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+}
+
+.card--outline:hover {
+  border-color: var(--section-accent);
+  background-color: var(--card-flat-bg);
+}
+
+/* Accent top bar — wipes in on hover. Opt in with .card--bar. */
+.card--bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--section-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover.card--bar::before {
+  transform: scaleX(1);
+}
+
+/* Persistent bar for the one card that should read as "current". */
+.card--bar-on::before {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card--bar::before {
+    transition: none;
+  }
+
+  .card--elevated:hover {
+    transform: none;
+  }
+}
+
+/* ================================
    Experience Accordion Details
    ================================ */
 
+/* The card system owns this surface now; only the internal flow stays here.
+   (The old border-top/margins were left over from a structure where
+   .timeline__details was an inner block, not the card itself.) */
 .timeline__details {
-  margin-top: var(--space-4);
-  margin-bottom: var(--space-4);
-  border-top: 1px dashed var(--color-border);
-  padding-top: var(--space-3);
   display: flex;
   flex-direction: column;
   align-items: stretch;
-}
-
-/* Mobile: Increase spacing between expand button and tags */
-@media (max-width: 640px) {
-  .timeline__details {
-    margin-bottom: var(--space-6);
-  }
+  cursor: default;
 }
 
 .timeline__expand-btn {

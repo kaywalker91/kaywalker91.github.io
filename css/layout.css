@@ -249,9 +249,19 @@
   height: 3px;
   margin: var(--space-4) auto 0;
   border-radius: var(--radius-full);
-  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
-  opacity: 0.82;
+  background: var(--section-accent);
+  opacity: 0.9;
 }
+
+/* Each section carries its own accent so scrolling reads as moving through
+   distinct chapters rather than one blue page. */
+.section-shell--impact { --section-accent: var(--accent-impact); }
+.section-shell--skills { --section-accent: var(--accent-skills); }
+.section-shell--experience { --section-accent: var(--accent-experience); }
+.section-shell--projects { --section-accent: var(--accent-projects); }
+.section-shell--education,
+.section-shell--etc { --section-accent: var(--accent-education); }
+.section-shell--contact { --section-accent: var(--accent-contact); }
 
 .section-shell .section-subheading {
   font-size: var(--font-size-section-subtitle);

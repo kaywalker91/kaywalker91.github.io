@@ -161,6 +161,21 @@
   /* Project Card Shadows - Single layer */
   --shadow-card-rest: 0 1px 3px rgba(0, 0, 0, 0.06);
   --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+  /* Card system — flat surface tints (see .card--flat) */
+  --card-flat-bg: rgba(13, 30, 60, 0.045);
+  --card-flat-bg-hover: rgba(13, 30, 60, 0.075);
+
+  /* Section accents. Applied to heading underlines, card top bars and icons
+     only — never to body text, so the 4.5:1 text floor is unaffected. Each
+     clears 3:1 against its ground for the 1.4.11 non-text contrast rule. */
+  --section-accent: var(--color-primary);
+  --accent-impact: #0553B1;
+  --accent-skills: #0D9488;
+  --accent-experience: #1D4ED8;
+  --accent-projects: #7C3AED;
+  --accent-education: #B45309;
+  --accent-contact: #0553B1;
 }
 
 /* Dark Mode Color System */
@@ -265,6 +280,17 @@
   /* Project Card Shadows - Dark Mode */
   --shadow-card-rest: 0 1px 3px rgba(0, 0, 0, 0.2);
   --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.3);
+
+  /* Card system + section accents — dark variants */
+  --card-flat-bg: rgba(255, 255, 255, 0.045);
+  --card-flat-bg-hover: rgba(255, 255, 255, 0.08);
+
+  --accent-impact: #00D9FF;
+  --accent-skills: #2DD4BF;
+  --accent-experience: #60A5FA;
+  --accent-projects: #A78BFA;
+  --accent-education: #FBBF24;
+  --accent-contact: #00D9FF;
 }
 
 /* Prevent flash of unstyled content */
