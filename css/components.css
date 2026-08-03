@@ -1817,16 +1817,16 @@
    ================================ */
 
 .hero__tagline {
-  font-size: clamp(1.04rem, 1.8vw, 1.28rem);
-  font-weight: var(--font-weight-semibold);
+  font-size: clamp(0.95rem, 1.3vw, 1.08rem);
+  font-weight: var(--font-weight-medium);
   font-style: italic;
-  line-height: 1.55;
+  line-height: 1.5;
   color: var(--color-text-secondary);
   margin-bottom: var(--space-2);
-  padding-left: var(--space-5);
-  border-left: 3px solid var(--color-primary);
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--color-primary);
   display: block;
-  opacity: 0.88;
+  opacity: 0.8;
 }
 
 [data-theme="dark"] .hero__tagline {

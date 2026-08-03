@@ -432,14 +432,16 @@
 .hero__content {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-12);
+  gap: var(--space-10);
   align-items: center;
 }
 
 @media (min-width: 1024px) {
   .hero__content {
-    grid-template-columns: 1.15fr 1fr;
-    gap: var(--space-12);
+    /* The terminal is decorative (aria-hidden) — it gets the smaller share so
+       the name and role own the first screen instead of splitting it 50/50. */
+    grid-template-columns: 1.45fr 0.85fr;
+    gap: var(--space-16);
   }
 }
 
@@ -463,18 +465,51 @@
   .hero__terminal {
     display: block;
   }
+
+  /* Decorative (aria-hidden) — recede it so the eye lands on the name first,
+     then lift toward full presence on hover. Applied to the inner .terminal
+     because the wrapper carries .reveal, whose .active rule drives opacity
+     and transform and would win on specificity. */
+  .hero__terminal .terminal {
+    opacity: 0.62;
+    transform: scale(0.94);
+    transform-origin: right center;
+    filter: saturate(0.75);
+    box-shadow: var(--shadow-lg);
+    transition: opacity var(--transition-slow), transform var(--transition-slow),
+                filter var(--transition-slow);
+  }
+
+  .hero:hover .hero__terminal .terminal {
+    opacity: 1;
+    transform: scale(1);
+    filter: saturate(1);
+    box-shadow: var(--shadow-xl);
+  }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .hero__terminal .terminal,
+  .hero:hover .hero__terminal .terminal {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* Hero type ladder — the copy repeats "모바일 앱 개발자" four times, so the
+   hierarchy has to come from weight, not from cutting lines:
+   greeting (label) < description (muted) < tagline (quote) < role < name. */
 .hero__greeting {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-tertiary);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
+  opacity: 0.85;
 }
 
 .hero__title {
@@ -490,6 +525,7 @@
   font-size: var(--font-size-display);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
+  letter-spacing: -0.035em;
 }
 
 .hero__role {
@@ -499,10 +535,10 @@
 }
 
 .hero__description {
-  font-size: var(--font-size-base);
-  line-height: 1.8;
-  color: var(--color-text-secondary);
-  max-width: min(58ch, 100%);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  max-width: min(46ch, 100%);
   margin-bottom: 0;
 }
 
