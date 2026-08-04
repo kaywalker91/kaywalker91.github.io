@@ -25,6 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Setup projects masthead meta line
   setupProjectMeta();
 
+  // Setup skills readout
+  setupSkillReadout();
+
   // Setup copy to clipboard
   setupCopyToClipboard();
 
@@ -277,6 +280,38 @@ function setupProjectMeta() {
   document.addEventListener('languagechange:applied', render);
 }
 
+function setupSkillReadout() {
+  const tagEl = document.querySelector('[data-skill-tag]');
+  const detailEl = document.querySelector('[data-skill-detail]');
+  const chips = document.querySelectorAll('.skill-chip[data-skill]');
+  if (!tagEl || !detailEl || chips.length === 0) return;
+
+  chips.forEach(chip => chip.setAttribute('aria-pressed', 'false'));
+
+  // Writing the key into data-i18n rather than just the text means the language
+  // toggle re-translates whatever is currently selected, for free.
+  const select = (chip) => {
+    if (chip.getAttribute('aria-pressed') === 'true') return;
+    chips.forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
+
+    const key = `skills.detail.${chip.dataset.skill}`;
+    // The chip label is a product name, not translated copy — drop the key so
+    // updateContent() does not overwrite it with the hint tag.
+    tagEl.removeAttribute('data-i18n');
+    tagEl.textContent = chip.textContent.trim();
+    detailEl.setAttribute('data-i18n', key);
+    detailEl.textContent = i18n.t(key);
+  };
+
+  chips.forEach(chip => {
+    // Pointer, keyboard and touch all reach the same path; hover alone would
+    // leave the section unusable on a phone or by keyboard.
+    chip.addEventListener('mouseenter', () => select(chip));
+    chip.addEventListener('focus', () => select(chip));
+    chip.addEventListener('click', () => select(chip));
+  });
+}
+
 // Impact counters animation (delegates to shared CounterAnimation utility)
 function setupImpactCounters() {
   CounterAnimation.observe('.impact-stat__number[data-count]', {
@@ -526,30 +561,32 @@ function openProjectModal(modal, project) {
   titleEl.textContent = project.title;
 
   // Build body content
+  // Two columns: what changed (results) beside how it was built (implementation).
+  // Separating the two is what a reader is actually scanning for; the deep-dive
+  // narrative stays full width underneath.
   bodyEl.innerHTML = `
-    <div class="modal__section">
-      <h4 class="modal__section-title" data-i18n="modal.features">주요 기능</h4>
-      <ul class="modal__feature-list">
-        ${project.features.map(f => `<li>${f}</li>`).join('')}
-      </ul>
+    <div class="modal__split">
+      <div class="modal__col">
+        <h4 class="modal__section-title" data-i18n="modal.achievements">핵심 성과</h4>
+        <ul class="modal__achievement-list">
+          ${project.achievements.map(a => `<li>${a}</li>`).join('')}
+        </ul>
+      </div>
+      <div class="modal__col">
+        <h4 class="modal__section-title" data-i18n="modal.features">구현 상세</h4>
+        <ul class="modal__feature-list">
+          ${project.features.map(f => `<li>${f}</li>`).join('')}
+        </ul>
+        <div class="modal__tech-grid">
+          ${project.tech.map(t => `<span class="modal__tech-tag">${t}</span>`).join('')}
+        </div>
+      </div>
     </div>
     <div class="modal__section modal__section--challenge">
       <h4 class="modal__section-title" data-i18n="modal.challenge">도전 과제</h4>
       <p class="modal__challenge">${project.challenge}</p>
       <h4 class="modal__section-title" data-i18n="modal.solution">해결 방법</h4>
       <p class="modal__solution">${project.solution}</p>
-    </div>
-    <div class="modal__section">
-      <h4 class="modal__section-title" data-i18n="modal.achievements">성과</h4>
-      <ul class="modal__achievement-list">
-        ${project.achievements.map(a => `<li>${a}</li>`).join('')}
-      </ul>
-    </div>
-    <div class="modal__section">
-      <h4 class="modal__section-title" data-i18n="modal.tech">기술 스택</h4>
-      <div class="modal__tech-grid">
-        ${project.tech.map(t => `<span class="modal__tech-tag">${t}</span>`).join('')}
-      </div>
     </div>
   `;
 

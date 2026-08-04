@@ -184,14 +184,14 @@
         </li>
         <li class="nav__item">
           <button
-            class="w-11 h-11 rounded-full flex items-center justify-center border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/50 transition-all text-text-primary"
+            class="w-11 h-11 rounded-full flex items-center justify-center border border-border bg-[var(--card-flat-bg)] hover:bg-[var(--card-flat-bg-hover)] hover:border-primary/50 transition-all text-text-primary"
             id="lang-toggle" aria-label="Toggle language">
             <span class="text-xs font-medium text-gray-600 dark:text-gray-300">EN</span>
           </button>
         </li>
         <li class="nav__item">
           <button
-            class="w-11 h-11 rounded-full flex items-center justify-center border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/50 transition-all text-text-primary relative group"
+            class="w-11 h-11 rounded-full flex items-center justify-center border border-border bg-[var(--card-flat-bg)] hover:bg-[var(--card-flat-bg-hover)] hover:border-primary/50 transition-all text-text-primary relative group"
             id="theme-toggle" aria-label="Toggle dark mode">
             <svg
               class="w-4 h-4 absolute transition-all duration-300 opacity-0 scale-50 rotate-90 [:root[data-theme=dark]_&]:opacity-100 [:root[data-theme=dark]_&]:scale-100 [:root[data-theme=dark]_&]:rotate-0 text-yellow-400"
@@ -245,14 +245,12 @@
               </span>
             </h1>
 
-            <!-- Core Value Proposition -->
+            <!-- Core Value Proposition. The h1 above already states the role, so this
+                 carries evidence instead of restating it; the credentials that used to
+                 sit in a second paragraph are covered by the tech badges and the
+                 terminal's skills.json below. -->
             <p class="hero__tagline max-w-xl reveal" data-i18n="hero.tagline">
-              안정성과 완성도를 중시하는 모바일 앱 개발자
-            </p>
-
-            <p class="hero__description max-w-lg reveal" data-i18n="hero.description">
-              모바일 앱 개발 3년 5개월 경험(Flutter/Android/iOS)<br>Clean Architecture & Riverpod | Legacy Android/iOS → Flutter 전환
-              리드
+              레거시 Android/iOS를 Flutter로 전환하고 Riverpod을 도입해 버그 30%, 개발 속도 20%를 개선했습니다.
             </p>
 
             <!-- CTA Buttons - Mobile Optimized -->
@@ -293,8 +291,8 @@
                   <span class="terminal__command">whoami</span>
                 </div>
                 <div class="terminal__line terminal__line--output">
-                  <span class="terminal__output text-xs" data-i18n="hero.terminal.whoami">4년차 Flutter 앱 개발자 (Android/iOS
-                    Native 경험)</span>
+                  <span class="terminal__output text-xs" data-i18n="hero.terminal.whoami">모바일 앱 개발 3년 10개월 ·
+                    Android/iOS Native → Flutter</span>
                 </div>
 
                 <div class="terminal__line mt-3">
@@ -339,23 +337,29 @@
     <!-- Impact Section (Refactored with Tailwind) -->
     <section class="section-shell section-shell--impact section-shell--band relative overflow-hidden" id="impact">
       <div class="container mx-auto px-4">
-        <h2 class="section-heading reveal" data-i18n="impact.title">성과 하이라이트</h2>
+        <div class="section-header reveal">
+          <span class="section-header__index" aria-hidden="true">01</span>
+          <span class="section-header__rule" aria-hidden="true"></span>
+          <h2 class="section-heading" data-i18n="impact.title">성과 하이라이트</h2>
+          <span class="section-header__label" aria-hidden="true">IMPACT</span>
+        </div>
         <p class="section-subheading reveal" data-i18n="impact.subtitle">숫자로 증명하는 개발 역량</p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
-          <!-- SVG Gradient Definition -->
-          <svg class="sr-only" aria-hidden="true">
-            <defs>
-              <linearGradient id="chartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="var(--color-primary)" />
-                <stop offset="100%" stop-color="var(--color-accent)" />
-              </linearGradient>
-            </defs>
-          </svg>
+        <!-- SVG Gradient Definition. Kept outside .hairline-grid: only .sr-only's
+             absolute positioning stops it counting as a grid cell. -->
+        <svg class="sr-only" aria-hidden="true">
+          <defs>
+            <linearGradient id="chartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="var(--color-primary)" />
+              <stop offset="100%" stop-color="var(--color-accent)" />
+            </linearGradient>
+          </defs>
+        </svg>
 
+        <div class="hairline-grid hairline-grid--4 reveal">
           <!-- LOC -->
           <div
-            class="card card--flat card--bar group flex flex-col items-center text-center p-5">
+            class="impact-stat group">
             <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="85">
               <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
                 <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
@@ -382,7 +386,7 @@
 
           <!-- Test Cases -->
           <div
-            class="card card--flat card--bar group flex flex-col items-center text-center p-5">
+            class="impact-stat group">
             <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="90">
               <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
                 <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
@@ -409,7 +413,7 @@
 
           <!-- Download Increase (Highlight) -->
           <div
-            class="card card--elevated card--bar card--bar-on group flex flex-col items-center text-center p-5">
+            class="impact-stat group">
             <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="100">
               <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
                 <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
@@ -436,7 +440,7 @@
 
           <!-- Cost Reduction (Highlight) -->
           <div
-            class="card card--elevated card--bar card--bar-on group flex flex-col items-center text-center p-5">
+            class="impact-stat group">
             <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="50">
               <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
                 <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
@@ -469,13 +473,18 @@
     <!-- Skills Section -->
     <section class="section-shell section-shell--skills relative overflow-hidden" id="skills">
       <div class="container mx-auto px-4">
-        <h2 class="section-heading reveal" data-i18n="skills.title">기술 스택</h2>
+        <div class="section-header reveal">
+          <span class="section-header__index" aria-hidden="true">02</span>
+          <span class="section-header__rule" aria-hidden="true"></span>
+          <h2 class="section-heading" data-i18n="skills.title">기술 스택</h2>
+          <span class="section-header__label" aria-hidden="true">SKILLS</span>
+        </div>
         <p class="section-subheading reveal" data-i18n="skills.subtitle">모바일 앱 개발에 필요한 핵심 기술들</p>
 
         <!-- Core Competencies Badges -->
         <div class="flex flex-wrap justify-center gap-3 mb-8 reveal">
           <div
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-elevated border border-white/10 shadow-sm hover:border-primary/50 transition-colors">
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-elevated border border-border shadow-sm hover:border-primary/50 transition-colors">
             <svg class="w-4 h-4 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
               <line x1="12" y1="18" x2="12" y2="18" />
@@ -483,7 +492,7 @@
             <span class="text-sm font-medium text-text-primary" data-i18n="skills.competency.ai">AI 생산성</span>
           </div>
           <div
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-elevated border border-white/10 shadow-sm hover:border-primary/50 transition-colors">
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-elevated border border-border shadow-sm hover:border-primary/50 transition-colors">
             <svg class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M9 12l2 2 4-4" />
               <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
@@ -491,7 +500,7 @@
             <span class="text-sm font-medium text-text-primary" data-i18n="skills.competency.multi">멀티플랫폼</span>
           </div>
           <div
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-elevated border border-white/10 shadow-sm hover:border-primary/50 transition-colors">
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-elevated border border-border shadow-sm hover:border-primary/50 transition-colors">
             <svg class="w-4 h-4 text-tertiary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 2L2 7l10 5 10-5-10-5z" />
               <path d="M2 17l10 5 10-5" />
@@ -501,7 +510,7 @@
               data-i18n="skills.competency.fullcycle">Full-Cycle</span>
           </div>
           <div
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-elevated border border-white/10 shadow-sm hover:border-primary/50 transition-colors">
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-elevated border border-border shadow-sm hover:border-primary/50 transition-colors">
             <svg class="w-4 h-4 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="16 18 22 12 16 6" />
               <polyline points="8 6 2 12 8 18" />
@@ -509,6 +518,14 @@
             <span class="text-sm font-medium text-text-primary" data-i18n="skills.competency.web3">Web3 &
               Blockchain</span>
           </div>
+        </div>
+
+        <!-- Readout. Hovering/focusing a chip below writes into this bar, so the
+             section states how a skill was actually used instead of self-rating it. -->
+        <div class="skill-readout reveal">
+          <span class="skill-readout__tag" data-skill-tag data-i18n="skills.readout.tag">가이드</span>
+          <span class="skill-readout__divider" aria-hidden="true"></span>
+          <p class="skill-readout__detail" data-skill-detail data-i18n="skills.readout.hint" aria-live="polite">기술을 선택하면 실제로 어떻게 사용했는지 보여줍니다.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -525,31 +542,10 @@
               </div>
               <h3 class="text-lg font-semibold" data-i18n="skills.mobile.title">모바일 개발</h3>
             </div>
-            <div class="space-y-3">
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Flutter / Dart</span>
-                <span class="skill-level-dots" aria-label="Expert">
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                </span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Android (Java)</span>
-                <span class="skill-level-dots" aria-label="Expert">
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                </span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">iOS (Swift)</span>
-                <span class="skill-level-dots" aria-label="Advanced">
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot"></span>
-                </span>
-              </div>
+            <div class="skill-chips">
+              <button type="button" class="skill-chip" data-skill="flutter-dart">Flutter / Dart</button>
+              <button type="button" class="skill-chip" data-skill="android-java">Android (Java)</button>
+              <button type="button" class="skill-chip" data-skill="ios-swift">iOS (Swift)</button>
             </div>
           </div>
 
@@ -565,31 +561,10 @@
               </div>
               <h3 class="text-lg font-semibold" data-i18n="skills.architecture.title">아키텍처</h3>
             </div>
-            <div class="space-y-3">
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Clean Architecture</span>
-                <span class="skill-level-dots" aria-label="Expert">
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                </span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Riverpod 3.x</span>
-                <span class="skill-level-dots" aria-label="Expert">
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                </span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">MVVM Pattern</span>
-                <span class="skill-level-dots" aria-label="Advanced">
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot"></span>
-                </span>
-              </div>
+            <div class="skill-chips">
+              <button type="button" class="skill-chip" data-skill="clean-architecture">Clean Architecture</button>
+              <button type="button" class="skill-chip" data-skill="riverpod">Riverpod 3.x</button>
+              <button type="button" class="skill-chip" data-skill="mvvm">MVVM Pattern</button>
             </div>
           </div>
 
@@ -606,31 +581,10 @@
               </div>
               <h3 class="text-lg font-semibold" data-i18n="skills.backend.title">백엔드 & 데이터</h3>
             </div>
-            <div class="space-y-3">
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">MySQL / PostgreSQL</span>
-                <span class="skill-level-dots" aria-label="Advanced">
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot"></span>
-                </span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">RESTful API</span>
-                <span class="skill-level-dots" aria-label="Expert">
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                </span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Firebase / FCM</span>
-                <span class="skill-level-dots" aria-label="Advanced">
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot"></span>
-                </span>
-              </div>
+            <div class="skill-chips">
+              <button type="button" class="skill-chip" data-skill="sql">MySQL / PostgreSQL</button>
+              <button type="button" class="skill-chip" data-skill="rest-api">RESTful API</button>
+              <button type="button" class="skill-chip" data-skill="firebase-fcm">Firebase / FCM</button>
             </div>
           </div>
 
@@ -647,31 +601,10 @@
               </div>
               <h3 class="text-lg font-semibold" data-i18n="skills.ai.title">AI 개발</h3>
             </div>
-            <div class="space-y-3">
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Claude Code / Antigravity</span>
-                <span class="skill-level-dots" aria-label="Advanced">
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot"></span>
-                </span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Llama 3.3</span>
-                <span class="skill-level-dots" aria-label="Intermediate">
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot"></span>
-                  <span class="skill-level-dot"></span>
-                </span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Local-First Pattern</span>
-                <span class="skill-level-dots" aria-label="Advanced">
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot"></span>
-                </span>
-              </div>
+            <div class="skill-chips">
+              <button type="button" class="skill-chip" data-skill="claude-code">Claude Code / Antigravity</button>
+              <button type="button" class="skill-chip" data-skill="llama">Llama 3.3</button>
+              <button type="button" class="skill-chip" data-skill="local-first">Local-First Pattern</button>
             </div>
           </div>
 
@@ -688,31 +621,10 @@
               </div>
               <h3 class="text-lg font-semibold" data-i18n="skills.blockchain.title">Blockchain & Web3</h3>
             </div>
-            <div class="space-y-3">
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">WalletConnect v2</span>
-                <span class="skill-level-dots" aria-label="Expert">
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                </span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">EVM (ETH, BNB, Base)</span>
-                <span class="skill-level-dots" aria-label="Advanced">
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot"></span>
-                </span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Solana (Phantom)</span>
-                <span class="skill-level-dots" aria-label="Intermediate">
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot"></span>
-                  <span class="skill-level-dot"></span>
-                </span>
-              </div>
+            <div class="skill-chips">
+              <button type="button" class="skill-chip" data-skill="walletconnect">WalletConnect v2</button>
+              <button type="button" class="skill-chip" data-skill="evm">EVM (ETH, BNB, Base)</button>
+              <button type="button" class="skill-chip" data-skill="solana">Solana (Phantom)</button>
             </div>
           </div>
 
@@ -729,31 +641,10 @@
               </div>
               <h3 class="text-lg font-semibold" data-i18n="skills.devops.title">운영</h3>
             </div>
-            <div class="space-y-3">
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">Git / GitHub</span>
-                <span class="skill-level-dots" aria-label="Expert">
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                </span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">CI/CD</span>
-                <span class="skill-level-dots" aria-label="Advanced">
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot"></span>
-                </span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-text-primary">App Store / Play Store</span>
-                <span class="skill-level-dots" aria-label="Expert">
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                  <span class="skill-level-dot skill-level-dot--filled"></span>
-                </span>
-              </div>
+            <div class="skill-chips">
+              <button type="button" class="skill-chip" data-skill="git">Git / GitHub</button>
+              <button type="button" class="skill-chip" data-skill="cicd">CI/CD</button>
+              <button type="button" class="skill-chip" data-skill="store">App Store / Play Store</button>
             </div>
           </div>
         </div>
@@ -763,7 +654,12 @@
     <!-- Experience Section -->
     <section class="section-shell section-shell--experience section-shell--primary section-shell--band section-shell--narrow relative overflow-hidden" id="experience">
       <div class="container mx-auto px-4">
-        <h2 class="section-heading reveal" data-i18n="experience.title">경력</h2>
+        <div class="section-header reveal">
+          <span class="section-header__index" aria-hidden="true">03</span>
+          <span class="section-header__rule" aria-hidden="true"></span>
+          <h2 class="section-heading" data-i18n="experience.title">경력</h2>
+          <span class="section-header__label" aria-hidden="true">EXPERIENCE</span>
+        </div>
         <p class="section-subheading reveal" data-i18n="experience.subtitle">실무에서 쌓아온 경험들</p>
 
         <div class="experience-timeline">
@@ -790,10 +686,10 @@
                 </ul>
 
                 <ul class="flex flex-wrap justify-start gap-2 mt-4">
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Flutter</li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Dart</li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Firebase</li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Admin</li>
+                  <li class="tech-chip">Flutter</li>
+                  <li class="tech-chip">Dart</li>
+                  <li class="tech-chip">Firebase</li>
+                  <li class="tech-chip">Admin</li>
                 </ul>
               </div>
             </div>
@@ -825,14 +721,14 @@
                 </div>
 
                 <ul class="flex flex-wrap justify-start gap-2 mt-4">
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Flutter</li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Riverpod
+                  <li class="tech-chip">Flutter</li>
+                  <li class="tech-chip">Riverpod
                   </li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">
+                  <li class="tech-chip">
                     WalletConnect</li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">web3dart
+                  <li class="tech-chip">web3dart
                   </li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">E2EE</li>
+                  <li class="tech-chip">E2EE</li>
                 </ul>
               </div>
             </div>
@@ -875,23 +771,23 @@
                 </button>
 
                 <div class="timeline__detail-content overflow-hidden transition-all duration-300 ease-in-out max-h-0">
-                  <div class="pt-6 border-t border-white/10 mt-4 space-y-6 text-left">
+                  <div class="pt-6 border-t border-border mt-4 space-y-6 text-left">
                     <div>
                       <h4 class="text-sm font-semibold text-text-primary mb-3" data-i18n="experience.achievements">주요 성과
                       </h4>
                       <ul class="space-y-3">
                         <li class="flex items-start gap-3">
-                          <span class="text-lg font-bold text-primary whitespace-nowrap">100%</span>
+                          <span class="text-lg font-bold font-mono text-primary whitespace-nowrap">100%</span>
                           <span class="text-xs text-text-muted mt-1" data-i18n="experience.siseon.metric1">Legacy →
                             Flutter 마이그레이션</span>
                         </li>
                         <li class="flex items-start gap-3">
-                          <span class="text-lg font-bold text-primary whitespace-nowrap">50%</span>
+                          <span class="text-lg font-bold font-mono text-primary whitespace-nowrap">50%</span>
                           <span class="text-xs text-text-muted mt-1" data-i18n="experience.siseon.metric2">유지보수 비용
                             절감</span>
                         </li>
                         <li class="flex items-start gap-3">
-                          <span class="text-lg font-bold text-primary whitespace-nowrap" data-i18n="experience.siseon.stat3">19개국</span>
+                          <span class="text-lg font-bold font-mono text-primary whitespace-nowrap" data-i18n="experience.siseon.stat3">19개국</span>
                           <span class="text-xs text-text-muted mt-1" data-i18n="experience.siseon.metric3">다국어 실시간
                             번역</span>
                         </li>
@@ -911,11 +807,11 @@
                 </div>
 
                 <ul class="flex flex-wrap justify-start gap-2 mt-4">
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Flutter</li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">FCM</li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">
+                  <li class="tech-chip">Flutter</li>
+                  <li class="tech-chip">FCM</li>
+                  <li class="tech-chip">
                     Accessibility</li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">i18n</li>
+                  <li class="tech-chip">i18n</li>
                 </ul>
               </div>
             </div>
@@ -957,23 +853,23 @@
                 </button>
 
                 <div class="timeline__detail-content overflow-hidden transition-all duration-300 ease-in-out max-h-0">
-                  <div class="pt-6 border-t border-white/10 mt-4 space-y-6 text-left">
+                  <div class="pt-6 border-t border-border mt-4 space-y-6 text-left">
                     <div>
                       <h4 class="text-sm font-semibold text-text-primary mb-3" data-i18n="experience.achievements">주요 성과
                       </h4>
                       <ul class="space-y-3">
                         <li class="flex items-start gap-3">
-                          <span class="text-lg font-bold text-primary whitespace-nowrap">400%</span>
+                          <span class="text-lg font-bold font-mono text-primary whitespace-nowrap">400%</span>
                           <span class="text-xs text-text-muted mt-1" data-i18n="experience.placelink.metric1">앱 다운로드 증가
                             (1,000→5,000)</span>
                         </li>
                         <li class="flex items-start gap-3">
-                          <span class="text-lg font-bold text-primary whitespace-nowrap">RxJava 2</span>
+                          <span class="text-lg font-bold font-mono text-primary whitespace-nowrap">RxJava 2</span>
                           <span class="text-xs text-text-muted mt-1" data-i18n="experience.placelink.metric2">AsyncTask
                             전면 리팩토링</span>
                         </li>
                         <li class="flex items-start gap-3">
-                          <span class="text-lg font-bold text-primary whitespace-nowrap">B2G</span>
+                          <span class="text-lg font-bold font-mono text-primary whitespace-nowrap">B2G</span>
                           <span class="text-xs text-text-muted mt-1" data-i18n="experience.placelink.metric3">대전시 "0시축제"
                             이벤트 성공</span>
                         </li>
@@ -993,12 +889,12 @@
                 </div>
 
                 <ul class="flex flex-wrap justify-start gap-2 mt-4">
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Android/iOS
+                  <li class="tech-chip">Android/iOS
                   </li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">RxJava</li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">Firebase
+                  <li class="tech-chip">RxJava</li>
+                  <li class="tech-chip">Firebase
                   </li>
-                  <li class="px-2.5 py-1 rounded bg-white/5 text-xs text-text-muted border border-white/10">B2G</li>
+                  <li class="tech-chip">B2G</li>
                 </ul>
               </div>
             </div>
@@ -1014,8 +910,12 @@
         <!-- Masthead: title block left, filter track right -->
         <div class="projects__masthead reveal">
           <div class="projects__masthead-title">
-            <p class="projects__eyebrow" aria-hidden="true">PROJECTS</p>
-            <h2 class="section-heading" data-i18n="projects.title">프로젝트</h2>
+            <div class="section-header">
+              <span class="section-header__index" aria-hidden="true">04</span>
+              <span class="section-header__rule" aria-hidden="true"></span>
+              <h2 class="section-heading" data-i18n="projects.title">프로젝트</h2>
+              <span class="section-header__label" aria-hidden="true">PROJECTS</span>
+            </div>
             <p class="projects__meta" data-project-meta></p>
           </div>
 
@@ -1371,7 +1271,12 @@
     <!-- Education Section -->
     <section class="section-shell section-shell--education section-shell--minor relative" id="education">
       <div class="container mx-auto px-4">
-        <h2 class="section-heading reveal" data-i18n="education.title">학력</h2>
+        <div class="section-header reveal">
+          <span class="section-header__index" aria-hidden="true">05</span>
+          <span class="section-header__rule" aria-hidden="true"></span>
+          <h2 class="section-heading" data-i18n="education.title">학력</h2>
+          <span class="section-header__label" aria-hidden="true">EDUCATION</span>
+        </div>
         <p class="section-subheading reveal" data-i18n="education.subtitle">교육 및 수료 이력</p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto reveal">
@@ -1379,7 +1284,7 @@
           <div
             class="card card--outline group p-5">
             <div
-              class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center mb-3 text-primary group-hover:bg-primary/20 transition-colors">
+              class="w-9 h-9 rounded-lg bg-[var(--card-flat-bg)] flex items-center justify-center mb-3 text-primary group-hover:bg-primary/20 transition-colors">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
                 <rect x="2" y="3" width="20" height="14" rx="2" />
                 <line x1="8" y1="21" x2="16" y2="21" />
@@ -1387,8 +1292,8 @@
               </svg>
             </div>
             <div class="flex justify-between items-center mb-2">
-              <span class="text-sm font-medium text-primary">2022.04 - 2022.10</span>
-              <span class="text-xs text-text-muted px-2 py-0.5 rounded bg-white/5"
+              <span class="text-sm font-medium font-mono text-primary">2022.04 - 2022.10</span>
+              <span class="text-xs font-mono text-text-muted px-2 py-0.5 rounded bg-[var(--card-flat-bg)]"
                 data-i18n="education.academy.duration">6개월</span>
             </div>
             <h3
@@ -1407,15 +1312,15 @@
           <div
             class="card card--outline group p-5">
             <div
-              class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center mb-3 text-primary group-hover:bg-primary/20 transition-colors">
+              class="w-9 h-9 rounded-lg bg-[var(--card-flat-bg)] flex items-center justify-center mb-3 text-primary group-hover:bg-primary/20 transition-colors">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
                 <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
                 <path d="M6 12v5c3 3 9 3 12 0v-5" />
               </svg>
             </div>
             <div class="flex justify-between items-center mb-2">
-              <span class="text-sm font-medium text-text-secondary">2012.03 - 2019.02</span>
-              <span class="text-xs text-text-muted px-2 py-0.5 rounded bg-white/5"
+              <span class="text-sm font-medium font-mono text-text-secondary">2012.03 - 2019.02</span>
+              <span class="text-xs font-mono text-text-muted px-2 py-0.5 rounded bg-[var(--card-flat-bg)]"
                 data-i18n="education.university.duration">7년</span>
             </div>
             <h3
@@ -1423,9 +1328,9 @@
               data-i18n="education.university.name">공주교육대학교</h3>
             <p class="text-text-secondary mb-4" data-i18n="education.university.major">초등교육학과 학사</p>
             <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 rounded-full bg-white/5 text-text-secondary text-xs border border-white/10"
+              <span class="px-3 py-1 rounded-full bg-[var(--card-flat-bg)] text-text-secondary text-xs"
                 data-i18n="education.university.achievement1">교원자격증 취득</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 text-text-secondary text-xs border border-white/10"
+              <span class="px-3 py-1 rounded-full bg-[var(--card-flat-bg)] text-text-secondary text-xs"
                 data-i18n="education.university.achievement2">교육학 전공 심화</span>
             </div>
           </div>
@@ -1436,7 +1341,12 @@
     <!-- ETC Section -->
     <section class="section-shell section-shell--etc section-shell--minor relative" id="etc">
       <div class="container mx-auto px-4">
-        <h2 class="section-heading reveal" data-i18n="etc.title">기타</h2>
+        <div class="section-header reveal">
+          <span class="section-header__index" aria-hidden="true">06</span>
+          <span class="section-header__rule" aria-hidden="true"></span>
+          <h2 class="section-heading" data-i18n="etc.title">기타</h2>
+          <span class="section-header__label" aria-hidden="true">MORE</span>
+        </div>
         <p class="section-subheading reveal" data-i18n="etc.subtitle">자격증 및 지속적 학습</p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -1627,7 +1537,7 @@
                     <span class="etc-card__item-name" data-i18n="etc.learning.senior.name">시니어 개발자 인사이트 학습</span>
                   </div>
                   <div class="etc-card__item-meta">
-                    <span class="etc-card__item-meta-date" data-i18n="etc.learning.inprogress">진행 중</span>
+                    <span class="etc-card__item-meta-status" data-i18n="etc.learning.inprogress">진행 중</span>
                     <span class="etc-card__item-meta-divider"></span>
                     <span class="etc-card__item-meta-org">F-Lab, 요즘 IT 멤버십</span>
                   </div>
@@ -1642,7 +1552,12 @@
     <!-- Contact Section -->
     <section class="section-shell section-shell--contact relative" id="contact">
       <div class="container mx-auto px-4">
-        <h2 class="section-heading reveal" data-i18n="contact.title">연락처</h2>
+        <div class="section-header reveal">
+          <span class="section-header__index" aria-hidden="true">07</span>
+          <span class="section-header__rule" aria-hidden="true"></span>
+          <h2 class="section-heading" data-i18n="contact.title">연락처</h2>
+          <span class="section-header__label" aria-hidden="true">CONTACT</span>
+        </div>
         <p class="section-subheading reveal" data-i18n="contact.subtitle">함께 일하고 싶으시다면 연락주세요</p>
 
         <!-- Availability Indicator -->
@@ -1706,11 +1621,19 @@
   </button>
 
   <!-- Footer -->
-  <footer class="py-8 border-t border-white/10 bg-black/20 text-center">
-    <div class="container mx-auto px-4">
-      <p class="text-text-muted text-sm">
-        <span data-i18n="footer.copyright">© 2026 김대각. All rights reserved.</span>
+  <!-- Closing statement. The contact section above already carries email/GitHub/blog,
+       so this deliberately does not repeat them — it ends the page on what comes next. -->
+  <footer class="site-footer">
+    <div class="site-footer__glow" aria-hidden="true"></div>
+    <div class="container site-footer__inner">
+      <p class="site-footer__eyebrow" aria-hidden="true">NEXT</p>
+      <p class="site-footer__statement" data-i18n="footer.statement">
+        Flutter Web의 렌더링 병목과 메모리 누수(OOM)를 선제적으로 방어하고, 서킷 브레이커로 아키텍처의 근본 안정성을 끌어올리는 데 집중하고 있습니다.
       </p>
+      <div class="site-footer__meta">
+        <span>KIM DAE-GAK · FLUTTER ENGINEER</span>
+        <span data-i18n="footer.copyright">© 2026 김대각. All rights reserved.</span>
+      </div>
     </div>
   </footer>
 
@@ -1719,11 +1642,11 @@
     class="modal-overlay fixed inset-0 z-50 flex items-center justify-center px-4 transition-opacity duration-300 opacity-0 invisible pointer-events-none aria-[hidden=false]:opacity-100 aria-[hidden=false]:visible aria-[hidden=false]:pointer-events-auto bg-black/60 backdrop-blur-sm"
     id="project-modal" aria-hidden="true" role="dialog" aria-modal="true">
     <div
-      class="modal w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-surface rounded-2xl shadow-2xl border border-white/10 transform transition-all duration-300 scale-95 opacity-0 [.modal-overlay[aria-hidden=false]_&]:scale-100 [.modal-overlay[aria-hidden=false]_&]:opacity-100 p-0 flex flex-col">
+      class="modal w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-surface rounded-2xl shadow-2xl border border-border transform transition-all duration-300 scale-95 opacity-0 [.modal-overlay[aria-hidden=false]_&]:scale-100 [.modal-overlay[aria-hidden=false]_&]:opacity-100 p-0 flex flex-col">
       <div
-        class="modal__header flex justify-between items-center p-6 border-b border-white/10 sticky top-0 bg-surface/95 backdrop-blur z-10">
+        class="modal__header flex justify-between items-center p-6 border-b border-border sticky top-0 bg-surface backdrop-blur z-10">
         <h3 class="modal__title text-2xl font-bold text-text-primary dark:text-white" id="modal-title"></h3>
-        <button class="modal__close p-2 rounded-lg hover:bg-white/10 transition-colors text-text-muted hover:text-white"
+        <button class="modal__close p-2 rounded-lg hover:bg-[var(--card-flat-bg-hover)] transition-colors text-text-muted hover:text-text-primary"
           data-modal-close aria-label="Close modal">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
             <line x1="18" y1="6" x2="6" y2="18" />
@@ -1734,7 +1657,7 @@
       <div class="modal__body p-6 space-y-6 overflow-y-auto" id="modal-body">
         <!-- Dynamic content will be injected here -->
       </div>
-      <div class="modal__footer p-6 border-t border-white/10 flex justify-end gap-4" id="modal-footer">
+      <div class="modal__footer p-6 border-t border-border flex justify-end gap-4" id="modal-footer">
         <!-- Dynamic links will be injected here -->
       </div>
     </div>

@@ -232,25 +232,60 @@
 
 /* --band lives after the per-section backgrounds below so it wins the cascade. */
 
+/* Section header — mono index, accent rule, title, latin label on one row.
+   Left-aligned in every section: a numbered header only reads as a sequence
+   against a fixed left margin, and the projects masthead had already moved
+   this way, leaving the page inconsistent. The rule carries the section accent
+   that the old centred 72px underline used to. */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4);
+}
+
+.section-header__index,
+.section-header__label {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  line-height: 1;
+}
+
+.section-header__index {
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.14em;
+  color: var(--section-accent);
+}
+
+.section-header__rule {
+  height: 1px;
+  width: 36px;
+  flex: 0 0 auto;
+  background: linear-gradient(90deg, var(--section-accent), transparent);
+}
+
+.section-header__label {
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+}
+
+/* Below this the label drops onto its own line and reads as a stray word, so
+   drop it — it is decorative (aria-hidden) and the index still marks the row. */
+@media (max-width: 480px) {
+  .section-header__label {
+    display: none;
+  }
+}
+
 .section-shell .section-heading {
   font-size: var(--font-size-section-title-fluid);
   font-weight: var(--font-weight-bold);
   line-height: 1.15;
   letter-spacing: var(--letter-spacing-tight);
-  text-align: center;
+  text-align: left;
   color: var(--color-text-primary);
-  margin-bottom: var(--space-4);
-}
-
-.section-shell .section-heading::after {
-  content: '';
-  display: block;
-  width: 72px;
-  height: 3px;
-  margin: var(--space-4) auto 0;
-  border-radius: var(--radius-full);
-  background: var(--section-accent);
-  opacity: 0.9;
+  margin-bottom: 0;
 }
 
 /* Each section carries its own accent so scrolling reads as moving through
@@ -266,10 +301,10 @@
 .section-shell .section-subheading {
   font-size: var(--font-size-section-subtitle);
   line-height: 1.75;
-  text-align: center;
+  text-align: left;
   color: var(--color-text-secondary);
   max-width: var(--content-measure);
-  margin: 0 auto var(--section-heading-gap);
+  margin: 0 0 var(--section-heading-gap);
 }
 
 /* Heading tiers — the page reads top-down only if sections are unequal.
@@ -285,12 +320,8 @@
 
 .section-shell--minor .section-heading {
   font-size: var(--font-size-section-title-minor);
-  margin-bottom: var(--space-2);
 }
 
-.section-shell--minor .section-heading::after {
-  display: none;
-}
 
 .section-shell--minor .section-subheading {
   font-size: var(--font-size-sm);
@@ -354,10 +385,6 @@
     padding-bottom: var(--section-space-y-compact);
   }
 
-  .section-shell .section-heading::after {
-    width: 56px;
-    margin-top: var(--space-3);
-  }
 
   .section-shell .section-subheading {
     margin-bottom: var(--section-heading-gap);
@@ -544,14 +571,6 @@
   color: var(--color-secondary);
 }
 
-.hero__description {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--color-text-muted);
-  max-width: min(46ch, 100%);
-  margin-bottom: 0;
-}
-
 .hero__actions {
   margin-top: var(--space-2);
 }
@@ -705,25 +724,6 @@
   gap: var(--space-2-5);
 }
 
-/* Left-aligned here only. The centred heading + 72px underline is the page
-   default; this section carries its own eyebrow, which does that job instead. */
-.projects__masthead .section-heading {
-  text-align: left;
-  margin-bottom: 0;
-}
-
-.projects__masthead .section-heading::after {
-  display: none;
-}
-
-.projects__eyebrow {
-  font-family: var(--font-family-mono);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: 0.16em;
-  line-height: 1;
-  color: var(--section-accent);
-}
 
 .projects__meta {
   font-family: var(--font-family-mono);
@@ -777,6 +777,19 @@
 @media (min-width: 1024px) {
   .projects__grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Three across once --container-wide has the room. Each card grows ~63px taller
+   at 395px wide, but losing a whole row nets the section 255px shorter — a far
+   better trade than deleting bullets, which costs information for ~78px. */
+@media (min-width: 1280px) {
+  .projects__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .projects__grid .project-card--featured {
+    grid-column: span 3;
   }
 }
 

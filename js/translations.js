@@ -21,15 +21,14 @@ const translations = {
     'hero.greeting': '안녕하세요',
     'hero.name': '김대각',
     'hero.role': '4년차 Flutter 모바일 앱 개발자',
-    'hero.tagline': '안정성과 완성도를 중시하는 모바일 앱 개발자',
-    'hero.description': '모바일 앱 개발 3년 5개월 경험(Flutter/Android/iOS)<br>Clean Architecture & Riverpod | Legacy Android/iOS → Flutter 전환 리드',
+    'hero.tagline': '레거시 Android/iOS를 Flutter로 전환하고 Riverpod을 도입해 버그 30%, 개발 속도 20%를 개선했습니다.',
     'hero.competency.crossPlatform': 'AI 생산성',
     'hero.competency.quality': '멀티플랫폼',
     'hero.competency.ai': 'Full-Cycle',
     'hero.competency.protocol': 'Web3 & Blockchain',
     'hero.cta.contact': '연락하기',
     'hero.cta.projects': '프로젝트 보기',
-    'hero.terminal.whoami': '4년차 Flutter 앱 개발자 (Android/iOS Native 경험)',
+    'hero.terminal.whoami': '모바일 앱 개발 3년 10개월 · Android/iOS Native → Flutter',
     'hero.terminal.status': '✓ Rowoon Company Corp. 재직 중',
 
     // Impact
@@ -61,6 +60,26 @@ const translations = {
     'skills.competency.multi': '멀티플랫폼',
     'skills.competency.fullcycle': 'Full-Cycle',
     'skills.competency.web3': 'Web3 & Blockchain',
+    'skills.readout.tag': '가이드',
+    'skills.readout.hint': '기술을 선택하면 실제로 어떻게 사용했는지 보여줍니다.',
+    'skills.detail.flutter-dart': '주력 프레임워크. 모바일(AOS/iOS)과 Web을 단일 코드베이스로 운영하고, Completer 기반 pause/resume 설계로 busy-wait를 제거했습니다.',
+    'skills.detail.android-java': 'Native 유지보수·개선. AsyncTask 레거시를 RxJava 2로 전환해 크래시를 80~90% 줄였습니다.',
+    'skills.detail.ios-swift': 'FCM·딥링크 등 플랫폼 특화 이슈 해결과 VoiceOver 접근성 대응 경험.',
+    'skills.detail.clean-architecture': '15개 Feature 모듈을 계층 분리해 재구성하고 의존성 방향을 고정했습니다.',
+    'skills.detail.riverpod': '전역 상태 트리 오염을 선제 방어하고 로직·UI를 분리 — 버그 30% 감소, 개발 속도 20% 향상.',
+    'skills.detail.mvvm': '확장 가능한 화면 단위 구조 설계의 기본 패턴으로 사용합니다.',
+    'skills.detail.sql': '서비스 운영 DB 설계와 쿼리 튜닝, 관계형 스키마 설계 및 마이그레이션 경험.',
+    'skills.detail.rest-api': '인터페이스 명확화로 백엔드 협업 효율을 높이는 것을 우선합니다.',
+    'skills.detail.firebase-fcm': 'LocationBasedFCMManager — 위치 기반 Topic 동적 구독·해제 자동화.',
+    'skills.detail.claude-code': '실무 파이프라인에 도입해 레거시 개편과 아키텍처 설계를 주도, 개발 속도 30%+ 단축.',
+    'skills.detail.llama': 'MindLog의 감정 5단계 분석 엔진. 2단계 안전 필터로 위기 신호를 감지해 48개 CBT 메시지로 연결합니다.',
+    'skills.detail.local-first': '로컬 저장소를 1차 소스로 두고 동기화를 뒤로 미루는 구조를 사용합니다.',
+    'skills.detail.walletconnect': '4계층 어댑터 아키텍처로 통합하고, 4계층 Sign Guard로 Race Condition을 방어했습니다.',
+    'skills.detail.evm': 'Ethereum, BNB Chain, Base 멀티체인 지갑 연동.',
+    'skills.detail.solana': 'Phantom Wallet 프로토콜을 직접 구현 — Base58·X25519 기반 Deep Link 연동.',
+    'skills.detail.git': 'PR 리뷰 문화 기반 협업. 25일간 160커밋 단위 스프린트 경험.',
+    'skills.detail.cicd': '테스트 자동화 파이프라인 구축으로 배포 후 크리티컬 버그를 최소화했습니다.',
+    'skills.detail.store': 'App Store·Play Store 심사 및 릴리스 운영 전담 경험.',
 
     // Experience
     'experience.title': '경력',
@@ -129,10 +148,10 @@ const translations = {
     'experience.placelink.tech4': 'Google Maps 위치 탐색 최적화',
 
     // Modal
-    'modal.features': '주요 기능',
+    'modal.features': '구현 상세',
     'modal.challenge': '도전 과제',
     'modal.solution': '해결 방법',
-    'modal.achievements': '성과',
+    'modal.achievements': '핵심 성과',
     'modal.tech': '기술 스택',
 
     // Projects
@@ -229,6 +248,7 @@ const translations = {
     'etc.status.ongoing': '진행중',
 
     // Footer
+    'footer.statement': 'Flutter Web의 렌더링 병목과 메모리 누수(OOM)를 선제적으로 방어하고, 서킷 브레이커로 아키텍처의 근본 안정성을 끌어올리는 데 집중하고 있습니다.',
     'footer.copyright': '© 2026 김대각. All rights reserved.'
   },
 
@@ -253,15 +273,14 @@ const translations = {
     'hero.greeting': 'Hello',
     'hero.name': 'Daegak Kim',
     'hero.role': '4-Year Flutter Mobile Developer',
-    'hero.tagline': 'Mobile app developer focused on stability and product quality',
-    'hero.description': '3 years 5 months of mobile app development (Flutter/Android/iOS)<br>Clean Architecture & Riverpod | Led legacy Android/iOS → Flutter migration',
+    'hero.tagline': 'Migrated legacy Android/iOS to Flutter and introduced Riverpod — 30% fewer bugs, 20% faster delivery.',
     'hero.competency.crossPlatform': 'AI Productivity',
     'hero.competency.quality': 'Multi-Platform',
     'hero.competency.ai': 'Full-Cycle',
     'hero.competency.protocol': 'Web3 & Blockchain',
     'hero.cta.contact': 'Contact Me',
     'hero.cta.projects': 'View Projects',
-    'hero.terminal.whoami': '4-year Flutter app developer (Android/iOS native experience)',
+    'hero.terminal.whoami': '3y 10m in mobile · Android/iOS native → Flutter',
     'hero.terminal.status': '✓ Currently employed at Rowoon Company Corp.',
 
     // Impact
@@ -293,6 +312,26 @@ const translations = {
     'skills.competency.multi': 'Multi-Platform',
     'skills.competency.fullcycle': 'Full-Cycle',
     'skills.competency.web3': 'Web3 & Blockchain',
+    'skills.readout.tag': 'HINT',
+    'skills.readout.hint': 'Pick a skill to see how it was actually used.',
+    'skills.detail.flutter-dart': 'Primary framework. One codebase across mobile (AOS/iOS) and Web, with Completer-based pause/resume that removed busy-wait.',
+    'skills.detail.android-java': 'Native maintenance. Migrated AsyncTask legacy to RxJava 2, cutting crashes 80–90%.',
+    'skills.detail.ios-swift': 'Platform-specific fixes (FCM, deep links) and VoiceOver accessibility work.',
+    'skills.detail.clean-architecture': 'Restructured 15 feature modules into clean layers with fixed dependency direction.',
+    'skills.detail.riverpod': 'Guards the global state tree and separates logic from UI — 30% fewer bugs, 20% faster delivery.',
+    'skills.detail.mvvm': 'Default pattern for scalable screen-level structure.',
+    'skills.detail.sql': 'Production DB design and query tuning, plus relational schema design and migrations.',
+    'skills.detail.rest-api': 'Prioritises sharpening the interface so backend collaboration stays efficient.',
+    'skills.detail.firebase-fcm': 'LocationBasedFCMManager — automated location-based topic subscribe and unsubscribe.',
+    'skills.detail.claude-code': 'Brought into the production pipeline to lead legacy restructuring and architecture design — 30%+ faster delivery.',
+    'skills.detail.llama': 'The five-level emotion analysis engine behind MindLog; a two-stage safety filter routes crisis signals to 48 CBT messages.',
+    'skills.detail.local-first': 'Treats local storage as the source of truth and defers synchronisation.',
+    'skills.detail.walletconnect': 'Integrated through a four-layer adapter architecture, with a four-layer Sign Guard against race conditions.',
+    'skills.detail.evm': 'Multi-chain wallet integration across Ethereum, BNB Chain and Base.',
+    'skills.detail.solana': 'Implemented the Phantom Wallet protocol directly — Base58 / X25519 deep-link integration.',
+    'skills.detail.git': 'Collaboration built on PR review culture; a 160-commit sprint across 25 days.',
+    'skills.detail.cicd': 'Built an automated test pipeline that minimises critical bugs after release.',
+    'skills.detail.store': 'Owned App Store and Play Store review and release operations.',
 
     // Experience
     'experience.title': 'Experience',
@@ -361,10 +400,10 @@ const translations = {
     'experience.placelink.tech4': 'Google Maps location search optimization',
 
     // Modal
-    'modal.features': 'Key Features',
+    'modal.features': 'Implementation',
     'modal.challenge': 'Challenge',
     'modal.solution': 'Solution',
-    'modal.achievements': 'Achievements',
+    'modal.achievements': 'Key Results',
     'modal.tech': 'Tech Stack',
 
     // Projects
@@ -461,6 +500,7 @@ const translations = {
     'etc.status.ongoing': 'Ongoing',
 
     // Footer
+    'footer.statement': 'Currently focused on pre-empting rendering bottlenecks and OOM in Flutter Web, and raising baseline architectural stability with circuit breakers.',
     'footer.copyright': '© 2026 Daegak Kim. All rights reserved.'
   }
 };

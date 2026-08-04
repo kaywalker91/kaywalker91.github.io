@@ -572,6 +572,25 @@
   }
 }
 
+/* Shared tech chip. Experience and education used to draw these with Tailwind's
+   `bg-white/5` + `border-white/10`, which composites to roughly one part in 255
+   on a light ground — the chip simply did not exist in light mode. The fill has
+   to be a dark-alpha tint so it darkens whatever surface it lands on in either
+   theme, which is exactly what --card-flat-bg already does for project cards. */
+.tech-chip {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  padding: var(--space-1-5) var(--space-2-5);
+  background-color: var(--card-flat-bg);
+  border-radius: var(--radius-sm);
+  color: var(--section-accent);
+  transition: background-color var(--transition-fast);
+}
+
+.tech-chip:hover {
+  background-color: var(--card-flat-bg-hover);
+}
+
 .project-card__tech {
   display: flex;
   flex-wrap: wrap;
@@ -1526,10 +1545,15 @@
 }
 
 /* Card List */
+/* Same hairline treatment as the impact grid: one bordered table of rows
+   instead of a stack of individually bordered boxes. */
 .etc-card__list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+  display: grid;
+  gap: 1px;
+  background-color: var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
 }
 
 .etc-card__list li {
@@ -1538,23 +1562,18 @@
   align-items: center;
   gap: var(--space-4);
   padding: var(--space-4);
-  border-radius: var(--radius-lg);
-  background-color: var(--color-background);
-  border: 1px solid var(--color-border-light);
-  transition: all var(--transition-base);
-
+  background-color: var(--color-surface);
+  transition: background-color var(--transition-base);
 }
 
 /* Certificate List Items */
 .etc-card--certifications .etc-card__list li:hover {
   background-color: var(--color-certificate-glow);
-  border-color: var(--color-certificate);
 }
 
 /* Learning List Items */
 .etc-card--learning .etc-card__list li:hover {
   background-color: var(--color-learning-glow);
-  border-color: var(--color-learning);
 }
 
 /* Item Icon - Enhanced Size (56px) */
@@ -1664,7 +1683,15 @@
   color: var(--color-text-muted);
 }
 
+/* Dates, counts and tags speak in mono across the page — it is the one voice
+   that says "this is data, not prose", and JetBrains Mono is already loaded.
+   Korean status words stay in the body face; mono spaces Hangul badly. */
 .etc-card__item-meta-date {
+  font-family: var(--font-family-mono);
+  font-weight: var(--font-weight-medium);
+}
+
+.etc-card__item-meta-status {
   font-weight: var(--font-weight-medium);
 }
 
@@ -1689,8 +1716,7 @@
 }
 
 [data-theme="dark"] .etc-card__list li {
-  background: color-mix(in srgb, var(--color-surface-elevated) 50%, transparent);
-  border-color: var(--color-border);
+  background: var(--color-surface);
 }
 
 [data-theme="dark"] .etc-card--certifications .etc-card__list li:hover {
@@ -1934,21 +1960,48 @@
   }
 }
 
+/* Hairline grid. Cells share a single 1px edge instead of floating apart with
+   gaps and shadows: the "gap" is the container's own background showing between
+   children, so N cells read as one table rather than N boxes. */
+.hairline-grid {
+  display: grid;
+  gap: 1px;
+  background-color: var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.hairline-grid > * {
+  background-color: var(--color-surface);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.hairline-grid--4 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .hairline-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+  .hairline-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
 .impact-stat {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: var(--space-5);
-  background-color: var(--color-surface);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border-light);
-  transition: all var(--transition-base);
+  padding: var(--space-6) var(--space-5);
+  transition: background-color var(--transition-base);
 }
 
-.impact-stat:hover {
-  border-color: var(--color-primary);
-  box-shadow: var(--shadow-lg);
+.hairline-grid > .impact-stat:hover {
+  background-color: var(--color-surface-elevated);
 }
 
 .impact-stat--highlight {
@@ -2510,39 +2563,55 @@
   border-radius: 3px;
 }
 
+/* The narrative block reads as a pull-quote, not a raised card — the two columns
+   above it are flat, and a gradient-and-shadow box beside them looks like a
+   different page. Same left-rule device as .hero__tagline. */
 .modal__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
   margin-bottom: 0;
-  padding: var(--space-4);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 248, 255, 0.95) 100%);
-  border: 1px solid rgba(5, 83, 177, 0.12);
-  border-left: 3px solid rgba(5, 83, 177, 0.25);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 12px 26px rgba(5, 83, 177, 0.08), 0 4px 10px rgba(15, 23, 42, 0.08);
+  padding: var(--space-4) var(--space-5);
+  background: var(--card-flat-bg);
+  border-left: 2px solid var(--color-primary);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+.modal__section .modal__section-title:not(:first-child) {
+  margin-top: var(--space-3);
 }
 
 .modal__section:last-child {
   margin-bottom: 0;
 }
 
-.modal__section-title {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-primary-dark);
-  text-transform: uppercase;
-  letter-spacing: 0.2px;
-  margin-bottom: var(--space-2-5);
+/* Results | Implementation, side by side above the deep-dive narrative. */
+.modal__split {
+  display: grid;
+  gap: var(--space-6);
 }
 
-.modal__section-title::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  border-radius: var(--radius-full);
-  background: var(--color-primary);
-  box-shadow: var(--glow-primary);
+@media (min-width: 768px) {
+  .modal__split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
+}
+
+.modal__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Mono label rather than a heading with a bullet — it names the column without
+   competing with the list items underneath. */
+.modal__section-title {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: 0;
 }
 
 .modal__description {
@@ -2565,48 +2634,30 @@
   display: flex;
   align-items: flex-start;
   gap: var(--space-2);
-  padding: var(--space-2) var(--space-3);
-  background-color: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(5, 83, 177, 0.12);
-  border-radius: var(--radius-md);
+  padding: 0;
   font-size: var(--font-size-sm);
+  line-height: 1.65;
   color: var(--color-text-secondary);
-  box-shadow: 0 6px 14px rgba(5, 83, 177, 0.08);
 }
 
 .modal__feature-list li::before,
 .modal__achievement-list li::before,
 .modal__features li::before {
   content: '';
-  width: 8px;
-  height: 8px;
+  width: 4px;
+  height: 4px;
   border-radius: var(--radius-full);
-  background: var(--gradient-primary);
-  box-shadow: 0 0 10px rgba(5, 83, 177, 0.3);
-  margin-top: var(--space-1-5);
+  background: var(--color-primary);
+  margin-top: 0.62em;
   flex-shrink: 0;
 }
 
 .modal__challenge,
 .modal__solution {
-  padding: var(--space-3);
-  background-color: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(5, 83, 177, 0.12);
-  border-radius: var(--radius-md);
+  padding: 0;
   font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
   color: var(--color-text-secondary);
-  box-shadow: 0 6px 14px rgba(5, 83, 177, 0.08);
-}
-
-.modal__challenge {
-  border-left: 3px solid var(--color-warning);
-  background: linear-gradient(180deg, rgba(251, 191, 36, 0.12) 0%, rgba(255, 255, 255, 0.95) 100%);
-  margin-bottom: var(--space-3);
-}
-
-.modal__solution {
-  border-left: 3px solid var(--color-success);
-  background: linear-gradient(180deg, rgba(34, 197, 94, 0.12) 0%, rgba(255, 255, 255, 0.95) 100%);
 }
 
 .modal__tech-grid {
@@ -2716,21 +2767,14 @@
 }
 
 [data-theme="dark"] .modal__section {
-  background: var(--modal-panel);
-  background-image: none;
-  border-color: var(--modal-border-strong);
-  border-left-color: var(--modal-chip-border);
-  box-shadow: none;
+  background: var(--card-flat-bg);
+  border-left-color: var(--modal-accent);
 }
 
 [data-theme="dark"] .modal__section-title {
   color: var(--modal-accent);
 }
 
-[data-theme="dark"] .modal__section-title::before {
-  background: var(--modal-accent);
-  box-shadow: none;
-}
 
 [data-theme="dark"] .modal__description {
   color: var(--modal-text-body);
@@ -2739,35 +2783,18 @@
 [data-theme="dark"] .modal__feature-list li,
 [data-theme="dark"] .modal__achievement-list li,
 [data-theme="dark"] .modal__features li {
-  background: var(--modal-panel-soft);
-  border-color: var(--modal-border-strong);
   color: var(--modal-text-body);
-  box-shadow: none;
 }
 
 [data-theme="dark"] .modal__feature-list li::before,
 [data-theme="dark"] .modal__achievement-list li::before,
 [data-theme="dark"] .modal__features li::before {
   background: var(--modal-accent);
-  box-shadow: none;
 }
 
-[data-theme="dark"] .modal__challenge {
-  background: var(--modal-warning-surface);
-  background-image: none;
-  border: 1px solid var(--modal-warning-border);
-  border-left: 3px solid var(--modal-warning-border);
-  color: var(--modal-text-body);
-  box-shadow: none;
-}
-
+[data-theme="dark"] .modal__challenge,
 [data-theme="dark"] .modal__solution {
-  background: var(--modal-success-surface);
-  background-image: none;
-  border: 1px solid var(--modal-success-border);
-  border-left: 3px solid var(--modal-success-border);
   color: var(--modal-text-body);
-  box-shadow: none;
 }
 
 [data-theme="dark"] .modal__tech-item,
@@ -2902,4 +2929,170 @@
 .projects__filter-btn.active,
 button[class*="bg-[var(--filter"].active {
   box-shadow: 0 4px 12px rgba(5, 83, 177, 0.22);
+}
+
+/* ================================
+   Site Footer
+   ================================ */
+
+/* An intentional dark island in both themes — the page ends on ink regardless of
+   the toggle, the way the resume reference closes. Tokens are duplicated rather
+   than themed for exactly that reason. */
+.site-footer {
+  --footer-bg: #0B1220;
+  --footer-fg: #E6EDF3;          /* 15.9:1 on --footer-bg */
+  --footer-muted: rgba(230, 237, 243, 0.55);  /* 5.35:1 */
+  --footer-accent: #7CC9FF;
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-20) 0 var(--space-10);
+  background: var(--footer-bg);
+  color: var(--footer-fg);
+}
+
+.site-footer__glow {
+  position: absolute;
+  top: -160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(760px, 120%);
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 201, 255, 0.22), transparent 68%);
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.site-footer__inner {
+  position: relative;
+}
+
+.site-footer__eyebrow {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.2em;
+  color: var(--footer-accent);
+  margin-bottom: var(--space-4);
+}
+
+.site-footer__statement {
+  max-width: 46ch;
+  font-size: clamp(1.25rem, 2.4vw, 1.85rem);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.5;
+  letter-spacing: var(--letter-spacing-tight);
+  text-wrap: pretty;
+}
+
+.site-footer__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-16);
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(230, 237, 243, 0.12);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.06em;
+  color: var(--footer-muted);
+}
+
+/* .back-to-top is fixed at bottom-right and sits on top of this row once the
+   footer is in view; keep its 48px + 24px gutter clear of the text. */
+.site-footer__meta > :last-child {
+  padding-right: 80px;
+}
+
+@media (max-width: 640px) {
+  .site-footer__meta > :last-child {
+    padding-right: 0;
+  }
+}
+
+/* ================================
+   Skills Readout
+   ================================ */
+
+/* "Expert" is a self-rating; a sentence about what the skill actually did is
+   evidence. Hovering or focusing a chip writes into this bar. */
+.skill-readout {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 70px;
+  margin-bottom: var(--space-8);
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.skill-readout__tag {
+  flex: 0 0 auto;
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.14em;
+  color: var(--accent-skills-text);
+}
+
+.skill-readout__divider {
+  flex: 0 0 auto;
+  width: 1px;
+  height: 26px;
+  background-color: var(--color-border);
+}
+
+.skill-readout__detail {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* Selection is marked with an accent border, not an accent fill: --accent-skills
+   is teal, and white-on-teal lands at 3.7:1 — under the 4.5:1 text floor. A
+   border only has to clear 3:1, and the label keeps its full-contrast colour. */
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3);
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  background-color: var(--card-flat-bg);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.skill-chip:hover,
+.skill-chip[aria-pressed="true"] {
+  background-color: var(--card-flat-bg-hover);
+  border-color: var(--section-accent);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .skill-readout {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .skill-readout__divider {
+    display: none;
+  }
 }

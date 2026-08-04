@@ -176,6 +176,9 @@
   --section-accent: var(--color-primary);
   --accent-impact: #0553B1;
   --accent-skills: #0D9488;
+  /* Teal reads 3.5:1 as small text on --color-surface — under the 4.5:1 floor.
+     Non-text uses (rules, borders) keep --accent-skills; text uses this. */
+  --accent-skills-text: #0F766E;
   --accent-experience: #1D4ED8;
   --accent-projects: #0369A1;  /* sky — 5.58:1 on --color-surface as link text */
   --accent-education: #B45309;
@@ -291,6 +294,7 @@
 
   --accent-impact: #00D9FF;
   --accent-skills: #2DD4BF;
+  --accent-skills-text: #2DD4BF;   /* 9.29:1 on the dark readout surface */
   --accent-experience: #60A5FA;
   --accent-projects: #38BDF8;  /* sky — 8.07:1 on --color-surface as link text */
   --accent-education: #FBBF24;
