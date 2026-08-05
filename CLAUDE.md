@@ -12,7 +12,12 @@ Static portfolio website for a Flutter mobile developer (김대각 / Daegak Kim)
 # Local preview (no build step required)
 python3 -m http.server 8080
 # Then visit http://localhost:8080
+
+# End-to-end suite (starts its own server on :8080)
+npx playwright test
 ```
+
+The Playwright suite in `tests/` covers navigation, the project filter, the project accordion, and responsive layout. Run it after any change to `index.html`, `css/`, or `js/` — structural edits break it silently otherwise.
 
 Beyond the Playwright suite, validate manually: navigation, theme toggle, language toggle, the project accordion, scroll-reveal animations, and responsive layout across viewports.
 

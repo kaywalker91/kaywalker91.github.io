@@ -149,7 +149,7 @@ export async function verifyAccessible(page, selector) {
 }
 
 /**
- * Phase 2.1: Navigation + Modal + Filter helpers
+ * Phase 2.1: Navigation + Accordion + Filter helpers
  */
 
 /**
@@ -182,19 +182,68 @@ export async function waitForFilterAnimation(page) {
 }
 
 /**
- * Validate modal open/close state
+ * Wait for the accordion panel height transition to settle
+ * (max-height 0.5s in components.css)
  * @param {import('@playwright/test').Page} page
- * @param {boolean} shouldBeOpen - Expected modal state
  */
-export async function validateModalState(page, shouldBeOpen) {
-  const modal = page.locator('#project-modal');
-  const ariaHidden = await modal.getAttribute('aria-hidden');
+export async function waitForAccordionTransition(page) {
+  await page.waitForTimeout(600);
+}
+
+/**
+ * Locator for a project card's accordion toggle
+ * @param {import('@playwright/test').Page} page
+ * @param {string} projectId - value of data-project (e.g. 'mindlog')
+ */
+export function projectToggle(page, projectId) {
+  return page.locator(`.project-card[data-project="${projectId}"] .project-card__toggle`);
+}
+
+/**
+ * Open a project accordion panel and wait for it to settle
+ * @param {import('@playwright/test').Page} page
+ * @param {string} projectId - value of data-project (e.g. 'mindlog')
+ */
+export async function openProjectPanel(page, projectId) {
+  const toggle = projectToggle(page, projectId);
+  await toggle.waitFor({ state: 'visible', timeout: 10000 });
+  await toggle.click();
+  await waitForAccordionTransition(page);
+}
+
+/**
+ * Measure a project panel's rendered height (0 when collapsed)
+ * @param {import('@playwright/test').Page} page
+ * @param {string} projectId
+ * @returns {Promise<number|null>} panel height in px, null if the card is missing
+ */
+export async function getProjectPanelHeight(page, projectId) {
+  return await page.evaluate((id) => {
+    const panel = document.querySelector(`.project-card[data-project="${id}"] .project-card__panel`);
+    if (!panel) return null;
+    return panel.getBoundingClientRect().height;
+  }, projectId);
+}
+
+/**
+ * Validate accordion panel open/close state
+ * Replaces the removed modal flow: the panel is expanded in place, so state
+ * lives on the toggle's aria-expanded plus the panel's measured height.
+ * @param {import('@playwright/test').Page} page
+ * @param {string} projectId - value of data-project (e.g. 'mindlog')
+ * @param {boolean} shouldBeOpen - Expected panel state
+ */
+export async function validateProjectPanelState(page, projectId, shouldBeOpen) {
+  const toggle = projectToggle(page, projectId);
+  await expect(toggle).toHaveAttribute('aria-expanded', String(shouldBeOpen));
+
+  const height = await getProjectPanelHeight(page, projectId);
+  expect(height).not.toBeNull();
 
   if (shouldBeOpen) {
-    expect(ariaHidden).toBe('false');
-    await expect(modal).toBeVisible();
+    expect(height).toBeGreaterThan(0);
   } else {
-    expect(ariaHidden).toBe('true');
+    expect(height).toBe(0);
   }
 }
 
