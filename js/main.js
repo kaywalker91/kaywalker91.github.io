@@ -34,9 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Setup impact counters
   setupImpactCounters();
 
-  // Setup timeline expansion (Experience Accordion)
-  setupTimelineExpansion();
-
   // Setup project modal
   setupProjectModal();
 
@@ -323,52 +320,6 @@ function setupImpactCounters() {
   CounterAnimation.observe('.project-stat__number[data-count]', {
     easing: 'easeOutQuart',
     threshold: 0.5
-  });
-}
-
-// Timeline expansion (Experience Accordion)
-function setupTimelineExpansion() {
-  const expandButtons = document.querySelectorAll('.timeline__expand-btn');
-
-  if (expandButtons.length === 0) return;
-
-  expandButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const details = button.closest('.timeline__details');
-      const content = details.querySelector('.timeline__detail-content');
-      const isExpanded = details.dataset.expanded === 'true';
-
-      // Toggle state
-      details.dataset.expanded = !isExpanded;
-      button.setAttribute('aria-expanded', !isExpanded);
-
-      // Toggle content visibility
-      if (!isExpanded) {
-        content.style.maxHeight = content.scrollHeight + 'px';
-      } else {
-        content.style.maxHeight = '0';
-      }
-    });
-  });
-
-  // The pinned max-height goes stale whenever the content reflows underneath
-  // it — switching language rewrites every string, and EN runs longer than KO,
-  // so an open panel clips. Re-measure any panel that is currently open.
-  const resyncOpenPanels = () => {
-    document.querySelectorAll('.timeline__details[data-expanded="true"]').forEach(details => {
-      const content = details.querySelector('.timeline__detail-content');
-      if (!content) return;
-      content.style.maxHeight = 'none';
-      const full = content.scrollHeight;
-      content.style.maxHeight = full + 'px';
-    });
-  };
-
-  let resizeTimer;
-  document.addEventListener('languagechange:applied', resyncOpenPanels);
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(resyncOpenPanels, 150);
   });
 }
 

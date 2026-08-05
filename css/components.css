@@ -74,12 +74,6 @@
   outline-offset: 2px;
 }
 
-/* Timeline expand button focus */
-.timeline__expand-btn:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
 /* Copy button focus */
 .contact-card__copy:focus-visible {
   outline: 2px solid var(--color-primary);
@@ -2153,63 +2147,40 @@
 /* ================================
    Experience Timeline (rail)
    ================================
-   Replaces the old centred stack of four identical cards separated by
-   hand-rolled divider divs. --rail-x is the single source of truth for the
-   rail's x-position so the line, the markers and the grid stay aligned. */
+   Three tracks: a right-aligned date/duration/location aside, a rail column
+   that owns the dot and the connecting line, and the reading column. Below
+   768px the tracks collapse into one and the rail is positioned absolutely
+   off --rail-x instead of occupying a grid track. */
 
 .experience-timeline {
-  --rail-x: 6px;
-  position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
-}
-
-.experience-timeline::before {
-  content: '';
-  position: absolute;
-  left: var(--rail-x);
-  top: 10px;
-  bottom: 10px;
-  width: 2px;
-  border-radius: var(--radius-full);
-  background: linear-gradient(180deg,
-    var(--section-accent) 0%,
-    var(--color-border) 85%,
-    transparent 100%);
-  opacity: 0.55;
+  /* This is the one section whose header carries no subheading, and the
+     subheading is what supplies --section-heading-gap everywhere else. This
+     margin collapses with the header's own 16px, so state the full gap here
+     rather than the difference. */
+  margin-top: var(--section-heading-gap);
 }
 
 .experience-timeline__item {
+  --rail-x: 6px;
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-2);
   padding-left: var(--space-8);
+  padding-bottom: var(--space-10);
+}
+
+.experience-timeline__item:last-child {
+  padding-bottom: 0;
 }
 
 .experience-timeline__aside {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: baseline;
   gap: var(--space-2);
-}
-
-.experience-timeline__marker {
-  position: absolute;
-  left: calc(var(--rail-x) - 5px);
-  top: 4px;
-  width: 12px;
-  height: 12px;
-  border-radius: var(--radius-full);
-  background: var(--color-background);
-  border: 2px solid var(--section-accent);
-  box-sizing: border-box;
-}
-
-/* The current role gets a filled marker so "now" is findable at a glance. */
-.experience-timeline__item:first-child .experience-timeline__marker {
-  background: var(--section-accent);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--section-accent) 22%, transparent);
 }
 
 .experience-timeline__date {
@@ -2217,180 +2188,158 @@
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.04em;
-  color: var(--section-accent);
+  color: var(--color-text-primary);
   white-space: nowrap;
 }
 
-@media (min-width: 768px) {
-  .experience-timeline {
-    --rail-x: 132px;
-    gap: var(--space-8);
-  }
-
-  .experience-timeline__item {
-    grid-template-columns: 116px 1fr;
-    column-gap: var(--space-8);
-    align-items: start;
-    padding-left: 0;
-  }
-
-  .experience-timeline__aside {
-    justify-content: flex-end;
-    padding-top: var(--space-1);
-  }
-
-  .experience-timeline__marker {
-    top: 7px;
-  }
+/* Korean status values stay in sans — mono wrecks Hangul spacing. */
+.experience-timeline__duration,
+.experience-timeline__location {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
 }
 
-/* ================================
-   Experience Accordion Details
-   ================================ */
-
-/* The card system owns this surface now; only the internal flow stays here.
-   (The old border-top/margins were left over from a structure where
-   .timeline__details was an inner block, not the card itself.) */
-.timeline__details {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  cursor: default;
+.experience-timeline__duration {
+  font-weight: var(--font-weight-semibold);
 }
 
-.timeline__expand-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2-5) var(--space-4);
-  min-height: 44px;
+/* "Now" is the one fact in the aside worth colouring. */
+.experience-timeline__item:first-child .experience-timeline__duration {
+  color: var(--section-accent);
+}
+
+.experience-timeline__rail {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--space-8);
+}
+
+.experience-timeline__rail::after {
+  content: '';
+  position: absolute;
+  left: var(--rail-x);
+  top: var(--space-6);
+  bottom: 0;
+  width: 1px;
+  background: var(--color-border);
+  transform: translateX(-50%);
+}
+
+.experience-timeline__item:last-child .experience-timeline__rail::after {
+  display: none;
+}
+
+.experience-timeline__marker {
+  position: absolute;
+  left: var(--rail-x);
+  top: var(--space-1-5);
+  width: 11px;
+  height: 11px;
+  border-radius: var(--radius-full);
+  background: var(--color-background);
+  border: 2px solid var(--color-border);
+  box-sizing: border-box;
+  transform: translateX(-50%);
+}
+
+/* Recency reads off the dot alone: filled with a halo for the current role,
+   an accent ring for the one before it, plain border for everything older. */
+.experience-timeline__item:first-child .experience-timeline__marker {
+  background: var(--section-accent);
+  border-color: var(--section-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--section-accent) 18%, transparent);
+}
+
+.experience-timeline__item:nth-child(2) .experience-timeline__marker {
+  border-color: color-mix(in srgb, var(--section-accent) 55%, var(--color-border));
+}
+
+.experience-timeline__company {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.015em;
+  color: var(--color-text-primary);
+}
+
+.experience-timeline__company-latin {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-secondary);
+  /* Wrap the romanised name as one unit. Without this, narrow phones break it
+     mid-phrase and strand "Corp." on its own line. The longest of the four is
+     ~168px, well inside the 256px column at 320px, so it cannot overflow. */
+  white-space: nowrap;
+}
+
+.experience-timeline__meta {
+  margin: var(--space-2) 0 0;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
-  color: var(--color-primary);
-  background-color: transparent;
-  border: 1px solid var(--color-primary);
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  align-self: flex-end;
+  color: var(--color-text-secondary);
 }
 
-.timeline__expand-btn:hover {
-  background-color: var(--color-primary);
-  color: white;
+.experience-timeline__summary {
+  margin: var(--space-4) 0 0;
+  font-size: var(--font-size-base);
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
 }
 
-.timeline__expand-icon {
-  width: 16px;
-  height: 16px;
-  transition: transform var(--transition-fast);
-}
-
-.timeline__expand-btn[aria-expanded="true"] .timeline__expand-icon {
-  transform: rotate(180deg);
-}
-
-.timeline__detail-content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-5);
-  width: 100%;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
-}
-
-.timeline__details[data-expanded="true"] .timeline__detail-content {
-  max-height: 1000px;
-  opacity: 1;
+.experience-timeline__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
   margin-top: var(--space-4);
 }
 
-/* Expanded state: increase bottom margin for better spacing with tags */
-.timeline__details[data-expanded="true"] {
-  margin-bottom: var(--space-6);
-}
-
-@media (max-width: 640px) {
-  .timeline__details[data-expanded="true"] {
-    margin-bottom: var(--space-8);
-  }
-}
-
 @media (min-width: 768px) {
-  .timeline__detail-content {
-    grid-template-columns: repeat(2, 1fr);
+  .experience-timeline__item {
+    grid-template-columns: 200px var(--space-8) minmax(0, 1fr);
+    gap: 0;
+    align-items: start;
+    padding-left: 0;
+    padding-bottom: 0;
   }
-}
 
-.timeline__detail-section {
-  background-color: var(--color-background);
-  padding: var(--space-4);
-  border-radius: var(--radius-md);
-}
+  .experience-timeline__aside {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-1);
+    padding-right: var(--space-6);
+    text-align: right;
+  }
 
-.timeline__detail-title {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-primary);
-  margin-bottom: var(--space-3);
-  padding-bottom: var(--space-2);
-  border-bottom: 2px solid var(--color-primary);
-  display: inline-block;
-}
+  /* The rail becomes a real grid track so the line spans the row's full
+     height — including the gap below the body — instead of stopping at the
+     last line of text. */
+  .experience-timeline__rail {
+    --rail-x: 50%;
+    position: relative;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    width: auto;
+    align-self: stretch;
+  }
 
-.timeline__achievement-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
+  .experience-timeline__aside,
+  .experience-timeline__body {
+    padding-bottom: var(--space-12);
+  }
 
-.timeline__achievement-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
-}
+  .experience-timeline__item:last-child .experience-timeline__aside,
+  .experience-timeline__item:last-child .experience-timeline__body {
+    padding-bottom: 0;
+  }
 
-.timeline__achievement-metric {
-  font-family: var(--font-family-mono);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-primary);
-  background-color: rgba(5, 83, 177, 0.1);
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-sm);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-[data-theme="dark"] .timeline__achievement-metric {
-  background-color: rgba(0, 217, 255, 0.15);
-}
-
-.timeline__achievement-text {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-}
-
-.timeline__tech-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.timeline__tech-list li {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-  padding-left: var(--space-4);
-  position: relative;
-}
-
-.timeline__tech-list li::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: var(--color-primary);
+  .experience-timeline__body {
+    padding-left: var(--space-6);
+  }
 }
 
 /* ================================
@@ -2862,8 +2811,6 @@
 @media (prefers-reduced-motion: reduce) {
   .modal-overlay,
   .modal,
-  .timeline__detail-content,
-  .timeline__expand-icon,
   .impact-stat {
     transition: none !important;
   }
@@ -2871,56 +2818,6 @@
   .impact-stat__number.counting {
     animation: none;
   }
-}
-
-/* ================================
-   Experience Card — Left Border Accent
-   ================================ */
-.timeline__details {
-  border-left: 3px solid var(--color-primary) !important;
-  border-top-left-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-  padding-left: calc(var(--space-6) + 3px) !important;
-}
-
-/* Period badge strengthening */
-.timeline__details [data-i18n*=".period"] {
-  font-weight: var(--font-weight-semibold);
-}
-
-/* Tech tag border-top separator */
-.timeline__details > ul:last-child,
-.timeline__details ul.flex.flex-wrap {
-  border-top: 1px solid rgba(0, 0, 0, 0.07);
-  padding-top: var(--space-4);
-  margin-top: var(--space-2);
-}
-
-[data-theme="dark"] .timeline__details > ul:last-child,
-[data-theme="dark"] .timeline__details ul.flex.flex-wrap {
-  border-top-color: rgba(255, 255, 255, 0.08);
-}
-
-/* Tech tags — light mode surface */
-.timeline__details li.px-2\.5 {
-  background: rgba(5, 83, 177, 0.06) !important;
-  border-color: rgba(5, 83, 177, 0.18) !important;
-  color: var(--color-text-secondary) !important;
-}
-
-[data-theme="dark"] .timeline__details li.px-2\.5 {
-  background: rgba(255, 255, 255, 0.05) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-  color: var(--color-text-muted) !important;
-}
-
-/* Active/current job period badge stronger highlight */
-.timeline__details [class*="bg-primary/10"] {
-  background: rgba(5, 83, 177, 0.12) !important;
-}
-
-[data-theme="dark"] .timeline__details [class*="bg-primary/10"] {
-  background: rgba(0, 217, 255, 0.12) !important;
 }
 
 /* ================================
