@@ -51,3 +51,5 @@ Each subdirectory portfolio is independent with its own `index.html`, `css/`, an
 ## Deployment
 
 GitHub Pages serves directly from the `main` branch root. Keep `index.html` at root level. Update `sitemap.xml` and `robots.txt` when URLs or indexing rules change.
+
+**Asset cache busting**: every `css/` and `js/` reference in `index.html` carries a `?v=YYYYMMDD` query (11 references total). Bump all of them to the same new value whenever `css/` or `js/` ships. GitHub Pages serves assets with `max-age=600`, so without this a returning visitor gets new HTML against a cached old script — which half-breaks any change spanning markup and script. The subdirectory portfolios (`celebtrip/`, `munto/`) are self-contained and out of scope for this rule.
