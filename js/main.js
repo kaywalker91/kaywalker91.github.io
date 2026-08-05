@@ -389,12 +389,21 @@ const projectData = {
       '팀 5인 중 모바일 아키텍처 설계 및 구현 전담',
       '12개 모듈 마이크로 피처 아키텍처 — Clean Architecture로 팀 병렬 개발',
       '86개 Riverpod Provider — .select()로 최소 리빌드 최적화',
+      '4계층 어댑터 아키텍처로 WalletConnect v2 통합',
       'State Machine 기반 4단계 지갑 연결 (WalletConnect v2)',
+      'Race Condition 방어 체계 — 4계층 Sign Guard',
       '27개 화면 Material 3 Dark Theme 설계'
     ],
     challenge: 'WalletConnect v2 연결 상태 관리 복잡성 + Deep Link Cold Start 시 지갑 연결 요청 유실',
     solution: 'State Machine 패턴으로 4가지 지갑 인터페이스 분리 (ISP) + Cold Start 큐잉 메커니즘으로 앱 초기화 전 요청 보존',
-    achievements: ['50,000+ LOC, 12개 모듈, 86 Providers', '299 테스트 케이스 (33.47% 커버리지)', '10개 체인 지원 (EVM + Solana)', 'JWT Lock + 7가지 예외 타입 설계'],
+    achievements: [
+      'State Machine 기반 상태 관리 도입으로 지갑 연결 실패율 약 90% 감소',
+      '50,000+ LOC, 12개 모듈, 86 Providers',
+      '299 테스트 케이스 (33.47% 커버리지)',
+      '테스트 자동화 파이프라인 구축 — 배포 후 크리티컬 버그 최소화',
+      '10개 체인 지원 (EVM + Solana)',
+      'JWT Lock + 7가지 예외 타입 설계'
+    ],
     tech: ['Flutter', 'Clean Architecture', 'Riverpod 3.x', 'WalletConnect v2', 'DeFi', 'fl_chart'],
     links: {}
   },
@@ -409,7 +418,13 @@ const projectData = {
     ],
     challenge: 'Legacy Native 코드(Android/iOS) 완전 마이그레이션 + GPS 정확도 불안정',
     solution: 'Platform Channel로 네이티브 기능 직접 제어 + RegionStabilityChecker 알고리즘으로 GPS 오차 보정',
-    achievements: ['Legacy → Flutter 100% 마이그레이션 완료', '유지보수 비용 50% 절감', '19개 언어 실시간 번역', '공공기관 접근성 인증 수준 달성'],
+    achievements: [
+      'Legacy → Flutter 100% 마이그레이션 완료',
+      '유지보수 비용 50% 절감',
+      'Riverpod 아키텍처 도입으로 버그 30% 감소, 개발 속도 20% 향상',
+      '19개 언어 실시간 번역',
+      '접근성 준수율 95% 달성 (공공기관 수준)'
+    ],
     tech: ['Flutter', 'FCM', 'Google Translate API V3', 'Hive', 'Platform Channel'],
     links: {}
   },
@@ -471,8 +486,9 @@ const projectData = {
     solution: 'RxJava 2 기반 비동기 로직 전면 리팩토링. Schedulers.io()로 네트워크 작업 분리. Firebase Dynamic Links로 바이럴 마케팅 플로우 구축.',
     achievements: [
       '다운로드 400% 증가 (1,000→5,000회)',
-      'AsyncTask → RxJava 2 전면 리팩토링',
+      'AsyncTask → RxJava 2 전환으로 크래시 발생률 80~90% 감소',
       '대전시 "0시축제" 이벤트 성공',
+      '대전관광공사 꿈돌이찾아라이딩 연계 이벤트 시스템 개발·운영',
       'Firebase Dynamic Links 바이럴 마케팅',
       'SiliCompressor 영상 압축 최적화'
     ],
