@@ -10,7 +10,6 @@
  *  7. Scroll Progress ................... line 1785
  *  8. Hero & Impact ..................... line 1803
  *  9. Experience Accordion .............. line 1982
- * 10. Project Modal ..................... line 2138
  * ========================================================================== */
 
 /* ================================
@@ -66,12 +65,6 @@
   outline: 2px solid var(--color-primary);
   outline-offset: 4px;
   border-color: var(--color-primary);
-}
-
-/* Modal close button focus */
-.modal__close:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
 }
 
 /* Copy button focus */
@@ -377,71 +370,67 @@
   font-weight: var(--font-weight-medium);
 }
 
-/* Project Card - Simplified Design */
-.project-card {
-  background-color: var(--color-surface);
-  padding: var(--space-5);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border-light);
-  box-shadow: var(--shadow-sm);
-  transition: border-color var(--transition-fast),
-              box-shadow var(--transition-fast),
-              transform var(--transition-fast);
+/* ================================
+   Project Accordion
+   ================================
+   One full-width row per project: a header that stays legible closed, and a
+   panel that opens in place. Replaces the old card grid plus modal — the detail
+   now lives where the project is, so reading one costs no context switch. */
+
+.projects__hint {
+  margin: 0 0 var(--space-8);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.projects__list {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  position: relative;
+  gap: var(--space-3);
+}
+
+.project-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
   overflow: hidden;
 }
 
-.project-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--section-accent);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-}
-
-.project-card::after {
-  display: none;
-}
-
-.project-card:hover {
+.project-card:hover,
+.project-card[data-expanded="true"] {
   border-color: var(--section-accent);
   box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
 }
 
-/* Non-featured cards drop to flat weight so the featured one still reads as
-   the lead. Without this the "featured" treatment is lost in four equals. */
-.project-card:not(.project-card--featured) {
-  background-color: var(--card-flat-bg);
-  border-color: transparent;
-  box-shadow: none;
+/* The heading exists for document outline only; the button carries the styling. */
+.project-card__heading {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
 }
 
-.project-card:not(.project-card--featured):hover {
-  background-color: var(--card-flat-bg-hover);
-  border-color: var(--section-accent);
+.project-card__toggle {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-6);
+  min-height: 44px;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-.project-card:hover::before {
-  opacity: 1;
-}
-
-/* Project-specific backgrounds removed for cleaner design */
-
-.project-card__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: var(--space-3);
-  gap: var(--space-3);
-  flex-shrink: 0;
+.project-card__index {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.1em;
+  color: var(--section-accent);
 }
 
 .project-card__headline {
@@ -451,118 +440,186 @@
   min-width: 0;
 }
 
-/* Index / role / category in mono. This carries what the three coloured
-   category badges used to say — each card already had a status pill next to
-   it, and the badge colours encoded nothing the filter didn't. */
-.project-card__meta {
+.project-card__titles {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   flex-wrap: wrap;
-  gap: var(--space-2);
-  font-family: var(--font-family-mono);
-  font-size: var(--font-size-xs);
-  letter-spacing: 0.12em;
-  line-height: 1.4;
-  /* --color-text-muted measured 4.22:1 on the flat cards' tinted fill. The
-     line reads as secondary from its size and tracking, not from being faint. */
-  color: var(--color-text-secondary);
-}
-
-.project-card__meta-sep {
-  color: var(--color-border);
+  gap: var(--space-3);
 }
 
 .project-card__title {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
-  line-height: 1.25;
-  letter-spacing: var(--letter-spacing-tight);
-  text-wrap: pretty;
-}
-
-.project-card__summary {
-  font-size: var(--font-size-sm);
+  letter-spacing: -0.02em;
   color: var(--color-text-primary);
-  line-height: var(--line-height-normal);
-  margin-bottom: var(--space-2-5);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
-.project-card__highlights {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1-5);
-  margin-bottom: var(--space-3);
-  flex-shrink: 0;
-}
-
-.project-card__highlights li {
-  position: relative;
-  padding-left: var(--space-4);
+.project-card__subtitle {
   font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-  line-height: var(--line-height-normal);
-}
-
-.project-card__highlights li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.62em;
-  width: 5px;
-  height: 5px;
-  border-radius: 1px;
-  background: var(--section-accent);
-  opacity: 0.75;
-}
-
-/* Featured stat grid — the lead card states its numbers instead of listing
-   bullets, so it reads as a different kind of card rather than a bigger one. */
-.project-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  margin-bottom: var(--space-4);
-  background-color: var(--color-border-light);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.project-stat {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1-5);
-  padding: var(--space-4);
-  background-color: var(--color-surface);
-}
-
-.project-stat__value {
-  font-family: var(--font-family-mono);
-  font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-semibold);
-  letter-spacing: var(--letter-spacing-tight);
-  line-height: 1.1;
-  color: var(--color-text-primary);
+  color: var(--color-text-secondary);
 }
 
-.project-stat__suffix {
+.project-card__metarow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* Mono carries the dates. Hangul has no mono glyph and falls back to sans,
+   which is exactly what we want — see --plain for the all-Hangul labels. */
+.project-card__meta {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+}
+
+/* "개인 프로젝트" / "학습 프로젝트" carry no digits, so mono buys nothing and
+   only risks the Hangul tracking. */
+.project-card__meta--plain {
+  font-family: var(--font-family-base);
+  letter-spacing: normal;
+}
+
+.project-card__chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background-color: var(--color-background);
+  color: var(--section-accent);
+  transition: transform 0.35s ease, border-color var(--transition-fast);
+}
+
+.project-card__chevron svg {
+  width: 16px;
+  height: 16px;
+}
+
+.project-card__toggle[aria-expanded="true"] .project-card__chevron {
+  transform: rotate(180deg);
+  border-color: var(--section-accent);
+}
+
+.project-card__panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s cubic-bezier(0.22, 0.8, 0.28, 1), opacity 0.35s ease;
+}
+
+.project-card[data-expanded="true"] .project-card__panel {
+  opacity: 1;
+}
+
+.project-card__panel-inner {
+  padding: 0 var(--space-6) var(--space-6);
+}
+
+/* ================================
+   Project Panel (accordion body)
+   ================================ */
+
+.project-panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+.project-panel__label {
+  margin: 0 0 var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.08em;
   color: var(--section-accent);
 }
 
-.project-stat__label {
-  font-size: var(--font-size-xs);
-  line-height: 1.4;
+.project-panel__list {
+  margin: 0;
+  padding-left: var(--space-5);
+  display: grid;
+  gap: var(--space-2);
+  list-style: disc;
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
   color: var(--color-text-secondary);
 }
 
-@media (max-width: 559px) {
-  .project-stats {
-    grid-template-columns: 1fr;
+.project-panel__list::marker,
+.project-panel__list li::marker {
+  color: var(--section-accent);
+}
+
+.project-panel__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.project-panel__narrative {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+.project-panel__narrative .project-panel__label + .project-panel__text {
+  margin: 0 0 var(--space-4);
+}
+
+.project-panel__text {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+.project-panel__text:last-child {
+  margin-bottom: 0;
+}
+
+.project-panel__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  /* Line the panel up under the title rather than the index, so the open card
+     reads as one hanging-indent block. */
+  .project-card__panel-inner {
+    padding-left: calc(var(--space-6) + var(--space-5) + 4ch);
+  }
+}
+
+@media (min-width: 900px) {
+  .project-panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
+}
+
+@media (max-width: 767px) {
+  .project-card__toggle {
+    gap: var(--space-3);
+    padding: var(--space-5);
+  }
+
+  /* Match the toggle's tighter padding so the header and the panel share a
+     left edge instead of stepping in by 4px. */
+  .project-card__panel-inner {
+    padding: 0 var(--space-5) var(--space-5);
+  }
+
+  .project-card__title {
+    font-size: var(--font-size-lg);
   }
 }
 
@@ -583,79 +640,6 @@
 
 .tech-chip:hover {
   background-color: var(--card-flat-bg-hover);
-}
-
-.project-card__tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-bottom: var(--space-3);
-  flex-shrink: 0;
-}
-
-/* Mono, square, borderless. The fill is translucent, so it composites one step
-   darker than whichever card it sits on — elevated or flat. */
-.project-card__tech li {
-  font-family: var(--font-family-mono);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-normal);
-  padding: var(--space-1-5) var(--space-2-5);
-  background-color: var(--card-flat-bg);
-  border: none;
-  border-radius: var(--radius-sm);
-  color: var(--color-text-secondary);
-  transition: color var(--transition-fast), background-color var(--transition-fast);
-}
-
-.project-card__tech li:hover {
-  background-color: var(--card-flat-bg-hover);
-  color: var(--section-accent);
-}
-
-.project-card__actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3);
-  margin-top: auto;
-  padding-top: var(--space-3);
-  border-top: 1px solid var(--color-border-light);
-}
-
-/* A text link in appearance, a button in fact — it opens the modal, so it stays
-   a <button> and keeps the 44px target the padding used to provide. */
-.project-card__detail-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  min-height: 44px;
-  padding: 0;
-  border: none;
-  background: none;
-  color: var(--section-accent);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  cursor: pointer;
-  transition: color var(--transition-fast);
-}
-
-.project-card__detail-btn::after {
-  content: '→';
-  font-family: var(--font-family-mono);
-  transition: transform var(--transition-fast);
-}
-
-.project-card__detail-btn:hover::after {
-  transform: translateX(3px);
-}
-
-.project-card__links {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: var(--space-2);
-  isolation: isolate;
-  flex-shrink: 0;
 }
 
 /* Primary action: a solid pill built from the text colour, so it inverts on its
@@ -700,20 +684,6 @@
 .project-action-link--demo:hover {
   opacity: 1;
   border-color: var(--color-text-primary);
-}
-
-.project-card__private {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding: 0;
-  border: none;
-  background: none;
-  font-family: var(--font-family-mono);
-  font-size: var(--font-size-xs);
-  letter-spacing: 0.04em;
-  /* Same 4.22:1 problem as the breadcrumb on flat cards. */
-  color: var(--color-text-secondary);
 }
 
 /* Project Filter Bar — one enclosed track with a single filled pill, so the
@@ -863,68 +833,6 @@
   }
 }
 
-/* Featured Project - 그라디언트 테두리 & 글로우 (확장형) */
-.project-card--featured {
-  position: relative;
-  border: 1px solid transparent;
-  background:
-    linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
-    linear-gradient(135deg, var(--section-accent) 0%, var(--color-primary) 100%) border-box;
-  box-shadow:
-    0 8px 24px rgba(5, 83, 177, 0.14),
-    0 0 28px rgba(5, 83, 177, 0.08);
-  padding: var(--space-5);
-}
-
-.project-card--featured .project-card__title {
-  font-size: var(--font-size-2xl);
-}
-
-.project-card--featured .project-card__summary {
-  font-size: var(--font-size-base);
-  -webkit-line-clamp: 2;
-}
-
-.project-card--featured::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  background: linear-gradient(135deg, var(--color-primary), #00d9ff);
-  border-radius: inherit;
-  z-index: -1;
-  opacity: 0.1;
-  filter: blur(16px);
-}
-
-.project-card--featured:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    0 14px 32px rgba(5, 83, 177, 0.16),
-    0 0 40px rgba(5, 83, 177, 0.1);
-}
-
-/* 다크모드 */
-[data-theme="dark"] .project-card--featured {
-  background:
-    linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
-    linear-gradient(135deg, #00d9ff 0%, var(--color-primary) 100%) border-box;
-  box-shadow:
-    0 8px 24px rgba(0, 217, 255, 0.16),
-    0 0 32px rgba(0, 217, 255, 0.1);
-}
-
-[data-theme="dark"] .project-card--featured::before {
-  background: linear-gradient(135deg, #00d9ff, var(--color-primary));
-}
-
-[data-theme="dark"] .project-card--featured:hover {
-  box-shadow:
-    0 14px 32px rgba(0, 217, 255, 0.22),
-    0 0 42px rgba(0, 217, 255, 0.14);
-}
-
-/* Featured badge removed for cleaner design */
-
 /* Dark Mode - Clean */
 [data-theme="dark"] .project-card {
   background-color: var(--color-surface);
@@ -934,24 +842,6 @@
 [data-theme="dark"] .project-card:hover {
   border-color: var(--color-primary);
   box-shadow: 0 0 0 1px var(--color-primary), var(--shadow-md);
-}
-
-[data-theme="dark"] .project-card__summary {
-  color: var(--color-text-primary);
-}
-
-[data-theme="dark"] .project-card__highlights li {
-  color: var(--color-text-secondary);
-}
-
-[data-theme="dark"] .project-card__detail-btn {
-  background-color: rgba(0, 217, 255, 0.12);
-  border-color: rgba(0, 217, 255, 0.28);
-  color: var(--color-primary);
-}
-
-[data-theme="dark"] .project-card__detail-btn:hover {
-  background-color: rgba(0, 217, 255, 0.18);
 }
 
 [data-theme="dark"] .project-action-link {
@@ -981,18 +871,11 @@
   border-color: var(--modal-accent);
 }
 
-[data-theme="dark"] .project-card__private {
-  border-color: var(--color-border);
-  background-color: var(--color-surface-elevated);
-  color: var(--color-text-secondary);
-}
-
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
   .project-card,
-  .project-card::before,
-  .project-card__tech li,
-  .project-card__detail-btn,
+  .project-card__panel,
+  .project-card__chevron,
   .project-action-link,
   .project-action-link svg {
     transition: none !important;
@@ -2339,484 +2222,6 @@
 
   .experience-timeline__body {
     padding-left: var(--space-6);
-  }
-}
-
-/* ================================
-   Project Modal
-   ================================ */
-
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0);
-  backdrop-filter: blur(0px);
-  z-index: var(--z-modal);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-4);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease,
-              visibility 0.3s ease,
-              background-color 0.3s ease,
-              backdrop-filter 0.3s ease;
-}
-
-.modal-overlay[aria-hidden="false"] {
-  opacity: 1;
-  visibility: visible;
-  background:
-    radial-gradient(1200px circle at 20% 0%, rgba(5, 83, 177, 0.26), transparent 60%),
-    radial-gradient(900px circle at 90% 20%, rgba(0, 217, 255, 0.2), transparent 55%),
-    rgba(6, 10, 18, 0.6);
-  backdrop-filter: blur(10px);
-}
-
-.modal {
-  position: relative;
-  width: 100%;
-  max-width: 720px;
-  max-height: 90vh;
-  background:
-    radial-gradient(120% 140% at 0% 0%, rgba(5, 83, 177, 0.18) 0%, transparent 55%),
-    radial-gradient(120% 140% at 100% 0%, rgba(0, 217, 255, 0.18) 0%, transparent 50%),
-    linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
-  border-radius: var(--radius-xl);
-  border: 1px solid rgba(5, 83, 177, 0.18);
-  box-shadow: 0 30px 80px rgba(5, 83, 177, 0.22), 0 10px 30px rgba(15, 23, 42, 0.18);
-  overflow: hidden;
-  transform: translateY(16px) scale(0.98);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.modal-overlay[aria-hidden="false"] .modal {
-  transform: translateY(0) scale(1);
-}
-
-.modal::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--gradient-primary);
-  opacity: 0.9;
-}
-
-.modal__header {
-  position: relative;
-  padding: var(--space-5) var(--space-6) var(--space-4);
-  background: linear-gradient(
-    135deg,
-    rgba(5, 83, 177, 0.2) 0%,
-    rgba(0, 217, 255, 0.22) 100%
-  );
-  color: var(--color-text-primary);
-  border-bottom: 1px solid rgba(5, 83, 177, 0.18);
-  box-shadow: inset 0 -1px 0 rgba(5, 83, 177, 0.2);
-}
-
-.modal__close {
-  position: absolute;
-  top: var(--space-4);
-  right: var(--space-4);
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: var(--radius-full);
-  color: var(--color-text-primary);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  z-index: 10;
-  border: 1px solid rgba(5, 83, 177, 0.18);
-  box-shadow: 0 8px 18px rgba(5, 83, 177, 0.18);
-  backdrop-filter: blur(6px);
-}
-
-.modal__close:hover {
-  background-color: rgba(5, 83, 177, 0.22);
-  transform: rotate(90deg);
-}
-
-.modal__close svg {
-  width: 20px;
-  height: 20px;
-}
-
-.modal__badges {
-  display: flex;
-  gap: var(--space-2);
-  margin-bottom: var(--space-2);
-}
-
-.modal__status {
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-bold);
-  padding: var(--space-1) var(--space-2);
-  background-color: rgba(5, 83, 177, 0.12);
-  color: var(--color-primary);
-  border: 1px solid rgba(5, 83, 177, 0.2);
-  border-radius: var(--radius-full);
-  text-transform: uppercase;
-}
-
-.modal__category {
-  font-size: var(--font-size-xs);
-  padding: var(--space-1) var(--space-2);
-  background-color: rgba(0, 217, 255, 0.12);
-  color: var(--color-text-secondary);
-  border: 1px solid rgba(0, 217, 255, 0.2);
-  border-radius: var(--radius-full);
-}
-
-.modal__title {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-1-5);
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-}
-
-.modal__subtitle {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-}
-
-.modal__body {
-  padding: var(--space-5) var(--space-6) var(--space-6);
-  max-height: calc(90vh - 190px);
-  overflow-y: auto;
-  scroll-behavior: smooth;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
-.modal__body::-webkit-scrollbar {
-  width: 6px;
-}
-
-.modal__body::-webkit-scrollbar-track {
-  background: var(--color-border-light);
-  border-radius: 3px;
-}
-
-.modal__body::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
-  border-radius: 3px;
-}
-
-/* The narrative block reads as a pull-quote, not a raised card — the two columns
-   above it are flat, and a gradient-and-shadow box beside them looks like a
-   different page. Same left-rule device as .hero__tagline. */
-.modal__section {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  margin-bottom: 0;
-  padding: var(--space-4) var(--space-5);
-  background: var(--card-flat-bg);
-  border-left: 2px solid var(--color-primary);
-  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
-}
-
-.modal__section .modal__section-title:not(:first-child) {
-  margin-top: var(--space-3);
-}
-
-.modal__section:last-child {
-  margin-bottom: 0;
-}
-
-/* Results | Implementation, side by side above the deep-dive narrative. */
-.modal__split {
-  display: grid;
-  gap: var(--space-6);
-}
-
-@media (min-width: 768px) {
-  .modal__split {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-8);
-  }
-}
-
-.modal__col {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-/* Mono label rather than a heading with a bullet — it names the column without
-   competing with the list items underneath. */
-.modal__section-title {
-  display: block;
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-primary);
-  margin-bottom: 0;
-}
-
-.modal__description {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-  line-height: var(--line-height-relaxed);
-}
-
-.modal__feature-list,
-.modal__achievement-list,
-.modal__features {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.modal__feature-list li,
-.modal__achievement-list li,
-.modal__features li {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-2);
-  padding: 0;
-  font-size: var(--font-size-sm);
-  line-height: 1.65;
-  color: var(--color-text-secondary);
-}
-
-.modal__feature-list li::before,
-.modal__achievement-list li::before,
-.modal__features li::before {
-  content: '';
-  width: 4px;
-  height: 4px;
-  border-radius: var(--radius-full);
-  background: var(--color-primary);
-  margin-top: 0.62em;
-  flex-shrink: 0;
-}
-
-.modal__challenge,
-.modal__solution {
-  padding: 0;
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-relaxed);
-  color: var(--color-text-secondary);
-}
-
-.modal__tech-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-.modal__tech-item,
-.modal__tech-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
-  padding: var(--space-1) var(--space-3);
-  background: linear-gradient(180deg, rgba(5, 83, 177, 0.08) 0%, rgba(255, 255, 255, 0.95) 100%);
-  border: 1px solid rgba(5, 83, 177, 0.18);
-  border-radius: var(--radius-full);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
-  box-shadow: 0 6px 12px rgba(5, 83, 177, 0.08);
-}
-
-.modal__challenges {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.modal__challenge-card {
-  background-color: var(--color-background);
-  border-radius: var(--radius-md);
-  padding: var(--space-3);
-}
-
-.modal__challenge-problem,
-.modal__challenge-solution {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-2);
-  padding: var(--space-2) 0;
-  font-size: var(--font-size-sm);
-}
-
-.modal__challenge-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: var(--radius-full);
-  font-size: 11px;
-  font-weight: var(--font-weight-bold);
-  flex-shrink: 0;
-}
-
-.modal__challenge-icon--problem {
-  background-color: var(--color-warning-light);
-  color: var(--color-warning);
-}
-
-.modal__challenge-icon--solution {
-  background-color: var(--color-success-light);
-  color: var(--color-success);
-}
-
-.modal__footer {
-  display: flex;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-  padding: var(--space-4) var(--space-6) var(--space-5);
-  background-color: var(--color-surface);
-  border-top: 1px solid var(--color-border-light);
-}
-
-.modal__footer:empty {
-  display: none;
-}
-
-[data-theme="dark"] .modal {
-  background: var(--modal-bg);
-  background-image: none;
-  border-color: var(--modal-border-strong);
-  box-shadow: var(--shadow-xl);
-}
-
-[data-theme="dark"] .modal__header {
-  background: var(--modal-panel);
-  background-image: none;
-  border-bottom-color: var(--modal-border-strong);
-  box-shadow: none;
-  color: var(--modal-text-high);
-}
-
-[data-theme="dark"] .modal__body {
-  background: var(--modal-bg);
-  color: var(--modal-text-high);
-}
-
-[data-theme="dark"] .modal__title {
-  color: var(--modal-text-high);
-}
-
-[data-theme="dark"] .modal__subtitle {
-  color: var(--modal-text-muted);
-}
-
-[data-theme="dark"] .modal__section {
-  background: var(--card-flat-bg);
-  border-left-color: var(--modal-accent);
-}
-
-[data-theme="dark"] .modal__section-title {
-  color: var(--modal-accent);
-}
-
-
-[data-theme="dark"] .modal__description {
-  color: var(--modal-text-body);
-}
-
-[data-theme="dark"] .modal__feature-list li,
-[data-theme="dark"] .modal__achievement-list li,
-[data-theme="dark"] .modal__features li {
-  color: var(--modal-text-body);
-}
-
-[data-theme="dark"] .modal__feature-list li::before,
-[data-theme="dark"] .modal__achievement-list li::before,
-[data-theme="dark"] .modal__features li::before {
-  background: var(--modal-accent);
-}
-
-[data-theme="dark"] .modal__challenge,
-[data-theme="dark"] .modal__solution {
-  color: var(--modal-text-body);
-}
-
-[data-theme="dark"] .modal__tech-item,
-[data-theme="dark"] .modal__tech-tag {
-  background: var(--modal-chip-surface);
-  background-image: none;
-  border-color: var(--modal-chip-border);
-  color: var(--modal-text-high);
-  box-shadow: none;
-}
-
-[data-theme="dark"] .modal__footer {
-  background: var(--modal-panel);
-  border-top-color: var(--modal-border-strong);
-}
-
-[data-theme="dark"] .modal__close {
-  background: var(--modal-panel-soft);
-  border-color: var(--modal-border-strong);
-  color: var(--modal-text-high);
-  box-shadow: none;
-  backdrop-filter: none;
-}
-
-[data-theme="dark"] .modal__close:hover {
-  background: var(--modal-chip-surface);
-  color: var(--modal-text-high);
-}
-
-/* Mobile: Bottom Sheet Modal */
-@media (max-width: 640px) {
-  .modal-overlay {
-    padding: 0;
-    align-items: flex-end;
-  }
-
-  .modal {
-    max-height: 95vh;
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-    transform: translateY(100%);
-  }
-
-  .modal-overlay[aria-hidden="false"] .modal {
-    transform: translateY(0);
-  }
-
-  .modal__header {
-    padding: var(--space-4) var(--space-5) var(--space-3);
-  }
-
-  .modal__body {
-    padding: var(--space-4) var(--space-5) var(--space-5);
-  }
-
-  .modal__section {
-    padding: var(--space-3);
-  }
-
-  .modal__footer {
-    padding: var(--space-3) var(--space-5) var(--space-4);
-  }
-}
-
-/* Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-  .modal-overlay,
-  .modal,
-  .impact-stat {
-    transition: none !important;
-  }
-
-  .impact-stat__number.counting {
-    animation: none;
   }
 }
 

@@ -328,40 +328,6 @@
 }
 
 /* ================================
-   Featured Project Glow Animation
-   ================================ */
-.project-card--featured::before {
-  animation: none;
-  opacity: 1;
-}
-
-@keyframes featuredGlow {
-  0%, 100% {
-    opacity: 0.7;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-/* Featured badge shimmer */
-.project-card--featured .project-card__badges::before {
-  background: linear-gradient(
-    90deg,
-    var(--color-primary) 0%,
-    var(--color-accent) 50%,
-    var(--color-primary) 100%
-  );
-  background-size: 200% 100%;
-  animation: badgeShimmer 2s ease infinite;
-}
-
-@keyframes badgeShimmer {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-/* ================================
    Skill Progress Bar Glow
    ================================ */
 .skill-progress__fill.animate {

@@ -777,7 +777,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="projects section-shell section-shell--projects section-shell--primary section-shell--wide" id="projects">
+    <section class="projects section-shell section-shell--projects section-shell--primary" id="projects">
       <div class="container">
         <!-- Masthead: title block left, filter track right -->
         <div class="projects__masthead reveal">
@@ -804,340 +804,250 @@
           </div>
         </div>
 
-        <div class="projects__grid">
-          <!-- MindLog -->
-          <article class="project-card project-card--mindlog project-card--featured reveal" data-category="personal"
-            data-project="mindlog">
-            <div class="project-card__body">
-            <div class="project-card__header">
-              <div class="project-card__headline">
-                <p class="project-card__meta">
-                  <span>01</span>
-                  <span class="project-card__meta-sep" aria-hidden="true">/</span>
-                  <span data-i18n="projects.role.featured">대표 프로젝트</span>
-                  <span class="project-card__meta-sep" aria-hidden="true">/</span>
-                  <span data-i18n="projects.filter.personal">개인</span>
-                </p>
-                <h3 class="project-card__title">MindLog</h3>
-              </div>
-              <span class="project-card__status project-card__status--live">Live</span>
-            </div>
-            <p class="project-card__summary" data-i18n="projects.mindlog.summary">
-              Llama 3.3 기반 AI 감정 분석 스마트 다이어리 앱. Google Play Store에서 v1.4.40으로 운영 중입니다.
-            </p>
-            <ul class="project-stats">
-              <li class="project-stat">
-                <p class="project-stat__value"><span class="project-stat__number"
-                    data-count="1400">0</span><span class="project-stat__suffix">+</span></p>
-                <p class="project-stat__label" data-i18n="projects.mindlog.stat1">테스트 케이스 (TDD)</p>
-              </li>
-              <li class="project-stat">
-                <p class="project-stat__value"><span class="project-stat__number" data-count="48">0</span></p>
-                <p class="project-stat__label" data-i18n="projects.mindlog.stat2">CBT 메시지 운영</p>
-              </li>
-              <li class="project-stat">
-                <p class="project-stat__value"><span class="project-stat__number" data-count="2">0</span></p>
-                <p class="project-stat__label" data-i18n="projects.mindlog.stat3">채널 FCM 푸시</p>
-              </li>
-            </ul>
-            <ul class="project-card__tech">
-              <li>Flutter</li>
-              <li>Riverpod</li>
-              <li>Llama 3.3</li>
-              <li>FCM</li>
-              <li>Clean Architecture</li>
-            </ul>
-            <div class="project-card__actions">
-              <button type="button" class="project-card__detail-btn" data-project="mindlog"
-                data-i18n="projects.detail">상세 보기</button>
-              <div class="project-card__links">
-                <a href="https://github.com/kaywalker91/MindLog" class="project-action-link" target="_blank"
-                  rel="noopener noreferrer">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                  </svg>
-                  GitHub
-                </a>
-                <a href="https://kaywalker91.github.io/MindLog/" class="project-action-link project-action-link--demo"
-                  target="_blank" rel="noopener noreferrer">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                    <path
-                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-                  </svg>
-                  Live Demo
-                </a>
-              </div>
-            </div>
-            </div>
-            <div class="project-card__preview">
-              <img src="assets/mindlog-preview.jpg" width="900" height="1756" loading="lazy" decoding="async"
-                data-i18n-alt="projects.mindlog.previewAlt" alt="MindLog 앱 일기 목록 화면">
-            </div>
-          </article>
+        <p class="projects__hint reveal" data-i18n="projects.hint">카드를 클릭하면 핵심 성과와 기술 구현 상세가 펼쳐집니다.</p>
 
-          <!-- Crypto Wallet Pro -->
-          <article class="project-card project-card--crypto reveal" data-category="personal"
-            data-project="cryptowallet">
-            <div class="project-card__header">
-              <div class="project-card__headline">
-                <p class="project-card__meta">
-                  <span>02</span>
-                  <span class="project-card__meta-sep" aria-hidden="true">/</span>
-                  <span data-i18n="projects.filter.personal">개인</span>
-                </p>
-                <h3 class="project-card__title">Crypto Wallet Pro</h3>
-              </div>
-              <span class="project-card__status project-card__status--dev">Dev</span>
-            </div>
-            <p class="project-card__summary" data-i18n="projects.cryptowallet.summary">
-              WalletConnect v2 기반 멀티체인 지갑 연동 프로토타입.
-            </p>
-            <ul class="project-card__highlights">
-              <li data-i18n="projects.cryptowallet.highlight1">MetaMask, Trust Wallet 포함 8종 지갑 지원</li>
-              <li data-i18n="projects.cryptowallet.highlight2">Android 백그라운드 WebSocket 끊김 복구</li>
-              <li data-i18n="projects.cryptowallet.highlight3">Exponential Backoff 기반 연결 안정화</li>
-            </ul>
-            <ul class="project-card__tech">
-              <li>Flutter</li>
-              <li>WalletConnect v2</li>
-              <li>EVM</li>
-              <li>WebSocket</li>
-            </ul>
-            <div class="project-card__actions">
-              <button type="button" class="project-card__detail-btn" data-project="cryptowallet"
-                data-i18n="projects.detail">상세 보기</button>
-              <div class="project-card__links">
-                <a href="https://github.com/kaywalker91/Crypto-Wallet-Pro" class="project-action-link" target="_blank"
-                  rel="noopener noreferrer">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+        <div class="projects__list">
+
+          <!-- PLLI Lab -->
+          <article class="project-card reveal" data-category="company" data-project="pllilab">
+            <h3 class="project-card__heading">
+              <button type="button" class="project-card__toggle" id="project-toggle-pllilab" aria-expanded="false"
+                aria-controls="project-panel-pllilab">
+                <span class="project-card__index" aria-hidden="true">[01]</span>
+                <span class="project-card__headline">
+                  <span class="project-card__titles">
+                    <span class="project-card__title">PLLI Lab</span>
+                    <span class="project-card__subtitle" data-i18n="projects.pllilab.subtitle">POD 굿즈 플랫폼 / 백오피스</span>
+                  </span>
+                  <span class="project-card__metarow">
+                    <span class="project-card__meta">로운컴퍼니씨앤씨 · 2026.03 —</span>
+                    <span class="project-card__status project-card__status--live">Live</span>
+                  </span>
+                </span>
+                <span class="project-card__chevron" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" />
                   </svg>
-                  GitHub
-                </a>
-                <a href="https://kaywalker91.github.io/Crypto-Wallet-Pro/"
-                  class="project-action-link project-action-link--demo" target="_blank" rel="noopener noreferrer">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                    <path
-                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-                  </svg>
-                  Live Demo
-                </a>
-              </div>
+                </span>
+              </button>
+            </h3>
+            <div class="project-card__panel" id="project-panel-pllilab" role="region"
+              aria-labelledby="project-toggle-pllilab">
+              <div class="project-card__panel-inner" data-project-panel="pllilab"></div>
             </div>
           </article>
 
           <!-- Crypto Native -->
-          <article class="project-card project-card--cryptonative reveal" data-category="company"
-            data-project="cryptonative">
-            <div class="project-card__header">
-              <div class="project-card__headline">
-                <p class="project-card__meta">
-                  <span>03</span>
-                  <span class="project-card__meta-sep" aria-hidden="true">/</span>
-                  <span data-i18n="projects.filter.company">회사</span>
-                  <span class="project-card__meta-sep" aria-hidden="true">/</span>
-                  <span data-i18n="projects.cryptonative.team">팀 5인</span>
-                </p>
-                <h3 class="project-card__title" data-i18n="projects.cryptonative.title">멀티체인 크립토 지갑 & 소셜 트레이딩 플랫폼</h3>
-              </div>
-              <span class="project-card__status project-card__status--dev">Dev</span>
-            </div>
-            <p class="project-card__summary" data-i18n="projects.cryptonative.summary">
-              팀 5인 중 모바일 아키텍처 설계/구현 전담 프로젝트.
-            </p>
-            <ul class="project-card__highlights">
-              <li data-i18n="projects.cryptonative.highlight1">12개 모듈, 86개 Provider 구조 설계</li>
-              <li data-i18n="projects.cryptonative.highlight2">WalletConnect v2 상태 머신으로 연결 안정화</li>
-              <li data-i18n="projects.cryptonative.highlight3">Ethereum, BNB, Base 등 멀티체인 지원</li>
-            </ul>
-            <ul class="project-card__tech">
-              <li>Flutter</li>
-              <li>Clean Architecture</li>
-              <li>WalletConnect v2</li>
-              <li>DeFi</li>
-            </ul>
-            <div class="project-card__actions">
-              <button type="button" class="project-card__detail-btn" data-project="cryptonative"
-                data-i18n="projects.detail">상세 보기</button>
-              <span class="project-card__private" data-i18n="projects.private">비공개 프로젝트</span>
+          <article class="project-card reveal" data-category="company" data-project="cryptonative">
+            <h3 class="project-card__heading">
+              <button type="button" class="project-card__toggle" id="project-toggle-cryptonative" aria-expanded="false"
+                aria-controls="project-panel-cryptonative">
+                <span class="project-card__index" aria-hidden="true">[02]</span>
+                <span class="project-card__headline">
+                  <span class="project-card__titles">
+                    <span class="project-card__title" data-i18n="projects.cryptonative.title">멀티체인 크립토 지갑</span>
+                    <span class="project-card__subtitle" data-i18n="projects.cryptonative.subtitle">&amp; 소셜 트레이딩
+                      플랫폼</span>
+                  </span>
+                  <span class="project-card__metarow">
+                    <span class="project-card__meta">FORLONG · 2025.12 — 2026.03</span>
+                    <span class="project-card__status project-card__status--dev">Dev</span>
+                  </span>
+                </span>
+                <span class="project-card__chevron" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+              </button>
+            </h3>
+            <div class="project-card__panel" id="project-panel-cryptonative" role="region"
+              aria-labelledby="project-toggle-cryptonative">
+              <div class="project-card__panel-inner" data-project-panel="cryptonative"></div>
             </div>
           </article>
 
           <!-- SafeKorea -->
-          <article class="project-card project-card--safekorea reveal" data-category="company" data-project="safekorea">
-            <div class="project-card__header">
-              <div class="project-card__headline">
-                <p class="project-card__meta">
-                  <span>04</span>
-                  <span class="project-card__meta-sep" aria-hidden="true">/</span>
-                  <span data-i18n="projects.filter.company">회사</span>
-                </p>
-                <h3 class="project-card__title" data-i18n="projects.safekorea.title">안전디딤돌</h3>
-              </div>
-              <span class="project-card__status project-card__status--live">Live</span>
-            </div>
-            <p class="project-card__summary" data-i18n="projects.safekorea.summary">
-              재난안전 서비스의 Flutter 전환을 리드한 공공 프로젝트.
-            </p>
-            <ul class="project-card__highlights">
-              <li data-i18n="projects.safekorea.highlight1">Legacy Android/iOS에서 Flutter 100% 전환</li>
-              <li data-i18n="projects.safekorea.highlight2">위치 기반 재난 알림 및 19개 언어 번역 적용</li>
-              <li data-i18n="projects.safekorea.highlight3">TalkBack/VoiceOver 접근성 대응 강화</li>
-            </ul>
-            <ul class="project-card__tech">
-              <li>Flutter</li>
-              <li>FCM</li>
-              <li>Google Translate API</li>
-              <li>Hive</li>
-            </ul>
-            <div class="project-card__actions">
-              <button type="button" class="project-card__detail-btn" data-project="safekorea"
-                data-i18n="projects.detail">상세 보기</button>
-              <span class="project-card__private" data-i18n="projects.private">비공개 프로젝트</span>
+          <article class="project-card reveal" data-category="company" data-project="safekorea">
+            <h3 class="project-card__heading">
+              <button type="button" class="project-card__toggle" id="project-toggle-safekorea" aria-expanded="false"
+                aria-controls="project-panel-safekorea">
+                <span class="project-card__index" aria-hidden="true">[03]</span>
+                <span class="project-card__headline">
+                  <span class="project-card__titles">
+                    <span class="project-card__title" data-i18n="projects.safekorea.title">안전디딤돌 &amp; 이머전시레디</span>
+                    <span class="project-card__subtitle" data-i18n="projects.safekorea.subtitle">재난안전 서비스 Flutter
+                      전환</span>
+                  </span>
+                  <span class="project-card__metarow">
+                    <span class="project-card__meta">시선아이티 · 2024.11 — 2025.11</span>
+                    <span class="project-card__status project-card__status--live">Live</span>
+                  </span>
+                </span>
+                <span class="project-card__chevron" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+              </button>
+            </h3>
+            <div class="project-card__panel" id="project-panel-safekorea" role="region"
+              aria-labelledby="project-toggle-safekorea">
+              <div class="project-card__panel-inner" data-project-panel="safekorea"></div>
             </div>
           </article>
 
           <!-- PointTour -->
-          <article class="project-card project-card--pointtour reveal" data-category="company" data-project="pointtour">
-            <div class="project-card__header">
-              <div class="project-card__headline">
-                <p class="project-card__meta">
-                  <span>05</span>
-                  <span class="project-card__meta-sep" aria-hidden="true">/</span>
-                  <span data-i18n="projects.filter.company">회사</span>
-                </p>
-                <h3 class="project-card__title" data-i18n="projects.pointtour.title">포인트투어</h3>
-              </div>
-              <span class="project-card__status project-card__status--archive">Archive</span>
+          <article class="project-card reveal" data-category="company" data-project="pointtour">
+            <h3 class="project-card__heading">
+              <button type="button" class="project-card__toggle" id="project-toggle-pointtour" aria-expanded="false"
+                aria-controls="project-panel-pointtour">
+                <span class="project-card__index" aria-hidden="true">[04]</span>
+                <span class="project-card__headline">
+                  <span class="project-card__titles">
+                    <span class="project-card__title" data-i18n="projects.pointtour.title">포인트투어</span>
+                    <span class="project-card__subtitle" data-i18n="projects.pointtour.subtitle">위치 기반 포인트 적립 앱</span>
+                  </span>
+                  <span class="project-card__metarow">
+                    <span class="project-card__meta">플레이스링크 · 2022.10 — 2024.11</span>
+                    <span class="project-card__status project-card__status--archive">Archive</span>
+                  </span>
+                </span>
+                <span class="project-card__chevron" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+              </button>
+            </h3>
+            <div class="project-card__panel" id="project-panel-pointtour" role="region"
+              aria-labelledby="project-toggle-pointtour">
+              <div class="project-card__panel-inner" data-project-panel="pointtour"></div>
             </div>
-            <p class="project-card__summary" data-i18n="projects.pointtour.summary">
-              위치기반 포인트적립앱 Android 유지보수 및 신규 기능 개발.
-            </p>
-            <ul class="project-card__highlights">
-              <li data-i18n="projects.pointtour.highlight1">"0시축제" 이벤트로 다운로드 400% 증가</li>
-              <li data-i18n="projects.pointtour.highlight2">RxJava 2 기반 비동기 로직 전면 리팩토링</li>
-              <li data-i18n="projects.pointtour.highlight3">대전시 B2G 프로젝트 협업 경험</li>
-            </ul>
-            <ul class="project-card__tech">
-              <li>Android</li>
-              <li>RxJava 2</li>
-              <li>Firebase</li>
-              <li>Google Maps</li>
-              <li>FCM</li>
-            </ul>
-            <div class="project-card__actions">
-              <button type="button" class="project-card__detail-btn" data-project="pointtour"
-                data-i18n="projects.detail">상세 보기</button>
-              <span class="project-card__private" data-i18n="projects.private">비공개 프로젝트</span>
+          </article>
+
+          <!-- MindLog -->
+          <article class="project-card reveal" data-category="personal" data-project="mindlog">
+            <h3 class="project-card__heading">
+              <button type="button" class="project-card__toggle" id="project-toggle-mindlog" aria-expanded="false"
+                aria-controls="project-panel-mindlog">
+                <span class="project-card__index" aria-hidden="true">[05]</span>
+                <span class="project-card__headline">
+                  <span class="project-card__titles">
+                    <span class="project-card__title">MindLog</span>
+                    <span class="project-card__subtitle" data-i18n="projects.mindlog.subtitle">AI 감정 분석 스마트 다이어리</span>
+                  </span>
+                  <span class="project-card__metarow">
+                    <span class="project-card__meta project-card__meta--plain" data-i18n="projects.meta.personal">개인 프로젝트</span>
+                    <span class="project-card__status project-card__status--live">Live</span>
+                  </span>
+                </span>
+                <span class="project-card__chevron" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+              </button>
+            </h3>
+            <div class="project-card__panel" id="project-panel-mindlog" role="region"
+              aria-labelledby="project-toggle-mindlog">
+              <div class="project-card__panel-inner" data-project-panel="mindlog"></div>
+            </div>
+          </article>
+
+          <!-- Crypto Wallet Pro -->
+          <article class="project-card reveal" data-category="personal" data-project="cryptowallet">
+            <h3 class="project-card__heading">
+              <button type="button" class="project-card__toggle" id="project-toggle-cryptowallet" aria-expanded="false"
+                aria-controls="project-panel-cryptowallet">
+                <span class="project-card__index" aria-hidden="true">[06]</span>
+                <span class="project-card__headline">
+                  <span class="project-card__titles">
+                    <span class="project-card__title">Crypto Wallet Pro</span>
+                    <span class="project-card__subtitle" data-i18n="projects.cryptowallet.subtitle">WalletConnect v2
+                      멀티체인 지갑 프로토타입</span>
+                  </span>
+                  <span class="project-card__metarow">
+                    <span class="project-card__meta project-card__meta--plain" data-i18n="projects.meta.personal">개인 프로젝트</span>
+                    <span class="project-card__status project-card__status--dev">Dev</span>
+                  </span>
+                </span>
+                <span class="project-card__chevron" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+              </button>
+            </h3>
+            <div class="project-card__panel" id="project-panel-cryptowallet" role="region"
+              aria-labelledby="project-toggle-cryptowallet">
+              <div class="project-card__panel-inner" data-project-panel="cryptowallet"></div>
             </div>
           </article>
 
           <!-- Android DW Insta -->
-          <article class="project-card project-card--dwinsta reveal" data-category="learning" data-project="dwinsta">
-            <div class="project-card__header">
-              <div class="project-card__headline">
-                <p class="project-card__meta">
-                  <span>06</span>
-                  <span class="project-card__meta-sep" aria-hidden="true">/</span>
-                  <span data-i18n="projects.filter.learning">학습</span>
-                </p>
-                <h3 class="project-card__title">Android DW Insta</h3>
-              </div>
-              <span class="project-card__status project-card__status--archive">Archive</span>
-            </div>
-            <p class="project-card__summary" data-i18n="projects.dwinsta.summary">
-              Instagram 클론 Android 앱.
-            </p>
-            <ul class="project-card__highlights">
-              <li data-i18n="projects.dwinsta.highlight1">게시물 CRUD, 팔로우/언팔로우, 좋아요/댓글 기능 구현</li>
-              <li data-i18n="projects.dwinsta.highlight2">Firebase 기반 실시간 데이터 동기화</li>
-              <li data-i18n="projects.dwinsta.highlight3">FCM으로 실시간 알림 플로우 구축</li>
-            </ul>
-            <ul class="project-card__tech">
-              <li>Java</li>
-              <li>Android</li>
-              <li>Firebase</li>
-              <li>Glide</li>
-            </ul>
-            <div class="project-card__actions">
-              <button type="button" class="project-card__detail-btn" data-project="dwinsta"
-                data-i18n="projects.detail">상세 보기</button>
-              <div class="project-card__links">
-                <a href="https://github.com/kaywalker91/Android_DW_Insta" class="project-action-link" target="_blank"
-                  rel="noopener noreferrer">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          <article class="project-card reveal" data-category="learning" data-project="dwinsta">
+            <h3 class="project-card__heading">
+              <button type="button" class="project-card__toggle" id="project-toggle-dwinsta" aria-expanded="false"
+                aria-controls="project-panel-dwinsta">
+                <span class="project-card__index" aria-hidden="true">[07]</span>
+                <span class="project-card__headline">
+                  <span class="project-card__titles">
+                    <span class="project-card__title">Android DW Insta</span>
+                    <span class="project-card__subtitle" data-i18n="projects.dwinsta.subtitle">Firebase 기반 Instagram
+                      클론</span>
+                  </span>
+                  <span class="project-card__metarow">
+                    <span class="project-card__meta project-card__meta--plain" data-i18n="projects.meta.learning">학습 프로젝트</span>
+                    <span class="project-card__status project-card__status--archive">Archive</span>
+                  </span>
+                </span>
+                <span class="project-card__chevron" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" />
                   </svg>
-                  GitHub
-                </a>
-                <a href="https://kaywalker91.github.io/Android_DW_Insta/"
-                  class="project-action-link project-action-link--demo" target="_blank" rel="noopener noreferrer">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                    <path
-                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-                  </svg>
-                  Live Demo
-                </a>
-              </div>
+                </span>
+              </button>
+            </h3>
+            <div class="project-card__panel" id="project-panel-dwinsta" role="region"
+              aria-labelledby="project-toggle-dwinsta">
+              <div class="project-card__panel-inner" data-project-panel="dwinsta"></div>
             </div>
           </article>
 
           <!-- TimeWalker -->
-          <article class="project-card project-card--timewalker reveal" data-category="learning"
-            data-project="timewalker">
-            <div class="project-card__header">
-              <div class="project-card__headline">
-                <p class="project-card__meta">
-                  <span>07</span>
-                  <span class="project-card__meta-sep" aria-hidden="true">/</span>
-                  <span data-i18n="projects.filter.learning">학습</span>
-                </p>
-                <h3 class="project-card__title">TimeWalker</h3>
-              </div>
-              <span class="project-card__status project-card__status--dev">Dev</span>
-            </div>
-            <p class="project-card__summary" data-i18n="projects.timewalker.summary">
-              시간 여행과 지도 탐험을 결합한 인터랙티브 역사 교육 게임.
-            </p>
-            <ul class="project-card__highlights">
-              <li data-i18n="projects.timewalker.highlight1">Flame 기반 월드맵과 분기형 대화 시스템 구성</li>
-              <li data-i18n="projects.timewalker.highlight2">백과사전/퀴즈를 통한 학습형 UX 설계</li>
-              <li data-i18n="projects.timewalker.highlight3">Supabase 동기화 + 오프라인 캐시 지원</li>
-            </ul>
-            <ul class="project-card__tech">
-              <li>Flutter</li>
-              <li>Flame</li>
-              <li>Riverpod</li>
-              <li>Supabase</li>
-            </ul>
-            <div class="project-card__actions">
-              <button type="button" class="project-card__detail-btn" data-project="timewalker"
-                data-i18n="projects.detail">상세 보기</button>
-              <div class="project-card__links">
-                <a href="https://github.com/kaywalker91/TimeWalker" class="project-action-link" target="_blank"
-                  rel="noopener noreferrer">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          <article class="project-card reveal" data-category="learning" data-project="timewalker">
+            <h3 class="project-card__heading">
+              <button type="button" class="project-card__toggle" id="project-toggle-timewalker" aria-expanded="false"
+                aria-controls="project-panel-timewalker">
+                <span class="project-card__index" aria-hidden="true">[08]</span>
+                <span class="project-card__headline">
+                  <span class="project-card__titles">
+                    <span class="project-card__title">TimeWalker</span>
+                    <span class="project-card__subtitle" data-i18n="projects.timewalker.subtitle">Flame 엔진 역사 교육
+                      게임</span>
+                  </span>
+                  <span class="project-card__metarow">
+                    <span class="project-card__meta project-card__meta--plain" data-i18n="projects.meta.learning">학습 프로젝트</span>
+                    <span class="project-card__status project-card__status--dev">Dev</span>
+                  </span>
+                </span>
+                <span class="project-card__chevron" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" />
                   </svg>
-                  GitHub
-                </a>
-                <a href="https://kaywalker91.github.io/TimeWalker/"
-                  class="project-action-link project-action-link--demo" target="_blank" rel="noopener noreferrer">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                    <path
-                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-                  </svg>
-                  Live Demo
-                </a>
-              </div>
+                </span>
+              </button>
+            </h3>
+            <div class="project-card__panel" id="project-panel-timewalker" role="region"
+              aria-labelledby="project-toggle-timewalker">
+              <div class="project-card__panel-inner" data-project-panel="timewalker"></div>
             </div>
           </article>
+
         </div>
       </div>
+    </section>
     </section>
 
     <!-- Education Section -->
@@ -1508,32 +1418,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Project Modal -->
-  <div
-    class="modal-overlay fixed inset-0 z-50 flex items-center justify-center px-4 transition-opacity duration-300 opacity-0 invisible pointer-events-none aria-[hidden=false]:opacity-100 aria-[hidden=false]:visible aria-[hidden=false]:pointer-events-auto bg-black/60 backdrop-blur-sm"
-    id="project-modal" aria-hidden="true" role="dialog" aria-modal="true">
-    <div
-      class="modal w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-surface rounded-2xl shadow-2xl border border-border transform transition-all duration-300 scale-95 opacity-0 [.modal-overlay[aria-hidden=false]_&]:scale-100 [.modal-overlay[aria-hidden=false]_&]:opacity-100 p-0 flex flex-col">
-      <div
-        class="modal__header flex justify-between items-center p-6 border-b border-border sticky top-0 bg-surface backdrop-blur z-10">
-        <h3 class="modal__title text-2xl font-bold text-text-primary dark:text-white" id="modal-title"></h3>
-        <button class="modal__close p-2 rounded-lg hover:bg-[var(--card-flat-bg-hover)] transition-colors text-text-muted hover:text-text-primary"
-          data-modal-close aria-label="Close modal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </button>
-      </div>
-      <div class="modal__body p-6 space-y-6 overflow-y-auto" id="modal-body">
-        <!-- Dynamic content will be injected here -->
-      </div>
-      <div class="modal__footer p-6 border-t border-border flex justify-end gap-4" id="modal-footer">
-        <!-- Dynamic links will be injected here -->
-      </div>
-    </div>
-  </div>
 
   <!-- Scripts -->
   <script src="js/theme.js"></script>
