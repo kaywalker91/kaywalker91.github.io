@@ -328,17 +328,21 @@ const projectData = {
   pllilab: {
     title: 'PLLI Lab',
     features: [
-      '100건 청크 배치 + Completer 기반 pause/resume 흐름 제어로 busy-wait 제거',
-      '3단계 스티커 폴백 체인 — Storage 토큰 재발급 → IP 문서 실시간 조회',
-      'CanvasKit 디코딩 한계 우회 — HTML Canvas 다운샘플링 + img 재인코딩 폴백'
+      'RenderResult sealed class 4분기 — 완료·힙 임계·취소·엔진 종료를 exhaustive matching으로 강제해 처리 누락을 컴파일 타임에 차단',
+      '3-Pass 스티커 프리로드 — Semaphore 병렬 제한 → Storage 토큰 재발급 → 바이트 직접 다운로드 + SVG 래스터화 + PNG 시그니처 검증',
+      'CanvasKit 텍스처 한계 사전 방어 — PNG IHDR 원본 크기로 pixelRatio 동적 조정 + HTML Canvas 다운샘플링 폴백',
+      'Web Lock API 멀티탭 직렬화 + 복구 가능한 로컬 큐 — 탭 전환·리로드·인증 지연 후에도 자동 렌더링 재개'
     ],
+    challenge: '고해상도 인쇄 이미지를 브라우저에서 대량·연속 렌더링할 때 CanvasKit 텍스처 한계, 분리된 JS·WASM 힙 고갈, 불안정한 이미지 소스, 멀티탭 중복 실행이 겹쳐 일부 주문이 영구 실패하거나 탭이 종료됐습니다.',
+    solution: '렌더 종료 상태를 sealed result로 고정하고 다단계 이미지 폴백과 동적 해상도 방어로 런타임을 통제했습니다. 분산 락과 스케줄러로 무인 실행을 직렬화하고, 세션→주문→이미지 3단 관측 로그로 실패를 재현 가능하게 만들어 성공률과 처리 시간을 함께 끌어올렸습니다.',
     achievements: [
-      'Flutter Web(CanvasKit) 기반 인쇄 이미지 대량 렌더링 파이프라인 신규 설계·구축 (160 commits / 25d)',
-      'JS+WASM 결합 메모리 모니터링, OOM 세션 분할, WebGL 안정성 엔지니어링',
-      '매일 21시 자동 렌더링 스케줄, Web Lock 분산 락, Crashlytics 진단으로 운영 자동화·관측성 확보',
-      '고해상도 이미지 실시간 렌더링 지연(1~3분)을 백그라운드 Pre-rendering + 캐싱 + Lazy Loading으로 해소'
+      '인쇄 이미지 대량 렌더링 파이프라인 전면 재설계 — 영구 실패 경로 제거',
+      '이미지 캡처 98% 단축(분 단위 → 수 초), PDF 다운로드 20배 이상 향상',
+      'JS+WASM 합산 힙 모니터링·적응형 GC로 피크 메모리 30% 감소, 리로드 없는 연속 처리량 십수 배 확대',
+      '야간 무인 렌더링 자동화로 주간 수동 렌더링 작업 제거',
+      '어드민 Design System 토큰·공용 컴포넌트 15종+ 구축 후 다수 도메인 100% 적용'
     ],
-    tech: ['Flutter Web', 'Dart', 'GetX', 'CanvasKit / WebGL', 'Firebase', 'Web Lock API'],
+    tech: ['Flutter Web', 'Dart', 'CanvasKit / WebGL', 'GetX', 'Firebase', 'Web Lock API'],
     links: {}
   },
   mindlog: {
