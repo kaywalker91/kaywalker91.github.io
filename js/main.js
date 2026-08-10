@@ -391,7 +391,7 @@ const projectData = {
     title: '멀티체인 크립토 지갑 & 소셜 트레이딩 플랫폼',
     features: [
       '팀 5인 중 모바일 아키텍처 설계 및 구현 전담',
-      '12개 모듈 마이크로 피처 아키텍처 — Clean Architecture로 팀 병렬 개발',
+      '모듈 단위 마이크로 피처 아키텍처 — Clean Architecture로 팀 병렬 개발',
       '86개 Riverpod Provider — .select()로 최소 리빌드 최적화',
       '4계층 어댑터 아키텍처로 WalletConnect v2 통합',
       'State Machine 기반 4단계 지갑 연결 (WalletConnect v2)',
@@ -402,7 +402,7 @@ const projectData = {
     solution: 'State Machine 패턴으로 4가지 지갑 인터페이스 분리 (ISP) + Cold Start 큐잉 메커니즘으로 앱 초기화 전 요청 보존',
     achievements: [
       'State Machine 기반 상태 관리 도입으로 지갑 연결 실패율 약 90% 감소',
-      '50,000+ LOC, 12개 모듈, 86 Providers',
+      '50,000+ LOC, 86 Providers',
       '299 테스트 케이스 (33.47% 커버리지)',
       '테스트 자동화 파이프라인 구축 — 배포 후 크리티컬 버그 최소화',
       '10개 체인 지원 (EVM + Solana)',
@@ -484,7 +484,7 @@ const projectData = {
       'Firebase Dynamic Links 바이럴 마케팅 플로우',
       'FCM + moveCode 딥링크 라우팅',
       'SiliCompressor 영상 압축 파이프라인',
-      'Google Maps 위치 탐색 최적화'
+      'Google Maps 위치 탐색 최적화 + 네이버지도 자전거 길찾기 연동'
     ],
     challenge: 'Legacy AsyncTask 패턴으로 인한 메인 스레드 블로킹 및 메모리 누수. 대규모 이벤트 시 서버 과부하 및 앱 크래시 발생.',
     solution: 'RxJava 2 기반 비동기 로직 전면 리팩토링. Schedulers.io()로 네트워크 작업 분리. Firebase Dynamic Links로 바이럴 마케팅 플로우 구축.',
@@ -496,7 +496,7 @@ const projectData = {
       'Firebase Dynamic Links 바이럴 마케팅',
       'SiliCompressor 영상 압축 최적화'
     ],
-    tech: ['Android', 'Java', 'RxJava 2', 'Firebase', 'Google Maps', 'FCM', 'Glide']
+    tech: ['Android', 'Java', 'RxJava 2', 'Firebase', 'Google Maps', '네이버지도', 'FCM', 'Glide']
   }
 };
 
