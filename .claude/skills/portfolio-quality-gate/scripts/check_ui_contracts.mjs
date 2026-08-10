@@ -88,10 +88,11 @@ export function runCheck(options = {}) {
     return report;
   }
 
+  // The project detail used to live in a #project-modal dialog; it is now an
+  // in-place accordion, so the contract moved to the toggle buttons below.
   const requirements = [
     { id: "lang-toggle", requiredAttribute: "aria-label" },
     { id: "theme-toggle", requiredAttribute: "aria-label" },
-    { id: "project-modal", requiredAttribute: "aria-hidden" },
     { id: "back-to-top", requiredAttribute: "aria-label" },
   ];
 
@@ -121,27 +122,49 @@ export function runCheck(options = {}) {
     attributeSatisfiedCount += 1;
   }
 
-  const modalCloseButtonPattern =
-    /<button[^>]*\bdata-modal-close\b[^>]*>/i;
-  const modalCloseButton = indexSource.match(modalCloseButtonPattern);
-  if (!modalCloseButton) {
+  // Project accordion: every toggle must announce its state and own its panel,
+  // and every panel it points at has to exist.
+  const toggles = indexSource.match(/<button[^>]*\bproject-card__toggle\b[^>]*>/gi) ?? [];
+  if (toggles.length === 0) {
     report.warnings.push({
-      code: "UI_MODAL_CLOSE_BUTTON_MISSING",
+      code: "UI_PROJECT_TOGGLE_MISSING",
       file: "index.html",
-      message: "No button with data-modal-close was found.",
+      message: "No .project-card__toggle button was found.",
     });
-  } else if (!hasAttribute(modalCloseButton[0], "aria-label")) {
-    report.warnings.push({
-      code: "UI_MODAL_CLOSE_ARIA_LABEL_MISSING",
-      file: "index.html",
-      message: "Modal close button should define aria-label.",
-    });
+  }
+
+  let toggleContractCount = 0;
+  for (const toggle of toggles) {
+    const missing = ["aria-expanded", "aria-controls"].filter(
+      (attribute) => !hasAttribute(toggle, attribute)
+    );
+    if (missing.length > 0) {
+      report.errors.push({
+        code: "UI_PROJECT_TOGGLE_ATTRIBUTE_MISSING",
+        file: "index.html",
+        message: `A .project-card__toggle is missing ${missing.join(", ")}.`,
+      });
+      continue;
+    }
+
+    const controls = toggle.match(/aria-controls\s*=\s*"([^"]+)"/i);
+    if (controls && !findElementTagById(indexSource, controls[1])) {
+      report.errors.push({
+        code: "UI_PROJECT_PANEL_MISSING",
+        file: "index.html",
+        message: `aria-controls="${controls[1]}" points at an element that does not exist.`,
+      });
+      continue;
+    }
+    toggleContractCount += 1;
   }
 
   report.stats = {
     requiredElementCount: requirements.length,
     foundElementCount: foundCount,
     satisfiedAttributeCount: attributeSatisfiedCount,
+    projectToggleCount: toggles.length,
+    projectToggleContractCount: toggleContractCount,
   };
 
   report.ok = report.errors.length === 0;

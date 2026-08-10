@@ -3,7 +3,13 @@
 Thumbs.db
 
 # AI/IDE workspace
-.claude/
+# .claude/ is ignored, except this repo's own maintenance skills (installed
+# third-party skill packs stay ignored — they are not our source).
+.claude/*
+!.claude/skills/
+.claude/skills/*
+!.claude/skills/portfolio-quality-gate/
+!.claude/skills/portfolio-content-sync/
 .gemini/
 .playwright-mcp/
 
@@ -11,7 +17,9 @@ Thumbs.db
 *.local.md
 .env
 
-# Local-only assets (not referenced in HTML)
+# Local-only assets. Anything listed here 404s on the live site, so it must not
+# be referenced from index.html — og:image pointed at profile.png for a while and
+# every shared link came up with no preview image.
 assets/profile.png
 assets/hire.pdf
 

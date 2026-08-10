@@ -5,14 +5,17 @@ import {
   captureFailureScreenshot,
   waitForSmoothScroll,
   waitForFilterAnimation,
-  validateModalState,
+  waitForAccordionTransition,
+  projectToggle,
+  openProjectPanel,
+  validateProjectPanelState,
   getActiveNavLink,
   getVisibleProjectCards
 } from './helpers.js';
 
 /**
- * Phase 2.1: Navigation + Modal + Filter testing
- * Core interaction flow testing: Navigation, Project Filter, Project Modal
+ * Phase 2.1: Navigation + Accordion + Filter testing
+ * Core interaction flow testing: Navigation, Project Filter, Project Accordion
  *
  * Token efficiency:
  * - browser_snapshot (500 tokens) vs screenshot (1000-2000 tokens)
@@ -20,7 +23,7 @@ import {
  * - Conditional screenshots (failure only)
  */
 
-test.describe('Navigation & Modal Validation (Phase 2.1)', () => {
+test.describe('Navigation & Accordion Validation (Phase 2.1)', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
@@ -95,9 +98,9 @@ test.describe('Navigation & Modal Validation (Phase 2.1)', () => {
       const ariaSelected = await allButton.getAttribute('aria-selected');
       expect(ariaSelected).toBe('true');
 
-      // Count visible project cards (should be 7)
+      // Count visible project cards (should be 8)
       const visibleCount = await getVisibleProjectCards(page);
-      expect(visibleCount).toBe(7);
+      expect(visibleCount).toBe(8);
 
     } catch (error) {
       await captureFailureScreenshot(page, 'filter-all-default');
@@ -154,9 +157,9 @@ test.describe('Navigation & Modal Validation (Phase 2.1)', () => {
       // Verify button state
       await expect(companyButton).toHaveClass(/active/);
 
-      // Verify only company projects visible (3 cards)
+      // Verify only company projects visible (4 cards)
       const visibleCount = await getVisibleProjectCards(page);
-      expect(visibleCount).toBe(3);
+      expect(visibleCount).toBe(4);
 
       // Verify correct categories
       const visibleCategories = await page.evaluate(() => {
@@ -195,160 +198,179 @@ test.describe('Navigation & Modal Validation (Phase 2.1)', () => {
     }
   });
 
-  test('Modal: open on project detail button click', async ({ page }) => {
+  test('Accordion: open panel on toggle click', async ({ page }) => {
     try {
       // Navigate to projects section
       await page.click('a.nav__link[href="#projects"]');
       await waitForSmoothScroll(page, '#projects');
 
-      // Verify modal is closed initially
-      await validateModalState(page, false);
+      // Verify panel is collapsed initially
+      await validateProjectPanelState(page, 'mindlog', false);
 
-      // Click first project detail button (mindlog)
-      const detailButton = page.locator('.project-card__detail-btn[data-project="mindlog"]').first();
-      await detailButton.click();
+      // Click the card's toggle (replaces the removed detail button + modal)
+      await openProjectPanel(page, 'mindlog');
 
-      // Wait for modal to open
-      await page.waitForTimeout(300); // CSS transition duration
+      // Verify panel is expanded in place
+      await validateProjectPanelState(page, 'mindlog', true);
 
-      // Verify modal is open
-      await validateModalState(page, true);
+      // Verify the card is marked expanded for CSS state
+      const card = page.locator('.project-card[data-project="mindlog"]');
+      await expect(card).toHaveAttribute('data-expanded', 'true');
 
-      // Verify modal title
-      const modalTitle = page.locator('.modal__title');
-      await expect(modalTitle).toContainText('MindLog');
+      // Verify the panel body was rendered from projectData (not written in markup)
+      const panelContent = await page.evaluate(() => {
+        const inner = document.querySelector('[data-project-panel="mindlog"]');
+        if (!inner) return null;
+        return {
+          textLength: (inner.textContent || '').trim().length,
+          labelCount: inner.querySelectorAll('.project-panel__label').length
+        };
+      });
 
-      // Verify body overflow hidden (prevent background scroll)
-      const bodyOverflow = await page.evaluate(() => document.body.style.overflow);
-      expect(bodyOverflow).toBe('hidden');
+      expect(panelContent).toBeTruthy();
+      expect(panelContent.textLength).toBeGreaterThan(100);
+      expect(panelContent.labelCount).toBeGreaterThan(0);
 
-    } catch (error) {
-      await captureFailureScreenshot(page, 'modal-open');
-      throw error;
-    }
-  });
-
-  test('Modal: close on Escape key', async ({ page }) => {
-    try {
-      // Navigate to projects and open modal
-      await page.click('a.nav__link[href="#projects"]');
-      await waitForSmoothScroll(page, '#projects');
-
-      const detailButton = page.locator('.project-card__detail-btn[data-project="mindlog"]').first();
-      await detailButton.click();
-      await page.waitForTimeout(300);
-
-      // Verify modal is open
-      await validateModalState(page, true);
-
-      // Press Escape key
-      await page.keyboard.press('Escape');
-      await page.waitForTimeout(100);
-
-      // Verify modal is closed
-      await validateModalState(page, false);
-
-      // Verify body overflow restored
+      // Unlike the removed modal, an inline panel must NOT lock background scroll
       const bodyOverflow = await page.evaluate(() => document.body.style.overflow);
       expect(bodyOverflow).toBe('');
 
     } catch (error) {
-      await captureFailureScreenshot(page, 'modal-close-escape');
+      await captureFailureScreenshot(page, 'accordion-open');
       throw error;
     }
   });
 
-  test('Modal: close on overlay click', async ({ page }) => {
+  test('Accordion: close on second toggle click', async ({ page }) => {
     try {
-      // Navigate to projects and open modal
       await page.click('a.nav__link[href="#projects"]');
       await waitForSmoothScroll(page, '#projects');
 
-      const detailButton = page.locator('.project-card__detail-btn[data-project="mindlog"]').first();
-      await detailButton.click();
-      await page.waitForTimeout(300);
+      await openProjectPanel(page, 'mindlog');
+      await validateProjectPanelState(page, 'mindlog', true);
 
-      // Verify modal is open
-      await validateModalState(page, true);
+      // Re-click the same toggle (replaces Escape / overlay / close button)
+      await projectToggle(page, 'mindlog').click();
+      await waitForAccordionTransition(page);
 
-      // Click on modal overlay (not on .modal itself)
-      const modalOverlay = page.locator('#project-modal');
-      await modalOverlay.click({ position: { x: 5, y: 5 } }); // Click near edge (overlay area)
-      await page.waitForTimeout(100);
+      await validateProjectPanelState(page, 'mindlog', false);
 
-      // Verify modal is closed
-      await validateModalState(page, false);
+      const card = page.locator('.project-card[data-project="mindlog"]');
+      await expect(card).toHaveAttribute('data-expanded', 'false');
 
     } catch (error) {
-      await captureFailureScreenshot(page, 'modal-close-overlay');
+      await captureFailureScreenshot(page, 'accordion-close');
       throw error;
     }
   });
 
-  test('Modal: close button functionality', async ({ page }) => {
+  test('Accordion: panels expand independently', async ({ page }) => {
     try {
-      // Navigate to projects and open modal
       await page.click('a.nav__link[href="#projects"]');
       await waitForSmoothScroll(page, '#projects');
 
-      const detailButton = page.locator('.project-card__detail-btn[data-project="mindlog"]').first();
-      await detailButton.click();
-      await page.waitForTimeout(300);
+      await openProjectPanel(page, 'mindlog');
+      await openProjectPanel(page, 'cryptowallet');
 
-      // Verify modal is open
-      await validateModalState(page, true);
-
-      // Click close button
-      const closeButton = page.locator('.modal__close');
-      await closeButton.click();
-      await page.waitForTimeout(100);
-
-      // Verify modal is closed
-      await validateModalState(page, false);
+      // Opening a second card must not collapse the first
+      await validateProjectPanelState(page, 'mindlog', true);
+      await validateProjectPanelState(page, 'cryptowallet', true);
 
     } catch (error) {
-      await captureFailureScreenshot(page, 'modal-close-button');
+      await captureFailureScreenshot(page, 'accordion-independent');
       throw error;
     }
   });
 
-  test('Modal: focus trap on open', async ({ page }) => {
+  test('Accordion: aria-controls resolves to a labelled panel on every card', async ({ page }) => {
     try {
-      // Navigate to projects and open modal
       await page.click('a.nav__link[href="#projects"]');
       await waitForSmoothScroll(page, '#projects');
 
-      const detailButton = page.locator('.project-card__detail-btn[data-project="mindlog"]').first();
-      await detailButton.click();
-      await page.waitForTimeout(300);
+      const wiring = await page.evaluate(() => {
+        const toggles = Array.from(document.querySelectorAll('.project-card__toggle'));
+        const broken = [];
 
-      // Verify modal is open
-      await validateModalState(page, true);
+        toggles.forEach(toggle => {
+          const controls = toggle.getAttribute('aria-controls');
+          const panel = controls ? document.getElementById(controls) : null;
 
-      // Wait for focus trap to activate (CSS transition + focus() call)
-      await page.waitForTimeout(500);
+          if (!panel) {
+            broken.push({ toggle: toggle.id, reason: 'aria-controls unresolved' });
+            return;
+          }
+          if (panel.getAttribute('role') !== 'region') {
+            broken.push({ toggle: toggle.id, reason: 'panel is not role=region' });
+          }
+          if (panel.getAttribute('aria-labelledby') !== toggle.id) {
+            broken.push({ toggle: toggle.id, reason: 'panel aria-labelledby mismatch' });
+          }
+          if (toggle.getAttribute('aria-expanded') === null) {
+            broken.push({ toggle: toggle.id, reason: 'missing aria-expanded' });
+          }
+        });
 
-      // Verify modal has focusable elements
-      const focusableCount = await page.evaluate(() => {
-        const modal = document.querySelector('#project-modal');
-        if (!modal) return 0;
-        const focusable = modal.querySelectorAll('button, a[href]');
-        return focusable.length;
+        return { total: toggles.length, broken };
       });
 
-      expect(focusableCount).toBeGreaterThan(0);
-
-      // Verify focus is on a button or link (not on body)
-      const focusedElementTag = await page.evaluate(() => {
-        const focused = document.activeElement;
-        return focused ? focused.tagName.toLowerCase() : null;
-      });
-
-      // Focus should be on button or link, not on body
-      expect(['button', 'a']).toContain(focusedElementTag);
+      expect(wiring.broken).toEqual([]);
+      expect(wiring.total).toBe(8);
 
     } catch (error) {
-      await captureFailureScreenshot(page, 'modal-focus-trap');
+      await captureFailureScreenshot(page, 'accordion-aria-wiring');
+      throw error;
+    }
+  });
+
+  test('Accordion: filter change collapses an open panel', async ({ page }) => {
+    try {
+      await page.click('a.nav__link[href="#projects"]');
+      await waitForSmoothScroll(page, '#projects');
+
+      // Open a company card, then apply the filter that keeps it visible —
+      // so the collapse cannot be explained away by the card being hidden.
+      await openProjectPanel(page, 'pointtour');
+      await validateProjectPanelState(page, 'pointtour', true);
+
+      await page.locator('.projects__filter-btn[data-filter="company"]').click();
+      await waitForFilterAnimation(page);
+      await waitForAccordionTransition(page);
+
+      const card = page.locator('.project-card[data-project="pointtour"]');
+      await expect(card).not.toHaveAttribute('data-filter-hidden', 'true');
+      await validateProjectPanelState(page, 'pointtour', false);
+
+    } catch (error) {
+      await captureFailureScreenshot(page, 'accordion-filter-collapse');
+      throw error;
+    }
+  });
+
+  test('Accordion: keyboard operable with focus retained on the toggle', async ({ page }) => {
+    try {
+      await page.click('a.nav__link[href="#projects"]');
+      await waitForSmoothScroll(page, '#projects');
+
+      const toggle = projectToggle(page, 'mindlog');
+      await toggle.focus();
+      await expect(toggle).toBeFocused();
+
+      // Enter opens
+      await page.keyboard.press('Enter');
+      await waitForAccordionTransition(page);
+      await validateProjectPanelState(page, 'mindlog', true);
+
+      // Focus stays put — an inline panel has no focus trap to hand off to
+      await expect(toggle).toBeFocused();
+
+      // Space closes
+      await page.keyboard.press('Space');
+      await waitForAccordionTransition(page);
+      await validateProjectPanelState(page, 'mindlog', false);
+      await expect(toggle).toBeFocused();
+
+    } catch (error) {
+      await captureFailureScreenshot(page, 'accordion-keyboard');
       throw error;
     }
   });

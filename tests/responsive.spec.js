@@ -2,7 +2,8 @@
 import { test, expect } from '@playwright/test';
 import {
   captureFailureScreenshot,
-  validateModalState,
+  openProjectPanel,
+  validateProjectPanelState,
   waitForSmoothScroll
 } from './helpers.js';
 
@@ -15,6 +16,36 @@ import {
  * - Conditional screenshots (failure only)
  * - browser_snapshot for accessibility validation
  */
+
+/**
+ * Measure the projects list stack.
+ * The 2/3-column `.projects__grid` was replaced by `.projects__list`, a flex
+ * column of full-width accordion cards at every breakpoint — so the shape is
+ * asserted the same way on mobile, tablet and desktop.
+ * @param {import('@playwright/test').Page} page
+ */
+async function getProjectsListLayout(page) {
+  return await page.evaluate(() => {
+    const list = document.querySelector('.projects__list');
+    if (!list) return null;
+
+    const style = window.getComputedStyle(list);
+    const listRect = list.getBoundingClientRect();
+    const cards = Array.from(list.querySelectorAll('.project-card'));
+
+    const lefts = new Set(cards.map(card => Math.round(card.getBoundingClientRect().left)));
+    const fullWidth = cards.filter(
+      card => Math.abs(card.getBoundingClientRect().width - listRect.width) <= 1
+    );
+
+    return {
+      display: style.display,
+      flexDirection: style.flexDirection,
+      distinctCardLefts: lefts.size,
+      cardsAtFullWidth: fullWidth.length
+    };
+  });
+}
 
 test.describe('Responsive Validation (Phase 2.2)', () => {
 
@@ -29,7 +60,7 @@ test.describe('Responsive Validation (Phase 2.2)', () => {
       await page.waitForLoadState('networkidle');
     });
 
-    test('Mobile: Projects grid single column layout', async ({ page }, testInfo) => {
+    test('Mobile: Projects list single column stack', async ({ page }, testInfo) => {
       testInfo.setTimeout(60000); // Increase timeout for mobile tests
 
       try {
@@ -49,31 +80,21 @@ test.describe('Responsive Validation (Phase 2.2)', () => {
 
         await page.waitForTimeout(500); // Wait for scroll
 
-        // Validate grid layout
-        const gridLayout = await page.evaluate(() => {
-          const grid = document.querySelector('.projects__grid');
-          if (!grid) return null;
-
-          const computedStyle = window.getComputedStyle(grid);
-          const cols = computedStyle.gridTemplateColumns;
-
-          return {
-            gridTemplateColumns: cols,
-            columnCount: cols.split(' ').filter(v => v && v !== 'none').length
-          };
+        // The grid was replaced by a flex column of accordion cards
+        expect(await getProjectsListLayout(page)).toEqual({
+          display: 'flex',
+          flexDirection: 'column',
+          distinctCardLefts: 1,
+          cardsAtFullWidth: 8
         });
 
-        expect(gridLayout).toBeTruthy();
-        // Single column = 1 value in grid-template-columns
-        expect(gridLayout.columnCount).toBe(1);
-
       } catch (error) {
-        await captureFailureScreenshot(page, 'mobile-projects-grid');
+        await captureFailureScreenshot(page, 'mobile-projects-list');
         throw error;
       }
     });
 
-    test('Mobile: Bottom sheet modal (slides from bottom)', async ({ page }, testInfo) => {
+    test('Mobile: Accordion panel expands inline without horizontal overflow', async ({ page }, testInfo) => {
       testInfo.setTimeout(60000); // Increase timeout for mobile tests
 
       try {
@@ -93,40 +114,33 @@ test.describe('Responsive Validation (Phase 2.2)', () => {
 
         await page.waitForTimeout(500); // Wait for scroll
 
-        // Open modal
-        const detailButton = page.locator('.project-card__detail-btn[data-project="mindlog"]').first();
-        await detailButton.waitFor({ state: 'visible', timeout: 10000 });
-        await detailButton.click();
-        await page.waitForTimeout(400); // Wait for transform animation
+        await openProjectPanel(page, 'mindlog');
+        await validateProjectPanelState(page, 'mindlog', true);
 
-        await validateModalState(page, true);
+        // The panel replaced a bottom-sheet modal: it must grow the card in
+        // place, stay inside the card box, and never widen the document.
+        const panelLayout = await page.evaluate(() => {
+          const card = document.querySelector('.project-card[data-project="mindlog"]');
+          const panel = card && card.querySelector('.project-card__panel');
+          if (!card || !panel) return null;
 
-        // Validate bottom sheet positioning
-        const modalLayout = await page.evaluate(() => {
-          const modal = document.querySelector('.modal');
-          const overlay = document.querySelector('#project-modal');
-          if (!modal || !overlay) return null;
-
-          const modalRect = modal.getBoundingClientRect();
-          const overlayStyle = window.getComputedStyle(overlay);
+          const cardRect = card.getBoundingClientRect();
+          const panelRect = panel.getBoundingClientRect();
 
           return {
-            modalBottom: window.innerHeight - modalRect.bottom,
-            modalBorderRadius: window.getComputedStyle(modal).borderRadius,
-            overlayPadding: overlayStyle.padding,
-            overlayAlignItems: overlayStyle.alignItems
+            panelWidthOverflow: Math.round(panelRect.width - cardRect.width),
+            panelClipped: Math.round(panelRect.bottom - cardRect.bottom) > 1,
+            documentOverflow: document.documentElement.scrollWidth - window.innerWidth
           };
         });
 
-        expect(modalLayout).toBeTruthy();
-        // Bottom sheet: modal should be near bottom (allow tolerance for border/padding/border-radius)
-        // Actual value is ~41px due to modal border-radius and safe area
-        expect(modalLayout.modalBottom).toBeLessThan(50);
-        // Overlay has horizontal padding for safe area (0px vertical, 16px horizontal)
-        expect(modalLayout.overlayPadding).toContain('0px');
+        expect(panelLayout).toBeTruthy();
+        expect(panelLayout.panelWidthOverflow).toBeLessThanOrEqual(0);
+        expect(panelLayout.panelClipped).toBe(false);
+        expect(panelLayout.documentOverflow).toBeLessThanOrEqual(0);
 
       } catch (error) {
-        await captureFailureScreenshot(page, 'mobile-modal-bottom-sheet');
+        await captureFailureScreenshot(page, 'mobile-accordion-panel');
         throw error;
       }
     });
@@ -197,73 +211,43 @@ test.describe('Responsive Validation (Phase 2.2)', () => {
       await page.waitForLoadState('networkidle');
     });
 
-    test('Tablet: Projects grid 2-column layout', async ({ page }) => {
+    test('Tablet: Projects list stays a single column stack', async ({ page }) => {
       try {
         // Navigate to projects section
         await page.click('a.nav__link[href="#projects"]');
         await waitForSmoothScroll(page, '#projects');
 
-        // Validate grid layout
-        const gridLayout = await page.evaluate(() => {
-          const grid = document.querySelector('.projects__grid');
-          if (!grid) return null;
-
-          const computedStyle = window.getComputedStyle(grid);
-          return {
-            gridTemplateColumns: computedStyle.gridTemplateColumns,
-            columnCount: computedStyle.gridTemplateColumns.split(' ').length
-          };
+        // No multi-column breakpoint any more — the stack is the layout
+        expect(await getProjectsListLayout(page)).toEqual({
+          display: 'flex',
+          flexDirection: 'column',
+          distinctCardLefts: 1,
+          cardsAtFullWidth: 8
         });
 
-        expect(gridLayout).toBeTruthy();
-        // 2 columns = "1fr 1fr" or "XXXpx XXXpx" (2 values)
-        expect(gridLayout.columnCount).toBe(2);
-
       } catch (error) {
-        await captureFailureScreenshot(page, 'tablet-projects-grid');
+        await captureFailureScreenshot(page, 'tablet-projects-list');
         throw error;
       }
     });
 
-    test('Tablet: Modal centered (not bottom sheet)', async ({ page }) => {
+    test('Tablet: Project toggle meets the 44px touch target', async ({ page }) => {
       try {
-        // Navigate to projects and open modal
         await page.click('a.nav__link[href="#projects"]');
         await waitForSmoothScroll(page, '#projects');
 
-        const detailButton = page.locator('.project-card__detail-btn[data-project="mindlog"]').first();
-        await detailButton.click();
-        await page.waitForTimeout(300);
-
-        await validateModalState(page, true);
-
-        // Validate centered modal positioning
-        const modalLayout = await page.evaluate(() => {
-          const modal = document.querySelector('.modal');
-          const overlay = document.querySelector('.modal-overlay');
-          if (!modal || !overlay) return null;
-
-          const modalRect = modal.getBoundingClientRect();
-          const overlayStyle = window.getComputedStyle(overlay);
-
-          return {
-            modalTop: modalRect.top,
-            modalBottom: window.innerHeight - modalRect.bottom,
-            overlayAlignItems: overlayStyle.alignItems,
-            overlayPadding: overlayStyle.padding
-          };
+        // The toggle is now the only way into project detail, so it carries the
+        // touch-target contract the removed detail button used to hold.
+        const undersized = await page.evaluate(() => {
+          return Array.from(document.querySelectorAll('.project-card__toggle'))
+            .filter(toggle => toggle.getBoundingClientRect().height < 44)
+            .map(toggle => toggle.id);
         });
 
-        expect(modalLayout).toBeTruthy();
-        // Centered modal: top and bottom gaps should be roughly equal
-        const topBottomDiff = Math.abs(modalLayout.modalTop - modalLayout.modalBottom);
-        expect(topBottomDiff).toBeLessThan(100); // Allow some tolerance
-
-        // Should NOT be aligned to bottom
-        expect(modalLayout.overlayAlignItems).not.toBe('flex-end');
+        expect(undersized).toEqual([]);
 
       } catch (error) {
-        await captureFailureScreenshot(page, 'tablet-modal-centered');
+        await captureFailureScreenshot(page, 'tablet-toggle-touch-target');
         throw error;
       }
     });
@@ -394,59 +378,41 @@ test.describe('Responsive Validation (Phase 2.2)', () => {
       }
     });
 
-    test('Desktop: Projects grid 2-column layout', async ({ page }) => {
+    test('Desktop: Projects list stays a single column stack', async ({ page }) => {
       try {
         // Navigate to projects section
         await page.click('a.nav__link[href="#projects"]');
         await waitForSmoothScroll(page, '#projects');
 
-        // Validate grid layout (stays at 2 columns, not 3)
-        const gridLayout = await page.evaluate(() => {
-          const grid = document.querySelector('.projects__grid');
-          if (!grid) return null;
-
-          const computedStyle = window.getComputedStyle(grid);
-          return {
-            gridTemplateColumns: computedStyle.gridTemplateColumns,
-            columnCount: computedStyle.gridTemplateColumns.split(' ').length
-          };
+        expect(await getProjectsListLayout(page)).toEqual({
+          display: 'flex',
+          flexDirection: 'column',
+          distinctCardLefts: 1,
+          cardsAtFullWidth: 8
         });
 
-        expect(gridLayout).toBeTruthy();
-        // Projects: 2 columns even on desktop
-        expect(gridLayout.columnCount).toBe(2);
-
       } catch (error) {
-        await captureFailureScreenshot(page, 'desktop-projects-grid');
+        await captureFailureScreenshot(page, 'desktop-projects-list');
         throw error;
       }
     });
 
-    test('Desktop: Modal max-width constraint', async ({ page }) => {
+    test('Desktop: Projects container capped at --container-max', async ({ page }) => {
       try {
-        // Navigate to projects and open modal
         await page.click('a.nav__link[href="#projects"]');
         await waitForSmoothScroll(page, '#projects');
 
-        const detailButton = page.locator('.project-card__detail-btn[data-project="mindlog"]').first();
-        await detailButton.click();
-        await page.waitForTimeout(300);
-
-        await validateModalState(page, true);
-
-        // Validate modal width
-        const modalWidth = await page.evaluate(() => {
-          const modal = document.querySelector('.modal');
-          if (!modal) return null;
-          return modal.offsetWidth;
+        // The reading column the modal used to bypass: 1080px from variables.css
+        const containerWidth = await page.evaluate(() => {
+          const container = document.querySelector('#projects .container');
+          return container ? container.offsetWidth : null;
         });
 
-        expect(modalWidth).toBeTruthy();
-        // Modal max-width: 720px from components.css
-        expect(modalWidth).toBeLessThanOrEqual(720);
+        expect(containerWidth).toBeTruthy();
+        expect(containerWidth).toBeLessThanOrEqual(1080);
 
       } catch (error) {
-        await captureFailureScreenshot(page, 'desktop-modal-width');
+        await captureFailureScreenshot(page, 'desktop-projects-container');
         throw error;
       }
     });

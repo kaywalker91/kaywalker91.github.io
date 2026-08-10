@@ -22,17 +22,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // Setup project filter
   setupProjectFilter();
 
+  // Setup projects masthead meta line
+  setupProjectMeta();
+
+  // Setup skills readout
+  setupSkillReadout();
+
   // Setup copy to clipboard
   setupCopyToClipboard();
 
   // Setup impact counters
   setupImpactCounters();
 
-  // Setup timeline expansion (Experience Accordion)
-  setupTimelineExpansion();
-
-  // Setup project modal
-  setupProjectModal();
+  // Setup project accordion
+  setupProjectAccordion();
 
   // Setup back to top button
   setupBackToTop();
@@ -201,6 +204,10 @@ function setupProjectFilter() {
       button.classList.add('active');
       button.setAttribute('aria-selected', 'true');
 
+      // Collapse first: an expanded panel on a card about to be hidden would
+      // animate its height away against the fade, and come back open later.
+      closeAllProjectPanels();
+
       // Filter cards
       filterProjectCards(filter, projectCards, prefersReducedMotion);
     });
@@ -241,6 +248,71 @@ function filterProjectCards(filter, cards, reduceMotion) {
   });
 }
 
+// Projects masthead meta line ("7 projects · 개인 2 · 회사 3 · 학습 2").
+// Counted from the DOM rather than written out, so the line cannot drift when
+// a card is added or removed.
+function setupProjectMeta() {
+  const target = document.querySelector('[data-project-meta]');
+  if (!target) return;
+
+  const CATEGORY_ORDER = ['personal', 'company', 'learning'];
+
+  const render = () => {
+    const cards = document.querySelectorAll('.project-card[data-category]');
+    if (cards.length === 0) return;
+
+    const counts = new Map();
+    cards.forEach(card => {
+      const category = card.dataset.category;
+      counts.set(category, (counts.get(category) || 0) + 1);
+    });
+
+    const parts = [`${cards.length} ${i18n.t('projects.meta.unit')}`];
+    CATEGORY_ORDER.forEach(category => {
+      if (!counts.has(category)) return;
+      parts.push(`${i18n.t(`projects.filter.${category}`)} ${counts.get(category)}`);
+    });
+
+    target.textContent = parts.join('  ·  ');
+  };
+
+  render();
+  // Category labels are translated, so the line is rebuilt on language switch.
+  document.addEventListener('languagechange:applied', render);
+}
+
+function setupSkillReadout() {
+  const tagEl = document.querySelector('[data-skill-tag]');
+  const detailEl = document.querySelector('[data-skill-detail]');
+  const chips = document.querySelectorAll('.skill-chip[data-skill]');
+  if (!tagEl || !detailEl || chips.length === 0) return;
+
+  chips.forEach(chip => chip.setAttribute('aria-pressed', 'false'));
+
+  // Writing the key into data-i18n rather than just the text means the language
+  // toggle re-translates whatever is currently selected, for free.
+  const select = (chip) => {
+    if (chip.getAttribute('aria-pressed') === 'true') return;
+    chips.forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
+
+    const key = `skills.detail.${chip.dataset.skill}`;
+    // The chip label is a product name, not translated copy — drop the key so
+    // updateContent() does not overwrite it with the hint tag.
+    tagEl.removeAttribute('data-i18n');
+    tagEl.textContent = chip.textContent.trim();
+    detailEl.setAttribute('data-i18n', key);
+    detailEl.textContent = i18n.t(key);
+  };
+
+  chips.forEach(chip => {
+    // Pointer, keyboard and touch all reach the same path; hover alone would
+    // leave the section unusable on a phone or by keyboard.
+    chip.addEventListener('mouseenter', () => select(chip));
+    chip.addEventListener('focus', () => select(chip));
+    chip.addEventListener('click', () => select(chip));
+  });
+}
+
 // Impact counters animation (delegates to shared CounterAnimation utility)
 function setupImpactCounters() {
   CounterAnimation.observe('.impact-stat__number[data-count]', {
@@ -249,34 +321,26 @@ function setupImpactCounters() {
   });
 }
 
-// Timeline expansion (Experience Accordion)
-function setupTimelineExpansion() {
-  const expandButtons = document.querySelectorAll('.timeline__expand-btn');
-
-  if (expandButtons.length === 0) return;
-
-  expandButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const details = button.closest('.timeline__details');
-      const content = details.querySelector('.timeline__detail-content');
-      const isExpanded = details.dataset.expanded === 'true';
-
-      // Toggle state
-      details.dataset.expanded = !isExpanded;
-      button.setAttribute('aria-expanded', !isExpanded);
-
-      // Toggle content visibility
-      if (!isExpanded) {
-        content.style.maxHeight = content.scrollHeight + 'px';
-      } else {
-        content.style.maxHeight = '0';
-      }
-    });
-  });
-}
-
-// Project modal
+// Panel content for the project accordion. Kept in JS rather than markup
+// because it is Korean-only prose with no en counterpart — moving it into the
+// document would demand ~150 translation keys that do not exist yet.
 const projectData = {
+  pllilab: {
+    title: 'PLLI Lab',
+    features: [
+      '100건 청크 배치 + Completer 기반 pause/resume 흐름 제어로 busy-wait 제거',
+      '3단계 스티커 폴백 체인 — Storage 토큰 재발급 → IP 문서 실시간 조회',
+      'CanvasKit 디코딩 한계 우회 — HTML Canvas 다운샘플링 + img 재인코딩 폴백'
+    ],
+    achievements: [
+      'Flutter Web(CanvasKit) 기반 인쇄 이미지 대량 렌더링 파이프라인 신규 설계·구축 (160 commits / 25d)',
+      'JS+WASM 결합 메모리 모니터링, OOM 세션 분할, WebGL 안정성 엔지니어링',
+      '매일 21시 자동 렌더링 스케줄, Web Lock 분산 락, Crashlytics 진단으로 운영 자동화·관측성 확보',
+      '고해상도 이미지 실시간 렌더링 지연(1~3분)을 백그라운드 Pre-rendering + 캐싱 + Lazy Loading으로 해소'
+    ],
+    tech: ['Flutter Web', 'Dart', 'GetX', 'CanvasKit / WebGL', 'Firebase', 'Web Lock API'],
+    links: {}
+  },
   mindlog: {
     title: 'MindLog',
     features: [
@@ -325,12 +389,21 @@ const projectData = {
       '팀 5인 중 모바일 아키텍처 설계 및 구현 전담',
       '12개 모듈 마이크로 피처 아키텍처 — Clean Architecture로 팀 병렬 개발',
       '86개 Riverpod Provider — .select()로 최소 리빌드 최적화',
+      '4계층 어댑터 아키텍처로 WalletConnect v2 통합',
       'State Machine 기반 4단계 지갑 연결 (WalletConnect v2)',
+      'Race Condition 방어 체계 — 4계층 Sign Guard',
       '27개 화면 Material 3 Dark Theme 설계'
     ],
     challenge: 'WalletConnect v2 연결 상태 관리 복잡성 + Deep Link Cold Start 시 지갑 연결 요청 유실',
     solution: 'State Machine 패턴으로 4가지 지갑 인터페이스 분리 (ISP) + Cold Start 큐잉 메커니즘으로 앱 초기화 전 요청 보존',
-    achievements: ['50,000+ LOC, 12개 모듈, 86 Providers', '299 테스트 케이스 (33.47% 커버리지)', '10개 체인 지원 (EVM + Solana)', 'JWT Lock + 7가지 예외 타입 설계'],
+    achievements: [
+      'State Machine 기반 상태 관리 도입으로 지갑 연결 실패율 약 90% 감소',
+      '50,000+ LOC, 12개 모듈, 86 Providers',
+      '299 테스트 케이스 (33.47% 커버리지)',
+      '테스트 자동화 파이프라인 구축 — 배포 후 크리티컬 버그 최소화',
+      '10개 체인 지원 (EVM + Solana)',
+      'JWT Lock + 7가지 예외 타입 설계'
+    ],
     tech: ['Flutter', 'Clean Architecture', 'Riverpod 3.x', 'WalletConnect v2', 'DeFi', 'fl_chart'],
     links: {}
   },
@@ -345,7 +418,13 @@ const projectData = {
     ],
     challenge: 'Legacy Native 코드(Android/iOS) 완전 마이그레이션 + GPS 정확도 불안정',
     solution: 'Platform Channel로 네이티브 기능 직접 제어 + RegionStabilityChecker 알고리즘으로 GPS 오차 보정',
-    achievements: ['Legacy → Flutter 100% 마이그레이션 완료', '유지보수 비용 50% 절감', '19개 언어 실시간 번역', '공공기관 접근성 인증 수준 달성'],
+    achievements: [
+      'Legacy → Flutter 100% 마이그레이션 완료',
+      '유지보수 비용 50% 절감',
+      'Riverpod 아키텍처 도입으로 버그 30% 감소, 개발 속도 20% 향상',
+      '19개 언어 실시간 번역',
+      '접근성 준수율 95% 달성 (공공기관 수준)'
+    ],
     tech: ['Flutter', 'FCM', 'Google Translate API V3', 'Hive', 'Platform Channel'],
     links: {}
   },
@@ -407,8 +486,9 @@ const projectData = {
     solution: 'RxJava 2 기반 비동기 로직 전면 리팩토링. Schedulers.io()로 네트워크 작업 분리. Firebase Dynamic Links로 바이럴 마케팅 플로우 구축.',
     achievements: [
       '다운로드 400% 증가 (1,000→5,000회)',
-      'AsyncTask → RxJava 2 전면 리팩토링',
+      'AsyncTask → RxJava 2 전환으로 크래시 발생률 80~90% 감소',
       '대전시 "0시축제" 이벤트 성공',
+      '대전관광공사 꿈돌이찾아라이딩 연계 이벤트 시스템 개발·운영',
       'Firebase Dynamic Links 바이럴 마케팅',
       'SiliCompressor 영상 압축 최적화'
     ],
@@ -416,120 +496,114 @@ const projectData = {
   }
 };
 
-function setupProjectModal() {
-  const modal = document.getElementById('project-modal');
-  const detailButtons = document.querySelectorAll('.project-card__detail-btn[data-project]');
-  const closeButtons = document.querySelectorAll('[data-modal-close]');
+const GITHUB_ICON = `<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+</svg>`;
 
-  if (!modal || detailButtons.length === 0) return;
+const DEMO_ICON = `<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+</svg>`;
 
-  // Open modal on explicit detail button click
-  detailButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const projectId = button.dataset.project;
-      const project = projectData[projectId];
+function setupProjectAccordion() {
+  const cards = document.querySelectorAll('.project-card[data-project]');
+  if (cards.length === 0) return;
 
-      if (project) {
-        openProjectModal(modal, project);
-      }
-    });
-  });
-
-  // Close modal handlers
-  closeButtons.forEach(btn => {
-    btn.addEventListener('click', () => closeProjectModal(modal));
-  });
-
-  // Close on overlay click (click on modal-overlay but not on .modal itself)
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeProjectModal(modal);
+  cards.forEach(card => {
+    const mount = card.querySelector('[data-project-panel]');
+    const project = projectData[card.dataset.project];
+    if (mount && project) {
+      mount.innerHTML = renderProjectPanel(project);
     }
   });
 
-  // Close on escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
-      closeProjectModal(modal);
-    }
-  });
-}
-
-function openProjectModal(modal, project) {
-  const titleEl = modal.querySelector('.modal__title');
-  const bodyEl = modal.querySelector('.modal__body');
-  const footerEl = modal.querySelector('.modal__footer');
-
-  // Set title
-  titleEl.textContent = project.title;
-
-  // Build body content
-  bodyEl.innerHTML = `
-    <div class="modal__section">
-      <h4 class="modal__section-title" data-i18n="modal.features">주요 기능</h4>
-      <ul class="modal__feature-list">
-        ${project.features.map(f => `<li>${f}</li>`).join('')}
-      </ul>
-    </div>
-    <div class="modal__section modal__section--challenge">
-      <h4 class="modal__section-title" data-i18n="modal.challenge">도전 과제</h4>
-      <p class="modal__challenge">${project.challenge}</p>
-      <h4 class="modal__section-title" data-i18n="modal.solution">해결 방법</h4>
-      <p class="modal__solution">${project.solution}</p>
-    </div>
-    <div class="modal__section">
-      <h4 class="modal__section-title" data-i18n="modal.achievements">성과</h4>
-      <ul class="modal__achievement-list">
-        ${project.achievements.map(a => `<li>${a}</li>`).join('')}
-      </ul>
-    </div>
-    <div class="modal__section">
-      <h4 class="modal__section-title" data-i18n="modal.tech">기술 스택</h4>
-      <div class="modal__tech-grid">
-        ${project.tech.map(t => `<span class="modal__tech-tag">${t}</span>`).join('')}
-      </div>
-    </div>
-  `;
-
-  // Build footer links
-  const links = [];
-  if (project.links.github) {
-    links.push(`<a href="${project.links.github}" class="project-action-link" target="_blank" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-      </svg>
-      GitHub
-    </a>`);
-  }
-  if (project.links.demo) {
-    links.push(`<a href="${project.links.demo}" class="project-action-link project-action-link--demo" target="_blank" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-      </svg>
-      Live Demo
-    </a>`);
-  }
-  footerEl.innerHTML = links.join('');
-
-  // Re-apply translations for newly injected modal headings.
+  // The panels were just injected carrying data-i18n headings of their own.
   if (typeof i18n !== 'undefined' && typeof i18n.updateContent === 'function') {
     i18n.updateContent();
   }
 
-  // Show modal
-  modal.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
+  document.querySelectorAll('.project-card__toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      setProjectPanel(toggle, toggle.getAttribute('aria-expanded') !== 'true');
+    });
+  });
 
-  // Focus trap
-  const focusableElements = modal.querySelectorAll('button, a[href]');
-  if (focusableElements.length > 0) {
-    focusableElements[0].focus();
-  }
+  // A pinned max-height goes stale whenever the content reflows underneath it —
+  // switching language rewrites the headings, and EN runs longer than KO, so an
+  // open panel clips. Re-measure whatever is currently open.
+  let resizeTimer;
+  document.addEventListener('languagechange:applied', resyncOpenProjectPanels);
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resyncOpenProjectPanels, 150);
+  });
 }
 
-function closeProjectModal(modal) {
-  modal.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
+function setProjectPanel(toggle, open) {
+  const card = toggle.closest('.project-card');
+  const panel = card && card.querySelector('.project-card__panel');
+  if (!panel) return;
+
+  toggle.setAttribute('aria-expanded', String(open));
+  card.dataset.expanded = String(open);
+  panel.style.maxHeight = open ? `${panel.scrollHeight}px` : '0px';
+}
+
+function resyncOpenProjectPanels() {
+  document.querySelectorAll('.project-card[data-expanded="true"] .project-card__panel').forEach(panel => {
+    panel.style.maxHeight = 'none';
+    const full = panel.scrollHeight;
+    panel.style.maxHeight = `${full}px`;
+  });
+}
+
+// Filtering removes cards from the flow, so an open panel would otherwise leave
+// a gap — and reappear expanded when the filter is cleared.
+function closeAllProjectPanels() {
+  document.querySelectorAll('.project-card__toggle[aria-expanded="true"]').forEach(toggle => {
+    setProjectPanel(toggle, false);
+  });
+}
+
+// Two columns: what changed (results) beside how it was built (implementation).
+// Separating the two is what a reader is actually scanning for; the deep-dive
+// narrative stays full width underneath.
+function renderProjectPanel(project) {
+  const bullets = (items) => (items || []).map(item => `<li>${item}</li>`).join('');
+
+  const narrativeParts = [];
+  if (project.challenge) {
+    narrativeParts.push(`<h4 class="project-panel__label" data-i18n="projects.panel.challenge">도전 과제</h4>
+      <p class="project-panel__text">${project.challenge}</p>`);
+  }
+  if (project.solution) {
+    narrativeParts.push(`<h4 class="project-panel__label" data-i18n="projects.panel.solution">해결 방법</h4>
+      <p class="project-panel__text">${project.solution}</p>`);
+  }
+
+  const links = [];
+  const href = project.links || {};
+  if (href.github) {
+    links.push(`<a href="${href.github}" class="project-action-link" target="_blank" rel="noopener noreferrer">${GITHUB_ICON}GitHub</a>`);
+  }
+  if (href.demo) {
+    links.push(`<a href="${href.demo}" class="project-action-link project-action-link--demo" target="_blank" rel="noopener noreferrer">${DEMO_ICON}Live Demo</a>`);
+  }
+
+  return `
+    <div class="project-panel">
+      <div class="project-panel__col">
+        <h4 class="project-panel__label" data-i18n="projects.panel.results">핵심 성과</h4>
+        <ul class="project-panel__list">${bullets(project.achievements)}</ul>
+      </div>
+      <div class="project-panel__col">
+        <h4 class="project-panel__label" data-i18n="projects.panel.implementation">구현 상세</h4>
+        <ul class="project-panel__list">${bullets(project.features)}</ul>
+        <ul class="project-panel__tech">${(project.tech || []).map(t => `<li class="tech-chip">${t}</li>`).join('')}</ul>
+      </div>
+    </div>
+    ${narrativeParts.length ? `<div class="project-panel__narrative">${narrativeParts.join('')}</div>` : ''}
+    ${links.length ? `<div class="project-panel__links">${links.join('')}</div>` : ''}
+  `;
 }
 
 // Copy to Clipboard functionality

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Generator page for assets/og-image.png — not a site page. -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>OG card source — 1200x630</title>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Values are copied from css/variables.css (dark theme) rather than linked,
+       so the card renders standalone at 1200x630 without the site stylesheets.
+       Regenerate with: npx playwright screenshot (see README note below). */
+    :root {
+      --bg: #0D1117;
+      --accent: #00D9FF;
+      --text-primary: #E6EDF3;
+      --text-secondary: #ADBAC7;
+      --text-muted: #8B949E;
+      --border: #30363D;
+      --font-sans: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, monospace;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: var(--bg);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Same two-light setup as .section-shell--projects in css/layout.css */
+    .card {
+      position: relative;
+      width: 1200px;
+      height: 630px;
+      padding: 72px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background:
+        radial-gradient(900px circle at 18% 0%, rgba(5, 83, 177, 0.30) 0%, transparent 60%),
+        radial-gradient(700px circle at 95% 88%, rgba(0, 217, 255, 0.16) 0%, transparent 55%),
+        var(--bg);
+    }
+
+    /* Top hairline in the section accent — the site's masthead signature */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent) 0%, #0553B1 100%);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--font-mono);
+      font-size: 19px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+    }
+
+    .eyebrow__rule {
+      width: 56px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.55;
+    }
+
+    .name {
+      font-size: 92px;
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+    }
+
+    .name__latin {
+      margin-left: 22px;
+      font-family: var(--font-mono);
+      font-size: 30px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: var(--text-muted);
+      vertical-align: 0.42em;
+    }
+
+    .role {
+      margin-top: 22px;
+      font-size: 38px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--text-primary);
+    }
+
+    .role em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .summary {
+      margin-top: 14px;
+      font-size: 25px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    .stats {
+      display: flex;
+      gap: 56px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat__value {
+      font-family: var(--font-mono);
+      font-size: 40px;
+      font-weight: 600;
+      line-height: 1;
+      color: var(--accent);
+    }
+
+    .stat__label {
+      margin-top: 10px;
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    /* Top-right, on the eyebrow baseline. Sat next to the stats before and read
+       as a fifth stat label. */
+    .url {
+      position: absolute;
+      right: 80px;
+      top: 72px;
+      font-family: var(--font-mono);
+      font-size: 21px;
+      font-weight: 400;
+      line-height: 25px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div>
+      <div class="eyebrow">
+        <span class="eyebrow__rule"></span>
+        <span>MOBILE ENGINEER</span>
+      </div>
+
+      <div style="margin-top: 34px;">
+        <h1 class="name">김대각<span class="name__latin">Daegak Kim</span></h1>
+        <p class="role">4년차 <em>Flutter</em> 모바일 앱 개발자</p>
+        <p class="summary">Android/iOS 레거시 → Flutter 마이그레이션 리드 · Clean Architecture</p>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__value">50,000+</div>
+        <div class="stat__label">Lines of Code</div>
+      </div>
+      <div class="stat">
+        <div class="stat__value">1,400+</div>
+        <div class="stat__label">Test Cases</div>
+      </div>
+      <div class="stat">
+        <div class="stat__value">400%</div>
+        <div class="stat__label">다운로드 증가</div>
+      </div>
+      <div class="stat">
+        <div class="stat__value">50%</div>
+        <div class="stat__label">유지보수 비용 절감</div>
+      </div>
+    </div>
+
+    <div class="url">kaywalker91.github.io</div>
+  </div>
+</body>
+
+</html>

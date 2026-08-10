@@ -10,10 +10,15 @@
   --color-secondary-light: #6CAAF9;
   --color-tertiary: #4D6487;
 
-  --color-background: #FAFAFA;
-  --color-background-alt: #F3F7FC;
-  --color-surface: #FFFFFF;
-  --color-surface-elevated: #FFFFFF;
+  --color-background: #F7F9FF;
+  --color-background-alt: #EDF3FC;
+  --color-band: #E8EFFA;      /* deeper band for the two sections that carry the work */
+  /* Surfaces stay inside the page's blue family. Pure #FFFFFF is the
+     maximum-luminance point on screen, so a white card on a tinted ground
+     reads as a hole punched in the page rather than a raised surface —
+     elevation is the shadow's job, not brightness'. */
+  --color-surface: #F5F8FE;
+  --color-surface-elevated: #FAFCFF;
   --color-surface-soft: #F6F9FF;
 
   --color-text-primary: #1A1A2E;
@@ -44,8 +49,12 @@
   --font-size-5xl: 3rem;      /* 48px */
   --font-size-display: clamp(2.4rem, 5.8vw, 4.6rem);
   --font-size-hero-subtitle: clamp(1.35rem, 2.6vw, 2.2rem);
-  --font-size-section-title-fluid: clamp(1.9rem, 4vw, 2.9rem);
   --font-size-section-subtitle: clamp(1rem, 1.6vw, 1.18rem);
+
+  /* Section title tiers — primary (경력/프로젝트) > base (성과/기술) > minor (학력 & 자격) */
+  --font-size-section-title-primary: clamp(2.3rem, 5vw, 3.4rem);
+  --font-size-section-title-fluid: clamp(1.75rem, 3.4vw, 2.4rem);
+  --font-size-section-title-minor: clamp(1.3rem, 2.2vw, 1.6rem);
 
   --font-weight-normal: 400;
   --font-weight-medium: 500;
@@ -73,13 +82,17 @@
   --space-16: 4rem;     /* 64px */
   --space-20: 5rem;     /* 80px */
   --space-24: 6rem;     /* 96px */
-  --section-space-y: clamp(4.75rem, 8vw, 6.75rem);
-  --section-space-y-compact: clamp(4.25rem, 7vw, 5.75rem);
+  --section-space-y: clamp(3.25rem, 8vw, 6.75rem);
+  --section-space-y-compact: clamp(2.75rem, 7vw, 5.75rem);
+  --section-heading-gap: clamp(2rem, 4vw, 3rem);
   --content-measure: 66ch;
 
-  /* Layout */
+  /* Layout — per-section measure. A page where every section is the same
+     width reads as one undifferentiated column; these give each its own stage. */
   --container-max: 1080px;
-  --header-height: 64px;
+  --container-wide: 1280px;   /* projects — the work needs room */
+  --container-narrow: 880px;  /* experience — a single reading column beside the rail */
+  --header-height: 70px;  /* must match the header's h-[70px] utility */
 
   /* Border Radius */
   --radius-sm: 4px;
@@ -106,8 +119,8 @@
   --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
   --gradient-surface: linear-gradient(180deg, var(--color-background) 0%, var(--color-surface) 100%);
   --section-divider: linear-gradient(90deg, transparent 0%, rgba(5, 83, 177, 0.28) 50%, transparent 100%);
-  --hero-wash: radial-gradient(1200px circle at 12% 8%, rgba(5, 83, 177, 0.2) 0%, transparent 55%),
-               radial-gradient(900px circle at 90% 20%, rgba(0, 217, 255, 0.16) 0%, transparent 50%);
+  --hero-wash: radial-gradient(1200px circle at 12% 8%, rgba(5, 83, 177, 0.28) 0%, transparent 55%),
+               radial-gradient(900px circle at 90% 20%, rgba(0, 217, 255, 0.22) 0%, transparent 50%);
 
   /* Code Colors (for terminal) */
   --color-code-bg: #F6F8FA;
@@ -152,6 +165,24 @@
   /* Project Card Shadows - Single layer */
   --shadow-card-rest: 0 1px 3px rgba(0, 0, 0, 0.06);
   --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+  /* Card system — flat surface tints (see .card--flat) */
+  --card-flat-bg: rgba(13, 30, 60, 0.045);
+  --card-flat-bg-hover: rgba(13, 30, 60, 0.075);
+
+  /* Section accents. Applied to heading underlines, card top bars and icons
+     only — never to body text, so the 4.5:1 text floor is unaffected. Each
+     clears 3:1 against its ground for the 1.4.11 non-text contrast rule. */
+  --section-accent: var(--color-primary);
+  --accent-impact: #0553B1;
+  --accent-skills: #0D9488;
+  /* Teal reads 3.5:1 as small text on --color-surface — under the 4.5:1 floor.
+     Non-text uses (rules, borders) keep --accent-skills; text uses this. */
+  --accent-skills-text: #0F766E;
+  --accent-experience: #1D4ED8;
+  --accent-projects: #0369A1;  /* sky — 5.58:1 on --color-surface as link text */
+  --accent-education: #B45309;
+  --accent-contact: #0553B1;
 }
 
 /* Dark Mode Color System */
@@ -169,14 +200,16 @@
   /* GitHub-inspired dark backgrounds */
   --color-background: #0D1117;
   --color-background-alt: #121821;
+  --color-band: #070A0F;      /* deeper band for the two sections that carry the work */
   --color-surface: #161B22;
   --color-surface-elevated: #21262D;
   --color-surface-soft: #1A222E;
 
-  /* Text optimized for dark backgrounds */
+  /* Text optimized for dark backgrounds — all tiers clear WCAG AA (4.5:1) on
+     both --color-background and the lighter --color-surface card fill */
   --color-text-primary: #E6EDF3;
-  --color-text-secondary: #8B949E;
-  --color-text-muted: #6E7681;
+  --color-text-secondary: #ADBAC7;  /* 8.79:1 on surface */
+  --color-text-muted: #8B949E;      /* 5.66:1 on surface (was #6E7681 → 3.77:1) */
 
   /* Project Modal Tokens - Dark Mode */
   --modal-bg: #161B22;
@@ -254,11 +287,23 @@
   /* Project Card Shadows - Dark Mode */
   --shadow-card-rest: 0 1px 3px rgba(0, 0, 0, 0.2);
   --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.3);
+
+  /* Card system + section accents — dark variants */
+  --card-flat-bg: rgba(255, 255, 255, 0.045);
+  --card-flat-bg-hover: rgba(255, 255, 255, 0.08);
+
+  --accent-impact: #00D9FF;
+  --accent-skills: #2DD4BF;
+  --accent-skills-text: #2DD4BF;   /* 9.29:1 on the dark readout surface */
+  --accent-experience: #60A5FA;
+  --accent-projects: #38BDF8;  /* sky — 8.07:1 on --color-surface as link text */
+  --accent-education: #FBBF24;
+  --accent-contact: #00D9FF;
 }
 
 /* Prevent flash of unstyled content */
 html {
-  background-color: #FAFAFA;
+  background-color: #F7F9FF;
 }
 
 html[data-theme="dark"] {

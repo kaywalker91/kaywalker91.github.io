@@ -18,9 +18,9 @@ Use this flow whenever project or experience content changes.
 
 ## Verification Commands
 
-- `node skills/portfolio-content-sync/scripts/audit_content_sync.mjs --repo <repo-path> --format json --strict`
-- `node skills/portfolio-content-sync/scripts/audit_translation_sync.mjs --repo <repo-path> --format json --strict`
-- `node skills/portfolio-quality-gate/scripts/run_all.mjs --repo <repo-path> --format json --strict`
+- `node .claude/skills/portfolio-content-sync/scripts/audit_content_sync.mjs --repo <repo-path> --format json --strict`
+- `node .claude/skills/portfolio-content-sync/scripts/audit_translation_sync.mjs --repo <repo-path> --format json --strict`
+- `node .claude/skills/portfolio-quality-gate/scripts/run_all.mjs --repo <repo-path> --format json --strict`
 
 ## Completion Criteria
 

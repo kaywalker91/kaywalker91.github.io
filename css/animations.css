@@ -63,11 +63,6 @@
   width: 100%;
 }
 
-/* Timeline marker - static (no pulse) */
-.timeline__marker {
-  animation: none;
-}
-
 @keyframes pulse {
   0% {
     box-shadow: 0 0 0 0 rgba(5, 83, 177, 0.4);
@@ -104,6 +99,18 @@
 }
 
 /* Reduce motion for accessibility */
+/* Hero tech badge fade-in */
+@keyframes badgeFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -116,6 +123,11 @@
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .hero__tech-badge {
+    opacity: 1;
+    animation: none;
   }
 
   html {
@@ -227,11 +239,6 @@
   box-shadow: var(--shadow-lg);
 }
 
-/* Timeline marker dark mode - static (no pulse) */
-[data-theme="dark"] .timeline__marker {
-  animation: none;
-}
-
 @keyframes pulse-dark {
   0% {
     box-shadow: 0 0 0 0 rgba(0, 217, 255, 0.4);
@@ -318,40 +325,6 @@
   25% { transform: translateY(-4px); }
   50% { transform: translateY(0); }
   75% { transform: translateY(-2px); }
-}
-
-/* ================================
-   Featured Project Glow Animation
-   ================================ */
-.project-card--featured::before {
-  animation: none;
-  opacity: 1;
-}
-
-@keyframes featuredGlow {
-  0%, 100% {
-    opacity: 0.7;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-/* Featured badge shimmer */
-.project-card--featured .project-card__badges::before {
-  background: linear-gradient(
-    90deg,
-    var(--color-primary) 0%,
-    var(--color-accent) 50%,
-    var(--color-primary) 100%
-  );
-  background-size: 200% 100%;
-  animation: badgeShimmer 2s ease infinite;
-}
-
-@keyframes badgeShimmer {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
 }
 
 /* ================================

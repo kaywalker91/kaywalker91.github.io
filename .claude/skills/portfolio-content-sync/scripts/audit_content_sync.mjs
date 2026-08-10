@@ -87,7 +87,9 @@ function extractProjectDataKeys(mainSource) {
     return null;
   }
 
-  const end = mainSource.indexOf("\nfunction setupProjectModal", start);
+  // End at the literal's own closing brace rather than at whatever function
+  // happens to follow it — that anchor broke when the modal became an accordion.
+  const end = mainSource.indexOf("\n};", start);
   if (end === -1) {
     return null;
   }

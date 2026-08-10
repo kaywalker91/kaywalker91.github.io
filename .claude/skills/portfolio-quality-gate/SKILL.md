@@ -9,7 +9,7 @@ Use this skill to run deterministic static checks before finalizing portfolio ch
 
 ## Run Sequence
 
-1. Run `node skills/portfolio-quality-gate/scripts/run_all.mjs --repo <repo-path> --format json --strict`.
+1. Run `node .claude/skills/portfolio-quality-gate/scripts/run_all.mjs --repo <repo-path> --format json --strict`.
 2. Inspect `errors` first and fix all blocking issues.
 3. Review `warnings` and decide whether cleanup is required now or can be deferred.
 4. Re-run until `ok: true`.
@@ -17,9 +17,9 @@ Use this skill to run deterministic static checks before finalizing portfolio ch
 
 ## Single-Check Commands
 
-- i18n check: `node skills/portfolio-quality-gate/scripts/check_i18n.mjs --repo <repo-path> --format json --strict`
-- SEO and sitemap check: `node skills/portfolio-quality-gate/scripts/check_seo_and_sitemap.mjs --repo <repo-path> --format json --strict`
-- UI contract check: `node skills/portfolio-quality-gate/scripts/check_ui_contracts.mjs --repo <repo-path> --format json --strict`
+- i18n check: `node .claude/skills/portfolio-quality-gate/scripts/check_i18n.mjs --repo <repo-path> --format json --strict`
+- SEO and sitemap check: `node .claude/skills/portfolio-quality-gate/scripts/check_seo_and_sitemap.mjs --repo <repo-path> --format json --strict`
+- UI contract check: `node .claude/skills/portfolio-quality-gate/scripts/check_ui_contracts.mjs --repo <repo-path> --format json --strict`
 
 ## Output Contract
 
