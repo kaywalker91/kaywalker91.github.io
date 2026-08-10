@@ -343,7 +343,24 @@ const projectData = {
       '어드민 Design System 토큰·공용 컴포넌트 15종+ 구축 후 다수 도메인 100% 적용'
     ],
     tech: ['Flutter Web', 'Dart', 'CanvasKit / WebGL', 'GetX', 'Firebase', 'Web Lock API'],
-    links: {}
+    links: {},
+    en: {
+      features: [
+        'RenderResult sealed class with four cases — completed, heap threshold, cancelled, engine death — so exhaustive matching turns an unhandled outcome into a compile error',
+        'Three-pass sticker preload — semaphore-limited parallelism → Storage token refresh → raw byte download with SVG rasterisation and PNG signature checks',
+        'CanvasKit texture ceiling handled up front — pixelRatio derived from the PNG IHDR dimensions, with an HTML Canvas downsampling fallback',
+        'Web Lock API multi-tab serialisation plus a recoverable local queue — rendering resumes after a tab switch, a reload or an auth delay'
+      ],
+      achievements: [
+        'Rebuilt the bulk print-image rendering pipeline end to end — permanent-failure paths eliminated',
+        'Image capture cut by 98% (minutes → seconds); PDF download more than 20× faster',
+        'Combined JS+WASM heap monitoring and adaptive GC cut peak memory by 30% and raised reload-free throughput more than tenfold',
+        'Unattended night rendering removed the recurring manual render work',
+        'Built admin design tokens and 15+ shared components, then rolled them out across the back-office domains'
+      ],
+      challenge: 'Rendering high-resolution print images in bulk inside a browser stacked four failure modes at once: the CanvasKit texture ceiling, exhaustion of the separate JS and WASM heaps, unreliable image sources, and duplicate execution across tabs — some orders failed permanently and tabs died outright.',
+      solution: 'Render outcomes were pinned to a sealed result type, and the runtime was brought under control with layered image fallbacks and dynamic resolution guards. A distributed lock and scheduler serialised unattended runs, while session → order → image observability logs made failures reproducible, lifting success rate and processing time together.'
+    }
   },
   mindlog: {
     title: 'MindLog',
@@ -368,6 +385,25 @@ const projectData = {
     links: {
       github: 'https://github.com/kaywalker91/MindLog',
       demo: 'https://kaywalker91.github.io/MindLog/'
+    },
+    en: {
+      features: [
+        'Llama 3.3 five-level emotion analysis with a crisis-detection safety filter',
+        'Clean Architecture + Riverpod — layer separation is what made 1,400+ tests practical',
+        'Two separate FCM channels (CheerMe / MindCare) feeding 48 CBT messages across 8 categories',
+        'Data-only FCM payloads plus a 3-layer defence, ending duplicate and empty notifications',
+        'Image cacheWidth tuning (display size × 3 DPR) and a 30s HTTP timeout'
+      ],
+      achievements: [
+        '1,400+ test cases, written TDD-first',
+        'Live on Google Play as v1.4.40',
+        'A pool of 48 CBT messages across 8 categories',
+        'Before → after: no HTTP timeout → 30s graceful fallback',
+        'Before → after: full-size image loads → cacheWidth applied',
+        'ProviderObserver monitoring with zero production overhead'
+      ],
+      challenge: 'A background isolate produced duplicate and empty FCM notifications: Android was rendering the notification payload itself, bypassing the client handler entirely.',
+      solution: 'Switching to data-only payloads stopped the OS from displaying anything directly; a fixed notification ID overwrote duplicates, and a 3-layer defence (buildPersonalizedMessage → handler fallback → showNotification guard) closed the remaining gaps.'
     }
   },
   cryptowallet: {
@@ -385,6 +421,17 @@ const projectData = {
     links: {
       github: 'https://github.com/kaywalker91/Crypto-Wallet-Pro',
       demo: 'https://kaywalker91.github.io/Crypto-Wallet-Pro/'
+    },
+    en: {
+      features: [
+        'Full WalletConnect v2 protocol integration',
+        'Support for 8 wallets including MetaMask and Trust Wallet',
+        'Chain identifiers built on the CAIP-2 standard',
+        'Ed25519 signing and X25519 key exchange'
+      ],
+      achievements: ['10+ chains supported', 'TweetNaCl encryption implemented from scratch'],
+      challenge: 'WebSocket connections dropped whenever Android backgrounded the app',
+      solution: 'Exponential backoff paired with an optimistic session check'
     }
   },
   cryptonative: {
@@ -409,7 +456,28 @@ const projectData = {
       'JWT Lock + 7가지 예외 타입 설계'
     ],
     tech: ['Flutter', 'Clean Architecture', 'Riverpod 3.x', 'WalletConnect v2', 'DeFi', 'fl_chart'],
-    links: {}
+    links: {},
+    en: {
+      features: [
+        'Owned the mobile architecture and its implementation within a team of five',
+        'Micro-feature architecture split by module — Clean Architecture is what let the team build in parallel',
+        '86 Riverpod providers, minimised rebuilds via .select()',
+        'WalletConnect v2 integrated through a four-layer adapter architecture',
+        'Four-stage wallet connection driven by a state machine (WalletConnect v2)',
+        'Race-condition defence built as a four-layer sign guard',
+        '27 screens designed on Material 3 dark theme'
+      ],
+      achievements: [
+        'State-machine state management cut wallet connection failures by roughly 90%',
+        '50,000+ LOC, 86 providers',
+        '299 test cases (33.47% coverage)',
+        'Built the automated test pipeline that kept post-release critical bugs to a minimum',
+        '10 chains supported (EVM + Solana)',
+        'JWT lock with 7 distinct exception types'
+      ],
+      challenge: 'WalletConnect v2 connection state was complex to manage, and a deep-link cold start dropped the wallet connection request outright.',
+      solution: 'A state machine separated the four wallet interfaces along ISP lines, and a cold-start queueing mechanism preserved requests raised before the app finished initialising.'
+    }
   },
   safekorea: {
     title: '안전디딤돌',
@@ -430,7 +498,25 @@ const projectData = {
       '접근성 준수율 95% 달성 (공공기관 수준)'
     ],
     tech: ['Flutter', 'FCM', 'Google Translate API V3', 'Hive', 'Platform Channel'],
-    links: {}
+    links: {},
+    en: {
+      features: [
+        'Led the Flutter migration end to end (legacy Android/iOS → 100% Flutter)',
+        'LocationBasedFCMManager — location-aware disaster alerts in real time',
+        'Real-time translation across 19 languages (Google Translate API V3)',
+        'RegionStabilityChecker, a GPS drift-correction algorithm',
+        'Full TalkBack/VoiceOver compatibility, at public-sector accessibility standards'
+      ],
+      achievements: [
+        'Legacy → Flutter migration completed at 100%',
+        'Maintenance cost reduced by 50%',
+        'Riverpod architecture cut bugs by 30% and raised development speed by 20%',
+        'Real-time translation across 19 languages',
+        '95% accessibility compliance, at public-sector standards'
+      ],
+      challenge: 'A complete migration off legacy native Android and iOS code, against unreliable GPS accuracy',
+      solution: 'Platform channels drove the native capabilities directly, and the RegionStabilityChecker algorithm corrected GPS drift'
+    }
   },
   dwinsta: {
     title: 'Android DW Insta',
@@ -454,6 +540,24 @@ const projectData = {
     links: {
       github: 'https://github.com/kaywalker91/Android_DW_Insta',
       demo: 'https://kaywalker91.github.io/Android_DW_Insta/'
+    },
+    en: {
+      features: [
+        'Dual image pipeline: Glide 4.13.0 for ordinary caching, Picasso 2.8 for the heavier work',
+        'Social sign-in via Google Sign-In and Firebase Auth',
+        'Real-time one-to-one DM messaging on Firebase Realtime DB',
+        'Android N+ secure file sharing through FileProvider',
+        'FCM push for likes, comments, follows and DMs'
+      ],
+      achievements: [
+        'Designed a modular architecture of 7 activities and 4 fragments',
+        'Improved memory efficiency with a Glide + Picasso dual-caching strategy',
+        'Integrated social auth across Google Sign-In and Firebase Auth',
+        'Met the Android N+ file-sharing security policy via FileProvider',
+        'Built a consistent UI/UX on Material Design components'
+      ],
+      challenge: 'Structuring a non-trivial social app (7 activities + 4 fragments) and optimising image loading, while complying with the Android N+ file-sharing security policy.',
+      solution: 'A serverless Firebase Realtime DB architecture with Glide/Picasso dual caching kept memory in check, FileProvider satisfied the security policy, and Material Design held the UX consistent.'
     }
   },
   timewalker: {
@@ -475,6 +579,21 @@ const projectData = {
     links: {
       github: 'https://github.com/kaywalker91/TimeWalker',
       demo: 'https://kaywalker91.github.io/TimeWalker/'
+    },
+    en: {
+      features: [
+        'Interactive world map built on the Flame engine',
+        'Branching dialogue with historical figures',
+        'Learning loop driven by an encyclopedia and quizzes',
+        'Supabase cloud sync'
+      ],
+      achievements: [
+        'Learned and applied the Flame engine',
+        'Worked through a game development pipeline',
+        'Designed gamification for an educational context'
+      ],
+      challenge: 'Integrating the Flame game engine with Flutter UI without the seam showing',
+      solution: 'A game-UI bridge pattern kept game state and Flutter state in sync'
     }
   },
   pointtour: {
@@ -496,7 +615,26 @@ const projectData = {
       'Firebase Dynamic Links 바이럴 마케팅',
       'SiliCompressor 영상 압축 최적화'
     ],
-    tech: ['Android', 'Java', 'RxJava 2', 'Firebase', 'Google Maps', '네이버지도', 'FCM', 'Glide']
+    tech: ['Android', 'Java', 'RxJava 2', 'Firebase', 'Google Maps', '네이버지도', 'FCM', 'Glide'],
+    en: {
+      features: [
+        'Location-based point accrual system',
+        'Viral marketing flow on Firebase Dynamic Links',
+        'Deep-link routing via FCM and moveCode',
+        'Video compression pipeline using SiliCompressor',
+        'Google Maps location search, plus Naver Map for cycling directions'
+      ],
+      achievements: [
+        'Downloads up 400% (1,000 → 5,000)',
+        'Moving from AsyncTask to RxJava 2 cut the crash rate by 80–90%',
+        'Powered the Daejeon "Zero O\'Clock Festival"',
+        'Built and ran the event system for the Daejeon Tourism Organisation\'s Kkumdori cycling campaign',
+        'Viral marketing on Firebase Dynamic Links',
+        'Video compression tuned with SiliCompressor'
+      ],
+      challenge: 'The legacy AsyncTask pattern blocked the main thread and leaked memory; large events overloaded the server and crashed the app.',
+      solution: 'A full refactor onto RxJava 2 moved network work off the main thread with Schedulers.io(), and Firebase Dynamic Links carried the viral marketing flow.'
+    }
   }
 };
 
@@ -512,18 +650,7 @@ function setupProjectAccordion() {
   const cards = document.querySelectorAll('.project-card[data-project]');
   if (cards.length === 0) return;
 
-  cards.forEach(card => {
-    const mount = card.querySelector('[data-project-panel]');
-    const project = projectData[card.dataset.project];
-    if (mount && project) {
-      mount.innerHTML = renderProjectPanel(project);
-    }
-  });
-
-  // The panels were just injected carrying data-i18n headings of their own.
-  if (typeof i18n !== 'undefined' && typeof i18n.updateContent === 'function') {
-    i18n.updateContent();
-  }
+  renderAllProjectPanels();
 
   document.querySelectorAll('.project-card__toggle').forEach(toggle => {
     toggle.addEventListener('click', () => {
@@ -532,13 +659,26 @@ function setupProjectAccordion() {
   });
 
   // A pinned max-height goes stale whenever the content reflows underneath it —
-  // switching language rewrites the headings, and EN runs longer than KO, so an
-  // open panel clips. Re-measure whatever is currently open.
+  // switching language swaps the whole panel body, and EN runs longer than KO,
+  // so an open panel clips. Re-render, then re-measure whatever is open.
   let resizeTimer;
-  document.addEventListener('languagechange:applied', resyncOpenProjectPanels);
+  document.addEventListener('languagechange:applied', () => {
+    renderAllProjectPanels();
+    resyncOpenProjectPanels();
+  });
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(resyncOpenProjectPanels, 150);
+  });
+}
+
+function renderAllProjectPanels() {
+  document.querySelectorAll('.project-card[data-project]').forEach(card => {
+    const mount = card.querySelector('[data-project-panel]');
+    const project = projectData[card.dataset.project];
+    if (mount && project) {
+      mount.innerHTML = renderProjectPanel(project);
+    }
   });
 }
 
@@ -568,20 +708,36 @@ function closeAllProjectPanels() {
   });
 }
 
+// The panel body lives in projectData, not in translations.js, so
+// i18n.updateContent() cannot reach it — it only rewrites nodes carrying
+// data-i18n. Each entry keeps an `en` overlay of the prose fields instead;
+// title, tech and links are language-neutral and stay shared.
+function localizedProject(project) {
+  const isEnglish = typeof i18n !== 'undefined' && i18n.currentLang === 'en';
+  return isEnglish && project.en ? { ...project, ...project.en } : project;
+}
+
+// Labels are resolved here rather than left to updateContent(), so re-rendering
+// on a language switch does not have to call it back and re-fire the event.
+function panelLabel(key, fallback) {
+  return typeof i18n !== 'undefined' && typeof i18n.t === 'function' ? i18n.t(key) : fallback;
+}
+
 // Two columns: what changed (results) beside how it was built (implementation).
 // Separating the two is what a reader is actually scanning for; the deep-dive
 // narrative stays full width underneath.
 function renderProjectPanel(project) {
+  const copy = localizedProject(project);
   const bullets = (items) => (items || []).map(item => `<li>${item}</li>`).join('');
 
   const narrativeParts = [];
-  if (project.challenge) {
-    narrativeParts.push(`<h4 class="project-panel__label" data-i18n="projects.panel.challenge">도전 과제</h4>
-      <p class="project-panel__text">${project.challenge}</p>`);
+  if (copy.challenge) {
+    narrativeParts.push(`<h4 class="project-panel__label" data-i18n="projects.panel.challenge">${panelLabel('projects.panel.challenge', '도전 과제')}</h4>
+      <p class="project-panel__text">${copy.challenge}</p>`);
   }
-  if (project.solution) {
-    narrativeParts.push(`<h4 class="project-panel__label" data-i18n="projects.panel.solution">해결 방법</h4>
-      <p class="project-panel__text">${project.solution}</p>`);
+  if (copy.solution) {
+    narrativeParts.push(`<h4 class="project-panel__label" data-i18n="projects.panel.solution">${panelLabel('projects.panel.solution', '해결 방법')}</h4>
+      <p class="project-panel__text">${copy.solution}</p>`);
   }
 
   const links = [];
@@ -596,12 +752,12 @@ function renderProjectPanel(project) {
   return `
     <div class="project-panel">
       <div class="project-panel__col">
-        <h4 class="project-panel__label" data-i18n="projects.panel.results">핵심 성과</h4>
-        <ul class="project-panel__list">${bullets(project.achievements)}</ul>
+        <h4 class="project-panel__label" data-i18n="projects.panel.results">${panelLabel('projects.panel.results', '핵심 성과')}</h4>
+        <ul class="project-panel__list">${bullets(copy.achievements)}</ul>
       </div>
       <div class="project-panel__col">
-        <h4 class="project-panel__label" data-i18n="projects.panel.implementation">구현 상세</h4>
-        <ul class="project-panel__list">${bullets(project.features)}</ul>
+        <h4 class="project-panel__label" data-i18n="projects.panel.implementation">${panelLabel('projects.panel.implementation', '구현 상세')}</h4>
+        <ul class="project-panel__list">${bullets(copy.features)}</ul>
         <ul class="project-panel__tech">${(project.tech || []).map(t => `<li class="tech-chip">${t}</li>`).join('')}</ul>
       </div>
     </div>
