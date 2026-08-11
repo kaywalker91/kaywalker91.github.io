@@ -51,11 +51,11 @@
        HTML while still running the previous CSS/JS from cache — which silently
        breaks any change that spans markup and script together. Bump every ?v=
        below (same value) whenever css/ or js/ ships. -->
-  <link rel="stylesheet" href="css/reset.css?v=20260805b">
-  <link rel="stylesheet" href="css/variables.css?v=20260805b">
-  <link rel="stylesheet" href="css/layout.css?v=20260805b">
-  <link rel="stylesheet" href="css/components.css?v=20260805b">
-  <link rel="stylesheet" href="css/animations.css?v=20260805b">
+  <link rel="stylesheet" href="css/reset.css?v=20260810b">
+  <link rel="stylesheet" href="css/variables.css?v=20260810b">
+  <link rel="stylesheet" href="css/layout.css?v=20260810b">
+  <link rel="stylesheet" href="css/components.css?v=20260810b">
+  <link rel="stylesheet" href="css/animations.css?v=20260810b">
 
   <title>김대각 - 4년차 Flutter 모바일 앱 개발자</title>
 
@@ -370,7 +370,7 @@
           <!-- LOC -->
           <div
             class="impact-stat group">
-            <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="85">
+            <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="98">
               <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
                 <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
                 <circle class="impact-stat__chart-fill fill-none stroke-[4] transition-all duration-[1500ms] ease-out"
@@ -379,19 +379,20 @@
               </svg>
               <div class="impact-stat__chart-icon absolute inset-0 flex items-center justify-center text-primary">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-                  <path d="M16 18l2-2-2-2M8 18l-2-2 2-2M12 10v8" />
+                  <circle cx="12" cy="14" r="7" />
+                  <path d="M12 11v3l2 2M9.5 3h5" />
                 </svg>
               </div>
             </div>
             <div class="impact-stat__number-wrap flex items-baseline justify-center">
               <span class="impact-stat__number text-3xl font-bold font-mono text-primary leading-none"
-                data-count="50000">0</span>
-              <span class="impact-stat__suffix text-xl font-bold text-primary ml-0.5">+</span>
+                data-count="98">0</span>
+              <span class="impact-stat__suffix text-xl font-bold text-primary ml-0.5">%</span>
             </div>
-            <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2" data-i18n="impact.loc">Lines
-              of Code</span>
-            <span class="impact-stat__context text-xs text-text-muted mt-1" data-i18n="impact.locContext">멀티체인 크립토 지갑 &
-              소셜 트레이딩 플랫폼</span>
+            <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2"
+              data-i18n="impact.capture">이미지 캡처 단축</span>
+            <span class="impact-stat__context text-xs text-text-muted mt-1" data-i18n="impact.captureContext">분 단위 → 수
+              초 · PLLI Lab</span>
           </div>
 
           <!-- Test Cases -->
@@ -614,7 +615,7 @@
             <div class="skill-chips">
               <button type="button" class="skill-chip" data-skill="claude-code">Claude Code / Antigravity</button>
               <button type="button" class="skill-chip" data-skill="llama">Llama 3.3</button>
-              <button type="button" class="skill-chip" data-skill="local-first">Local-First Pattern</button>
+              <button type="button" class="skill-chip" data-skill="multi-agent-review">Multi-Agent Review</button>
             </div>
           </div>
 
@@ -690,12 +691,13 @@
                   class="experience-timeline__company-latin">Rowoon Company Corp.</span></h3>
               <p class="experience-timeline__meta" data-i18n="experience.rowoon.role">개발팀 · 팀원 · 앱개발</p>
               <p class="experience-timeline__summary" data-i18n="experience.rowoon.summary">POD 굿즈 플랫폼 PLLI Lab의
-                앱·백오피스 고도화. Flutter Web(CanvasKit) 기반 인쇄 이미지 대량 렌더링 파이프라인을 신규 설계하고, 브라우저 런타임 안정성과 운영 자동화 체계를
-                구축했습니다.</p>
+                앱·백오피스를 풀스택 1인으로 전담했습니다. Flutter Web(CanvasKit) 인쇄 이미지 대량 렌더링 파이프라인을 전면 재설계해 분 단위였던 장당 캡처를 수 초대로
+                줄이고, 메모리 임계 상황에서도 복구되는 처리 구조를 만들었습니다. 무인 스케줄·멀티탭 직렬화·3단 관측 로깅으로 운영을 자동화하고, 어드민 Design System을 다수
+                도메인에 단일화했습니다.</p>
               <ul class="experience-timeline__tech">
                 <li class="tech-chip">Flutter Web</li>
                 <li class="tech-chip">CanvasKit</li>
-                <li class="tech-chip">GetX</li>
+                <li class="tech-chip">Web Lock API</li>
                 <li class="tech-chip">Firebase</li>
               </ul>
             </div>
@@ -718,7 +720,7 @@
                   class="experience-timeline__company-latin">FORLONG Co., Ltd.</span></h3>
               <p class="experience-timeline__meta" data-i18n="experience.forlong.role">개발팀 · 팀원 · 앱개발</p>
               <p class="experience-timeline__summary" data-i18n="experience.forlong.summary">멀티체인 크립토 지갑 & 소셜 트레이딩
-                플랫폼 MVP 개발. 15개 Feature 모듈을 Clean Architecture로 설계하고 테스트 자동화 파이프라인을 구축했습니다.</p>
+                플랫폼 MVP 개발. Feature 모듈을 Clean Architecture로 설계하고 테스트 자동화 파이프라인을 구축했습니다.</p>
               <ul class="experience-timeline__tech">
                 <li class="tech-chip">Riverpod 3.x</li>
                 <li class="tech-chip">WalletConnect v2</li>
@@ -1430,12 +1432,12 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/theme.js?v=20260805b"></script>
-  <script src="js/translations.js?v=20260805b"></script>
-  <script src="js/i18n.js?v=20260805b"></script>
-  <script src="js/counter.js?v=20260805b"></script>
-  <script src="js/navigation.js?v=20260805b"></script>
-  <script src="js/main.js?v=20260805b"></script>
+  <script src="js/theme.js?v=20260810b"></script>
+  <script src="js/translations.js?v=20260810b"></script>
+  <script src="js/i18n.js?v=20260810b"></script>
+  <script src="js/counter.js?v=20260810b"></script>
+  <script src="js/navigation.js?v=20260810b"></script>
+  <script src="js/main.js?v=20260810b"></script>
 </body>
 
 </html>
