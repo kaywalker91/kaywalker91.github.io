@@ -112,7 +112,12 @@ const CounterAnimation = (() => {
       rootMargin: opts.rootMargin
     });
 
-    elements.forEach(el => observer.observe(el));
+    // Markup ships the final value so no-JS readers see it; reset to 0 here
+    // (still off-screen) so the count-up never jumps backwards in view.
+    elements.forEach(el => {
+      if (!isNaN(parseFloat(el.dataset.count))) el.textContent = '0';
+      observer.observe(el);
+    });
   }
 
   return { observe };

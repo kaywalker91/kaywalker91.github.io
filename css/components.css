@@ -1881,6 +1881,23 @@
   background-color: var(--color-surface-elevated);
 }
 
+.impact-stat__icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+}
+
+.impact-stat__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
 .impact-stat--highlight {
   background: linear-gradient(135deg,
     rgba(5, 83, 177, 0.05) 0%,

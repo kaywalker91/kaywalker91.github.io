@@ -306,128 +306,77 @@
           <h2 class="section-heading" data-i18n="impact.title">성과 하이라이트</h2>
           <span class="section-header__label" aria-hidden="true">IMPACT</span>
         </div>
-        <p class="section-subheading reveal" data-i18n="impact.subtitle">숫자로 증명하는 개발 역량</p>
-
-        <!-- SVG Gradient Definition. Kept outside .hairline-grid: only .sr-only's
-             absolute positioning stops it counting as a grid cell. -->
-        <svg class="sr-only" aria-hidden="true">
-          <defs>
-            <linearGradient id="chartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="var(--color-primary)" />
-              <stop offset="100%" stop-color="var(--color-accent)" />
-            </linearGradient>
-          </defs>
-        </svg>
+        <p class="section-subheading reveal" data-i18n="impact.subtitle">날짜·대상이 확인된 기록만 담았습니다</p>
 
         <div class="hairline-grid hairline-grid--4 reveal">
-          <!-- LOC -->
-          <div
-            class="impact-stat group">
-            <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="98">
-              <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
-                <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
-                <circle class="impact-stat__chart-fill fill-none stroke-[4] transition-all duration-[1500ms] ease-out"
-                  cx="30" cy="30" r="25"
-                  style="stroke: url(#chartGradient); stroke-dasharray: 157; stroke-dashoffset: 157; stroke-linecap: round;" />
+          <!-- Accessibility certification -->
+          <div class="impact-stat group">
+            <div class="impact-stat__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4M12 2a10 10 0 100 20 10 10 0 000-20z" />
               </svg>
-              <div class="impact-stat__chart-icon absolute inset-0 flex items-center justify-center text-primary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-                  <circle cx="12" cy="14" r="7" />
-                  <path d="M12 11v3l2 2M9.5 3h5" />
-                </svg>
-              </div>
             </div>
             <div class="impact-stat__number-wrap flex items-baseline justify-center">
               <span class="impact-stat__number text-3xl font-bold font-mono text-primary leading-none"
-                data-count="98">0</span>
+                data-count="95">95</span>
               <span class="impact-stat__suffix text-xl font-bold text-primary ml-0.5">%</span>
             </div>
             <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2"
-              data-i18n="impact.capture">이미지 캡처 단축</span>
-            <span class="impact-stat__context text-xs text-text-muted mt-1" data-i18n="impact.captureContext">분 단위 → 수
-              초 · PLLI Lab</span>
+              data-i18n="impact.a11y">접근성 심사 통과</span>
+            <span class="impact-stat__context text-xs text-text-muted mt-1"
+              data-i18n="impact.a11yContext">재난안전 앱 · 준수율</span>
           </div>
 
-          <!-- Test Cases -->
-          <div
-            class="impact-stat group">
-            <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="90">
-              <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
-                <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
-                <circle class="impact-stat__chart-fill fill-none stroke-[4] transition-all duration-[1500ms] ease-out"
-                  cx="30" cy="30" r="25"
-                  style="stroke: url(#chartGradient); stroke-dasharray: 157; stroke-dashoffset: 157; stroke-linecap: round;" />
+          <!-- Passing tests on record -->
+          <div class="impact-stat group">
+            <div class="impact-stat__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4M12 2a10 10 0 100 20 10 10 0 000-20z" />
               </svg>
-              <div class="impact-stat__chart-icon absolute inset-0 flex items-center justify-center text-primary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-                  <path d="M9 12l2 2 4-4M12 2a10 10 0 100 20 10 10 0 000-20z" />
-                </svg>
-              </div>
             </div>
             <div class="impact-stat__number-wrap flex items-baseline justify-center">
               <span class="impact-stat__number text-3xl font-bold font-mono text-primary leading-none"
-                data-count="1400">0</span>
-              <span class="impact-stat__suffix text-xl font-bold text-primary ml-0.5">+</span>
-            </div>
-            <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2" data-i18n="impact.tests">Test
-              Cases</span>
-            <span class="impact-stat__context text-xs text-text-muted mt-1" data-i18n="impact.testsContext">MindLog
-              1,400</span>
-          </div>
-
-          <!-- Download Increase (Highlight) -->
-          <div
-            class="impact-stat group">
-            <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="100">
-              <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
-                <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
-                <circle class="impact-stat__chart-fill fill-none stroke-[4] transition-all duration-[1500ms] ease-out"
-                  cx="30" cy="30" r="25"
-                  style="stroke: url(#chartGradient); stroke-dasharray: 157; stroke-dashoffset: 157; stroke-linecap: round;" />
-              </svg>
-              <div class="impact-stat__chart-icon absolute inset-0 flex items-center justify-center text-primary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-                  <path d="M3 17l6-6 4 4 8-8M14 4h6v6" />
-                </svg>
-              </div>
-            </div>
-            <div class="impact-stat__number-wrap flex items-baseline justify-center">
-              <span class="impact-stat__number text-3xl font-bold font-mono text-primary leading-none"
-                data-count="400">0</span>
-              <span class="impact-stat__suffix text-xl font-bold text-primary ml-0.5">%</span>
+                data-count="1814">1,814</span>
             </div>
             <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2"
-              data-i18n="impact.downloads">다운로드 증가</span>
-            <span class="impact-stat__context text-xs text-text-muted mt-1" data-i18n="impact.downloadsContext">1,000 →
-              5,000회</span>
+              data-i18n="impact.tests">테스트 통과 기록</span>
+            <span class="impact-stat__context text-xs text-text-muted mt-1"
+              data-i18n="impact.testsContext">MindLog · 2026-08</span>
           </div>
 
-          <!-- Cost Reduction (Highlight) -->
-          <div
-            class="impact-stat group">
-            <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="50">
-              <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
-                <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
-                <circle class="impact-stat__chart-fill fill-none stroke-[4] transition-all duration-[1500ms] ease-out"
-                  cx="30" cy="30" r="25"
-                  style="stroke: url(#chartGradient); stroke-dasharray: 157; stroke-dashoffset: 157; stroke-linecap: round;" />
+          <!-- Festival app check-ins (company record) -->
+          <div class="impact-stat group">
+            <div class="impact-stat__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 17l6-6 4 4 8-8M14 4h6v6" />
               </svg>
-              <div class="impact-stat__chart-icon absolute inset-0 flex items-center justify-center text-primary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 6v12M9 9h6M9 15h6" />
-                </svg>
-              </div>
             </div>
             <div class="impact-stat__number-wrap flex items-baseline justify-center">
               <span class="impact-stat__number text-3xl font-bold font-mono text-primary leading-none"
-                data-count="50">0</span>
-              <span class="impact-stat__suffix text-xl font-bold text-primary ml-0.5">%</span>
+                data-count="12384">12,384</span>
             </div>
-            <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2" data-i18n="impact.cost">비용
-              절감</span>
-            <span class="impact-stat__context text-xs text-text-muted mt-1" data-i18n="impact.costContext">유지보수
-              효율화</span>
+            <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2"
+              data-i18n="impact.festival">축제 앱 방문 기록</span>
+            <span class="impact-stat__context text-xs text-text-muted mt-1"
+              data-i18n="impact.festivalContext">0시 축제 7일 · 회사 운영 기록</span>
+          </div>
+
+          <!-- Supported languages (current app build, not the in-tenure version) -->
+          <div class="impact-stat group">
+            <div class="impact-stat__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20" />
+              </svg>
+            </div>
+            <div class="impact-stat__number-wrap flex items-baseline justify-center">
+              <span class="impact-stat__number text-3xl font-bold font-mono text-primary leading-none"
+                data-count="20">20</span>
+            </div>
+            <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2"
+              data-i18n="impact.languages">앱 지원 언어</span>
+            <span class="impact-stat__context text-xs text-text-muted mt-1"
+              data-i18n="impact.languagesContext">이머전시레디 현재 버전</span>
           </div>
 
         </div>

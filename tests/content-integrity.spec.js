@@ -50,8 +50,7 @@ test.describe('Content integrity against the career DB', () => {
   });
 
   test('page copy outside project panels carries no unconfirmed figures', async ({ page }) => {
-    // Impact section is rebuilt in Task 3, which flips includeImpact to true.
-    const copy = await collectCopy(page, { includeProjectData: false, includeImpact: false });
+    const copy = await collectCopy(page, { includeProjectData: false });
     const found = BANNED.filter(phrase => copy.includes(phrase));
     expect(found).toEqual([]);
   });
@@ -62,6 +61,25 @@ test.describe('Content integrity against the career DB', () => {
     expect(copy).toContain('3개월');
     expect(copy).toContain('접근성 심사');
     expect(copy).toContain('앱 & 웹 프론트엔드');
+  });
+
+  test('impact counters count up from 0 and settle on the real value', async ({ page }) => {
+    // Off-screen at load, so the counter resets to 0 instead of jumping from
+    // the final value back to 0 in view.
+    const before = await page.locator('.impact-stat__number').first().textContent();
+    expect(before).toBe('0');
+    await page.locator('#impact').scrollIntoViewIfNeeded();
+    await expect(page.locator('.impact-stat__number').first()).toHaveText('95', { timeout: 5000 });
+  });
+
+  test('impact stats: no decorative rings, real values in raw HTML', async ({ page, request }) => {
+    expect(await page.locator('.impact-stat__chart-svg').count()).toBe(0);
+    const html = await (await request.get('/')).text();
+    // Without JS (or before the counter runs) the figure must read correctly.
+    expect(html).toContain('data-count="95">95</span>');
+    expect(html).toContain('data-count="1814">1,814</span>');
+    expect(html).toContain('data-count="12384">12,384</span>');
+    await expect(page.locator('.impact-stat')).toHaveCount(4);
   });
 });
 
