@@ -81,6 +81,22 @@ test.describe('Content integrity against the career DB', () => {
     expect(html).toContain('data-count="12384">12,384</span>');
     await expect(page.locator('.impact-stat')).toHaveCount(4);
   });
+
+  test('project panels carry no unconfirmed figures in either language', async ({ page }) => {
+    const copy = await collectCopy(page, { includeProjectData: true });
+    const found = BANNED.filter(phrase => copy.includes(phrase));
+    expect(found).toEqual([]);
+  });
+
+  test('panels lead with role and the problem, MindLog links to Google Play', async ({ page }) => {
+    const order = await page.evaluate(() => {
+      const panel = document.querySelector('[data-project-panel="pllilab"]');
+      return [...panel.querySelectorAll('.project-panel__label')].map(l => l.dataset.i18n);
+    });
+    expect(order.slice(0, 3)).toEqual(['projects.panel.role', 'projects.panel.challenge', 'projects.panel.solution']);
+    await expect(page.locator('[data-project-panel="mindlog"] a[href="https://play.google.com/store/apps/details?id=com.mindlog.mindlog"]')).toHaveCount(1);
+    await expect(page.locator('.project-card[data-project="cryptonative"] .project-card__status')).toHaveText('Archive');
+  });
 });
 
 export { BANNED, collectCopy };

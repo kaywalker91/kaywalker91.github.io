@@ -334,13 +334,13 @@ const projectData = {
       'Web Lock API 멀티탭 직렬화 + 복구 가능한 로컬 큐 — 탭 전환·리로드·인증 지연 후에도 자동 렌더링 재개'
     ],
     challenge: '고해상도 인쇄 이미지를 브라우저에서 대량·연속 렌더링할 때 CanvasKit 텍스처 한계, 분리된 JS·WASM 힙 고갈, 불안정한 이미지 소스, 멀티탭 중복 실행이 겹쳐 일부 주문이 영구 실패하거나 탭이 종료됐습니다.',
-    solution: '렌더 종료 상태를 sealed result로 고정하고 다단계 이미지 폴백과 동적 해상도 방어로 런타임을 통제했습니다. 분산 락과 스케줄러로 무인 실행을 직렬화하고, 세션→주문→이미지 3단 관측 로그로 실패를 재현 가능하게 만들어 성공률과 처리 시간을 함께 끌어올렸습니다.',
+    role: '인계받은 렌더링 문제 해결을 AI와 함께 주도 · 주요 변경은 사전 승인 후 진행',
+    solution: '렌더 종료 상태를 sealed result로 고정하고 다단계 이미지 폴백과 동적 해상도 방어로 런타임을 통제했습니다. 분산 락과 스케줄러로 무인 실행을 직렬화하고, 세션→주문→이미지 3단 관측 로그로 실패를 재현할 수 있게 만들었습니다.',
     achievements: [
-      '인쇄 이미지 대량 렌더링 파이프라인 전면 재설계 — 영구 실패 경로 제거',
-      '이미지 캡처 98% 단축(분 단위 → 수 초), PDF 다운로드 20배 이상 향상',
-      'JS+WASM 합산 힙 모니터링·적응형 GC로 피크 메모리 30% 감소, 리로드 없는 연속 처리량 십수 배 확대',
-      '야간 무인 렌더링 자동화로 주간 수동 렌더링 작업 제거',
-      '어드민 Design System 토큰·공용 컴포넌트 15종+ 구축 후 다수 도메인 100% 적용'
+      '메모리 초과로 멈춘 작업이 자동으로 이어지는 재개 구조 — 04-08~09 중단 주문 재처리 기록',
+      '실제 주문의 누락 요소 복원 — 배경 스티커 참조·출력 영역(05-12), 짧은 텍스트 즉석 캡처 4/4(06-09)',
+      '자동 생성 6세션 900분 동안 379건 저장 기록',
+      '파일명으로 인쇄 자리를 식별해 PDF를 조합하는 Python CLI 도구 구축'
     ],
     tech: ['Flutter Web', 'Dart', 'CanvasKit / WebGL', 'GetX', 'Firebase', 'Web Lock API'],
     links: {},
@@ -351,56 +351,57 @@ const projectData = {
         'CanvasKit texture ceiling handled up front — pixelRatio derived from the PNG IHDR dimensions, with an HTML Canvas downsampling fallback',
         'Web Lock API multi-tab serialisation plus a recoverable local queue — rendering resumes after a tab switch, a reload or an auth delay'
       ],
+      role: 'Led the fix for the rendering problems I inherited, working with AI; significant changes approved in advance',
       achievements: [
-        'Rebuilt the bulk print-image rendering pipeline end to end — permanent-failure paths eliminated',
-        'Image capture cut by 98% (minutes → seconds); PDF download more than 20× faster',
-        'Combined JS+WASM heap monitoring and adaptive GC cut peak memory by 30% and raised reload-free throughput more than tenfold',
-        'Unattended night rendering removed the recurring manual render work',
-        'Built admin design tokens and 15+ shared components, then rolled them out across the back-office domains'
+        'Work halted by memory exhaustion now resumes on its own — stalled orders from Apr 8–9 reprocessed on record',
+        'Restored missing elements in real orders — background sticker references and print areas (May 12), short-text instant capture 4/4 (Jun 9)',
+        '379 files saved on record across 6 automated sessions totalling 900 minutes',
+        'Built a Python CLI that identifies print slots by filename and assembles the PDF'
       ],
       challenge: 'Rendering high-resolution print images in bulk inside a browser stacked four failure modes at once: the CanvasKit texture ceiling, exhaustion of the separate JS and WASM heaps, unreliable image sources, and duplicate execution across tabs — some orders failed permanently and tabs died outright.',
-      solution: 'Render outcomes were pinned to a sealed result type, and the runtime was brought under control with layered image fallbacks and dynamic resolution guards. A distributed lock and scheduler serialised unattended runs, while session → order → image observability logs made failures reproducible, lifting success rate and processing time together.'
+      solution: 'Render outcomes were pinned to a sealed result type, and the runtime was brought under control with layered image fallbacks and dynamic resolution guards. A distributed lock and scheduler serialised unattended runs, and session → order → image logs made failures reproducible.'
     }
   },
   mindlog: {
     title: 'MindLog',
+    role: '기획·설계·구현 담당 · Claude와 코드 공동 작성',
     features: [
       'Llama 3.3 AI 감정 5단계 분석 + 위기 감지 Safety Filter',
-      'Clean Architecture + Riverpod — 레이어 분리로 1,400+ 테스트 달성',
+      'Clean Architecture + Riverpod — 레이어 분리',
+      '제출 전 일기 임시저장·복원 — 화면 이탈 시 저장, 저장·삭제 순서 관리',
       'FCM 2채널 분리 (CheerMe/MindCare) + 48개 CBT 심리 메시지 (8개 카테고리)',
-      'Data-only FCM payload + 3-Layer Defense로 중복/빈 알림 근절',
-      'Image cacheWidth 최적화 (표시크기 ×3 DPR) + HTTP 30s timeout'
+      'Data-only FCM payload + 3-Layer Defense로 중복/빈 알림 근절'
     ],
     challenge: 'Background Isolate에서 FCM 알림 중복 표시 + 빈 알림 발생. Android OS가 notification payload를 직접 표시하여 클라이언트 핸들러 우회.',
     solution: 'Data-only payload 전환으로 OS 직접 표시 차단 + 고정 Notification ID 덮어쓰기 + 3-Layer Defense (buildPersonalizedMessage → handler fallback → showNotification guard)',
     achievements: [
-      '1,400+ 테스트 케이스 (TDD 기반 개발)',
-      'Google Play Store v1.4.40 운영 중',
+      'Google Play 출시 · 개발·유지보수 중',
+      '1,814개 테스트 통과 기록 (2026-08)',
       '48개 CBT 심리 메시지 풀 (8개 카테고리)',
       'Before→After: HTTP timeout 미설정 → 30s graceful fallback',
-      'Before→After: 이미지 원본 로드 → cacheWidth 적용 (메모리 최적화)',
-      'ProviderObserver 프로덕션 zero-overhead 모니터링'
+      'Before→After: 이미지 원본 로드 → cacheWidth 적용 (메모리 최적화)'
     ],
     tech: ['Flutter', 'Clean Architecture', 'Riverpod', 'Llama 3.3', 'SQLite', 'fl_chart', 'FCM'],
     links: {
       github: 'https://github.com/kaywalker91/MindLog',
+      play: 'https://play.google.com/store/apps/details?id=com.mindlog.mindlog',
       demo: 'https://kaywalker91.github.io/MindLog/'
     },
     en: {
+      role: 'Planned, designed and built it; code co-written with Claude',
       features: [
         'Llama 3.3 five-level emotion analysis with a crisis-detection safety filter',
-        'Clean Architecture + Riverpod — layer separation is what made 1,400+ tests practical',
+        'Clean Architecture + Riverpod with strict layer separation',
+        'Unsubmitted diary drafts saved and restored — saved on leaving the screen, with save/delete ordering managed',
         'Two separate FCM channels (CheerMe / MindCare) feeding 48 CBT messages across 8 categories',
-        'Data-only FCM payloads plus a 3-layer defence, ending duplicate and empty notifications',
-        'Image cacheWidth tuning (display size × 3 DPR) and a 30s HTTP timeout'
+        'Data-only FCM payloads plus a 3-layer defence, ending duplicate and empty notifications'
       ],
       achievements: [
-        '1,400+ test cases, written TDD-first',
-        'Live on Google Play as v1.4.40',
+        'Live on Google Play, under active development',
+        '1,814 passing tests on record (Aug 2026)',
         'A pool of 48 CBT messages across 8 categories',
         'Before → after: no HTTP timeout → 30s graceful fallback',
-        'Before → after: full-size image loads → cacheWidth applied',
-        'ProviderObserver monitoring with zero production overhead'
+        'Before → after: full-size image loads → cacheWidth applied'
       ],
       challenge: 'A background isolate produced duplicate and empty FCM notifications: Android was rendering the notification payload itself, bypassing the client handler entirely.',
       solution: 'Switching to data-only payloads stopped the OS from displaying anything directly; a fixed notification ID overwrote duplicates, and a 3-layer defence (buildPersonalizedMessage → handler fallback → showNotification guard) closed the remaining gaps.'
@@ -436,44 +437,36 @@ const projectData = {
   },
   cryptonative: {
     title: '멀티체인 크립토 지갑 & 소셜 트레이딩 플랫폼',
+    role: '지갑 연결 계획을 인계받아 단독 구현',
     features: [
-      '팀 5인 중 모바일 아키텍처 설계 및 구현 전담',
-      '모듈 단위 마이크로 피처 아키텍처 — Clean Architecture로 팀 병렬 개발',
-      '86개 Riverpod Provider — .select()로 최소 리빌드 최적화',
-      '4계층 어댑터 아키텍처로 WalletConnect v2 통합',
       'State Machine 기반 4단계 지갑 연결 (WalletConnect v2)',
+      '4계층 어댑터 아키텍처로 WalletConnect v2 통합',
       'Race Condition 방어 체계 — 4계층 Sign Guard',
-      '27개 화면 Material 3 Dark Theme 설계'
+      'Deep Link Cold Start 큐잉으로 앱 초기화 전 연결 요청 보존'
     ],
     challenge: 'WalletConnect v2 연결 상태 관리 복잡성 + Deep Link Cold Start 시 지갑 연결 요청 유실',
     solution: 'State Machine 패턴으로 4가지 지갑 인터페이스 분리 (ISP) + Cold Start 큐잉 메커니즘으로 앱 초기화 전 요청 보존',
     achievements: [
-      'State Machine 기반 상태 관리 도입으로 지갑 연결 실패율 약 90% 감소',
-      '50,000+ LOC, 86 Providers',
-      '299 테스트 케이스 (33.47% 커버리지)',
-      '테스트 자동화 파이프라인 구축 — 배포 후 크리티컬 버그 최소화',
-      '10개 체인 지원 (EVM + Solana)',
-      'JWT Lock + 7가지 예외 타입 설계'
+      '앱 시작·복귀 링크 처리로 지갑 승인 후 돌아와도 연결이 이어지도록 보완',
+      '지갑별 응답 순서 충돌·서명 유실·QR 창 잔류 수정과 어댑터 시험 정의',
+      '복귀 중 도착한 새 서명·주소가 이전 값으로 덮이지 않도록 보존',
+      'Beta MVP 인계 (2026-02-28)'
     ],
     tech: ['Flutter', 'Clean Architecture', 'Riverpod 3.x', 'WalletConnect v2', 'DeFi', 'fl_chart'],
     links: {},
     en: {
+      role: 'Took over the wallet-connection plan and implemented it alone',
       features: [
-        'Owned the mobile architecture and its implementation within a team of five',
-        'Micro-feature architecture split by module — Clean Architecture is what let the team build in parallel',
-        '86 Riverpod providers, minimised rebuilds via .select()',
-        'WalletConnect v2 integrated through a four-layer adapter architecture',
         'Four-stage wallet connection driven by a state machine (WalletConnect v2)',
+        'WalletConnect v2 integrated through a four-layer adapter architecture',
         'Race-condition defence built as a four-layer sign guard',
-        '27 screens designed on Material 3 dark theme'
+        'Cold-start queueing keeps deep-link connection requests raised before the app is ready'
       ],
       achievements: [
-        'State-machine state management cut wallet connection failures by roughly 90%',
-        '50,000+ LOC, 86 providers',
-        '299 test cases (33.47% coverage)',
-        'Built the automated test pipeline that kept post-release critical bugs to a minimum',
-        '10 chains supported (EVM + Solana)',
-        'JWT lock with 7 distinct exception types'
+        'Launch and return links handled so the connection continues after approving in the wallet app',
+        'Fixed per-wallet out-of-order responses, lost signatures and lingering QR sheets, with adapter tests defined',
+        'A new signature or address that lands mid-return is no longer overwritten by stale state',
+        'Beta MVP handed over (Feb 28, 2026)'
       ],
       challenge: 'WalletConnect v2 connection state was complex to manage, and a deep-link cold start dropped the wallet connection request outright.',
       solution: 'A state machine separated the four wallet interfaces along ISP lines, and a cold-start queueing mechanism preserved requests raised before the app finished initialising.'
@@ -481,38 +474,38 @@ const projectData = {
   },
   safekorea: {
     title: '안전디딤돌',
+    role: 'Android/iOS 레거시 → Flutter 전환 단독 수행',
     features: [
-      'Flutter 마이그레이션 전체 리드 (Legacy Android/iOS → Flutter 100%)',
-      'LocationBasedFCMManager — 실시간 위치 기반 재난 알림',
-      '19개 언어 실시간 번역 (Google Translate API V3)',
+      'Android/iOS 레거시 → Flutter 전환',
+      'LocationBasedFCMManager — 위치·설정 기반 지역 재난 알림',
+      '이머전시레디 다국어 화면·음성 읽기·언어별 알림 연결',
       'RegionStabilityChecker GPS 오차 보정 알고리즘',
-      'TalkBack/VoiceOver 완벽 호환 (공공기관 접근성 수준)'
+      '공통 색상 대비·버튼 설명·페이지 안내로 TalkBack/VoiceOver 대응'
     ],
     challenge: 'Legacy Native 코드(Android/iOS) 완전 마이그레이션 + GPS 정확도 불안정',
     solution: 'Platform Channel로 네이티브 기능 직접 제어 + RegionStabilityChecker 알고리즘으로 GPS 오차 보정',
     achievements: [
-      'Legacy → Flutter 100% 마이그레이션 완료',
-      '유지보수 비용 50% 절감',
-      'Riverpod 아키텍처 도입으로 버그 30% 감소, 개발 속도 20% 향상',
-      '19개 언어 실시간 번역',
-      '접근성 준수율 95% 달성 (공공기관 수준)'
+      '접근성 심사 통과 (준수율 95%)',
+      '위치 기반 지역 재난 알림과 저장된 대피시설 검색',
+      '오프라인에서도 보는 앱 내 행동요령',
+      '색상 대비·페이지 안내 접근성 시험 코드 작성'
     ],
     tech: ['Flutter', 'FCM', 'Google Translate API V3', 'Hive', 'Platform Channel'],
     links: {},
     en: {
+      role: 'Carried out the Android/iOS legacy → Flutter migration alone',
       features: [
-        'Led the Flutter migration end to end (legacy Android/iOS → 100% Flutter)',
-        'LocationBasedFCMManager — location-aware disaster alerts in real time',
-        'Real-time translation across 19 languages (Google Translate API V3)',
+        'Android/iOS legacy → Flutter migration',
+        'LocationBasedFCMManager — regional disaster alerts driven by location and settings',
+        'Emergency Ready: multilingual screens, read-aloud and per-language alert routing',
         'RegionStabilityChecker, a GPS drift-correction algorithm',
-        'Full TalkBack/VoiceOver compatibility, at public-sector accessibility standards'
+        'TalkBack/VoiceOver support through shared contrast colours, button descriptions and page indicators'
       ],
       achievements: [
-        'Legacy → Flutter migration completed at 100%',
-        'Maintenance cost reduced by 50%',
-        'Riverpod architecture cut bugs by 30% and raised development speed by 20%',
-        'Real-time translation across 19 languages',
-        '95% accessibility compliance, at public-sector standards'
+        'Passed accessibility certification (95% compliance)',
+        'Regional disaster alerts by location, plus search over saved shelters',
+        'In-app action guides that work offline',
+        'Accessibility tests written for colour contrast and page indicators'
       ],
       challenge: 'A complete migration off legacy native Android and iOS code, against unreliable GPS accuracy',
       solution: 'Platform channels drove the native capabilities directly, and the RegionStabilityChecker algorithm corrected GPS drift'
@@ -608,12 +601,11 @@ const projectData = {
     challenge: 'Legacy AsyncTask 패턴으로 인한 메인 스레드 블로킹 및 메모리 누수. 대규모 이벤트 시 서버 과부하 및 앱 크래시 발생.',
     solution: 'RxJava 2 기반 비동기 로직 전면 리팩토링. Schedulers.io()로 네트워크 작업 분리. Firebase Dynamic Links로 바이럴 마케팅 플로우 구축.',
     achievements: [
-      '다운로드 400% 증가 (1,000→5,000회)',
-      'AsyncTask → RxJava 2 전환으로 크래시 발생률 80~90% 감소',
-      '대전시 "0시축제" 이벤트 성공',
+      'AsyncTask → RxJava 2 전환 (FAQ·축제 매장 상세) — 조회와 화면 갱신 분리',
+      '대전 0시 축제 방문 인증·포인트 기능 — 7일간 앱 방문 12,384회 (회사 운영 기록)',
+      'QR 고객 확인·할인 안내, 매장 주문 대기·접수·완료, 줄서기 신청·호출',
       '대전관광공사 꿈돌이찾아라이딩 연계 이벤트 시스템 개발·운영',
-      'Firebase Dynamic Links 바이럴 마케팅',
-      'SiliCompressor 영상 압축 최적화'
+      'iOS 분석·배포·정기 점검 절차 정리, 영수증 OCR 시험 모듈'
     ],
     tech: ['Android', 'Java', 'RxJava 2', 'Firebase', 'Google Maps', '네이버지도', 'FCM', 'Glide'],
     en: {
@@ -625,12 +617,11 @@ const projectData = {
         'Google Maps location search, plus Naver Map for cycling directions'
       ],
       achievements: [
-        'Downloads up 400% (1,000 → 5,000)',
-        'Moving from AsyncTask to RxJava 2 cut the crash rate by 80–90%',
-        'Powered the Daejeon "Zero O\'Clock Festival"',
+        'AsyncTask → RxJava 2 for the FAQ and festival store screens, separating fetches from UI updates',
+        'Daejeon Zero-Hour Festival check-in and points — 12,384 app check-ins over 7 days (company record)',
+        'QR customer verification and discounts, store order states (waiting · accepted · done), queue sign-up and calls',
         'Built and ran the event system for the Daejeon Tourism Organisation\'s Kkumdori cycling campaign',
-        'Viral marketing on Firebase Dynamic Links',
-        'Video compression tuned with SiliCompressor'
+        'Documented iOS analysis, release and routine-check procedures; receipt OCR test module'
       ],
       challenge: 'The legacy AsyncTask pattern blocked the main thread and leaked memory; large events overloaded the server and crashed the app.',
       solution: 'A full refactor onto RxJava 2 moved network work off the main thread with Schedulers.io(), and Firebase Dynamic Links carried the viral marketing flow.'
@@ -723,14 +714,17 @@ function panelLabel(key, fallback) {
   return typeof i18n !== 'undefined' && typeof i18n.t === 'function' ? i18n.t(key) : fallback;
 }
 
-// Two columns: what changed (results) beside how it was built (implementation).
-// Separating the two is what a reader is actually scanning for; the deep-dive
-// narrative stays full width underneath.
+// Reads top-down as a case: who I was on it, what broke, what I did — then the
+// two scanning columns (results beside implementation), then links.
 function renderProjectPanel(project) {
   const copy = localizedProject(project);
   const bullets = (items) => (items || []).map(item => `<li>${item}</li>`).join('');
 
   const narrativeParts = [];
+  if (copy.role) {
+    narrativeParts.push(`<h4 class="project-panel__label" data-i18n="projects.panel.role">${panelLabel('projects.panel.role', '내 역할')}</h4>
+      <p class="project-panel__text project-panel__role">${copy.role}</p>`);
+  }
   if (copy.challenge) {
     narrativeParts.push(`<h4 class="project-panel__label" data-i18n="projects.panel.challenge">${panelLabel('projects.panel.challenge', '도전 과제')}</h4>
       <p class="project-panel__text">${copy.challenge}</p>`);
@@ -745,11 +739,15 @@ function renderProjectPanel(project) {
   if (href.github) {
     links.push(`<a href="${href.github}" class="project-action-link" target="_blank" rel="noopener noreferrer">${GITHUB_ICON}GitHub</a>`);
   }
+  if (href.play) {
+    links.push(`<a href="${href.play}" class="project-action-link project-action-link--demo" target="_blank" rel="noopener noreferrer">${DEMO_ICON}Google Play</a>`);
+  }
   if (href.demo) {
     links.push(`<a href="${href.demo}" class="project-action-link project-action-link--demo" target="_blank" rel="noopener noreferrer">${DEMO_ICON}Live Demo</a>`);
   }
 
   return `
+    ${narrativeParts.length ? `<div class="project-panel__narrative project-panel__narrative--lead">${narrativeParts.join('')}</div>` : ''}
     <div class="project-panel">
       <div class="project-panel__col">
         <h4 class="project-panel__label" data-i18n="projects.panel.results">${panelLabel('projects.panel.results', '핵심 성과')}</h4>
@@ -761,7 +759,6 @@ function renderProjectPanel(project) {
         <ul class="project-panel__tech">${(project.tech || []).map(t => `<li class="tech-chip">${t}</li>`).join('')}</ul>
       </div>
     </div>
-    ${narrativeParts.length ? `<div class="project-panel__narrative">${narrativeParts.join('')}</div>` : ''}
     ${links.length ? `<div class="project-panel__links">${links.join('')}</div>` : ''}
   `;
 }
