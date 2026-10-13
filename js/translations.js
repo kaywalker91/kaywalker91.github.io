@@ -258,7 +258,7 @@ const translations = {
     'experience.title': 'Experience',
     'experience.rowoon.duration': 'Current',
     'experience.rowoon.role': 'Dev Team · App & Web Frontend',
-    'experience.rowoon.summary': 'At PLLI Lab, a POD merchandise platform, led the fix for the stalled and incomplete Flutter Web print-image generation I inherited — automatic resume after memory exhaustion and restored elements in real orders. Also own the server and admin web of a spot-the-difference web game with NFC integration, and the initial planning and design of a calendar/diary PDF QA tool.',
+    'experience.rowoon.summary': 'At PLLI Lab, a POD merchandise platform, led the fix for the stalled and incomplete Flutter Web print-image generation I inherited — automatic resume after memory exhaustion and restored elements in real orders. Also own the server and admin web of a spot-the-difference web game with NFC integration, and the planning and design of a calendar/diary PDF QA tool.',
     'experience.forlong.duration': '3 mos',
     'experience.forlong.role': 'Dev Team · Member · App development',
     'experience.forlong.summary': 'On the MVP of a multi-chain crypto wallet and social trading platform, took over the wallet-connection plan and implemented it alone — fixing out-of-order responses, lost signatures and lingering QR sheets in the approve-and-sign round trip between apps.',

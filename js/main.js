@@ -372,7 +372,7 @@ const projectData = {
       'Node SEA로 PC 도우미를 단일 실행 파일로 묶고 설치·다운로드 경로 구성'
     ],
     challenge: '그림 발행·게임 플레이·재화 정산이 서버, 관리자 웹, 모바일 게임, NFC PC 도우미에 나뉘어 있어 한 곳이 어긋나면 기록과 재화가 맞지 않을 수 있었습니다.',
-    solution: '이미지 적재 완료 후에만 게임을 시작하고 재화를 차감하도록 서버 처리를 정리했습니다. 실제 모바일 기기로 발행 → 플레이 → 정산 → 관리자 기록까지 한 판을 끝까지 대조했습니다.',
+    solution: 'dev 환경 실제 모바일 기기 1판에서 발행 → 플레이 → 정산 → 관리자 기록이 일치하는 것을 확인했습니다. 이후 이미지 적재 실패 시 재화가 먼저 차감되던 문제를 예약 → 이미지 적재 → 시작·차감 순서로 바꿔 정리했습니다.',
     achievements: [
       'dev 환경 갤럭시 A34·삼성 인터넷 1판에서 그림 발행의 모바일 반영 확인',
       '포인트 520→550 · 도전권 6→5 정산과 관리자 플레이 기록 일치 확인',
@@ -389,7 +389,7 @@ const projectData = {
         'PC helper bundled into a single executable with Node SEA, with install and download paths'
       ],
       challenge: 'Publishing, play and currency settlement were split across the server, the admin web, the mobile game and an NFC PC helper — one slip anywhere and records and balances could disagree.',
-      solution: 'Reordered server handling so a game starts and deducts only after images load, then traced a full round on a real phone: publish → play → settlement → admin record.',
+      solution: 'A full round on a real phone in dev matched end to end: publish → play → settlement → admin record. Later, when a failed image load could still cost a ticket, reworked the flow to reserve → load images → start and deduct.',
       achievements: [
         'On dev, a published image reached the mobile game on a Galaxy A34 with Samsung Internet',
         'Points 520→550 and tickets 6→5 matched the admin play record',
@@ -399,7 +399,7 @@ const projectData = {
   },
   calendarqa: {
     title: '캘린더·다이어리 PDF 검수',
-    role: '초기 기획·설계 담당',
+    role: '처음부터 기획·설계 담당',
     features: [
       '미관측과 정상을 구분하는 판정 — 검사 영역 0칸 추출을 실패로 처리',
       '제품별 인쇄 계약(휴일·평일·이웃달 색상 규칙) 기반 오류 판정',
@@ -416,7 +416,7 @@ const projectData = {
     tech: ['TypeScript', 'PDF 텍스트·좌표 추출', '제품별 검수 규칙'],
     links: {},
     en: {
-      role: 'Owned the initial planning and design',
+      role: 'Owned planning and design from the start',
       features: [
         'Judgement that separates "not observed" from "fine" — an empty extraction counts as a failure',
         'Errors judged against each product\'s print contract (holiday, weekday and adjacent-month colour rules)',
