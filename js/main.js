@@ -362,6 +362,111 @@ const projectData = {
       solution: 'Render outcomes were pinned to a sealed result type, and the runtime was brought under control with layered image fallbacks and dynamic resolution guards. A distributed lock and scheduler serialised unattended runs, and session → order → image logs made failures reproducible.'
     }
   },
+  hiddencatch: {
+    title: '틀린그림찾기 웹·NFC',
+    role: '서버·관리자 웹 중심 담당',
+    features: [
+      'NFC 도우미의 서버·Windows·관리자 연동 — PC 등록·승인과 카드 발급 작업의 배정·재개',
+      '여러 요청이 겹쳐도 작업이 중복 처리되지 않도록 저장·인증 경로 정리',
+      '이미지 적재가 끝난 뒤에만 게임 시작·재화 차감이 일어나도록 서버 처리 순서 보완',
+      'Node SEA로 PC 도우미를 단일 실행 파일로 묶고 설치·다운로드 경로 구성'
+    ],
+    challenge: '그림 발행·게임 플레이·재화 정산이 서버, 관리자 웹, 모바일 게임, NFC PC 도우미에 나뉘어 있어 한 곳이 어긋나면 기록과 재화가 맞지 않을 수 있었습니다.',
+    solution: '이미지 적재 완료 후에만 게임을 시작하고 재화를 차감하도록 서버 처리를 정리했습니다. 실제 모바일 기기로 발행 → 플레이 → 정산 → 관리자 기록까지 한 판을 끝까지 대조했습니다.',
+    achievements: [
+      'dev 환경 갤럭시 A34·삼성 인터넷 1판에서 그림 발행의 모바일 반영 확인',
+      '포인트 520→550 · 도전권 6→5 정산과 관리자 플레이 기록 일치 확인',
+      'NFC 로컬 검증 5개 시나리오 통과 기록 (리더기 ACR1252)'
+    ],
+    tech: ['JavaScript', 'Node.js', 'Firestore', 'Node SEA', 'PowerShell', 'NFC'],
+    links: {},
+    en: {
+      role: 'Owned the server and admin web',
+      features: [
+        'NFC helper wired across server, Windows and admin — PC registration/approval and assignment and resume of card-issuing jobs',
+        'Storage and auth paths reworked so overlapping requests never process a job twice',
+        'Server ordering fixed so a game starts, and currency is deducted, only after images finish loading',
+        'PC helper bundled into a single executable with Node SEA, with install and download paths'
+      ],
+      challenge: 'Publishing, play and currency settlement were split across the server, the admin web, the mobile game and an NFC PC helper — one slip anywhere and records and balances could disagree.',
+      solution: 'Reordered server handling so a game starts and deducts only after images load, then traced a full round on a real phone: publish → play → settlement → admin record.',
+      achievements: [
+        'On dev, a published image reached the mobile game on a Galaxy A34 with Samsung Internet',
+        'Points 520→550 and tickets 6→5 matched the admin play record',
+        'Local NFC verification passed 5 scenarios on record (ACR1252 reader)'
+      ]
+    }
+  },
+  calendarqa: {
+    title: '캘린더·다이어리 PDF 검수',
+    role: '초기 기획·설계 담당',
+    features: [
+      '미관측과 정상을 구분하는 판정 — 검사 영역 0칸 추출을 실패로 처리',
+      '제품별 인쇄 계약(휴일·평일·이웃달 색상 규칙) 기반 오류 판정',
+      '수정 필요·확인 필요를 나눈 디자이너용 오류 보고'
+    ],
+    challenge: '날짜 오식과 잘못 놓인 기념일을 인쇄 전에 찾아야 했지만, 검사 완료 표시만으로는 실제 PDF가 정상인지 알기 어려웠습니다.',
+    solution: '빈 검사 결과를 성공으로 보지 않도록 판정을 바꿨습니다. 제품별 인쇄 규칙과 PDF의 글자·좌표를 대조해, 디자이너가 쪽수·칸 이름·인쇄 문구로 오류 위치를 찾을 수 있게 보고했습니다.',
+    achievements: [
+      '검사 영역이 비어 있을 때의 거짓 PASS 차단 (08-24)',
+      '제품 계약 반영으로 정상 토요일 오탐 제거 (09-17)',
+      '실제 검수 PDF에서 날짜 오식·기념일 위치 오류 검출, 수정본 PDF와 대조',
+      '인쇄값과 예상값을 나란히 비교하는 검수 콘솔과 보고 흐름'
+    ],
+    tech: ['TypeScript', 'PDF 텍스트·좌표 추출', '제품별 검수 규칙'],
+    links: {},
+    en: {
+      role: 'Owned the initial planning and design',
+      features: [
+        'Judgement that separates "not observed" from "fine" — an empty extraction counts as a failure',
+        'Errors judged against each product\'s print contract (holiday, weekday and adjacent-month colour rules)',
+        'Designer-facing reports split into "must fix" and "needs a look"'
+      ],
+      challenge: 'Typos in dates and misplaced holidays had to be caught before print, but a "check complete" flag alone did not say whether the actual PDF was right.',
+      solution: 'Stopped treating an empty check as a pass, then compared each product\'s print rules with the PDF\'s text and coordinates, reporting errors by page, cell name and printed text so designers could find them.',
+      achievements: [
+        'Blocked false PASS results on empty check areas (Aug 24)',
+        'Removed false alarms on valid Saturdays by applying the product contract (Sep 17)',
+        'Caught real date typos and misplaced holidays in production PDFs, cross-checked against the corrected files',
+        'A review console and report flow that puts printed and expected values side by side'
+      ]
+    }
+  },
+  linknote: {
+    title: 'LinkNote',
+    role: '원인 판단·설계·구현·테스트·실기기 확인 · Claude와 코드 공동 작성',
+    features: [
+      'YouTube 공유 URL이 로그인 확인 중 사라지던 문제 — 저장 화면 도착 후 URL을 정리하도록 순서 수정',
+      '컬렉션 피커가 조회 중·실패·실제 빈 목록을 구분해 표시',
+      '링크 추가·편집 폼에서도 기존 선택 창과 저장 경로를 재사용해 분류 선택'
+    ],
+    challenge: '다른 앱에서 링크를 공유해도 저장 화면이 열리지 않았고, 분류 선택 창은 목록이 있어도 비어 보였습니다.',
+    solution: '공유 URL은 저장 화면에 도착한 뒤에 정리하도록 순서를 바꾸고, 조회 중·실패·빈 목록을 구분해 목록 변화가 화면에 반영되게 했습니다.',
+    achievements: [
+      '전체 714개 테스트 통과 · CI 4/4 (2026-07-30 기록)',
+      'Play 내부테스트 등록 후 직접 사용 중',
+      '\'없음\'은 해제, 닫기는 취소로 구분한 선택 동작'
+    ],
+    tech: ['Flutter', 'Riverpod', 'Hive CE', 'Feature-first Architecture'],
+    links: {
+      github: 'https://github.com/kaywalker91/LinkNote'
+    },
+    en: {
+      role: 'Diagnosis, design, implementation, tests and on-device checks; code co-written with Claude',
+      features: [
+        'YouTube share URLs vanished during the sign-in check — now cleared only after the save screen is reached',
+        'The collection picker tells loading, failure and a genuinely empty list apart',
+        'Add and edit forms reuse the existing picker and save path to choose a collection'
+      ],
+      challenge: 'Sharing a link from another app did not open the save screen, and the collection picker looked empty even when collections existed.',
+      solution: 'Moved URL cleanup to after the save screen is reached, and separated loading, failure and empty states so list changes reach the screen.',
+      achievements: [
+        '714 passing tests and CI 4/4 on record (Jul 30, 2026)',
+        'On Play internal testing and in my own daily use',
+        '"None" clears the choice, closing cancels — two distinct actions'
+      ]
+    }
+  },
   mindlog: {
     title: 'MindLog',
     role: '기획·설계·구현 담당 · Claude와 코드 공동 작성',
