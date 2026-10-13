@@ -15,6 +15,9 @@ python3 -m http.server 8080
 
 # End-to-end suite (starts its own server on :8080)
 npx playwright test
+
+# Rebuild utility CSS after adding/removing Tailwind classes in index.html or js/
+npm run build:css
 ```
 
 The Playwright suite in `tests/` covers navigation, the project filter, the project accordion, and responsive layout. Run it after any change to `index.html`, `css/`, or `js/` — structural edits break it silently otherwise.
@@ -52,7 +55,7 @@ Each subdirectory portfolio is independent with its own `index.html`, `css/`, an
 
 GitHub Pages serves directly from the `main` branch root. Keep `index.html` at root level. Update `sitemap.xml` and `robots.txt` when URLs or indexing rules change.
 
-**Asset cache busting**: every `css/` and `js/` reference in `index.html` carries a `?v=YYYYMMDD` query (11 references total). Bump all of them to the same new value whenever `css/` or `js/` ships — append a letter (`20260805b`) for a second ship on the same day. GitHub Pages serves assets with `max-age=600`, so without this a returning visitor gets new HTML against a cached old script — which half-breaks any change spanning markup and script. The subdirectory portfolios (`celebtrip/`, `munto/`) are self-contained and out of scope for this rule.
+**Asset cache busting**: every `css/` and `js/` reference in `index.html` carries a `?v=YYYYMMDD` query (12 references total, including css/tailwind.css). Bump all of them to the same new value whenever `css/` or `js/` ships — append a letter (`20260805b`) for a second ship on the same day. GitHub Pages serves assets with `max-age=600`, so without this a returning visitor gets new HTML against a cached old script — which half-breaks any change spanning markup and script. The subdirectory portfolios (`celebtrip/`, `munto/`) are self-contained and out of scope for this rule.
 
 **Social share card**: `assets/og-image.png` (1200×630) is the `og:image` / `twitter:image`. It is generated from `assets/og-image.source.html`, which inlines the dark-theme tokens so it renders standalone. Regenerate after editing the source:
 
