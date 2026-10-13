@@ -89,7 +89,6 @@ const translations = {
     'experience.forlong.summary': '멀티체인 크립토 지갑 & 소셜 트레이딩 플랫폼 MVP에서 지갑 연결을 계획서로 인계받아 단독 구현했습니다. 지갑 앱을 오가는 승인·서명 흐름의 응답 순서 충돌·서명 유실·QR 창 잔류를 고쳤습니다.',
     'experience.siseon.duration': '1년 1개월',
     'experience.siseon.role': '사업부 · 대리 3년차 · SI개발',
-    // D2: Kay님이 '단독'을 빼라고 하면 "Flutter로 전환했습니다"로 쓰고, en의 "Single-handedly "도 지운다.
     'experience.siseon.summary': '재난안전 앱 안전디딤돌·이머전시레디의 Android/iOS 레거시를 Flutter로 단독 전환했습니다. 위치 기반 지역 재난 알림·대피시설 검색과 다국어 화면·음성 안내를 구현하고 접근성 심사(준수율 95%)를 통과했습니다.',
     'experience.placelink.duration': '2년 2개월',
     'experience.placelink.role': '개발팀 · 대리/팀원 2년차 · 앱개발',

@@ -321,9 +321,9 @@ function setupImpactCounters() {
   });
 }
 
-// Panel content for the project accordion. Kept in JS rather than markup
-// because it is Korean-only prose with no en counterpart — moving it into the
-// document would demand ~150 translation keys that do not exist yet.
+// Panel content for the project accordion. Kept in JS rather than markup:
+// each entry holds its Korean prose plus an `en` override, which would
+// otherwise take ~150 translation keys.
 const projectData = {
   pllilab: {
     title: 'PLLI Lab',
@@ -381,7 +381,7 @@ const projectData = {
     tech: ['JavaScript', 'Node.js', 'Firestore', 'Node SEA', 'PowerShell', 'NFC'],
     links: {},
     en: {
-      role: 'Owned the server and admin web',
+      role: 'Primarily responsible for the server and admin web',
       features: [
         'NFC helper wired across server, Windows and admin — PC registration/approval and assignment and resume of card-issuing jobs',
         'Storage and auth paths reworked so overlapping requests never process a job twice',
