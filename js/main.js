@@ -723,7 +723,7 @@ const projectData = {
       ],
       achievements: [
         'AsyncTask → RxJava 2 for the FAQ and festival store screens, separating fetches from UI updates',
-        'Daejeon Zero-Hour Festival check-in and points — 12,384 app check-ins over 7 days (company record)',
+        'Daejeon Zero-Hour Festival check-in and points — 12,384 app visits over 7 days (company record)',
         'QR customer verification and discounts, store order states (waiting · accepted · done), queue sign-up and calls',
         'Built and ran the event system for the Daejeon Tourism Organisation\'s Kkumdori cycling campaign',
         'Documented iOS analysis, release and routine-check procedures; receipt OCR test module'

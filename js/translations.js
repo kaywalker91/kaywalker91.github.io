@@ -213,7 +213,7 @@ const translations = {
     'impact.a11yContext': 'Disaster-safety apps · compliance',
     'impact.tests': 'Passing Tests on Record',
     'impact.testsContext': 'MindLog · Aug 2026',
-    'impact.festival': 'Festival App Check-ins',
+    'impact.festival': 'Festival App Visits',
     'impact.festivalContext': '7-day Zero-Hour Festival · company record',
     'impact.chains': 'Chains Supported',
     'impact.chainsContext': 'EVM + Solana',

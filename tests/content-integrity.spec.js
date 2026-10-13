@@ -82,6 +82,17 @@ test.describe('Content integrity against the career DB', () => {
     await expect(page.locator('.impact-stat')).toHaveCount(4);
   });
 
+  test('festival figure reads as app visits in EN, not check-ins', async ({ page }) => {
+    // "Check-in" is the feature's name on that card; the record counts visits.
+    const copy = await collectCopy(page, { includeProjectData: true });
+    expect(copy).not.toMatch(/12,384 app check-ins|Festival App Check-ins/);
+  });
+
+  test('share card qualifies the 20-language figure as the current build', async ({ request }) => {
+    const og = await (await request.get('/assets/og-image.source.html')).text();
+    expect(og).toContain('앱 지원 언어(현재 버전)');
+  });
+
   test('project panels carry no unconfirmed figures in either language', async ({ page }) => {
     const copy = await collectCopy(page, { includeProjectData: true });
     const found = BANNED.filter(phrase => copy.includes(phrase));
