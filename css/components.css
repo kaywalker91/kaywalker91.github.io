@@ -573,6 +573,20 @@
   margin: 0 0 var(--space-4);
 }
 
+.project-panel__narrative--lead {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+  padding-bottom: var(--space-6);
+  margin-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-panel__role {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+}
+
 .project-panel__text {
   margin: 0;
   font-size: var(--font-size-sm);
@@ -1738,6 +1752,16 @@
   border-left-color: var(--color-primary);
 }
 
+/* Below lg the hero text is centred, where a one-sided rule and italics read
+   as misaligned. */
+@media (max-width: 1023.98px) {
+  .hero__tagline {
+    font-style: normal;
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
 /* ================================
    Hero Tech Badges
    ================================ */
@@ -1879,6 +1903,23 @@
 
 .hairline-grid > .impact-stat:hover {
   background-color: var(--color-surface-elevated);
+}
+
+.impact-stat__icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+}
+
+.impact-stat__icon svg {
+  width: 22px;
+  height: 22px;
 }
 
 .impact-stat--highlight {

@@ -98,9 +98,9 @@ test.describe('Navigation & Accordion Validation (Phase 2.1)', () => {
       const ariaSelected = await allButton.getAttribute('aria-selected');
       expect(ariaSelected).toBe('true');
 
-      // Count visible project cards (should be 8)
+      // Count visible project cards (should be 11)
       const visibleCount = await getVisibleProjectCards(page);
-      expect(visibleCount).toBe(8);
+      expect(visibleCount).toBe(11);
 
     } catch (error) {
       await captureFailureScreenshot(page, 'filter-all-default');
@@ -123,11 +123,11 @@ test.describe('Navigation & Accordion Validation (Phase 2.1)', () => {
       await expect(personalButton).toHaveClass(/active/);
       expect(await personalButton.getAttribute('aria-selected')).toBe('true');
 
-      // Verify only personal projects visible (2 cards)
+      // Verify only personal projects visible (3 cards)
       const visibleCount = await getVisibleProjectCards(page);
-      expect(visibleCount).toBe(2);
+      expect(visibleCount).toBe(3);
 
-      // Verify correct cards are visible (mindlog, cryptowallet)
+      // Verify correct cards are visible (mindlog, linknote, cryptowallet)
       const visibleCategories = await page.evaluate(() => {
         const cards = Array.from(document.querySelectorAll('.project-card[data-category]'));
         return cards
@@ -135,7 +135,7 @@ test.describe('Navigation & Accordion Validation (Phase 2.1)', () => {
           .map(card => card.getAttribute('data-category'));
       });
 
-      expect(visibleCategories).toEqual(['personal', 'personal']);
+      expect(visibleCategories).toEqual(['personal', 'personal', 'personal']);
 
     } catch (error) {
       await captureFailureScreenshot(page, 'filter-personal');
@@ -157,9 +157,9 @@ test.describe('Navigation & Accordion Validation (Phase 2.1)', () => {
       // Verify button state
       await expect(companyButton).toHaveClass(/active/);
 
-      // Verify only company projects visible (4 cards)
+      // Verify only company projects visible (6 cards)
       const visibleCount = await getVisibleProjectCards(page);
-      expect(visibleCount).toBe(4);
+      expect(visibleCount).toBe(6);
 
       // Verify correct categories
       const visibleCategories = await page.evaluate(() => {
@@ -314,7 +314,7 @@ test.describe('Navigation & Accordion Validation (Phase 2.1)', () => {
       });
 
       expect(wiring.broken).toEqual([]);
-      expect(wiring.total).toBe(8);
+      expect(wiring.total).toBe(11);
 
     } catch (error) {
       await captureFailureScreenshot(page, 'accordion-aria-wiring');

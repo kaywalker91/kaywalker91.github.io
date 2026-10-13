@@ -82,8 +82,8 @@
   --space-16: 4rem;     /* 64px */
   --space-20: 5rem;     /* 80px */
   --space-24: 6rem;     /* 96px */
-  --section-space-y: clamp(3.25rem, 8vw, 6.75rem);
-  --section-space-y-compact: clamp(2.75rem, 7vw, 5.75rem);
+  --section-space-y: clamp(3rem, 6vw, 5rem);
+  --section-space-y-compact: clamp(2.5rem, 5vw, 4rem);
   --section-heading-gap: clamp(2rem, 4vw, 3rem);
   --content-measure: 66ch;
 

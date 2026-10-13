@@ -85,7 +85,7 @@ test.describe('Responsive Validation (Phase 2.2)', () => {
           display: 'flex',
           flexDirection: 'column',
           distinctCardLefts: 1,
-          cardsAtFullWidth: 8
+          cardsAtFullWidth: 11
         });
 
       } catch (error) {
@@ -222,7 +222,7 @@ test.describe('Responsive Validation (Phase 2.2)', () => {
           display: 'flex',
           flexDirection: 'column',
           distinctCardLefts: 1,
-          cardsAtFullWidth: 8
+          cardsAtFullWidth: 11
         });
 
       } catch (error) {
@@ -388,7 +388,7 @@ test.describe('Responsive Validation (Phase 2.2)', () => {
           display: 'flex',
           flexDirection: 'column',
           distinctCardLefts: 1,
-          cardsAtFullWidth: 8
+          cardsAtFullWidth: 11
         });
 
       } catch (error) {

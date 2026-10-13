@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Flutter 4년차 | Android/iOS 레거시→Flutter 마이그레이션 리드 | 안정성과 완성도를 중시하는 모바일 앱 개발자 | Clean Architecture, Riverpod">
+    content="Flutter 4년차 | 레거시 Android/iOS→Flutter 전환·접근성 심사 통과 | Flutter Web 인쇄 이미지 생성 안정화 | 외부 응답과 화면 흐름을 잇는 모바일 앱 개발자">
   <meta name="keywords"
     content="Flutter, Dart, Android, iOS, Native App, Mobile Developer, Flutter Migration, 모바일 개발자, 앱 개발">
   <meta name="author" content="김대각">
@@ -14,7 +14,7 @@
   <!-- Open Graph -->
   <meta property="og:title" content="김대각 - 4년차 Flutter 모바일 앱 개발자">
   <meta property="og:description"
-    content="Flutter 4년차 | Android/iOS 레거시→Flutter 마이그레이션 리드 | Clean Architecture 기반 모바일 앱 개발">
+    content="Flutter 4년차 | 레거시→Flutter 전환·접근성 심사 통과 | 외부 지갑·공유 링크 같은 외부 응답을 화면 흐름으로 연결">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kaywalker91.github.io/">
   <!-- 1200x630 share card. Regenerate from assets/og-image.source.html — see CLAUDE.md. -->
@@ -22,7 +22,7 @@
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="김대각 · 4년차 Flutter 모바일 앱 개발자 — 50,000+ LOC, 1,400+ 테스트 케이스, 다운로드 400% 증가, 유지보수 비용 50% 절감">
+  <meta property="og:image:alt" content="김대각 · 4년차 Flutter 모바일 앱 개발자 — 접근성 심사 통과(준수율 95%), MindLog Google Play 출시, 지갑 연결 단독 구현">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:locale:alternate" content="en_US">
 
@@ -30,9 +30,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="김대각 - 4년차 Flutter 모바일 앱 개발자">
   <meta name="twitter:description"
-    content="Flutter 4년차 | Android/iOS 레거시→Flutter 마이그레이션 리드 | Clean Architecture 기반 모바일 앱 개발">
+    content="Flutter 4년차 | 레거시→Flutter 전환·접근성 심사 통과 | 외부 지갑·공유 링크 같은 외부 응답을 화면 흐름으로 연결">
   <meta name="twitter:image" content="https://kaywalker91.github.io/assets/og-image.png">
-  <meta name="twitter:image:alt" content="김대각 · 4년차 Flutter 모바일 앱 개발자 — 50,000+ LOC, 1,400+ 테스트 케이스, 다운로드 400% 증가, 유지보수 비용 50% 절감">
+  <meta name="twitter:image:alt" content="김대각 · 4년차 Flutter 모바일 앱 개발자 — 접근성 심사 통과(준수율 95%), MindLog Google Play 출시, 지갑 연결 단독 구현">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -51,11 +51,12 @@
        HTML while still running the previous CSS/JS from cache — which silently
        breaks any change that spans markup and script together. Bump every ?v=
        below (same value) whenever css/ or js/ ships. -->
-  <link rel="stylesheet" href="css/reset.css?v=20260810b">
-  <link rel="stylesheet" href="css/variables.css?v=20260810b">
-  <link rel="stylesheet" href="css/layout.css?v=20260810b">
-  <link rel="stylesheet" href="css/components.css?v=20260810b">
-  <link rel="stylesheet" href="css/animations.css?v=20260810b">
+  <link rel="stylesheet" href="css/reset.css?v=20261013b">
+  <link rel="stylesheet" href="css/variables.css?v=20261013b">
+  <link rel="stylesheet" href="css/layout.css?v=20261013b">
+  <link rel="stylesheet" href="css/components.css?v=20261013b">
+  <link rel="stylesheet" href="css/animations.css?v=20261013b">
+  <link rel="stylesheet" href="css/tailwind.css?v=20261013b">
 
   <title>김대각 - 4년차 Flutter 모바일 앱 개발자</title>
 
@@ -73,54 +74,6 @@
       "https://kaywalker.tistory.com"
     ]
   }
-  </script>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: 'var(--color-primary)',
-            accent: 'var(--color-accent)',
-            secondary: 'var(--color-secondary)',
-            tertiary: 'var(--color-tertiary)',
-            background: 'var(--color-background)',
-            surface: 'var(--color-surface)',
-            'surface-elevated': 'var(--color-surface-elevated)',
-            border: 'var(--color-border)',
-            text: {
-              primary: 'var(--color-text-primary)',
-              secondary: 'var(--color-text-secondary)',
-              muted: 'var(--color-text-muted)',
-            }
-          },
-          fontFamily: {
-            sans: ['var(--font-family)', 'sans-serif'],
-            mono: ['var(--font-family-mono)', 'monospace'],
-          },
-          borderRadius: {
-            sm: 'var(--radius-sm)',
-            md: 'var(--radius-md)',
-            lg: 'var(--radius-lg)',
-            xl: 'var(--radius-xl)',
-            full: 'var(--radius-full)',
-          },
-          spacing: {
-            1: 'var(--space-1)',
-            2: 'var(--space-2)',
-            3: 'var(--space-3)',
-            4: 'var(--space-4)',
-            6: 'var(--space-6)',
-            8: 'var(--space-8)',
-            12: 'var(--space-12)',
-            16: 'var(--space-16)',
-            24: 'var(--space-24)',
-          }
-        }
-      }
-    }
   </script>
 </head>
 
@@ -147,12 +100,12 @@
     <nav class="container mx-auto px-4 h-full flex items-center justify-between">
       <!-- Logo + Availability Badge -->
       <div class="flex items-center gap-3">
-        <a href="#hero" class="text-xl font-bold text-blue-600 dark:text-blue-400">DK</a>
-        <!-- Availability Badge (Header) -->
+        <a href="#hero" class="inline-flex items-center justify-center min-w-[44px] min-h-[44px] text-xl font-bold text-blue-600 dark:text-blue-400">DK</a>
+        <!-- Availability Badge (Header). Static dot: WCAG 2.2.2 asks for a pause
+             control on motion that loops past 5s, and this one never stopped. -->
         <div
-          class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-green-500/10 rounded-full border border-green-500/20">
+          class="flex items-center gap-2 px-3 py-1.5 bg-green-500/10 rounded-full border border-green-500/20">
           <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
           </span>
           <span class="text-xs font-semibold text-green-600 dark:text-green-400" data-i18n="header.available">재직
@@ -191,6 +144,11 @@
           <a href="#projects"
             class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
             data-i18n="nav.projects">프로젝트</a>
+        </li>
+        <li class="nav__item md:hidden">
+          <a href="#contact"
+            class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
+            data-i18n="nav.contact">연락처</a>
         </li>
         <li class="nav__item">
           <button
@@ -260,7 +218,7 @@
                  sit in a second paragraph are covered by the tech badges and the
                  terminal's skills.json below. -->
             <p class="hero__tagline max-w-xl reveal" data-i18n="hero.tagline">
-              레거시 Android/iOS를 Flutter로 전환하고 Riverpod을 도입해 버그 30%, 개발 속도 20%를 개선했습니다.
+              레거시 Android/iOS 재난안전 앱을 Flutter로 옮겨 접근성 심사를 통과시켰고, 지금은 Flutter Web 인쇄 이미지 생성의 중단·누락 문제를 해결하고 있습니다.
             </p>
 
             <!-- CTA Buttons - Mobile Optimized -->
@@ -301,7 +259,7 @@
                   <span class="terminal__command">whoami</span>
                 </div>
                 <div class="terminal__line terminal__line--output">
-                  <span class="terminal__output text-xs" data-i18n="hero.terminal.whoami">모바일 앱 개발 3년 10개월 ·
+                  <span class="terminal__output text-xs" data-i18n="hero.terminal.whoami">모바일 앱 개발 4년차 ·
                     Android/iOS Native → Flutter</span>
                 </div>
 
@@ -353,128 +311,77 @@
           <h2 class="section-heading" data-i18n="impact.title">성과 하이라이트</h2>
           <span class="section-header__label" aria-hidden="true">IMPACT</span>
         </div>
-        <p class="section-subheading reveal" data-i18n="impact.subtitle">숫자로 증명하는 개발 역량</p>
-
-        <!-- SVG Gradient Definition. Kept outside .hairline-grid: only .sr-only's
-             absolute positioning stops it counting as a grid cell. -->
-        <svg class="sr-only" aria-hidden="true">
-          <defs>
-            <linearGradient id="chartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="var(--color-primary)" />
-              <stop offset="100%" stop-color="var(--color-accent)" />
-            </linearGradient>
-          </defs>
-        </svg>
+        <p class="section-subheading reveal" data-i18n="impact.subtitle">날짜·대상이 확인된 기록만 담았습니다</p>
 
         <div class="hairline-grid hairline-grid--4 reveal">
-          <!-- LOC -->
-          <div
-            class="impact-stat group">
-            <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="98">
-              <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
-                <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
-                <circle class="impact-stat__chart-fill fill-none stroke-[4] transition-all duration-[1500ms] ease-out"
-                  cx="30" cy="30" r="25"
-                  style="stroke: url(#chartGradient); stroke-dasharray: 157; stroke-dashoffset: 157; stroke-linecap: round;" />
+          <!-- Accessibility certification -->
+          <div class="impact-stat group">
+            <div class="impact-stat__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4M12 2a10 10 0 100 20 10 10 0 000-20z" />
               </svg>
-              <div class="impact-stat__chart-icon absolute inset-0 flex items-center justify-center text-primary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-                  <circle cx="12" cy="14" r="7" />
-                  <path d="M12 11v3l2 2M9.5 3h5" />
-                </svg>
-              </div>
             </div>
             <div class="impact-stat__number-wrap flex items-baseline justify-center">
               <span class="impact-stat__number text-3xl font-bold font-mono text-primary leading-none"
-                data-count="98">0</span>
+                data-count="95">95</span>
               <span class="impact-stat__suffix text-xl font-bold text-primary ml-0.5">%</span>
             </div>
             <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2"
-              data-i18n="impact.capture">이미지 캡처 단축</span>
-            <span class="impact-stat__context text-xs text-text-muted mt-1" data-i18n="impact.captureContext">분 단위 → 수
-              초 · PLLI Lab</span>
+              data-i18n="impact.a11y">접근성 심사 통과</span>
+            <span class="impact-stat__context text-xs text-text-muted mt-1"
+              data-i18n="impact.a11yContext">재난안전 앱 · 준수율</span>
           </div>
 
-          <!-- Test Cases -->
-          <div
-            class="impact-stat group">
-            <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="90">
-              <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
-                <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
-                <circle class="impact-stat__chart-fill fill-none stroke-[4] transition-all duration-[1500ms] ease-out"
-                  cx="30" cy="30" r="25"
-                  style="stroke: url(#chartGradient); stroke-dasharray: 157; stroke-dashoffset: 157; stroke-linecap: round;" />
+          <!-- Passing tests on record -->
+          <div class="impact-stat group">
+            <div class="impact-stat__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4M12 2a10 10 0 100 20 10 10 0 000-20z" />
               </svg>
-              <div class="impact-stat__chart-icon absolute inset-0 flex items-center justify-center text-primary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-                  <path d="M9 12l2 2 4-4M12 2a10 10 0 100 20 10 10 0 000-20z" />
-                </svg>
-              </div>
             </div>
             <div class="impact-stat__number-wrap flex items-baseline justify-center">
               <span class="impact-stat__number text-3xl font-bold font-mono text-primary leading-none"
-                data-count="1400">0</span>
-              <span class="impact-stat__suffix text-xl font-bold text-primary ml-0.5">+</span>
-            </div>
-            <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2" data-i18n="impact.tests">Test
-              Cases</span>
-            <span class="impact-stat__context text-xs text-text-muted mt-1" data-i18n="impact.testsContext">MindLog
-              1,400</span>
-          </div>
-
-          <!-- Download Increase (Highlight) -->
-          <div
-            class="impact-stat group">
-            <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="100">
-              <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
-                <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
-                <circle class="impact-stat__chart-fill fill-none stroke-[4] transition-all duration-[1500ms] ease-out"
-                  cx="30" cy="30" r="25"
-                  style="stroke: url(#chartGradient); stroke-dasharray: 157; stroke-dashoffset: 157; stroke-linecap: round;" />
-              </svg>
-              <div class="impact-stat__chart-icon absolute inset-0 flex items-center justify-center text-primary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-                  <path d="M3 17l6-6 4 4 8-8M14 4h6v6" />
-                </svg>
-              </div>
-            </div>
-            <div class="impact-stat__number-wrap flex items-baseline justify-center">
-              <span class="impact-stat__number text-3xl font-bold font-mono text-primary leading-none"
-                data-count="400">0</span>
-              <span class="impact-stat__suffix text-xl font-bold text-primary ml-0.5">%</span>
+                data-count="1814">1,814</span>
             </div>
             <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2"
-              data-i18n="impact.downloads">다운로드 증가</span>
-            <span class="impact-stat__context text-xs text-text-muted mt-1" data-i18n="impact.downloadsContext">1,000 →
-              5,000회</span>
+              data-i18n="impact.tests">테스트 통과 기록</span>
+            <span class="impact-stat__context text-xs text-text-muted mt-1"
+              data-i18n="impact.testsContext">MindLog · 2026-08</span>
           </div>
 
-          <!-- Cost Reduction (Highlight) -->
-          <div
-            class="impact-stat group">
-            <div class="impact-stat__chart w-[60px] h-[60px] mb-3 relative" data-progress="50">
-              <svg class="impact-stat__chart-svg w-full h-full -rotate-90" viewBox="0 0 60 60">
-                <circle class="impact-stat__chart-bg fill-none stroke-border stroke-[4]" cx="30" cy="30" r="25" />
-                <circle class="impact-stat__chart-fill fill-none stroke-[4] transition-all duration-[1500ms] ease-out"
-                  cx="30" cy="30" r="25"
-                  style="stroke: url(#chartGradient); stroke-dasharray: 157; stroke-dashoffset: 157; stroke-linecap: round;" />
+          <!-- Festival app check-ins (company record) -->
+          <div class="impact-stat group">
+            <div class="impact-stat__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 17l6-6 4 4 8-8M14 4h6v6" />
               </svg>
-              <div class="impact-stat__chart-icon absolute inset-0 flex items-center justify-center text-primary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 6v12M9 9h6M9 15h6" />
-                </svg>
-              </div>
             </div>
             <div class="impact-stat__number-wrap flex items-baseline justify-center">
               <span class="impact-stat__number text-3xl font-bold font-mono text-primary leading-none"
-                data-count="50">0</span>
-              <span class="impact-stat__suffix text-xl font-bold text-primary ml-0.5">%</span>
+                data-count="12384">12,384</span>
             </div>
-            <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2" data-i18n="impact.cost">비용
-              절감</span>
-            <span class="impact-stat__context text-xs text-text-muted mt-1" data-i18n="impact.costContext">유지보수
-              효율화</span>
+            <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2"
+              data-i18n="impact.festival">축제 앱 방문 기록</span>
+            <span class="impact-stat__context text-xs text-text-muted mt-1"
+              data-i18n="impact.festivalContext">0시 축제 7일 · 회사 운영 기록</span>
+          </div>
+
+          <!-- Supported languages (current app build, not the in-tenure version) -->
+          <div class="impact-stat group">
+            <div class="impact-stat__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20" />
+              </svg>
+            </div>
+            <div class="impact-stat__number-wrap flex items-baseline justify-center">
+              <span class="impact-stat__number text-3xl font-bold font-mono text-primary leading-none"
+                data-count="20">20</span>
+            </div>
+            <span class="impact-stat__label text-sm font-semibold text-text-primary mt-2"
+              data-i18n="impact.languages">앱 지원 언어</span>
+            <span class="impact-stat__context text-xs text-text-muted mt-1"
+              data-i18n="impact.languagesContext">이머전시레디 현재 버전</span>
           </div>
 
         </div>
@@ -669,7 +576,7 @@
           <span class="section-header__index" aria-hidden="true">03</span>
           <span class="section-header__rule" aria-hidden="true"></span>
           <h2 class="section-heading" data-i18n="experience.title">경력</h2>
-          <span class="section-header__label" aria-hidden="true">EXPERIENCE · 3Y 10M</span>
+          <span class="section-header__label" aria-hidden="true">EXPERIENCE</span>
         </div>
 
         <div class="experience-timeline">
@@ -689,15 +596,15 @@
             <div class="experience-timeline__body">
               <h3 class="experience-timeline__company">㈜로운컴퍼니씨앤씨 <span
                   class="experience-timeline__company-latin">Rowoon Company Corp.</span></h3>
-              <p class="experience-timeline__meta" data-i18n="experience.rowoon.role">개발팀 · 팀원 · 앱개발</p>
-              <p class="experience-timeline__summary" data-i18n="experience.rowoon.summary">POD 굿즈 플랫폼 PLLI Lab의
-                앱·백오피스를 풀스택 1인으로 전담했습니다. Flutter Web(CanvasKit) 인쇄 이미지 대량 렌더링 파이프라인을 전면 재설계해 분 단위였던 장당 캡처를 수 초대로
-                줄이고, 메모리 임계 상황에서도 복구되는 처리 구조를 만들었습니다. 무인 스케줄·멀티탭 직렬화·3단 관측 로깅으로 운영을 자동화하고, 어드민 Design System을 다수
-                도메인에 단일화했습니다.</p>
+              <p class="experience-timeline__meta" data-i18n="experience.rowoon.role">개발팀 · 앱 &amp; 웹 프론트엔드</p>
+              <p class="experience-timeline__summary" data-i18n="experience.rowoon.summary">POD 굿즈 플랫폼 PLLI Lab에서
+                인계받은 Flutter Web 인쇄 이미지 생성의 중단·누락 문제 해결을 주도해, 메모리 초과 뒤 자동 재개와 실제 주문의 누락 요소 복원을 이끌었습니다. 틀린그림찾기
+                웹 게임의 서버·관리자 웹과 NFC 연동, 달력·다이어리 PDF 검수 도구의 기획·설계도 맡고 있습니다.</p>
               <ul class="experience-timeline__tech">
                 <li class="tech-chip">Flutter Web</li>
                 <li class="tech-chip">CanvasKit</li>
-                <li class="tech-chip">Web Lock API</li>
+                <li class="tech-chip">Node.js</li>
+                <li class="tech-chip">TypeScript</li>
                 <li class="tech-chip">Firebase</li>
               </ul>
             </div>
@@ -706,8 +613,8 @@
           <!-- FORLONG -->
           <div class="experience-timeline__item reveal">
             <div class="experience-timeline__aside">
-              <span class="experience-timeline__date">2025.12 — 2026.03</span>
-              <span class="experience-timeline__duration" data-i18n="experience.forlong.duration">4개월</span>
+              <span class="experience-timeline__date">2025.12 — 2026.02</span>
+              <span class="experience-timeline__duration" data-i18n="experience.forlong.duration">3개월</span>
               <span class="experience-timeline__location">Seoul</span>
             </div>
 
@@ -719,8 +626,8 @@
               <h3 class="experience-timeline__company">㈜포롱 <span
                   class="experience-timeline__company-latin">FORLONG Co., Ltd.</span></h3>
               <p class="experience-timeline__meta" data-i18n="experience.forlong.role">개발팀 · 팀원 · 앱개발</p>
-              <p class="experience-timeline__summary" data-i18n="experience.forlong.summary">멀티체인 크립토 지갑 & 소셜 트레이딩
-                플랫폼 MVP 개발. Feature 모듈을 Clean Architecture로 설계하고 테스트 자동화 파이프라인을 구축했습니다.</p>
+              <p class="experience-timeline__summary" data-i18n="experience.forlong.summary">멀티체인 크립토 지갑 &amp; 소셜 트레이딩
+                플랫폼 MVP에서 지갑 연결을 계획서로 인계받아 단독 구현했습니다. 지갑 앱을 오가는 승인·서명 흐름의 응답 순서 충돌·서명 유실·QR 창 잔류를 고쳤습니다.</p>
               <ul class="experience-timeline__tech">
                 <li class="tech-chip">Riverpod 3.x</li>
                 <li class="tech-chip">WalletConnect v2</li>
@@ -746,8 +653,8 @@
               <h3 class="experience-timeline__company">㈜시선아이티 <span
                   class="experience-timeline__company-latin">Seesun IT</span></h3>
               <p class="experience-timeline__meta" data-i18n="experience.siseon.role">사업부 · 대리 3년차 · SI개발</p>
-              <p class="experience-timeline__summary" data-i18n="experience.siseon.summary">재난안전 서비스 안전디딤돌 &
-                이머전시레디앱의 Android/iOS 레거시 → Flutter 마이그레이션을 단독 수행. Riverpod 도입으로 버그 30% 감소, 개발 속도 20% 향상.</p>
+              <p class="experience-timeline__summary" data-i18n="experience.siseon.summary">재난안전 앱
+                안전디딤돌·이머전시레디의 Android/iOS 레거시를 Flutter로 단독 전환했습니다. 위치 기반 지역 재난 알림·대피시설 검색과 다국어 화면·음성 안내를 구현하고 접근성 심사(준수율 95%)를 통과했습니다.</p>
               <ul class="experience-timeline__tech">
                 <li class="tech-chip">Flutter</li>
                 <li class="tech-chip">Riverpod</li>
@@ -773,8 +680,8 @@
               <h3 class="experience-timeline__company">㈜플레이스링크 <span
                   class="experience-timeline__company-latin">PlaceLink</span></h3>
               <p class="experience-timeline__meta" data-i18n="experience.placelink.role">개발팀 · 대리/팀원 2년차 · 앱개발</p>
-              <p class="experience-timeline__summary" data-i18n="experience.placelink.summary">위치 기반 포인트 적립 앱 포인트투어
-                운영·개선. 대전시 0시 축제 이벤트 시스템 개발과 대규모 트래픽 처리 최적화로 앱 다운로드 400% 성장을 견인했습니다.</p>
+              <p class="experience-timeline__summary" data-i18n="experience.placelink.summary">위치 기반 포인트 적립 앱 포인트투어를
+                운영·개선했습니다. 대전 0시 축제의 방문 인증·포인트 기능과 매장 주문·줄서기 흐름을 만들고, AsyncTask 기반 비동기 처리를 RxJava 2로 전환했습니다.</p>
               <ul class="experience-timeline__tech">
                 <li class="tech-chip">Android (Java)</li>
                 <li class="tech-chip">iOS (Swift)</li>
@@ -849,12 +756,70 @@
             </div>
           </article>
 
+          <!-- Hidden Catch -->
+          <article class="project-card reveal" data-category="company" data-project="hiddencatch">
+            <h3 class="project-card__heading">
+              <button type="button" class="project-card__toggle" id="project-toggle-hiddencatch" aria-expanded="false"
+                aria-controls="project-panel-hiddencatch">
+                <span class="project-card__index" aria-hidden="true">[02]</span>
+                <span class="project-card__headline">
+                  <span class="project-card__titles">
+                    <span class="project-card__title" data-i18n="projects.hiddencatch.title">틀린그림찾기 웹·NFC</span>
+                    <span class="project-card__subtitle" data-i18n="projects.hiddencatch.subtitle">웹 게임 서버·관리자 / NFC 연동</span>
+                  </span>
+                  <span class="project-card__metarow">
+                    <span class="project-card__meta">로운컴퍼니씨앤씨 · 2026</span>
+                    <span class="project-card__status project-card__status--dev">Dev</span>
+                  </span>
+                </span>
+                <span class="project-card__chevron" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+              </button>
+            </h3>
+            <div class="project-card__panel" id="project-panel-hiddencatch" role="region"
+              aria-labelledby="project-toggle-hiddencatch">
+              <div class="project-card__panel-inner" data-project-panel="hiddencatch"></div>
+            </div>
+          </article>
+
+          <!-- Calendar QA -->
+          <article class="project-card reveal" data-category="company" data-project="calendarqa">
+            <h3 class="project-card__heading">
+              <button type="button" class="project-card__toggle" id="project-toggle-calendarqa" aria-expanded="false"
+                aria-controls="project-panel-calendarqa">
+                <span class="project-card__index" aria-hidden="true">[03]</span>
+                <span class="project-card__headline">
+                  <span class="project-card__titles">
+                    <span class="project-card__title" data-i18n="projects.calendarqa.title">캘린더·다이어리 PDF 검수</span>
+                    <span class="project-card__subtitle" data-i18n="projects.calendarqa.subtitle">인쇄 전 날짜·기념일 오류 검출 도구</span>
+                  </span>
+                  <span class="project-card__metarow">
+                    <span class="project-card__meta">로운컴퍼니씨앤씨 · 2026</span>
+                    <span class="project-card__status project-card__status--dev">Dev</span>
+                  </span>
+                </span>
+                <span class="project-card__chevron" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+              </button>
+            </h3>
+            <div class="project-card__panel" id="project-panel-calendarqa" role="region"
+              aria-labelledby="project-toggle-calendarqa">
+              <div class="project-card__panel-inner" data-project-panel="calendarqa"></div>
+            </div>
+          </article>
+
           <!-- Crypto Native -->
           <article class="project-card reveal" data-category="company" data-project="cryptonative">
             <h3 class="project-card__heading">
               <button type="button" class="project-card__toggle" id="project-toggle-cryptonative" aria-expanded="false"
                 aria-controls="project-panel-cryptonative">
-                <span class="project-card__index" aria-hidden="true">[02]</span>
+                <span class="project-card__index" aria-hidden="true">[04]</span>
                 <span class="project-card__headline">
                   <span class="project-card__titles">
                     <span class="project-card__title" data-i18n="projects.cryptonative.title">멀티체인 크립토 지갑</span>
@@ -862,8 +827,8 @@
                       플랫폼</span>
                   </span>
                   <span class="project-card__metarow">
-                    <span class="project-card__meta">FORLONG · 2025.12 — 2026.03</span>
-                    <span class="project-card__status project-card__status--dev">Dev</span>
+                    <span class="project-card__meta">FORLONG · 2025.12 — 2026.02</span>
+                    <span class="project-card__status project-card__status--archive">Archive</span>
                   </span>
                 </span>
                 <span class="project-card__chevron" aria-hidden="true">
@@ -884,7 +849,7 @@
             <h3 class="project-card__heading">
               <button type="button" class="project-card__toggle" id="project-toggle-safekorea" aria-expanded="false"
                 aria-controls="project-panel-safekorea">
-                <span class="project-card__index" aria-hidden="true">[03]</span>
+                <span class="project-card__index" aria-hidden="true">[05]</span>
                 <span class="project-card__headline">
                   <span class="project-card__titles">
                     <span class="project-card__title" data-i18n="projects.safekorea.title">안전디딤돌 &amp; 이머전시레디</span>
@@ -914,7 +879,7 @@
             <h3 class="project-card__heading">
               <button type="button" class="project-card__toggle" id="project-toggle-pointtour" aria-expanded="false"
                 aria-controls="project-panel-pointtour">
-                <span class="project-card__index" aria-hidden="true">[04]</span>
+                <span class="project-card__index" aria-hidden="true">[06]</span>
                 <span class="project-card__headline">
                   <span class="project-card__titles">
                     <span class="project-card__title" data-i18n="projects.pointtour.title">포인트투어</span>
@@ -943,7 +908,7 @@
             <h3 class="project-card__heading">
               <button type="button" class="project-card__toggle" id="project-toggle-mindlog" aria-expanded="false"
                 aria-controls="project-panel-mindlog">
-                <span class="project-card__index" aria-hidden="true">[05]</span>
+                <span class="project-card__index" aria-hidden="true">[07]</span>
                 <span class="project-card__headline">
                   <span class="project-card__titles">
                     <span class="project-card__title">MindLog</span>
@@ -967,12 +932,41 @@
             </div>
           </article>
 
+          <!-- LinkNote -->
+          <article class="project-card reveal" data-category="personal" data-project="linknote">
+            <h3 class="project-card__heading">
+              <button type="button" class="project-card__toggle" id="project-toggle-linknote" aria-expanded="false"
+                aria-controls="project-panel-linknote">
+                <span class="project-card__index" aria-hidden="true">[08]</span>
+                <span class="project-card__headline">
+                  <span class="project-card__titles">
+                    <span class="project-card__title">LinkNote</span>
+                    <span class="project-card__subtitle" data-i18n="projects.linknote.subtitle">웹 링크 보관·분류 앱</span>
+                  </span>
+                  <span class="project-card__metarow">
+                    <span class="project-card__meta project-card__meta--plain" data-i18n="projects.meta.personal">개인 프로젝트</span>
+                    <span class="project-card__status project-card__status--dev">Dev</span>
+                  </span>
+                </span>
+                <span class="project-card__chevron" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+              </button>
+            </h3>
+            <div class="project-card__panel" id="project-panel-linknote" role="region"
+              aria-labelledby="project-toggle-linknote">
+              <div class="project-card__panel-inner" data-project-panel="linknote"></div>
+            </div>
+          </article>
+
           <!-- Crypto Wallet Pro -->
           <article class="project-card reveal" data-category="personal" data-project="cryptowallet">
             <h3 class="project-card__heading">
               <button type="button" class="project-card__toggle" id="project-toggle-cryptowallet" aria-expanded="false"
                 aria-controls="project-panel-cryptowallet">
-                <span class="project-card__index" aria-hidden="true">[06]</span>
+                <span class="project-card__index" aria-hidden="true">[09]</span>
                 <span class="project-card__headline">
                   <span class="project-card__titles">
                     <span class="project-card__title">Crypto Wallet Pro</span>
@@ -1002,7 +996,7 @@
             <h3 class="project-card__heading">
               <button type="button" class="project-card__toggle" id="project-toggle-dwinsta" aria-expanded="false"
                 aria-controls="project-panel-dwinsta">
-                <span class="project-card__index" aria-hidden="true">[07]</span>
+                <span class="project-card__index" aria-hidden="true">[10]</span>
                 <span class="project-card__headline">
                   <span class="project-card__titles">
                     <span class="project-card__title">Android DW Insta</span>
@@ -1032,7 +1026,7 @@
             <h3 class="project-card__heading">
               <button type="button" class="project-card__toggle" id="project-toggle-timewalker" aria-expanded="false"
                 aria-controls="project-panel-timewalker">
-                <span class="project-card__index" aria-hidden="true">[08]</span>
+                <span class="project-card__index" aria-hidden="true">[11]</span>
                 <span class="project-card__headline">
                   <span class="project-card__titles">
                     <span class="project-card__title">TimeWalker</span>
@@ -1059,7 +1053,6 @@
 
         </div>
       </div>
-    </section>
     </section>
 
     <!-- Education Section -->
@@ -1165,14 +1158,7 @@
                 </div>
                 <div class="etc-card__item-content">
                   <div class="etc-card__item-header">
-                    <span class="etc-card__item-name" data-i18n="etc.certifications.history.name">한국사능력검정시험 1급</span>
-                    <span class="etc-card__verified" aria-label="Verified certification">
-                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                      </svg>
-                      Verified
-                    </span>
-                  </div>
+                    <span class="etc-card__item-name" data-i18n="etc.certifications.history.name">한국사능력검정시험 1급</span>                  </div>
                   <div class="etc-card__item-meta">
                     <span class="etc-card__item-meta-date">2021.04</span>
                     <span class="etc-card__item-meta-divider"></span>
@@ -1188,14 +1174,7 @@
                 </div>
                 <div class="etc-card__item-content">
                   <div class="etc-card__item-header">
-                    <span class="etc-card__item-name" data-i18n="etc.certifications.teacher.name">초등학교정교사</span>
-                    <span class="etc-card__verified" aria-label="Verified certification">
-                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                      </svg>
-                      Verified
-                    </span>
-                  </div>
+                    <span class="etc-card__item-name" data-i18n="etc.certifications.teacher.name">초등학교정교사</span>                  </div>
                   <div class="etc-card__item-meta">
                     <span class="etc-card__item-meta-date">2019.02</span>
                     <span class="etc-card__item-meta-divider"></span>
@@ -1211,14 +1190,7 @@
                 </div>
                 <div class="etc-card__item-content">
                   <div class="etc-card__item-header">
-                    <span class="etc-card__item-name" data-i18n="etc.certifications.ipt.name">정보처리기능사</span>
-                    <span class="etc-card__verified" aria-label="Verified certification">
-                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                      </svg>
-                      Verified
-                    </span>
-                  </div>
+                    <span class="etc-card__item-name" data-i18n="etc.certifications.ipt.name">정보처리기능사</span>                  </div>
                   <div class="etc-card__item-meta">
                     <span class="etc-card__item-meta-date">2006.08</span>
                     <span class="etc-card__item-meta-divider"></span>
@@ -1234,14 +1206,7 @@
                 </div>
                 <div class="etc-card__item-content">
                   <div class="etc-card__item-header">
-                    <span class="etc-card__item-name" data-i18n="etc.certifications.word.name">워드프로세서 1급</span>
-                    <span class="etc-card__verified" aria-label="Verified certification">
-                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                      </svg>
-                      Verified
-                    </span>
-                  </div>
+                    <span class="etc-card__item-name" data-i18n="etc.certifications.word.name">워드프로세서 1급</span>                  </div>
                   <div class="etc-card__item-meta">
                     <span class="etc-card__item-meta-date">2005.12</span>
                     <span class="etc-card__item-meta-divider"></span>
@@ -1357,7 +1322,7 @@
         <!-- Availability Indicator -->
         <div class="flex justify-center items-center gap-2 mb-12 reveal">
           <span
-            class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+            class="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
           <span class="text-text-secondary" data-i18n="contact.availability">현재 <strong>로운컴퍼니씨앤씨 재직 중</strong>입니다</span>
         </div>
 
@@ -1422,7 +1387,7 @@
     <div class="container site-footer__inner">
       <p class="site-footer__eyebrow" aria-hidden="true">NEXT</p>
       <p class="site-footer__statement" data-i18n="footer.statement">
-        Flutter Web의 렌더링 병목과 메모리 누수(OOM)를 선제적으로 방어하고, 서킷 브레이커로 아키텍처의 근본 안정성을 끌어올리는 데 집중하고 있습니다.
+        외부 응답이 늦거나 순서가 바뀌어도 화면 흐름이 끊기지 않게, 작성 중인 데이터가 사라지지 않게 — 모바일 앱의 응답 처리와 중단 후 복구를 깊게 파고 있습니다.
       </p>
       <div class="site-footer__meta">
         <span>KIM DAE-GAK · FLUTTER ENGINEER</span>
@@ -1432,12 +1397,12 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/theme.js?v=20260810b"></script>
-  <script src="js/translations.js?v=20260810b"></script>
-  <script src="js/i18n.js?v=20260810b"></script>
-  <script src="js/counter.js?v=20260810b"></script>
-  <script src="js/navigation.js?v=20260810b"></script>
-  <script src="js/main.js?v=20260810b"></script>
+  <script src="js/theme.js?v=20261013b"></script>
+  <script src="js/translations.js?v=20261013b"></script>
+  <script src="js/i18n.js?v=20261013b"></script>
+  <script src="js/counter.js?v=20261013b"></script>
+  <script src="js/navigation.js?v=20261013b"></script>
+  <script src="js/main.js?v=20261013b"></script>
 </body>
 
 </html>
