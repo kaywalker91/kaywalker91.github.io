@@ -100,12 +100,12 @@
     <nav class="container mx-auto px-4 h-full flex items-center justify-between">
       <!-- Logo + Availability Badge -->
       <div class="flex items-center gap-3">
-        <a href="#hero" class="text-xl font-bold text-blue-600 dark:text-blue-400">DK</a>
-        <!-- Availability Badge (Header) -->
+        <a href="#hero" class="inline-flex items-center justify-center min-w-[44px] min-h-[44px] text-xl font-bold text-blue-600 dark:text-blue-400">DK</a>
+        <!-- Availability Badge (Header). Static dot: WCAG 2.2.2 asks for a pause
+             control on motion that loops past 5s, and this one never stopped. -->
         <div
-          class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-green-500/10 rounded-full border border-green-500/20">
+          class="flex items-center gap-2 px-3 py-1.5 bg-green-500/10 rounded-full border border-green-500/20">
           <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
           </span>
           <span class="text-xs font-semibold text-green-600 dark:text-green-400" data-i18n="header.available">재직
@@ -144,6 +144,11 @@
           <a href="#projects"
             class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
             data-i18n="nav.projects">프로젝트</a>
+        </li>
+        <li class="nav__item md:hidden">
+          <a href="#contact"
+            class="nav__link text-lg font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-primary [&.active]:text-primary md:text-sm"
+            data-i18n="nav.contact">연락처</a>
         </li>
         <li class="nav__item">
           <button
@@ -1049,7 +1054,6 @@
         </div>
       </div>
     </section>
-    </section>
 
     <!-- Education Section -->
     <section class="section-shell section-shell--education section-shell--minor relative" id="education">
@@ -1154,14 +1158,7 @@
                 </div>
                 <div class="etc-card__item-content">
                   <div class="etc-card__item-header">
-                    <span class="etc-card__item-name" data-i18n="etc.certifications.history.name">한국사능력검정시험 1급</span>
-                    <span class="etc-card__verified" aria-label="Verified certification">
-                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                      </svg>
-                      Verified
-                    </span>
-                  </div>
+                    <span class="etc-card__item-name" data-i18n="etc.certifications.history.name">한국사능력검정시험 1급</span>                  </div>
                   <div class="etc-card__item-meta">
                     <span class="etc-card__item-meta-date">2021.04</span>
                     <span class="etc-card__item-meta-divider"></span>
@@ -1177,14 +1174,7 @@
                 </div>
                 <div class="etc-card__item-content">
                   <div class="etc-card__item-header">
-                    <span class="etc-card__item-name" data-i18n="etc.certifications.teacher.name">초등학교정교사</span>
-                    <span class="etc-card__verified" aria-label="Verified certification">
-                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                      </svg>
-                      Verified
-                    </span>
-                  </div>
+                    <span class="etc-card__item-name" data-i18n="etc.certifications.teacher.name">초등학교정교사</span>                  </div>
                   <div class="etc-card__item-meta">
                     <span class="etc-card__item-meta-date">2019.02</span>
                     <span class="etc-card__item-meta-divider"></span>
@@ -1200,14 +1190,7 @@
                 </div>
                 <div class="etc-card__item-content">
                   <div class="etc-card__item-header">
-                    <span class="etc-card__item-name" data-i18n="etc.certifications.ipt.name">정보처리기능사</span>
-                    <span class="etc-card__verified" aria-label="Verified certification">
-                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                      </svg>
-                      Verified
-                    </span>
-                  </div>
+                    <span class="etc-card__item-name" data-i18n="etc.certifications.ipt.name">정보처리기능사</span>                  </div>
                   <div class="etc-card__item-meta">
                     <span class="etc-card__item-meta-date">2006.08</span>
                     <span class="etc-card__item-meta-divider"></span>
@@ -1223,14 +1206,7 @@
                 </div>
                 <div class="etc-card__item-content">
                   <div class="etc-card__item-header">
-                    <span class="etc-card__item-name" data-i18n="etc.certifications.word.name">워드프로세서 1급</span>
-                    <span class="etc-card__verified" aria-label="Verified certification">
-                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                      </svg>
-                      Verified
-                    </span>
-                  </div>
+                    <span class="etc-card__item-name" data-i18n="etc.certifications.word.name">워드프로세서 1급</span>                  </div>
                   <div class="etc-card__item-meta">
                     <span class="etc-card__item-meta-date">2005.12</span>
                     <span class="etc-card__item-meta-divider"></span>
@@ -1346,7 +1322,7 @@
         <!-- Availability Indicator -->
         <div class="flex justify-center items-center gap-2 mb-12 reveal">
           <span
-            class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+            class="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
           <span class="text-text-secondary" data-i18n="contact.availability">현재 <strong>로운컴퍼니씨앤씨 재직 중</strong>입니다</span>
         </div>
 

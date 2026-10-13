@@ -1752,6 +1752,16 @@
   border-left-color: var(--color-primary);
 }
 
+/* Below lg the hero text is centred, where a one-sided rule and italics read
+   as misaligned. */
+@media (max-width: 1023.98px) {
+  .hero__tagline {
+    font-style: normal;
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
 /* ================================
    Hero Tech Badges
    ================================ */
