@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Flutter 4년차 | Android/iOS 레거시→Flutter 마이그레이션 리드 | 안정성과 완성도를 중시하는 모바일 앱 개발자 | Clean Architecture, Riverpod">
+    content="Flutter 4년차 | 레거시 Android/iOS→Flutter 전환·접근성 심사 통과 | Flutter Web 인쇄 이미지 생성 안정화 | 외부 응답과 화면 흐름을 잇는 모바일 앱 개발자">
   <meta name="keywords"
     content="Flutter, Dart, Android, iOS, Native App, Mobile Developer, Flutter Migration, 모바일 개발자, 앱 개발">
   <meta name="author" content="김대각">
@@ -14,7 +14,7 @@
   <!-- Open Graph -->
   <meta property="og:title" content="김대각 - 4년차 Flutter 모바일 앱 개발자">
   <meta property="og:description"
-    content="Flutter 4년차 | Android/iOS 레거시→Flutter 마이그레이션 리드 | Clean Architecture 기반 모바일 앱 개발">
+    content="Flutter 4년차 | 레거시→Flutter 전환·접근성 심사 통과 | 외부 지갑·공유 링크 같은 외부 응답을 화면 흐름으로 연결">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kaywalker91.github.io/">
   <!-- 1200x630 share card. Regenerate from assets/og-image.source.html — see CLAUDE.md. -->
@@ -22,7 +22,7 @@
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="김대각 · 4년차 Flutter 모바일 앱 개발자 — 50,000+ LOC, 1,400+ 테스트 케이스, 다운로드 400% 증가, 유지보수 비용 50% 절감">
+  <meta property="og:image:alt" content="김대각 · 4년차 Flutter 모바일 앱 개발자 — 접근성 심사 통과(준수율 95%), MindLog Google Play 출시, 지갑 연결 단독 구현">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:locale:alternate" content="en_US">
 
@@ -30,9 +30,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="김대각 - 4년차 Flutter 모바일 앱 개발자">
   <meta name="twitter:description"
-    content="Flutter 4년차 | Android/iOS 레거시→Flutter 마이그레이션 리드 | Clean Architecture 기반 모바일 앱 개발">
+    content="Flutter 4년차 | 레거시→Flutter 전환·접근성 심사 통과 | 외부 지갑·공유 링크 같은 외부 응답을 화면 흐름으로 연결">
   <meta name="twitter:image" content="https://kaywalker91.github.io/assets/og-image.png">
-  <meta name="twitter:image:alt" content="김대각 · 4년차 Flutter 모바일 앱 개발자 — 50,000+ LOC, 1,400+ 테스트 케이스, 다운로드 400% 증가, 유지보수 비용 50% 절감">
+  <meta name="twitter:image:alt" content="김대각 · 4년차 Flutter 모바일 앱 개발자 — 접근성 심사 통과(준수율 95%), MindLog Google Play 출시, 지갑 연결 단독 구현">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -213,7 +213,7 @@
                  sit in a second paragraph are covered by the tech badges and the
                  terminal's skills.json below. -->
             <p class="hero__tagline max-w-xl reveal" data-i18n="hero.tagline">
-              레거시 Android/iOS를 Flutter로 전환하고 Riverpod을 도입해 버그 30%, 개발 속도 20%를 개선했습니다.
+              레거시 Android/iOS 재난안전 앱을 Flutter로 옮겨 접근성 심사를 통과시켰고, 지금은 Flutter Web 인쇄 이미지 생성의 중단·누락 문제를 해결하고 있습니다.
             </p>
 
             <!-- CTA Buttons - Mobile Optimized -->
@@ -254,7 +254,7 @@
                   <span class="terminal__command">whoami</span>
                 </div>
                 <div class="terminal__line terminal__line--output">
-                  <span class="terminal__output text-xs" data-i18n="hero.terminal.whoami">모바일 앱 개발 3년 10개월 ·
+                  <span class="terminal__output text-xs" data-i18n="hero.terminal.whoami">모바일 앱 개발 4년차 ·
                     Android/iOS Native → Flutter</span>
                 </div>
 
@@ -622,7 +622,7 @@
           <span class="section-header__index" aria-hidden="true">03</span>
           <span class="section-header__rule" aria-hidden="true"></span>
           <h2 class="section-heading" data-i18n="experience.title">경력</h2>
-          <span class="section-header__label" aria-hidden="true">EXPERIENCE · 3Y 10M</span>
+          <span class="section-header__label" aria-hidden="true">EXPERIENCE</span>
         </div>
 
         <div class="experience-timeline">
@@ -642,15 +642,15 @@
             <div class="experience-timeline__body">
               <h3 class="experience-timeline__company">㈜로운컴퍼니씨앤씨 <span
                   class="experience-timeline__company-latin">Rowoon Company Corp.</span></h3>
-              <p class="experience-timeline__meta" data-i18n="experience.rowoon.role">개발팀 · 팀원 · 앱개발</p>
-              <p class="experience-timeline__summary" data-i18n="experience.rowoon.summary">POD 굿즈 플랫폼 PLLI Lab의
-                앱·백오피스를 풀스택 1인으로 전담했습니다. Flutter Web(CanvasKit) 인쇄 이미지 대량 렌더링 파이프라인을 전면 재설계해 분 단위였던 장당 캡처를 수 초대로
-                줄이고, 메모리 임계 상황에서도 복구되는 처리 구조를 만들었습니다. 무인 스케줄·멀티탭 직렬화·3단 관측 로깅으로 운영을 자동화하고, 어드민 Design System을 다수
-                도메인에 단일화했습니다.</p>
+              <p class="experience-timeline__meta" data-i18n="experience.rowoon.role">개발팀 · 앱 &amp; 웹 프론트엔드</p>
+              <p class="experience-timeline__summary" data-i18n="experience.rowoon.summary">POD 굿즈 플랫폼 PLLI Lab에서
+                인계받은 Flutter Web 인쇄 이미지 생성의 중단·누락 문제 해결을 주도해, 메모리 초과 뒤 자동 재개와 실제 주문의 누락 요소 복원을 이끌었습니다. 틀린그림찾기
+                웹 게임의 서버·관리자 웹과 NFC 연동, 달력·다이어리 PDF 검수 도구의 기획·설계도 맡고 있습니다.</p>
               <ul class="experience-timeline__tech">
                 <li class="tech-chip">Flutter Web</li>
                 <li class="tech-chip">CanvasKit</li>
-                <li class="tech-chip">Web Lock API</li>
+                <li class="tech-chip">Node.js</li>
+                <li class="tech-chip">TypeScript</li>
                 <li class="tech-chip">Firebase</li>
               </ul>
             </div>
@@ -659,8 +659,8 @@
           <!-- FORLONG -->
           <div class="experience-timeline__item reveal">
             <div class="experience-timeline__aside">
-              <span class="experience-timeline__date">2025.12 — 2026.03</span>
-              <span class="experience-timeline__duration" data-i18n="experience.forlong.duration">4개월</span>
+              <span class="experience-timeline__date">2025.12 — 2026.02</span>
+              <span class="experience-timeline__duration" data-i18n="experience.forlong.duration">3개월</span>
               <span class="experience-timeline__location">Seoul</span>
             </div>
 
@@ -672,8 +672,8 @@
               <h3 class="experience-timeline__company">㈜포롱 <span
                   class="experience-timeline__company-latin">FORLONG Co., Ltd.</span></h3>
               <p class="experience-timeline__meta" data-i18n="experience.forlong.role">개발팀 · 팀원 · 앱개발</p>
-              <p class="experience-timeline__summary" data-i18n="experience.forlong.summary">멀티체인 크립토 지갑 & 소셜 트레이딩
-                플랫폼 MVP 개발. Feature 모듈을 Clean Architecture로 설계하고 테스트 자동화 파이프라인을 구축했습니다.</p>
+              <p class="experience-timeline__summary" data-i18n="experience.forlong.summary">멀티체인 크립토 지갑 &amp; 소셜 트레이딩
+                플랫폼 MVP에서 지갑 연결을 계획서로 인계받아 단독 구현했습니다. 지갑 앱을 오가는 승인·서명 흐름의 응답 순서 충돌·서명 유실·QR 창 잔류를 고쳤습니다.</p>
               <ul class="experience-timeline__tech">
                 <li class="tech-chip">Riverpod 3.x</li>
                 <li class="tech-chip">WalletConnect v2</li>
@@ -699,8 +699,8 @@
               <h3 class="experience-timeline__company">㈜시선아이티 <span
                   class="experience-timeline__company-latin">Seesun IT</span></h3>
               <p class="experience-timeline__meta" data-i18n="experience.siseon.role">사업부 · 대리 3년차 · SI개발</p>
-              <p class="experience-timeline__summary" data-i18n="experience.siseon.summary">재난안전 서비스 안전디딤돌 &
-                이머전시레디앱의 Android/iOS 레거시 → Flutter 마이그레이션을 단독 수행. Riverpod 도입으로 버그 30% 감소, 개발 속도 20% 향상.</p>
+              <p class="experience-timeline__summary" data-i18n="experience.siseon.summary">재난안전 앱
+                안전디딤돌·이머전시레디의 Android/iOS 레거시를 Flutter로 단독 전환했습니다. 위치 기반 지역 재난 알림·대피시설 검색과 다국어 화면·음성 안내를 구현하고 접근성 심사(준수율 95%)를 통과했습니다.</p>
               <ul class="experience-timeline__tech">
                 <li class="tech-chip">Flutter</li>
                 <li class="tech-chip">Riverpod</li>
@@ -726,8 +726,8 @@
               <h3 class="experience-timeline__company">㈜플레이스링크 <span
                   class="experience-timeline__company-latin">PlaceLink</span></h3>
               <p class="experience-timeline__meta" data-i18n="experience.placelink.role">개발팀 · 대리/팀원 2년차 · 앱개발</p>
-              <p class="experience-timeline__summary" data-i18n="experience.placelink.summary">위치 기반 포인트 적립 앱 포인트투어
-                운영·개선. 대전시 0시 축제 이벤트 시스템 개발과 대규모 트래픽 처리 최적화로 앱 다운로드 400% 성장을 견인했습니다.</p>
+              <p class="experience-timeline__summary" data-i18n="experience.placelink.summary">위치 기반 포인트 적립 앱 포인트투어를
+                운영·개선했습니다. 대전 0시 축제의 방문 인증·포인트 기능과 매장 주문·줄서기 흐름을 만들고, AsyncTask 기반 비동기 처리를 RxJava 2로 전환했습니다.</p>
               <ul class="experience-timeline__tech">
                 <li class="tech-chip">Android (Java)</li>
                 <li class="tech-chip">iOS (Swift)</li>
@@ -1375,7 +1375,7 @@
     <div class="container site-footer__inner">
       <p class="site-footer__eyebrow" aria-hidden="true">NEXT</p>
       <p class="site-footer__statement" data-i18n="footer.statement">
-        Flutter Web의 렌더링 병목과 메모리 누수(OOM)를 선제적으로 방어하고, 서킷 브레이커로 아키텍처의 근본 안정성을 끌어올리는 데 집중하고 있습니다.
+        외부 응답이 늦거나 순서가 바뀌어도 화면 흐름이 끊기지 않게, 작성 중인 데이터가 사라지지 않게 — 모바일 앱의 응답 처리와 중단 후 복구를 깊게 파고 있습니다.
       </p>
       <div class="site-footer__meta">
         <span>KIM DAE-GAK · FLUTTER ENGINEER</span>
