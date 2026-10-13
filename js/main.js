@@ -827,7 +827,7 @@ function renderProjectPanel(project) {
 
   const narrativeParts = [];
   if (copy.role) {
-    narrativeParts.push(`<h4 class="project-panel__label" data-i18n="projects.panel.role">${panelLabel('projects.panel.role', '내 역할')}</h4>
+    narrativeParts.push(`<h4 class="project-panel__label" data-i18n="projects.panel.role">${panelLabel('projects.panel.role', '담당 역할')}</h4>
       <p class="project-panel__text project-panel__role">${copy.role}</p>`);
   }
   if (copy.challenge) {
